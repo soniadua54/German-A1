@@ -97,16 +97,19 @@ h1.title em{font-style:italic; font-weight:500; color:var(--blue);}
 
 /* nav */
 nav.toc{
-  position:sticky; top:0; z-index:10;
+  position:sticky; top:0; z-index:100;
   background:var(--paper);
   border-bottom:1px solid var(--rule);
-  padding:10px 0;
-  margin-bottom:48px;
+  padding:10px 24px;
+  margin:0 -24px 48px;
   overflow-x:auto;
   white-space:nowrap;
   -webkit-overflow-scrolling:touch;
+  box-shadow:0 1px 0 var(--rule);
 }
-nav.toc::-webkit-scrollbar{height:0;}
+@media (max-width:600px){nav.toc{padding:10px 16px; margin:0 -16px 48px;}}
+nav.toc::-webkit-scrollbar{height:3px;}
+nav.toc::-webkit-scrollbar-thumb{background:var(--rule-strong); border-radius:2px;}
 nav.toc a{
   font-family:var(--sans);
   font-size:13.5px;
@@ -382,6 +385,8 @@ footer{
   align-items:center;
   gap:8px;
   margin-top:6px;
+  flex-wrap:wrap;
+  max-width:100%;
 }
 .ex-input{
   font-family:var(--serif);
@@ -391,7 +396,9 @@ footer{
   border-radius:6px;
   background:var(--paper);
   color:var(--ink);
-  min-width:160px;
+  width:160px;
+  max-width:100%;
+  box-sizing:border-box;
 }
 .ex-input:focus{outline:none; border-color:var(--blue);}
 .check-btn{
@@ -795,15 +802,15 @@ footer{
 
     <div data-answer="Das ist eine Brücke." data-id="e14" data-prompt="Das ist ein Brücke.">
       <p class="ex-prompt">14. <span class="de-text">Das ist ein Brücke.</span></p>
-      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="width:220px; max-width:100%;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
     </div>
     <div data-answer="Das ist kein Hotel." data-id="e15" data-prompt="Das ist nicht ein Hotel.">
       <p class="ex-prompt">15. <span class="de-text">Das ist nicht ein Hotel.</span></p>
-      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="width:220px; max-width:100%;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
     </div>
     <div data-answer="Gehen Sie geradeaus, dann links!" data-id="e16" data-prompt="Sie gehen geradeaus, dann links.">
       <p class="ex-prompt">16. <span class="de-text">Sie gehen geradeaus, dann links.</span></p>
-      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="width:220px; max-width:100%;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
     </div>
   </div>
 

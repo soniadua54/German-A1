@@ -97,16 +97,19 @@ h1.title em{font-style:italic; font-weight:500; color:var(--blue);}
 
 /* nav */
 nav.toc{
-  position:sticky; top:0; z-index:10;
+  position:sticky; top:0; z-index:100;
   background:var(--paper);
   border-bottom:1px solid var(--rule);
-  padding:10px 0;
-  margin-bottom:48px;
+  padding:10px 24px;
+  margin:0 -24px 48px;
   overflow-x:auto;
   white-space:nowrap;
   -webkit-overflow-scrolling:touch;
+  box-shadow:0 1px 0 var(--rule);
 }
-nav.toc::-webkit-scrollbar{height:0;}
+@media (max-width:600px){nav.toc{padding:10px 16px; margin:0 -16px 48px;}}
+nav.toc::-webkit-scrollbar{height:3px;}
+nav.toc::-webkit-scrollbar-thumb{background:var(--rule-strong); border-radius:2px;}
 nav.toc a{
   font-family:var(--sans);
   font-size:13.5px;
@@ -431,7 +434,7 @@ footer{
 .quiz-score{font-family:var(--sans); font-size:13px; color:var(--ink-mute); margin-top:10px;}
 
 /* shared exercise/tracker widgets */
-.ex-check{display:flex; align-items:center; gap:8px; margin-top:6px;}
+.ex-check{display:flex; align-items:center; gap:8px; margin-top:6px; flex-wrap:wrap; max-width:100%;}
 .ex-input{
   font-family:var(--serif);
   font-size:15px;
@@ -500,7 +503,7 @@ footer{
   <p class="section-intro">Flip through as flashcards, or quiz yourself. Pick a category, then a mode.</p>
 
   <div class="practice-controls">
-    <select id="cat-select" class="ex-input" style="min-width:220px;"></select>
+    <select id="cat-select" class="ex-input" style="width:220px; max-width:100%;"></select>
     <div class="mode-toggle">
       <button class="mode-btn active" data-mode="flash">Flashcards</button>
       <button class="mode-btn" data-mode="quiz">Quiz</button>
@@ -521,7 +524,7 @@ footer{
   <div id="quiz-area" style="display:none;">
     <div class="quiz-prompt" id="quiz-prompt">Loading…</div>
     <div class="ex-check">
-      <input class="ex-input" type="text" id="quiz-input" placeholder="type the English meaning" style="min-width:240px;">
+      <input class="ex-input" type="text" id="quiz-input" placeholder="type the English meaning" style="width:240px; max-width:100%;">
       <button class="check-btn" id="quiz-check-btn">Check</button>
       <span class="ex-feedback" id="quiz-feedback"></span>
     </div>
