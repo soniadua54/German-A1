@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kapitel 5 — Alltag und Familie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf6ee;
+  --paper-2:#f2ecdf;
+  --ink:#241f16;
+  --ink-soft:#5b5344;
+  --ink-mute:#8c8471;
+  --rule:#ddd3bd;
+  --rule-strong:#c6b998;
+  --blue:#2d4a63;
+  --blue-bg:#e4ecf1;
+  --green:#3c6b3f;
+  --green-bg:#e6efe2;
+  --red:#a3402f;
+  --red-bg:#f4e5df;
+  --amber:#8a5a1f;
+  --amber-bg:#f3e7d2;
+  --serif:'Fraunces', Georgia, serif;
+  --sans:'Inter', -apple-system, sans-serif;
+  --mono:'JetBrains Mono', monospace;
+}
+:root[data-mode="dark"]{
+  --paper:#1c1912;
+  --paper-2:#242019;
+  --ink:#ece4d3;
+  --ink-soft:#c2b8a2;
+  --ink-mute:#8f8672;
+  --rule:#3a3527;
+  --rule-strong:#4d4632;
+  --blue:#9dc0dd;
+  --blue-bg:#243440;
+  --green:#a9cba0;
+  --green-bg:#25352a;
+  --red:#e3a493;
+  --red-bg:#3a2823;
+  --amber:#e0bb7c;
+  --amber-bg:#3a3020;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-mode="light"]){
+    --paper:#1c1912; --paper-2:#242019; --ink:#ece4d3; --ink-soft:#c2b8a2; --ink-mute:#8f8672;
+    --rule:#3a3527; --rule-strong:#4d4632; --blue:#9dc0dd; --blue-bg:#243440;
+    --green:#a9cba0; --green-bg:#25352a; --red:#e3a493; --red-bg:#3a2823;
+    --amber:#e0bb7c; --amber-bg:#3a3020;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.65;
+  font-size:16px;
+}
+.wrap{max-width:760px; margin:0 auto; padding:0 24px 120px;}
+@media (max-width:600px){.wrap{padding:0 16px 100px;}}
+
+/* header */
+header.hero{
+  border-bottom:1px solid var(--rule);
+  padding:56px 0 40px;
+  margin-bottom:8px;
+}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:13px;
+  color:var(--ink-mute);
+  letter-spacing:0.02em;
+  margin:0 0 14px;
+}
+h1.title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:44px;
+  line-height:1.1;
+  margin:0 0 12px;
+  letter-spacing:-0.01em;
+}
+h1.title em{font-style:italic; font-weight:500; color:var(--blue);}
+.subtitle{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:19px;
+  color:var(--ink-soft);
+  margin:0;
+}
+
+/* nav */
+nav.toc{
+  position:sticky; top:0; z-index:10;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+  padding:10px 0;
+  margin-bottom:48px;
+  overflow-x:auto;
+  white-space:nowrap;
+  -webkit-overflow-scrolling:touch;
+}
+nav.toc::-webkit-scrollbar{height:0;}
+nav.toc a{
+  font-family:var(--sans);
+  font-size:13.5px;
+  color:var(--ink-soft);
+  text-decoration:none;
+  margin-right:22px;
+  padding-bottom:2px;
+  border-bottom:1px solid transparent;
+}
+nav.toc a:hover{color:var(--ink); border-bottom-color:var(--rule-strong);}
+
+section{margin-bottom:64px;}
+section:last-of-type{margin-bottom:24px;}
+
+h2.section-title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:28px;
+  margin:0 0 6px;
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+}
+.section-title .de{color:var(--ink);}
+.section-title .en{
+  font-family:var(--sans);
+  font-style:normal;
+  font-size:15px;
+  font-weight:400;
+  color:var(--ink-mute);
+}
+.section-intro{color:var(--ink-soft); margin:0 0 28px; max-width:64ch;}
+
+h3.sub{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:20px;
+  margin:36px 0 6px;
+  color:var(--ink);
+}
+h3.sub .en{font-family:var(--sans); font-size:14px; font-weight:400; color:var(--ink-mute); margin-left:8px;}
+
+p{margin:0 0 14px; max-width:66ch;}
+ul,ol{margin:0 0 14px; padding-left:22px; max-width:64ch;}
+li{margin-bottom:6px;}
+
+/* german text styling */
+.de-text{font-family:var(--serif); font-size:1.05em;}
+
+/* grammar box */
+.formula{
+  font-family:var(--mono);
+  font-size:15px;
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:6px;
+  padding:14px 18px;
+  margin:14px 0 20px;
+  color:var(--ink);
+  overflow-x:auto;
+}
+.formula .slot{color:var(--blue); font-weight:500;}
+
+.order-row{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 22px;
+}
+.order-cell{
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  padding:8px 14px;
+  text-align:center;
+  min-width:64px;
+}
+.order-cell .word{font-family:var(--serif); font-size:16px; display:block;}
+.order-cell .tag{font-family:var(--mono); font-size:10.5px; color:var(--ink-mute); text-transform:uppercase; letter-spacing:0.04em; display:block; margin-top:4px;}
+
+.ex-block{margin:8px 0 4px;}
+.ex-line{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:6px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.ex-line:last-child{border-bottom:none;}
+.mark{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  flex-shrink:0;
+  width:20px;
+  padding-top:3px;
+}
+.mark.pos{color:var(--green);}
+.mark.neg{color:var(--red);}
+.ex-text{flex:1;}
+.ex-de{font-family:var(--serif); font-size:16.5px; color:var(--ink);}
+.ex-en{font-size:13.5px; color:var(--ink-mute); margin-top:2px;}
+
+/* callout boxes */
+.box{
+  border-radius:8px;
+  padding:16px 20px;
+  margin:18px 0;
+}
+.box-title{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  margin:0 0 8px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.box p, .box ul{margin-bottom:0;}
+.box p + p{margin-top:8px;}
+.box.mistake{background:var(--red-bg);}
+.box.mistake .box-title{color:var(--red);}
+.box.trick{background:var(--amber-bg);}
+.box.trick .box-title{color:var(--amber);}
+.box.note{background:var(--blue-bg);}
+.box.note .box-title{color:var(--blue);}
+.dot{width:7px; height:7px; border-radius:50%; display:inline-block;}
+.dot.red{background:var(--red);}
+.dot.amber{background:var(--amber);}
+.dot.blue{background:var(--blue);}
+
+/* mistake pair */
+.mistake-pair{margin:16px 0 22px;}
+.mp-line{padding:5px 0 5px 26px; position:relative; font-family:var(--serif); font-size:16px;}
+.mp-line.x::before{content:"✕"; position:absolute; left:0; color:var(--red); font-family:var(--sans); font-size:13px; top:8px;}
+.mp-line.ok::before{content:"✓"; position:absolute; left:0; color:var(--green); font-family:var(--sans); font-size:13px; top:8px;}
+.mp-why{font-family:var(--sans); font-size:13.5px; color:var(--ink-mute); padding-left:26px; margin-top:2px;}
+
+/* tables */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:16px 0 24px;
+  font-size:14.5px;
+}
+th{
+  text-align:left;
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12.5px;
+  color:var(--ink-mute);
+  text-transform:none;
+  padding:8px 10px;
+  border-bottom:1px solid var(--rule-strong);
+}
+td{
+  padding:9px 10px;
+  border-bottom:1px solid var(--rule);
+  vertical-align:top;
+}
+td.de{font-family:var(--serif); font-size:15.5px;}
+tr:last-child td{border-bottom:none;}
+
+/* dialogue */
+.dialogue{
+  border-left:2px solid var(--rule-strong);
+  padding-left:20px;
+  margin:16px 0 24px;
+}
+.turn{margin-bottom:14px;}
+.speaker{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12.5px;
+  color:var(--ink-mute);
+  margin-bottom:2px;
+}
+.line-de{font-family:var(--serif); font-size:17px; color:var(--ink);}
+.line-en{font-size:13.5px; color:var(--ink-mute); margin-top:2px;}
+
+/* chunk pills */
+.chunks{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 22px;}
+.chunk{
+  border:1px solid var(--rule-strong);
+  border-radius:20px;
+  padding:6px 14px;
+  font-family:var(--serif);
+  font-size:14.5px;
+}
+
+/* exercise */
+.exercise{
+  margin:20px 0;
+  padding:16px 0 4px;
+  border-top:1px solid var(--rule);
+}
+.exercise:first-of-type{border-top:none; padding-top:0;}
+.ex-num{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--ink-mute);
+  margin-bottom:4px;
+}
+.ex-prompt{margin-bottom:6px;}
+.ex-blank{
+  display:inline-block;
+  min-width:90px;
+  border-bottom:1px solid var(--ink-mute);
+  margin:0 3px;
+}
+
+/* answer key */
+.answers{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:24px 28px;
+}
+.answers h3.sub{margin-top:0;}
+.ans-line{
+  font-family:var(--serif);
+  font-size:15.5px;
+  padding:5px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.ans-line:last-child{border-bottom:none;}
+.ans-num{font-family:var(--sans); color:var(--ink-mute); font-size:13px; margin-right:8px;}
+
+/* pronunciation */
+.sound-row{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:12px 0;
+  border-bottom:1px solid var(--rule);
+}
+.sound-row:last-child{border-bottom:none;}
+.ipa{
+  font-family:var(--mono);
+  font-size:18px;
+  color:var(--blue);
+  min-width:52px;
+}
+.sound-body{flex:1;}
+.sound-words{font-family:var(--serif); font-size:15.5px; margin-top:2px;}
+
+/* revision */
+.revision-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+}
+@media (max-width:600px){.revision-grid{grid-template-columns:1fr;}}
+.rev-col h3.sub{margin-top:0;}
+.rev-item{
+  font-family:var(--serif);
+  font-size:15.5px;
+  padding:6px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.rev-item:last-child{border-bottom:none;}
+
+hr.rule{border:none; border-top:1px solid var(--rule); margin:0;}
+
+footer{
+  text-align:center;
+  padding:32px 0 8px;
+  color:var(--ink-mute);
+  font-size:13px;
+}
+/* interactive exercise widgets */
+.ex-check{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:6px;
+}
+.ex-input{
+  font-family:var(--serif);
+  font-size:15px;
+  padding:6px 10px;
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  background:var(--paper);
+  color:var(--ink);
+  min-width:160px;
+}
+.ex-input:focus{outline:none; border-color:var(--blue);}
+.check-btn{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  padding:6px 14px;
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  background:var(--paper-2);
+  color:var(--ink);
+  cursor:pointer;
+}
+.check-btn:hover{background:var(--rule);}
+.ex-feedback{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  min-width:120px;
+}
+.tracker-box{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:18px 22px;
+  margin:20px 0;
+}
+.tracker-box h4{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:600;
+  margin:0 0 10px;
+  color:var(--ink-mute);
+}
+.tracker-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 0;
+  border-bottom:1px dotted var(--rule);
+  font-size:14px;
+}
+.tracker-item:last-child{border-bottom:none;}
+.tracker-item .clear-btn{
+  font-family:var(--sans);
+  font-size:12px;
+  color:var(--ink-mute);
+  background:none;
+  border:none;
+  cursor:pointer;
+  text-decoration:underline;
+}
+.tracker-empty{color:var(--ink-mute); font-size:13.5px; font-style:italic;}
+.persist-note{font-size:12px; color:var(--ink-mute); margin-top:8px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow">Netzwerk neu A1 · Kapitel 5</p>
+  <h1 class="title">Alltag und Familie <em>— Everyday life and family</em></h1>
+  <p class="subtitle">Daily routines, telling time, family, possessives, and modal verbs</p>
+</header>
+
+<nav class="toc" aria-label="Chapter sections">
+  <a href="#overview">Overview</a>
+  <a href="#grammar">Grammar</a>
+  <a href="#sentence-factory">Sentence factory</a>
+  <a href="#question-factory">Question factory</a>
+  <a href="#speaking-factory">Speaking factory</a>
+  <a href="#vocabulary">Vocabulary</a>
+  <a href="#exercises">Exercises</a>
+  <a href="#answers">Answer key</a>
+  <a href="#pronunciation">Pronunciation</a>
+  <a href="#mistakes">Common mistakes</a>
+  <a href="#revision">Quick revision</a>
+</nav>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <h2 class="section-title"><span class="de">Kapitelüberblick</span><span class="en">Chapter overview</span></h2>
+  <p class="section-intro">This is the densest chapter so far — three real grammar systems land at once: telling time, possessive articles (my/your/his/her), and modal verbs (can/must/want). Take it in pieces; don't expect to absorb all three in one sitting.</p>
+
+  <h3 class="sub">What this chapter is about</h3>
+  <p>You'll learn to tell the time both formally (24-hour, for schedules) and informally (12-hour, for daily speech), describe your daily routine using separable verbs, talk about your family using possessive articles, and use the three core modal verbs — <span class="de-text">müssen</span> (must), <span class="de-text">können</span> (can), <span class="de-text">wollen</span> (want to) — which introduce a completely new sentence shape.</p>
+
+  <h3 class="sub">What you should be able to say after finishing it</h3>
+  <ul>
+    <li>Tell the time and say when something happens</li>
+    <li>Describe your daily routine from waking up to going to bed</li>
+    <li>Name your family members and say whose is whose using possessives</li>
+    <li>Say what you must, can, or want to do</li>
+    <li>Make an appointment or apologize for being late</li>
+  </ul>
+
+  <h3 class="sub">Where you use this in real life</h3>
+  <p>Scheduling a meeting, describing your workday, introducing your family to Sonia's German relatives, explaining you can't come because you must work, or apologizing when you're running late — this is the vocabulary of ordinary responsibility and routine.</p>
+</section>
+
+<!-- GRAMMAR -->
+<section id="grammar">
+  <h2 class="section-title"><span class="de">Grammatik</span><span class="en">Grammar</span></h2>
+  <p class="section-intro">Three systems: time expressions, possessive articles, and modal verbs with the verb bracket. Take each on its own — don't try to combine all three in a sentence yet.</p>
+
+  <h3 class="sub">1. Telling time <span class="en">two systems: formal and everyday</span></h3>
+  <p>Germans use the 24-hour clock for anything official (train times, appointments, TV schedules) and a 12-hour conversational system in everyday speech — similar to how English says "half past three" instead of "15:30."</p>
+  <table>
+    <tr><th>Time</th><th>Formal (24h)</th><th>Everyday spoken</th></tr>
+    <tr><td>15:00</td><td class="de">fünfzehn Uhr</td><td class="de">drei Uhr</td></tr>
+    <tr><td>15:30</td><td class="de">fünfzehn Uhr dreißig</td><td class="de">halb vier</td></tr>
+    <tr><td>15:15</td><td class="de">fünfzehn Uhr fünfzehn</td><td class="de">Viertel nach drei</td></tr>
+    <tr><td>15:45</td><td class="de">fünfzehn Uhr fünfundvierzig</td><td class="de">Viertel vor vier</td></tr>
+    <tr><td>15:50</td><td class="de">fünfzehn Uhr fünfzig</td><td class="de">zehn vor vier</td></tr>
+  </table>
+  <div class="box mistake">
+    <p class="box-title"><span class="dot red"></span>Common mistake</p>
+    <p><span class="de-text">halb vier</span> means "half PAST three" (3:30), not "half TO four" — this trips up English speakers constantly because "half four" in British English colloquially can mean 4:30. In German, <span class="de-text">halb</span> always looks forward to the next hour, so <span class="de-text">halb vier</span> = 3:30, always.</p>
+  </div>
+  <div class="formula">Wie spät ist es? / Wie viel Uhr ist es? — Es ist ...</div>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wie spät ist es? — Es ist halb neun.</div><div class="ex-en">What time is it? — It's 8:30.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Um wie viel Uhr beginnt der Kurs? — Um neun Uhr.</div><div class="ex-en">What time does the course start? — At nine o'clock.</div></div></div>
+  </div>
+
+  <h3 class="sub">2. Time expressions: <span class="de-text">am, um, von...bis</span></h3>
+  <table>
+    <tr><th>Word</th><th>Used for</th><th>Example</th></tr>
+    <tr><td class="de">am</td><td>days, parts of day</td><td class="de">am Montag, am Morgen</td></tr>
+    <tr><td class="de">um</td><td>clock times</td><td class="de">um neun Uhr, um halb drei</td></tr>
+    <tr><td class="de">von...bis</td><td>time ranges</td><td class="de">von neun bis fünf</td></tr>
+  </table>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Am Montag arbeite ich von neun bis fünf.</div><div class="ex-en">On Monday I work from nine to five.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich stehe um sieben Uhr auf.</div><div class="ex-en">I get up at seven o'clock.</div></div></div>
+  </div>
+
+  <h3 class="sub">3. Separable verbs <span class="en">a verb that splits into two parts</span></h3>
+  <p>Some German verbs have a prefix that detaches and moves to the very end of the sentence in normal statements — the verb "splits" while the conjugated part stays in position two. <span class="de-text">aufstehen</span> (to get up) is a classic example: <span class="de-text">auf-</span> is the prefix.</p>
+  <div class="formula">subject + <span class="slot">VERB-stem</span> + (rest) + ...prefix.</div>
+  <div class="order-row">
+    <div class="order-cell"><span class="word">Ich</span><span class="tag">subject</span></div>
+    <div class="order-cell"><span class="word">stehe</span><span class="tag">verb — pos. 2</span></div>
+    <div class="order-cell"><span class="word">um sieben Uhr</span><span class="tag">middle</span></div>
+    <div class="order-cell"><span class="word">auf.</span><span class="tag">prefix — end</span></div>
+  </div>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich stehe um sieben Uhr auf.</div><div class="ex-en">I get up at seven o'clock. (aufstehen splits)</div></div></div>
+    <div class="ex-line"><span class="mark neg">✕</span><div class="ex-text"><div class="ex-de">Ich aufstehe um sieben Uhr.</div><div class="ex-en">Wrong — the prefix must detach and move to the end, not stay glued to the verb</div></div></div>
+  </div>
+  <div class="box trick">
+    <p class="box-title"><span class="dot amber"></span>Memory trick</p>
+    <p>Think of the sentence as a sandwich: the conjugated verb-stem is the front slice of bread (position two), and the prefix is the back slice (end of sentence) — everything else is the filling in between. This "verb bracket" shape (<span class="de-text">Satzklammer</span>) will reappear with modal verbs below.</p>
+  </div>
+
+  <h3 class="sub">4. Possessive articles <span class="en">mein, dein, sein, ihr...</span></h3>
+  <p>Possessives follow the exact same der/die/das → ein/eine pattern you already know — they behave grammatically just like <span class="de-text">ein</span>.</p>
+  <table>
+    <tr><th>Pronoun</th><th>Possessive</th><th>Meaning</th></tr>
+    <tr><td class="de">ich</td><td class="de">mein/meine</td><td>my</td></tr>
+    <tr><td class="de">du</td><td class="de">dein/deine</td><td>your (informal)</td></tr>
+    <tr><td class="de">er</td><td class="de">sein/seine</td><td>his</td></tr>
+    <tr><td class="de">sie</td><td class="de">ihr/ihre</td><td>her</td></tr>
+    <tr><td class="de">wir</td><td class="de">unser/unsere</td><td>our</td></tr>
+    <tr><td class="de">Sie</td><td class="de">Ihr/Ihre</td><td>your (formal)</td></tr>
+  </table>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Das ist mein Bruder.</div><div class="ex-en">That's my brother. (der Bruder → mein, like ein)</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Das ist meine Schwester.</div><div class="ex-en">That's my sister. (die Schwester → meine, like eine)</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich mag meinen Bruder.</div><div class="ex-en">I like my brother. (accusative: mein → meinen, masculine)</div></div></div>
+  </div>
+  <div class="box note">
+    <p class="box-title"><span class="dot blue"></span>The accusative rule still applies</p>
+    <p>Possessives take the same accusative change as <span class="de-text">ein</span>: masculine <span class="de-text">mein → meinen</span> when it's the object. <span class="de-text">Er mag seinen Beruf</span> ("he likes his job") — <span class="de-text">Beruf</span> is masculine and it's the object, so <span class="de-text">sein → seinen</span>.</p>
+  </div>
+
+  <h3 class="sub">5. Modal verbs: <span class="de-text">müssen, können, wollen</span> <span class="en">must, can, want to</span></h3>
+  <p>Modal verbs are irregular in the singular and introduce a brand-new sentence shape: the modal verb takes position two (as usual), but the main verb gets pushed to the infinitive form at the very end of the sentence.</p>
+  <table>
+    <tr><th>Pronoun</th><th>müssen</th><th>können</th><th>wollen</th></tr>
+    <tr><td class="de">ich</td><td class="de">muss</td><td class="de">kann</td><td class="de">will</td></tr>
+    <tr><td class="de">du</td><td class="de">musst</td><td class="de">kannst</td><td class="de">willst</td></tr>
+    <tr><td class="de">er/sie/es</td><td class="de">muss</td><td class="de">kann</td><td class="de">will</td></tr>
+    <tr><td class="de">wir</td><td class="de">müssen</td><td class="de">können</td><td class="de">wollen</td></tr>
+  </table>
+  <div class="formula">subject + <span class="slot">MODAL</span> + (rest) + [main verb — infinitive, at the end].</div>
+  <div class="order-row">
+    <div class="order-cell"><span class="word">Ich</span><span class="tag">subject</span></div>
+    <div class="order-cell"><span class="word">muss</span><span class="tag">modal — pos. 2</span></div>
+    <div class="order-cell"><span class="word">heute</span><span class="tag">middle</span></div>
+    <div class="order-cell"><span class="word">arbeiten.</span><span class="tag">infinitive — end</span></div>
+  </div>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich muss heute arbeiten.</div><div class="ex-en">I have to work today.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Kannst du morgen kommen?</div><div class="ex-en">Can you come tomorrow?</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich will einen Kaffee trinken.</div><div class="ex-en">I want to drink a coffee.</div></div></div>
+    <div class="ex-line"><span class="mark neg">✕</span><div class="ex-text"><div class="ex-de">Ich muss arbeiten heute.</div><div class="ex-en">Wrong — the infinitive must go all the way to the end, not stay next to the modal</div></div></div>
+  </div>
+  <div class="box mistake">
+    <p class="box-title"><span class="dot red"></span>Common mistake</p>
+    <p>English keeps the verb right after the modal: "I must work today." German pulls the second verb all the way to the end of the sentence, no matter how much sits between them: <span class="de-text">Ich muss heute noch bis sechs Uhr arbeiten</span> — "arbeiten" still waits until the very end.</p>
+  </div>
+  <div class="box trick">
+    <p class="box-title"><span class="dot amber"></span>Memory trick</p>
+    <p>This is the same "verb bracket" (Satzklammer) shape as separable verbs: something in position two, something else parked at the end, everything else squeezed in the middle. Once you see this shape once, you'll recognize it everywhere in German.</p>
+  </div>
+</section>
+
+<!-- SENTENCE FACTORY -->
+<section id="sentence-factory">
+  <h2 class="section-title"><span class="de">Satzfabrik</span><span class="en">Sentence factory</span></h2>
+
+  <h3 class="sub">Base pattern: daily routine with separable verbs</h3>
+  <div class="formula">[subject] + [verb-stem] + [time] + ...[prefix].</div>
+  <table>
+    <tr><th>Subject</th><th>Verb</th><th>Time</th><th>Prefix</th><th>Full sentence</th></tr>
+    <tr><td class="de">Ich</td><td class="de">stehe</td><td class="de">um sieben Uhr</td><td class="de">auf.</td><td class="de">Ich stehe um sieben Uhr auf.</td></tr>
+    <tr><td class="de">Sonia</td><td class="de">kommt</td><td class="de">um sechs</td><td class="de">an.</td><td class="de">Sonia kommt um sechs an.</td></tr>
+  </table>
+
+  <h3 class="sub">Swap the modal + main verb</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich muss einkaufen.</div><div class="ex-en">I have to go shopping.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich kann heute nicht kommen.</div><div class="ex-en">I can't come today.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich will Deutsch lernen.</div><div class="ex-en">I want to learn German.</div></div></div>
+  </div>
+
+  <h3 class="sub">Swap the subject</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Meine Schwester muss arbeiten.</div><div class="ex-en">My sister has to work.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wir wollen Kaffee trinken.</div><div class="ex-en">We want to drink coffee.</div></div></div>
+  </div>
+
+  <h3 class="sub">Talking about family with possessives</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Das ist meine Familie.</div><div class="ex-en">This is my family.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Das sind meine Eltern.</div><div class="ex-en">These are my parents.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Er mag seinen Beruf.</div><div class="ex-en">He likes his job.</div></div></div>
+  </div>
+</section>
+
+<!-- QUESTION FACTORY -->
+<section id="question-factory">
+  <h2 class="section-title"><span class="de">Fragefabrik</span><span class="en">Question factory</span></h2>
+
+  <h3 class="sub">Wie spät / Um wie viel Uhr <span class="en">time questions</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wie spät ist es? — Viertel vor acht.</div><div class="ex-en">What time is it? — Quarter to eight.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Um wie viel Uhr triffst du Sonia? — Um halb sieben.</div><div class="ex-en">What time are you meeting Sonia? — At 6:30.</div></div></div>
+  </div>
+
+  <h3 class="sub">Wann <span class="en">when</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wann musst du arbeiten? — Von neun bis fünf.</div><div class="ex-en">When do you have to work? — From nine to five.</div></div></div>
+  </div>
+
+  <h3 class="sub">Wer <span class="en">who — for family</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wer ist das? — Das ist mein Vater.</div><div class="ex-en">Who's that? — That's my father.</div></div></div>
+  </div>
+
+  <h3 class="sub">Yes/No questions with modal verbs</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Kannst du morgen kommen? — Ja, klar.</div><div class="ex-en">Can you come tomorrow? — Yes, sure.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Musst du heute arbeiten? — Nein, ich habe frei.</div><div class="ex-en">Do you have to work today? — No, I have the day off.</div></div></div>
+  </div>
+
+  <h3 class="sub">Short answers vs. full answers</h3>
+  <table>
+    <tr><th>Question</th><th>Short answer</th><th>Full answer</th></tr>
+    <tr><td class="de">Wie spät ist es?</td><td class="de">Halb neun.</td><td class="de">Es ist halb neun.</td></tr>
+    <tr><td class="de">Kannst du kommen?</td><td class="de">Ja, klar.</td><td class="de">Ja, ich kann kommen.</td></tr>
+    <tr><td class="de">Wer ist das?</td><td class="de">Meine Mutter.</td><td class="de">Das ist meine Mutter.</td></tr>
+  </table>
+</section>
+
+<!-- SPEAKING FACTORY -->
+<section id="speaking-factory">
+  <h2 class="section-title"><span class="de">Sprechfabrik</span><span class="en">Speaking factory</span></h2>
+
+  <h3 class="sub">Dialogue 1 — Making an appointment by phone</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">SONIA</div><div class="line-de">Kannst du morgen um drei kommen?</div><div class="line-en">Can you come tomorrow at three?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Nein, tut mir leid, ich muss arbeiten. Geht es um fünf?</div><div class="line-en">No, sorry, I have to work. Does five work?</div></div>
+    <div class="turn"><div class="speaker">SONIA</div><div class="line-de">Ja, das geht. Bis morgen!</div><div class="line-en">Yes, that works. See you tomorrow!</div></div>
+  </div>
+
+  <h3 class="sub">Dialogue 2 — Apologizing for being late</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Entschuldigung, ich komme später. Der Bus kommt spät.</div><div class="line-en">Sorry, I'm coming later. The bus is running late.</div></div>
+    <div class="turn"><div class="speaker">KOLLEGIN</div><div class="line-de">Kein Problem. Wann kommst du an?</div><div class="line-en">No problem. When are you arriving?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Um Viertel nach neun, glaube ich.</div><div class="line-en">At quarter past nine, I think.</div></div>
+  </div>
+
+  <h3 class="sub">Dialogue 3 — Describing your family</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">LISA</div><div class="line-de">Erzähl mir von deiner Familie.</div><div class="line-en">Tell me about your family.</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Das sind meine Eltern. Und das ist meine Schwester.</div><div class="line-en">These are my parents. And this is my sister.</div></div>
+    <div class="turn"><div class="speaker">LISA</div><div class="line-de">Was macht sie beruflich?</div><div class="line-en">What does she do for work?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Sie ist Ärztin. Sie mag ihren Beruf sehr.</div><div class="line-en">She's a doctor. She really likes her job.</div></div>
+  </div>
+
+  <h3 class="sub">Reusable speaking chunks</h3>
+  <div class="chunks">
+    <span class="chunk">Wie spät ist es?</span>
+    <span class="chunk">Es ist halb/Viertel...</span>
+    <span class="chunk">Ich muss...</span>
+    <span class="chunk">Ich kann/kann nicht...</span>
+    <span class="chunk">Geht es um...?</span>
+    <span class="chunk">Das geht.</span>
+    <span class="chunk">Entschuldigung, ich komme später.</span>
+    <span class="chunk">Kein Problem.</span>
+    <span class="chunk">Das ist mein/meine...</span>
+    <span class="chunk">Ich habe frei.</span>
+  </div>
+</section>
+
+<!-- VOCABULARY -->
+<section id="vocabulary">
+  <h2 class="section-title"><span class="de">Wortschatz</span><span class="en">Vocabulary</span></h2>
+
+  <h3 class="sub">Family nouns</h3>
+  <table>
+    <tr><th>Article</th><th>Singular</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">die</td><td class="de">Familie</td><td class="de">Familien</td><td>family</td></tr>
+    <tr><td class="de">der</td><td class="de">Vater</td><td class="de">Väter</td><td>father</td></tr>
+    <tr><td class="de">die</td><td class="de">Mutter</td><td class="de">Mütter</td><td>mother</td></tr>
+    <tr><td class="de">die</td><td class="de">Eltern</td><td class="de">—</td><td>parents (plural only)</td></tr>
+    <tr><td class="de">der</td><td class="de">Bruder</td><td class="de">Brüder</td><td>brother</td></tr>
+    <tr><td class="de">die</td><td class="de">Schwester</td><td class="de">Schwestern</td><td>sister</td></tr>
+    <tr><td class="de">die</td><td class="de">Geschwister</td><td class="de">—</td><td>siblings (plural only)</td></tr>
+    <tr><td class="de">der</td><td class="de">Sohn</td><td class="de">Söhne</td><td>son</td></tr>
+    <tr><td class="de">die</td><td class="de">Tochter</td><td class="de">Töchter</td><td>daughter</td></tr>
+    <tr><td class="de">das</td><td class="de">Kind</td><td class="de">Kinder</td><td>child</td></tr>
+    <tr><td class="de">der</td><td class="de">Opa</td><td class="de">Opas</td><td>grandpa</td></tr>
+    <tr><td class="de">die</td><td class="de">Oma</td><td class="de">Omas</td><td>grandma</td></tr>
+  </table>
+
+  <h3 class="sub">Daily routine — separable verbs</h3>
+  <table>
+    <tr><th>Infinitive</th><th>Meaning</th><th>ich-form (split)</th></tr>
+    <tr><td class="de">aufstehen</td><td>to get up</td><td class="de">Ich stehe auf.</td></tr>
+    <tr><td class="de">anfangen</td><td>to begin</td><td class="de">Ich fange an.</td></tr>
+    <tr><td class="de">ankommen</td><td>to arrive</td><td class="de">Ich komme an.</td></tr>
+    <tr><td class="de">einkaufen</td><td>to shop / buy groceries</td><td class="de">Ich kaufe ein.</td></tr>
+  </table>
+
+  <h3 class="sub">Other daily verbs</h3>
+  <table>
+    <tr><th>Infinitive</th><th>Meaning</th></tr>
+    <tr><td class="de">duschen</td><td>to shower</td></tr>
+    <tr><td class="de">schlafen</td><td>to sleep</td></tr>
+    <tr><td class="de">besuchen</td><td>to visit</td></tr>
+    <tr><td class="de">treffen</td><td>to meet</td></tr>
+  </table>
+
+  <h3 class="sub">Modal verbs</h3>
+  <table>
+    <tr><th>Infinitive</th><th>Meaning</th><th>ich</th><th>du</th></tr>
+    <tr><td class="de">müssen</td><td>must / have to</td><td class="de">muss</td><td class="de">musst</td></tr>
+    <tr><td class="de">können</td><td>can / to be able to</td><td class="de">kann</td><td class="de">kannst</td></tr>
+    <tr><td class="de">wollen</td><td>want to</td><td class="de">will</td><td class="de">willst</td></tr>
+  </table>
+
+  <h3 class="sub">Time expressions</h3>
+  <table>
+    <tr><td class="de">die Uhrzeit</td><td>the time (of day)</td></tr>
+    <tr><td class="de">der Morgen / am Morgen</td><td>morning / in the morning</td></tr>
+    <tr><td class="de">der Mittag / am Mittag</td><td>midday / at midday</td></tr>
+    <tr><td class="de">der Abend / am Abend</td><td>evening / in the evening</td></tr>
+    <tr><td class="de">die Nacht</td><td>night</td></tr>
+    <tr><td class="de">Viertel nach / Viertel vor</td><td>quarter past / quarter to</td></tr>
+    <tr><td class="de">halb</td><td>half (past — looks forward to next hour)</td></tr>
+  </table>
+
+  <h3 class="sub">Useful expressions</h3>
+  <table>
+    <tr><td class="de">Das geht.</td><td>that works</td></tr>
+    <tr><td class="de">Kein Problem.</td><td>no problem</td></tr>
+    <tr><td class="de">Ich habe frei.</td><td>I have the day off</td></tr>
+    <tr><td class="de">Es tut mir leid, ich komme später.</td><td>sorry, I'm running late</td></tr>
+  </table>
+</section>
+
+<!-- EXERCISES -->
+<section id="exercises">
+  <h2 class="section-title"><span class="de">Übungen</span><span class="en">Exercises</span></h2>
+
+  <div class="exercise">
+    <p class="ex-num">A · Sentence building</p>
+    <p class="ex-prompt">1. Build a sentence from: <span class="de-text">auf / ich / um sieben Uhr / stehe</span></p>
+    <p class="ex-prompt">2. Build a sentence from: <span class="de-text">muss / arbeiten / heute / ich</span></p>
+    <p class="ex-prompt">3. Build a sentence from: <span class="de-text">Bruder / mein / das / ist</span></p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">B · Question building</p>
+    <p class="ex-prompt">4. Ask what time it is.</p>
+    <p class="ex-prompt">5. Ask a friend if they can come tomorrow.</p>
+    <p class="ex-prompt">6. Ask when someone has to work.</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">C · Translation</p>
+    <p class="ex-prompt">7. Translate: "I have to work from nine to five."</p>
+    <p class="ex-prompt">8. Translate: "This is my sister. She likes her job."</p>
+    <p class="ex-prompt">9. Translate: "It's half past eight." (8:30)</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">D · Fill in the blank</p>
+
+    <div data-answer="stehe|auf" data-id="d10" data-prompt="Ich ___ um sieben Uhr ___. (aufstehen) — type just 'stehe auf'">
+      <p class="ex-prompt">10. Ich <span class="ex-blank" style="display:none;"></span> um sieben Uhr <span class="ex-blank" style="display:none;"></span>.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="muss" data-id="d11" data-prompt="Er ___ heute arbeiten. (müssen)">
+      <p class="ex-prompt">11. Er <span class="ex-blank" style="display:none;"></span> heute arbeiten.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="meine" data-id="d12" data-prompt="Das ist ___ Schwester. (mein — feminine)">
+      <p class="ex-prompt">12. Das ist <span class="ex-blank" style="display:none;"></span> Schwester.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="seinen" data-id="d13" data-prompt="Er mag ___ Beruf. (sein — accusative)">
+      <p class="ex-prompt">13. Er mag <span class="ex-blank" style="display:none;"></span> Beruf.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">E · Correction</p>
+
+    <div data-answer="Ich stehe um sieben Uhr auf." data-id="e14" data-prompt="Ich aufstehe um sieben Uhr.">
+      <p class="ex-prompt">14. <span class="de-text">Ich aufstehe um sieben Uhr.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Ich muss heute arbeiten." data-id="e15" data-prompt="Ich muss arbeiten heute.">
+      <p class="ex-prompt">15. <span class="de-text">Ich muss arbeiten heute.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="false" data-id="e16" data-prompt="Halb vier ist 4:30. (true or false)">
+      <p class="ex-prompt">16. <span class="de-text">Halb vier ist 4:30. (true or false)</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">F · Speaking prompts</p>
+    <p class="ex-prompt">17. Describe your morning routine in three sentences using separable verbs.</p>
+    <p class="ex-prompt">18. Introduce two family members using possessives.</p>
+    <p class="ex-prompt">19. Say you must work today but can meet tomorrow.</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">G · Mixed review</p>
+    <p class="ex-prompt">20. Write a short phone call: someone asks if you can meet, you say you must work, you suggest another time.</p>
+  </div>
+<div class="tracker-box" id="mistake-tracker">
+    <h4>Your missed items on this chapter</h4>
+    <div id="tracker-list"><p class="tracker-empty">Loading…</p></div>
+    
+  </div>
+</section>
+
+<!-- ANSWER KEY -->
+<section id="answers">
+  <h2 class="section-title"><span class="de">Lösungen</span><span class="en">Answer key</span></h2>
+  <div class="answers">
+    <h3 class="sub">A · Sentence building</h3>
+    <div class="ans-line"><span class="ans-num">1</span><span class="de-text">Ich stehe um sieben Uhr auf.</span></div>
+    <div class="ans-line"><span class="ans-num">2</span><span class="de-text">Ich muss heute arbeiten.</span></div>
+    <div class="ans-line"><span class="ans-num">3</span><span class="de-text">Das ist mein Bruder.</span></div>
+
+    <h3 class="sub">B · Question building</h3>
+    <div class="ans-line"><span class="ans-num">4</span><span class="de-text">Wie spät ist es?</span></div>
+    <div class="ans-line"><span class="ans-num">5</span><span class="de-text">Kannst du morgen kommen?</span></div>
+    <div class="ans-line"><span class="ans-num">6</span><span class="de-text">Wann musst du arbeiten?</span></div>
+
+    <h3 class="sub">C · Translation</h3>
+    <div class="ans-line"><span class="ans-num">7</span><span class="de-text">Ich muss von neun bis fünf arbeiten.</span></div>
+    <div class="ans-line"><span class="ans-num">8</span><span class="de-text">Das ist meine Schwester. Sie mag ihren Beruf.</span></div>
+    <div class="ans-line"><span class="ans-num">9</span><span class="de-text">Es ist halb neun.</span></div>
+
+    <h3 class="sub">D · Fill in the blank</h3>
+    <div class="ans-line"><span class="ans-num">10</span><span class="de-text">stehe ... auf</span></div>
+    <div class="ans-line"><span class="ans-num">11</span><span class="de-text">muss</span></div>
+    <div class="ans-line"><span class="ans-num">12</span><span class="de-text">meine</span></div>
+    <div class="ans-line"><span class="ans-num">13</span><span class="de-text">seinen</span></div>
+
+    <h3 class="sub">E · Correction</h3>
+    <div class="ans-line"><span class="ans-num">14</span><span class="de-text">Ich stehe um sieben Uhr auf.</span> — prefix detaches and moves to the end</div>
+    <div class="ans-line"><span class="ans-num">15</span><span class="de-text">Ich muss heute arbeiten.</span> — infinitive goes to the end, not right after the modal</div>
+    <div class="ans-line"><span class="ans-num">16</span>False — <span class="de-text">halb vier</span> is 3:30, not 4:30. Halb always looks forward to the next hour.</div>
+
+    <h3 class="sub">G · Mixed review — sample answer</h3>
+    <div class="ans-line"><span class="ans-num">20</span><span class="de-text">— Kannst du morgen kommen? — Nein, ich muss arbeiten. Geht es am Mittwoch? — Ja, das geht.</span></div>
+  </div>
+</section>
+
+<!-- PRONUNCIATION -->
+<section id="pronunciation">
+  <h2 class="section-title"><span class="de">Aussprache</span><span class="en">Pronunciation</span></h2>
+
+  <div class="sound-row">
+    <div class="ipa">-e (final)</div>
+    <div class="sound-body">A final unstressed -e is pronounced as a short, weak "uh" sound, never silent as it often is in English.
+      <div class="sound-words">Familie · Tochter (final -er, similar principle) · meine</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">v (in Vater)</div>
+    <div class="sound-body">Pronounced "f," as covered in Kapitel 1 — worth reinforcing since Vater is one of the most common words in this chapter.
+      <div class="sound-words">Vater</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">müssen / können</div>
+    <div class="sound-body">Both contain ü — round your lips for "u," say "i." Don't let it collapse into a plain "u" sound.
+      <div class="sound-words">müssen · können (ö, not ü — round lips, say "e")</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMON MISTAKES -->
+<section id="mistakes">
+  <h2 class="section-title"><span class="de">Häufige Fehler</span><span class="en">Common mistakes</span></h2>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Ich muss arbeiten heute.</div>
+    <div class="mp-line ok">Ich muss heute arbeiten.</div>
+    <div class="mp-why">Why: with modal verbs, the infinitive always goes to the very end of the sentence, no matter what else is in between.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Ich aufstehe um sieben.</div>
+    <div class="mp-line ok">Ich stehe um sieben auf.</div>
+    <div class="mp-why">Why: separable verbs split apart in a normal statement — the prefix detaches and moves to the end.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">halb vier = 4:30</div>
+    <div class="mp-line ok">halb vier = 3:30</div>
+    <div class="mp-why">Why: halb always looks forward to the coming hour, not back to the one just passed — this is the opposite of how some English speakers use "half four" colloquially.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Ich mag mein Beruf.</div>
+    <div class="mp-line ok">Ich mag meinen Beruf.</div>
+    <div class="mp-why">Why: der Beruf is masculine and it's the object here, so mein must become meinen in the accusative — possessives follow the same rule as ein.</div>
+  </div>
+</section>
+
+<!-- QUICK REVISION -->
+<section id="revision">
+  <h2 class="section-title"><span class="de">Kurze Wiederholung</span><span class="en">Quick revision</span></h2>
+  <div class="revision-grid">
+    <div class="rev-col">
+      <h3 class="sub">Sentence patterns</h3>
+      <div class="rev-item">[subject] + [verb-stem] + ... + prefix.</div>
+      <div class="rev-item">[subject] + [modal] + ... + infinitive.</div>
+      <div class="rev-item">Das ist mein/meine [family member].</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Question forms</h3>
+      <div class="rev-item">Wie spät ist es?</div>
+      <div class="rev-item">Kannst du...? Musst du...?</div>
+      <div class="rev-item">Wann...? Wer ist das?</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Most important words</h3>
+      <div class="rev-item">müssen, können, wollen (present tense)</div>
+      <div class="rev-item">mein, dein, sein, ihr, unser</div>
+      <div class="rev-item">halb, Viertel nach/vor</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Sound traps</h3>
+      <div class="rev-item">final -e is a soft "uh," not silent</div>
+      <div class="rev-item">ü vs ö — different lip/tongue shapes</div>
+      <div class="rev-item">v = "f" (Vater)</div>
+    </div>
+  </div>
+</section>
+
+<footer>Kapitel 5 · Alltag und Familie — Netzwerk neu A1</footer>
+
+</div>
+
+
+<script>
+const NA1 = (() => {
+  const STORAGE_KEY = 'na1_mistakes_kapitel5';
+
+  function loadMistakes() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+    catch (e) { return {}; }
+  }
+  function saveMistakes(obj) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(obj)); } catch (e) {}
+  }
+
+  function norm(s){ return (s||'').trim().toLowerCase().replace(/\s+/g,' '); }
+
+  function logMistake(itemId, meta) {
+    const all = loadMistakes();
+    const prev = all[itemId] || { count: 0 };
+    all[itemId] = {
+      itemId, chapter: meta.chapter, prompt: meta.prompt,
+      count: (prev.count || 0) + 1,
+      lastWrong: new Date().toISOString(),
+      cleared: false
+    };
+    saveMistakes(all);
+    renderTracker();
+  }
+
+  function clearMistake(itemId) {
+    const all = loadMistakes();
+    if (all[itemId]) { all[itemId].cleared = true; saveMistakes(all); renderTracker(); }
+  }
+
+  function getAllMistakes() {
+    const all = loadMistakes();
+    return Object.values(all).filter(m => !m.cleared);
+  }
+
+  function wireExercise(chapterLabel) {
+    document.querySelectorAll('[data-answer]').forEach(item => {
+      const input = item.querySelector('input');
+      const btn = item.querySelector('.check-btn');
+      const feedback = item.querySelector('.ex-feedback');
+      if (!input || !btn) return;
+      btn.addEventListener('click', () => {
+        const correctRaw = item.getAttribute('data-answer');
+        const options = correctRaw.split('|').map(norm);
+        const given = norm(input.value);
+        const isRight = options.includes(given);
+        feedback.textContent = isRight ? 'Richtig!' : `Not quite — correct: ${correctRaw}`;
+        feedback.style.color = isRight ? 'var(--green)' : 'var(--red)';
+        input.style.borderColor = isRight ? 'var(--green)' : 'var(--red)';
+        const itemId = `kapitel5-${item.getAttribute('data-id')}`;
+        if (!isRight) {
+          logMistake(itemId, { chapter: 'kapitel5', prompt: item.getAttribute('data-prompt') || '' });
+        } else {
+          clearMistake(itemId);
+        }
+      });
+      input.addEventListener('keydown', (e) => { if (e.key === 'Enter') btn.click(); });
+    });
+  }
+
+  function renderTracker() {
+    const list = document.getElementById('tracker-list');
+    if (!list) return;
+    const mistakes = getAllMistakes();
+    if (mistakes.length === 0) {
+      list.innerHTML = '<p class="tracker-empty">No open mistakes on this chapter — nice work.</p>';
+      return;
+    }
+    list.innerHTML = mistakes.map(m => `
+      <div class="tracker-item">
+        <span>${m.prompt || m.itemId} <span style="color:var(--ink-mute);">(missed ${m.count}×)</span></span>
+        <button class="clear-btn" data-clear="${m.itemId}">mark reviewed</button>
+      </div>`).join('');
+    list.querySelectorAll('[data-clear]').forEach(b => {
+      b.addEventListener('click', () => clearMistake(b.getAttribute('data-clear')));
+    });
+  }
+
+  wireExercise('kapitel5');
+  renderTracker();
+
+  return { logMistake, clearMistake, getAllMistakes };
+})();
+</script>
+</body>
+</html>

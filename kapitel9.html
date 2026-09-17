@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kapitel 9 — Meine Wohnung</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf6ee;
+  --paper-2:#f2ecdf;
+  --ink:#241f16;
+  --ink-soft:#5b5344;
+  --ink-mute:#8c8471;
+  --rule:#ddd3bd;
+  --rule-strong:#c6b998;
+  --blue:#2d4a63;
+  --blue-bg:#e4ecf1;
+  --green:#3c6b3f;
+  --green-bg:#e6efe2;
+  --red:#a3402f;
+  --red-bg:#f4e5df;
+  --amber:#8a5a1f;
+  --amber-bg:#f3e7d2;
+  --serif:'Fraunces', Georgia, serif;
+  --sans:'Inter', -apple-system, sans-serif;
+  --mono:'JetBrains Mono', monospace;
+}
+:root[data-mode="dark"]{
+  --paper:#1c1912;
+  --paper-2:#242019;
+  --ink:#ece4d3;
+  --ink-soft:#c2b8a2;
+  --ink-mute:#8f8672;
+  --rule:#3a3527;
+  --rule-strong:#4d4632;
+  --blue:#9dc0dd;
+  --blue-bg:#243440;
+  --green:#a9cba0;
+  --green-bg:#25352a;
+  --red:#e3a493;
+  --red-bg:#3a2823;
+  --amber:#e0bb7c;
+  --amber-bg:#3a3020;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-mode="light"]){
+    --paper:#1c1912; --paper-2:#242019; --ink:#ece4d3; --ink-soft:#c2b8a2; --ink-mute:#8f8672;
+    --rule:#3a3527; --rule-strong:#4d4632; --blue:#9dc0dd; --blue-bg:#243440;
+    --green:#a9cba0; --green-bg:#25352a; --red:#e3a493; --red-bg:#3a2823;
+    --amber:#e0bb7c; --amber-bg:#3a3020;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.65;
+  font-size:16px;
+}
+.wrap{max-width:760px; margin:0 auto; padding:0 24px 120px;}
+@media (max-width:600px){.wrap{padding:0 16px 100px;}}
+
+/* header */
+header.hero{
+  border-bottom:1px solid var(--rule);
+  padding:56px 0 40px;
+  margin-bottom:8px;
+}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:13px;
+  color:var(--ink-mute);
+  letter-spacing:0.02em;
+  margin:0 0 14px;
+}
+h1.title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:44px;
+  line-height:1.1;
+  margin:0 0 12px;
+  letter-spacing:-0.01em;
+}
+h1.title em{font-style:italic; font-weight:500; color:var(--blue);}
+.subtitle{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:19px;
+  color:var(--ink-soft);
+  margin:0;
+}
+
+/* nav */
+nav.toc{
+  position:sticky; top:0; z-index:10;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+  padding:10px 0;
+  margin-bottom:48px;
+  overflow-x:auto;
+  white-space:nowrap;
+  -webkit-overflow-scrolling:touch;
+}
+nav.toc::-webkit-scrollbar{height:0;}
+nav.toc a{
+  font-family:var(--sans);
+  font-size:13.5px;
+  color:var(--ink-soft);
+  text-decoration:none;
+  margin-right:22px;
+  padding-bottom:2px;
+  border-bottom:1px solid transparent;
+}
+nav.toc a:hover{color:var(--ink); border-bottom-color:var(--rule-strong);}
+
+section{margin-bottom:64px;}
+section:last-of-type{margin-bottom:24px;}
+
+h2.section-title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:28px;
+  margin:0 0 6px;
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+}
+.section-title .de{color:var(--ink);}
+.section-title .en{
+  font-family:var(--sans);
+  font-style:normal;
+  font-size:15px;
+  font-weight:400;
+  color:var(--ink-mute);
+}
+.section-intro{color:var(--ink-soft); margin:0 0 28px; max-width:64ch;}
+
+h3.sub{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:20px;
+  margin:36px 0 6px;
+  color:var(--ink);
+}
+h3.sub .en{font-family:var(--sans); font-size:14px; font-weight:400; color:var(--ink-mute); margin-left:8px;}
+
+p{margin:0 0 14px; max-width:66ch;}
+ul,ol{margin:0 0 14px; padding-left:22px; max-width:64ch;}
+li{margin-bottom:6px;}
+
+/* german text styling */
+.de-text{font-family:var(--serif); font-size:1.05em;}
+
+/* grammar box */
+.formula{
+  font-family:var(--mono);
+  font-size:15px;
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:6px;
+  padding:14px 18px;
+  margin:14px 0 20px;
+  color:var(--ink);
+  overflow-x:auto;
+}
+.formula .slot{color:var(--blue); font-weight:500;}
+
+.order-row{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 22px;
+}
+.order-cell{
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  padding:8px 14px;
+  text-align:center;
+  min-width:64px;
+}
+.order-cell .word{font-family:var(--serif); font-size:16px; display:block;}
+.order-cell .tag{font-family:var(--mono); font-size:10.5px; color:var(--ink-mute); text-transform:uppercase; letter-spacing:0.04em; display:block; margin-top:4px;}
+
+.ex-block{margin:8px 0 4px;}
+.ex-line{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:6px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.ex-line:last-child{border-bottom:none;}
+.mark{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  flex-shrink:0;
+  width:20px;
+  padding-top:3px;
+}
+.mark.pos{color:var(--green);}
+.mark.neg{color:var(--red);}
+.ex-text{flex:1;}
+.ex-de{font-family:var(--serif); font-size:16.5px; color:var(--ink);}
+.ex-en{font-size:13.5px; color:var(--ink-mute); margin-top:2px;}
+
+/* callout boxes */
+.box{
+  border-radius:8px;
+  padding:16px 20px;
+  margin:18px 0;
+}
+.box-title{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  margin:0 0 8px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.box p, .box ul{margin-bottom:0;}
+.box p + p{margin-top:8px;}
+.box.mistake{background:var(--red-bg);}
+.box.mistake .box-title{color:var(--red);}
+.box.trick{background:var(--amber-bg);}
+.box.trick .box-title{color:var(--amber);}
+.box.note{background:var(--blue-bg);}
+.box.note .box-title{color:var(--blue);}
+.dot{width:7px; height:7px; border-radius:50%; display:inline-block;}
+.dot.red{background:var(--red);}
+.dot.amber{background:var(--amber);}
+.dot.blue{background:var(--blue);}
+
+/* mistake pair */
+.mistake-pair{margin:16px 0 22px;}
+.mp-line{padding:5px 0 5px 26px; position:relative; font-family:var(--serif); font-size:16px;}
+.mp-line.x::before{content:"✕"; position:absolute; left:0; color:var(--red); font-family:var(--sans); font-size:13px; top:8px;}
+.mp-line.ok::before{content:"✓"; position:absolute; left:0; color:var(--green); font-family:var(--sans); font-size:13px; top:8px;}
+.mp-why{font-family:var(--sans); font-size:13.5px; color:var(--ink-mute); padding-left:26px; margin-top:2px;}
+
+/* tables */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:16px 0 24px;
+  font-size:14.5px;
+}
+th{
+  text-align:left;
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12.5px;
+  color:var(--ink-mute);
+  text-transform:none;
+  padding:8px 10px;
+  border-bottom:1px solid var(--rule-strong);
+}
+td{
+  padding:9px 10px;
+  border-bottom:1px solid var(--rule);
+  vertical-align:top;
+}
+td.de{font-family:var(--serif); font-size:15.5px;}
+tr:last-child td{border-bottom:none;}
+
+/* dialogue */
+.dialogue{
+  border-left:2px solid var(--rule-strong);
+  padding-left:20px;
+  margin:16px 0 24px;
+}
+.turn{margin-bottom:14px;}
+.speaker{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12.5px;
+  color:var(--ink-mute);
+  margin-bottom:2px;
+}
+.line-de{font-family:var(--serif); font-size:17px; color:var(--ink);}
+.line-en{font-size:13.5px; color:var(--ink-mute); margin-top:2px;}
+
+/* chunk pills */
+.chunks{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 22px;}
+.chunk{
+  border:1px solid var(--rule-strong);
+  border-radius:20px;
+  padding:6px 14px;
+  font-family:var(--serif);
+  font-size:14.5px;
+}
+
+/* exercise */
+.exercise{
+  margin:20px 0;
+  padding:16px 0 4px;
+  border-top:1px solid var(--rule);
+}
+.exercise:first-of-type{border-top:none; padding-top:0;}
+.ex-num{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--ink-mute);
+  margin-bottom:4px;
+}
+.ex-prompt{margin-bottom:6px;}
+.ex-blank{
+  display:inline-block;
+  min-width:90px;
+  border-bottom:1px solid var(--ink-mute);
+  margin:0 3px;
+}
+
+/* answer key */
+.answers{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:24px 28px;
+}
+.answers h3.sub{margin-top:0;}
+.ans-line{
+  font-family:var(--serif);
+  font-size:15.5px;
+  padding:5px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.ans-line:last-child{border-bottom:none;}
+.ans-num{font-family:var(--sans); color:var(--ink-mute); font-size:13px; margin-right:8px;}
+
+/* pronunciation */
+.sound-row{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:12px 0;
+  border-bottom:1px solid var(--rule);
+}
+.sound-row:last-child{border-bottom:none;}
+.ipa{
+  font-family:var(--mono);
+  font-size:18px;
+  color:var(--blue);
+  min-width:52px;
+}
+.sound-body{flex:1;}
+.sound-words{font-family:var(--serif); font-size:15.5px; margin-top:2px;}
+
+/* revision */
+.revision-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+}
+@media (max-width:600px){.revision-grid{grid-template-columns:1fr;}}
+.rev-col h3.sub{margin-top:0;}
+.rev-item{
+  font-family:var(--serif);
+  font-size:15.5px;
+  padding:6px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.rev-item:last-child{border-bottom:none;}
+
+hr.rule{border:none; border-top:1px solid var(--rule); margin:0;}
+
+footer{
+  text-align:center;
+  padding:32px 0 8px;
+  color:var(--ink-mute);
+  font-size:13px;
+}
+/* interactive exercise widgets */
+.ex-check{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:6px;
+}
+.ex-input{
+  font-family:var(--serif);
+  font-size:15px;
+  padding:6px 10px;
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  background:var(--paper);
+  color:var(--ink);
+  min-width:160px;
+}
+.ex-input:focus{outline:none; border-color:var(--blue);}
+.check-btn{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  padding:6px 14px;
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  background:var(--paper-2);
+  color:var(--ink);
+  cursor:pointer;
+}
+.check-btn:hover{background:var(--rule);}
+.ex-feedback{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  min-width:120px;
+}
+.tracker-box{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:18px 22px;
+  margin:20px 0;
+}
+.tracker-box h4{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:600;
+  margin:0 0 10px;
+  color:var(--ink-mute);
+}
+.tracker-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 0;
+  border-bottom:1px dotted var(--rule);
+  font-size:14px;
+}
+.tracker-item:last-child{border-bottom:none;}
+.tracker-item .clear-btn{
+  font-family:var(--sans);
+  font-size:12px;
+  color:var(--ink-mute);
+  background:none;
+  border:none;
+  cursor:pointer;
+  text-decoration:underline;
+}
+.tracker-empty{color:var(--ink-mute); font-size:13.5px; font-style:italic;}
+.persist-note{font-size:12px; color:var(--ink-mute); margin-top:8px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow">Netzwerk neu A1 · Kapitel 9</p>
+  <h1 class="title">Meine Wohnung <em>— My apartment</em></h1>
+  <p class="subtitle">Rooms, furniture, and two-way prepositions (wo vs. wohin)</p>
+</header>
+
+<nav class="toc" aria-label="Chapter sections">
+  <a href="#overview">Overview</a>
+  <a href="#grammar">Grammar</a>
+  <a href="#sentence-factory">Sentence factory</a>
+  <a href="#question-factory">Question factory</a>
+  <a href="#speaking-factory">Speaking factory</a>
+  <a href="#vocabulary">Vocabulary</a>
+  <a href="#exercises">Exercises</a>
+  <a href="#answers">Answer key</a>
+  <a href="#pronunciation">Pronunciation</a>
+  <a href="#mistakes">Common mistakes</a>
+  <a href="#revision">Quick revision</a>
+</nav>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <h2 class="section-title"><span class="de">Kapitelüberblick</span><span class="en">Chapter overview</span></h2>
+  <p class="section-intro">Kapitel 9 delivers the trickiest grammar point at A1: two-way prepositions that switch between dative and accusative depending on whether you're describing a location or a movement toward it. Once this clicks, a huge amount of German suddenly makes sense.</p>
+
+  <h3 class="sub">What this chapter is about</h3>
+  <p>You'll learn rooms, furniture, and colors, how to describe an apartment, and the nine two-way prepositions (<span class="de-text">in, an, auf, unter, über, vor, hinter, neben, zwischen</span>) that take dative for a static location (wo?) and accusative for movement toward a place (wohin?).</p>
+
+  <h3 class="sub">What you should be able to say after finishing it</h3>
+  <ul>
+    <li>Name rooms and furniture in an apartment</li>
+    <li>Describe where things are located, and where you're putting them</li>
+    <li>Distinguish wo (where — static) from wohin (where to — movement)</li>
+    <li>Describe an apartment using adjectives (bright, cozy, expensive, loud)</li>
+    <li>Express liking or disliking something about a place</li>
+  </ul>
+
+  <h3 class="sub">Where you use this in real life</h3>
+  <p>Describing your apartment in Noida, telling someone where to put something when they visit, understanding an apartment listing, or explaining what you like or dislike about your home.</p>
+</section>
+
+<!-- GRAMMAR -->
+<section id="grammar">
+  <h2 class="section-title"><span class="de">Grammatik</span><span class="en">Grammar</span></h2>
+  <p class="section-intro">This chapter's grammar is genuinely the hardest yet: the same preposition can mean two different things depending on the case that follows it.</p>
+
+  <h3 class="sub">1. Two-way prepositions <span class="en">Wechselpräpositionen — the core idea</span></h3>
+  <p>Nine prepositions can take either dative or accusative. The choice isn't random — it depends on the question being answered: <span class="de-text">wo?</span> (where — a fixed location) takes dative; <span class="de-text">wohin?</span> (where to — movement toward a place) takes accusative.</p>
+  <div class="formula">wo? (location, no movement) → DATIVE<br>wohin? (movement toward) → ACCUSATIVE</div>
+  <table>
+    <tr><th>Preposition</th><th>Meaning</th></tr>
+    <tr><td class="de">in</td><td>in / into</td></tr>
+    <tr><td class="de">an</td><td>at / onto (vertical surface)</td></tr>
+    <tr><td class="de">auf</td><td>on / onto (horizontal surface)</td></tr>
+    <tr><td class="de">unter</td><td>under</td></tr>
+    <tr><td class="de">über</td><td>over/above</td></tr>
+    <tr><td class="de">vor</td><td>in front of</td></tr>
+    <tr><td class="de">hinter</td><td>behind</td></tr>
+    <tr><td class="de">neben</td><td>next to</td></tr>
+    <tr><td class="de">zwischen</td><td>between</td></tr>
+  </table>
+
+  <h3 class="sub">2. Location (wo?) — dative example</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Das Sofa steht im Wohnzimmer.</div><div class="ex-en">The sofa is in the living room. (in + dem → im; already there, no movement)</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Die Lampe steht neben dem Bett.</div><div class="ex-en">The lamp is next to the bed. (dem = dative, masculine/neuter)</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Der Teppich liegt auf dem Boden.</div><div class="ex-en">The rug lies on the floor.</div></div></div>
+  </div>
+
+  <h3 class="sub">3. Movement (wohin?) — accusative example</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich stelle das Sofa ins Wohnzimmer.</div><div class="ex-en">I'm putting the sofa into the living room. (in + das → ins; movement into the room)</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich stelle die Lampe neben das Bett.</div><div class="ex-en">I'm putting the lamp next to the bed. (das = accusative, neuter)</div></div></div>
+    <div class="ex-line"><span class="mark neg">✕</span><div class="ex-text"><div class="ex-de">Ich stelle die Lampe neben dem Bett.</div><div class="ex-en">Wrong — this is movement (placing something), so it needs accusative dem→das, not dative dem</div></div></div>
+  </div>
+  <div class="box mistake">
+    <p class="box-title"><span class="dot red"></span>Common mistake</p>
+    <p>English doesn't mark this distinction at all — "the lamp is next to the bed" and "I put the lamp next to the bed" both use "the" unchanged. This makes the wo/wohin split invisible to English speakers unless they actively check: is something moving into position, or already sitting still?</p>
+  </div>
+  <div class="box trick">
+    <p class="box-title"><span class="dot amber"></span>Memory trick</p>
+    <p>Ask yourself: is there a verb of motion (stellen, legen, hängen — "to put/place/hang") aimed at a destination? → accusative. Is there a verb of rest (stehen, liegen, hängen — "to stand/lie/hang," describing where something already is) → dative. Note <span class="de-text">hängen</span> can be either, depending on whether it's the "hanging something up" action or "already hanging" state.</p>
+  </div>
+
+  <h3 class="sub">4. Common contractions</h3>
+  <table>
+    <tr><th>Contraction</th><th>From</th><th>Case</th></tr>
+    <tr><td class="de">im</td><td class="de">in + dem</td><td>dative</td></tr>
+    <tr><td class="de">ins</td><td class="de">in + das</td><td>accusative</td></tr>
+    <tr><td class="de">am</td><td class="de">an + dem</td><td>dative</td></tr>
+    <tr><td class="de">ans</td><td class="de">an + das</td><td>accusative</td></tr>
+  </table>
+
+  <h3 class="sub">5. Describing an apartment with adjectives</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Die Wohnung ist hell und ruhig.</div><div class="ex-en">The apartment is bright and quiet.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich finde das Zimmer gemütlich.</div><div class="ex-en">I find the room cozy.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Das Hochhaus ist oft zu laut.</div><div class="ex-en">The high-rise is often too loud.</div></div></div>
+  </div>
+</section>
+
+<!-- SENTENCE FACTORY -->
+<section id="sentence-factory">
+  <h2 class="section-title"><span class="de">Satzfabrik</span><span class="en">Sentence factory</span></h2>
+
+  <h3 class="sub">Base pattern: location (dative)</h3>
+  <div class="formula">[furniture] + steht/liegt/hängt + [preposition + dative article] + [room/furniture].</div>
+  <table>
+    <tr><th>Subject</th><th>Verb</th><th>Location (dative)</th><th>Full sentence</th></tr>
+    <tr><td class="de">Das Regal</td><td class="de">steht</td><td class="de">im Wohnzimmer.</td><td class="de">Das Regal steht im Wohnzimmer.</td></tr>
+    <tr><td class="de">Der Teppich</td><td class="de">liegt</td><td class="de">unter dem Tisch.</td><td class="de">Der Teppich liegt unter dem Tisch.</td></tr>
+  </table>
+
+  <h3 class="sub">Base pattern: movement (accusative)</h3>
+  <div class="formula">[subject] + stelle/lege/hänge + [object] + [preposition + accusative article] + [room/furniture].</div>
+  <table>
+    <tr><th>Subject</th><th>Verb</th><th>Object</th><th>Destination (accusative)</th></tr>
+    <tr><td class="de">Ich</td><td class="de">stelle</td><td class="de">das Regal</td><td class="de">ins Wohnzimmer.</td></tr>
+    <tr><td class="de">Ich</td><td class="de">lege</td><td class="de">den Teppich</td><td class="de">unter den Tisch.</td></tr>
+  </table>
+
+  <h3 class="sub">Swap the room</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Das Bett steht im Schlafzimmer.</div><div class="ex-en">The bed is in the bedroom.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Der Herd steht in der Küche.</div><div class="ex-en">The stove is in the kitchen.</div></div></div>
+  </div>
+
+  <h3 class="sub">Swap the two-way preposition</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Die Lampe steht neben dem Sofa.</div><div class="ex-en">The lamp is next to the sofa.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Das Bild hängt über dem Bett.</div><div class="ex-en">The picture hangs above the bed.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Der Sessel steht zwischen dem Regal und dem Fenster.</div><div class="ex-en">The armchair is between the shelf and the window.</div></div></div>
+  </div>
+</section>
+
+<!-- QUESTION FACTORY -->
+<section id="question-factory">
+  <h2 class="section-title"><span class="de">Fragefabrik</span><span class="en">Question factory</span></h2>
+
+  <h3 class="sub">Wo <span class="en">where — location</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wo ist der Fernseher? — Er steht im Wohnzimmer.</div><div class="ex-en">Where's the TV? — It's in the living room.</div></div></div>
+  </div>
+
+  <h3 class="sub">Wohin <span class="en">where to — movement</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wohin stellen wir das Sofa? — Ins Wohnzimmer.</div><div class="ex-en">Where should we put the sofa? — Into the living room.</div></div></div>
+  </div>
+
+  <h3 class="sub">Wie <span class="en">how — describing an apartment</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wie findest du die Wohnung? — Ich finde sie sehr gemütlich.</div><div class="ex-en">What do you think of the apartment? — I find it very cozy.</div></div></div>
+  </div>
+
+  <h3 class="sub">Yes/No questions</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Gefällt dir die Wohnung? — Ja, sehr.</div><div class="ex-en">Do you like the apartment? — Yes, very much.</div></div></div>
+  </div>
+
+  <h3 class="sub">Short answers vs. full answers</h3>
+  <table>
+    <tr><th>Question</th><th>Short answer</th><th>Full answer</th></tr>
+    <tr><td class="de">Wo ist der Fernseher?</td><td class="de">Im Wohnzimmer.</td><td class="de">Der Fernseher steht im Wohnzimmer.</td></tr>
+    <tr><td class="de">Wohin stellen wir das Sofa?</td><td class="de">Ins Wohnzimmer.</td><td class="de">Wir stellen das Sofa ins Wohnzimmer.</td></tr>
+  </table>
+</section>
+
+<!-- SPEAKING FACTORY -->
+<section id="speaking-factory">
+  <h2 class="section-title"><span class="de">Sprechfabrik</span><span class="en">Speaking factory</span></h2>
+
+  <h3 class="sub">Dialogue 1 — Moving in furniture</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">SONIA</div><div class="line-de">Wohin stellen wir das Sofa?</div><div class="line-en">Where should we put the sofa?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Stell es ins Wohnzimmer, neben das Fenster.</div><div class="line-en">Put it in the living room, next to the window.</div></div>
+    <div class="turn"><div class="speaker">SONIA</div><div class="line-de">Gut. Und der Teppich?</div><div class="line-en">Good. And the rug?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Leg ihn unter den Tisch.</div><div class="line-en">Put it under the table.</div></div>
+  </div>
+
+  <h3 class="sub">Dialogue 2 — Describing your apartment</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">LISA</div><div class="line-de">Wie ist deine Wohnung?</div><div class="line-en">What's your apartment like?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Sie ist klein, aber sehr hell und ruhig.</div><div class="line-en">It's small, but very bright and quiet.</div></div>
+    <div class="turn"><div class="speaker">LISA</div><div class="line-de">Wie viele Zimmer hat sie?</div><div class="line-en">How many rooms does it have?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Zwei Zimmer, eine Küche und ein Bad.</div><div class="line-en">Two rooms, a kitchen, and a bathroom.</div></div>
+  </div>
+
+  <h3 class="sub">Dialogue 3 — Finding something</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">SONIA</div><div class="line-de">Wo ist mein Buch?</div><div class="line-en">Where's my book?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Es liegt auf dem Tisch, neben der Lampe.</div><div class="line-en">It's on the table, next to the lamp.</div></div>
+    <div class="turn"><div class="speaker">SONIA</div><div class="line-de">Ah, danke!</div><div class="line-en">Ah, thanks!</div></div>
+  </div>
+
+  <h3 class="sub">Reusable speaking chunks</h3>
+  <div class="chunks">
+    <span class="chunk">Wo ist...?</span>
+    <span class="chunk">Wohin stellen wir...?</span>
+    <span class="chunk">Stell es in/auf/neben...</span>
+    <span class="chunk">Es steht/liegt/hängt in...</span>
+    <span class="chunk">Wie findest du...?</span>
+    <span class="chunk">Ich finde es gemütlich/hell/laut.</span>
+    <span class="chunk">Wie viele Zimmer hat...?</span>
+    <span class="chunk">Gefällt dir die Wohnung?</span>
+  </div>
+</section>
+
+<!-- VOCABULARY -->
+<section id="vocabulary">
+  <h2 class="section-title"><span class="de">Wortschatz</span><span class="en">Vocabulary</span></h2>
+
+  <h3 class="sub">Rooms</h3>
+  <table>
+    <tr><th>Article</th><th>Singular</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">die</td><td class="de">Wohnung</td><td class="de">Wohnungen</td><td>apartment</td></tr>
+    <tr><td class="de">das</td><td class="de">Wohnzimmer</td><td class="de">Wohnzimmer</td><td>living room</td></tr>
+    <tr><td class="de">das</td><td class="de">Schlafzimmer</td><td class="de">Schlafzimmer</td><td>bedroom</td></tr>
+    <tr><td class="de">die</td><td class="de">Küche</td><td class="de">Küchen</td><td>kitchen</td></tr>
+    <tr><td class="de">das</td><td class="de">Bad</td><td class="de">Bäder</td><td>bathroom</td></tr>
+    <tr><td class="de">der</td><td class="de">Flur</td><td class="de">Flure</td><td>hallway</td></tr>
+    <tr><td class="de">das</td><td class="de">Hochhaus</td><td class="de">Hochhäuser</td><td>high-rise</td></tr>
+  </table>
+
+  <h3 class="sub">Furniture and objects</h3>
+  <table>
+    <tr><th>Article</th><th>Singular</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">das</td><td class="de">Sofa</td><td class="de">Sofas</td><td>sofa</td></tr>
+    <tr><td class="de">das</td><td class="de">Regal</td><td class="de">Regale</td><td>shelf</td></tr>
+    <tr><td class="de">der</td><td class="de">Teppich</td><td class="de">Teppiche</td><td>rug/carpet</td></tr>
+    <tr><td class="de">der</td><td class="de">Schrank</td><td class="de">Schränke</td><td>wardrobe/cupboard</td></tr>
+    <tr><td class="de">das</td><td class="de">Bett</td><td class="de">Betten</td><td>bed</td></tr>
+    <tr><td class="de">die</td><td class="de">Lampe</td><td class="de">Lampen</td><td>lamp</td></tr>
+    <tr><td class="de">der</td><td class="de">Sessel</td><td class="de">Sessel</td><td>armchair</td></tr>
+    <tr><td class="de">der</td><td class="de">Tisch</td><td class="de">Tische</td><td>table</td></tr>
+    <tr><td class="de">der</td><td class="de">Herd</td><td class="de">Herde</td><td>stove</td></tr>
+    <tr><td class="de">die</td><td class="de">Spülmaschine</td><td class="de">Spülmaschinen</td><td>dishwasher</td></tr>
+    <tr><td class="de">der</td><td class="de">Fernseher</td><td class="de">Fernseher</td><td>television</td></tr>
+  </table>
+
+  <h3 class="sub">Adjectives for describing a home</h3>
+  <table>
+    <tr><td class="de">hell</td><td>bright</td></tr>
+    <tr><td class="de">dunkel</td><td>dark</td></tr>
+    <tr><td class="de">groß</td><td>big</td></tr>
+    <tr><td class="de">klein</td><td>small</td></tr>
+    <tr><td class="de">ruhig</td><td>quiet</td></tr>
+    <tr><td class="de">laut</td><td>loud</td></tr>
+    <tr><td class="de">gemütlich</td><td>cozy</td></tr>
+    <tr><td class="de">teuer</td><td>expensive</td></tr>
+    <tr><td class="de">hässlich</td><td>ugly</td></tr>
+  </table>
+
+  <h3 class="sub">Two-way prepositions and verbs</h3>
+  <table>
+    <tr><td class="de">stellen (accusative — to place upright)</td><td>to put/place</td></tr>
+    <tr><td class="de">legen (accusative — to lay flat)</td><td>to lay down</td></tr>
+    <tr><td class="de">stehen (dative — already standing)</td><td>to stand</td></tr>
+    <tr><td class="de">liegen (dative — already lying)</td><td>to lie</td></tr>
+  </table>
+</section>
+
+<!-- EXERCISES -->
+<section id="exercises">
+  <h2 class="section-title"><span class="de">Übungen</span><span class="en">Exercises</span></h2>
+
+  <div class="exercise">
+    <p class="ex-num">A · Sentence building</p>
+    <p class="ex-prompt">1. Build a sentence from: <span class="de-text">steht / im Wohnzimmer / das Sofa</span></p>
+    <p class="ex-prompt">2. Build a sentence from: <span class="de-text">stelle / ich / ins Wohnzimmer / das Regal</span></p>
+    <p class="ex-prompt">3. Build a sentence from: <span class="de-text">liegt / unter dem Tisch / der Teppich</span></p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">B · Question building</p>
+    <p class="ex-prompt">4. Ask where the television is.</p>
+    <p class="ex-prompt">5. Ask where you should put the sofa.</p>
+    <p class="ex-prompt">6. Ask what someone thinks of the apartment.</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">C · Translation</p>
+    <p class="ex-prompt">7. Translate: "The lamp is next to the bed."</p>
+    <p class="ex-prompt">8. Translate: "I'm putting the lamp next to the bed." (movement)</p>
+    <p class="ex-prompt">9. Translate: "The apartment is bright and quiet."</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">D · Fill in the blank (dative or accusative?)</p>
+
+    <div data-answer="dem" data-id="d10" data-prompt="Das Regal steht in ___ Wohnzimmer. (dem/das — location)">
+      <p class="ex-prompt">10. Das Regal steht in <span class="ex-blank" style="display:none;"></span> Wohnzimmer.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="das" data-id="d11" data-prompt="Ich stelle das Regal in ___ Wohnzimmer. (dem/das — movement)">
+      <p class="ex-prompt">11. Ich stelle das Regal in <span class="ex-blank" style="display:none;"></span> Wohnzimmer.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="dem" data-id="d12" data-prompt="Der Teppich liegt unter ___ Tisch. (dem/den — location)">
+      <p class="ex-prompt">12. Der Teppich liegt unter <span class="ex-blank" style="display:none;"></span> Tisch.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="den" data-id="d13" data-prompt="Ich lege den Teppich unter ___ Tisch. (dem/den — movement)">
+      <p class="ex-prompt">13. Ich lege den Teppich unter <span class="ex-blank" style="display:none;"></span> Tisch.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">E · Correction</p>
+
+    <div data-answer="Ich stelle das Sofa ins Wohnzimmer." data-id="e14" data-prompt="Ich stelle das Sofa im Wohnzimmer.">
+      <p class="ex-prompt">14. <span class="de-text">Ich stelle das Sofa im Wohnzimmer.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Das Bild hängt über dem Bett." data-id="e15" data-prompt="Das Bild hängt über den Bett.">
+      <p class="ex-prompt">15. <span class="de-text">Das Bild hängt über den Bett.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Die Lampe steht neben dem Sofa." data-id="e16" data-prompt="Die Lampe steht neben den Sofa.">
+      <p class="ex-prompt">16. <span class="de-text">Die Lampe steht neben den Sofa.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">F · Speaking prompts</p>
+    <p class="ex-prompt">17. Describe where three pieces of furniture are in your home.</p>
+    <p class="ex-prompt">18. Tell someone where to put a sofa and a rug.</p>
+    <p class="ex-prompt">19. Describe your apartment using two adjectives.</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">G · Mixed review</p>
+    <p class="ex-prompt">20. Write a short exchange: someone asks where to put the bed, you answer, then describe the room.</p>
+  </div>
+<div class="tracker-box" id="mistake-tracker">
+    <h4>Your missed items on this chapter</h4>
+    <div id="tracker-list"><p class="tracker-empty">Loading…</p></div>
+    
+  </div>
+</section>
+
+<!-- ANSWER KEY -->
+<section id="answers">
+  <h2 class="section-title"><span class="de">Lösungen</span><span class="en">Answer key</span></h2>
+  <div class="answers">
+    <h3 class="sub">A · Sentence building</h3>
+    <div class="ans-line"><span class="ans-num">1</span><span class="de-text">Das Sofa steht im Wohnzimmer.</span></div>
+    <div class="ans-line"><span class="ans-num">2</span><span class="de-text">Ich stelle das Regal ins Wohnzimmer.</span></div>
+    <div class="ans-line"><span class="ans-num">3</span><span class="de-text">Der Teppich liegt unter dem Tisch.</span></div>
+
+    <h3 class="sub">B · Question building</h3>
+    <div class="ans-line"><span class="ans-num">4</span><span class="de-text">Wo ist der Fernseher?</span></div>
+    <div class="ans-line"><span class="ans-num">5</span><span class="de-text">Wohin stellen wir das Sofa?</span></div>
+    <div class="ans-line"><span class="ans-num">6</span><span class="de-text">Wie findest du die Wohnung?</span></div>
+
+    <h3 class="sub">C · Translation</h3>
+    <div class="ans-line"><span class="ans-num">7</span><span class="de-text">Die Lampe steht neben dem Bett.</span></div>
+    <div class="ans-line"><span class="ans-num">8</span><span class="de-text">Ich stelle die Lampe neben das Bett.</span></div>
+    <div class="ans-line"><span class="ans-num">9</span><span class="de-text">Die Wohnung ist hell und ruhig.</span></div>
+
+    <h3 class="sub">D · Fill in the blank</h3>
+    <div class="ans-line"><span class="ans-num">10</span><span class="de-text">dem</span> (im = in dem)</div>
+    <div class="ans-line"><span class="ans-num">11</span><span class="de-text">das</span> (ins = in das)</div>
+    <div class="ans-line"><span class="ans-num">12</span><span class="de-text">dem</span></div>
+    <div class="ans-line"><span class="ans-num">13</span><span class="de-text">den</span></div>
+
+    <h3 class="sub">E · Correction</h3>
+    <div class="ans-line"><span class="ans-num">14</span><span class="de-text">Ich stelle das Sofa ins Wohnzimmer.</span> — movement needs accusative (das, contracted to ins)</div>
+    <div class="ans-line"><span class="ans-num">15</span><span class="de-text">Das Bild hängt über dem Bett.</span> — static location needs dative (dem)</div>
+    <div class="ans-line"><span class="ans-num">16</span><span class="de-text">Die Lampe steht neben dem Sofa.</span> — stehen describes a static location, so dative (dem), not accusative (den)</div>
+
+    <h3 class="sub">G · Mixed review — sample answer</h3>
+    <div class="ans-line"><span class="ans-num">20</span><span class="de-text">— Wohin stellen wir das Bett? — Stell es ins Schlafzimmer. Das Zimmer ist klein, aber gemütlich.</span></div>
+  </div>
+</section>
+
+<!-- PRONUNCIATION -->
+<section id="pronunciation">
+  <h2 class="section-title"><span class="de">Aussprache</span><span class="en">Pronunciation</span></h2>
+
+  <div class="sound-row">
+    <div class="ipa">long vs. short e</div>
+    <div class="sound-body">German distinguishes clearly between a long, tense "e" (as in Regal) and a short, relaxed "e" (as in Bett) — the vowel length actually changes meaning in some word pairs, so listen carefully.
+      <div class="sound-words">Regal (long e) · Bett (short e)</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">sch (Schrank)</div>
+    <div class="sound-body">"Sh" sound, as covered before — reinforcing since furniture vocabulary uses it often.
+      <div class="sound-words">Schrank · Tisch</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">ü (gemütlich)</div>
+    <div class="sound-body">Rounded lips + "i" — appears in one of this chapter's most useful adjectives.
+      <div class="sound-words">gemütlich</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMON MISTAKES -->
+<section id="mistakes">
+  <h2 class="section-title"><span class="de">Häufige Fehler</span><span class="en">Common mistakes</span></h2>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Ich stelle das Sofa im Wohnzimmer.</div>
+    <div class="mp-line ok">Ich stelle das Sofa ins Wohnzimmer.</div>
+    <div class="mp-why">Why: stellen describes the act of placing something (movement toward a destination), so the two-way preposition needs accusative — ins, not im.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Das Bild hängt über den Bett.</div>
+    <div class="mp-line ok">Das Bild hängt über dem Bett.</div>
+    <div class="mp-why">Why: this describes where the picture already is (a static location, wo?), so it takes dative — dem, not accusative den.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Die Lampe steht neben den Sofa.</div>
+    <div class="mp-line ok">Die Lampe steht neben dem Sofa.</div>
+    <div class="mp-why">Why: stehen (to stand/be located) always pairs with dative for the location it's describing.</div>
+  </div>
+</section>
+
+<!-- QUICK REVISION -->
+<section id="revision">
+  <h2 class="section-title"><span class="de">Kurze Wiederholung</span><span class="en">Quick revision</span></h2>
+  <div class="revision-grid">
+    <div class="rev-col">
+      <h3 class="sub">Sentence patterns</h3>
+      <div class="rev-item">[furniture] steht/liegt + [preposition + DATIVE] (location)</div>
+      <div class="rev-item">Ich stelle/lege + [object] + [preposition + ACCUSATIVE] (movement)</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Question forms</h3>
+      <div class="rev-item">Wo ist...? (location)</div>
+      <div class="rev-item">Wohin stellen wir...? (movement)</div>
+      <div class="rev-item">Wie findest du...?</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Most important words</h3>
+      <div class="rev-item">in, an, auf, unter, über, vor, hinter, neben, zwischen</div>
+      <div class="rev-item">im, ins, am, ans</div>
+      <div class="rev-item">gemütlich, hell, ruhig, laut</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Sound traps</h3>
+      <div class="rev-item">long vs. short e (Regal vs. Bett)</div>
+      <div class="rev-item">ü = rounded lips + "i" (gemütlich)</div>
+      <div class="rev-item">stehen/liegen (dative) vs. stellen/legen (accusative)</div>
+    </div>
+  </div>
+</section>
+
+<footer>Kapitel 9 · Meine Wohnung — Netzwerk neu A1</footer>
+
+</div>
+
+
+<script>
+const NA1 = (() => {
+  const STORAGE_KEY = 'na1_mistakes_kapitel9';
+
+  function loadMistakes() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+    catch (e) { return {}; }
+  }
+  function saveMistakes(obj) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(obj)); } catch (e) {}
+  }
+
+  function norm(s){ return (s||'').trim().toLowerCase().replace(/\s+/g,' '); }
+
+  function logMistake(itemId, meta) {
+    const all = loadMistakes();
+    const prev = all[itemId] || { count: 0 };
+    all[itemId] = {
+      itemId, chapter: meta.chapter, prompt: meta.prompt,
+      count: (prev.count || 0) + 1,
+      lastWrong: new Date().toISOString(),
+      cleared: false
+    };
+    saveMistakes(all);
+    renderTracker();
+  }
+
+  function clearMistake(itemId) {
+    const all = loadMistakes();
+    if (all[itemId]) { all[itemId].cleared = true; saveMistakes(all); renderTracker(); }
+  }
+
+  function getAllMistakes() {
+    const all = loadMistakes();
+    return Object.values(all).filter(m => !m.cleared);
+  }
+
+  function wireExercise(chapterLabel) {
+    document.querySelectorAll('[data-answer]').forEach(item => {
+      const input = item.querySelector('input');
+      const btn = item.querySelector('.check-btn');
+      const feedback = item.querySelector('.ex-feedback');
+      if (!input || !btn) return;
+      btn.addEventListener('click', () => {
+        const correctRaw = item.getAttribute('data-answer');
+        const options = correctRaw.split('|').map(norm);
+        const given = norm(input.value);
+        const isRight = options.includes(given);
+        feedback.textContent = isRight ? 'Richtig!' : `Not quite — correct: ${correctRaw}`;
+        feedback.style.color = isRight ? 'var(--green)' : 'var(--red)';
+        input.style.borderColor = isRight ? 'var(--green)' : 'var(--red)';
+        const itemId = `kapitel9-${item.getAttribute('data-id')}`;
+        if (!isRight) {
+          logMistake(itemId, { chapter: 'kapitel9', prompt: item.getAttribute('data-prompt') || '' });
+        } else {
+          clearMistake(itemId);
+        }
+      });
+      input.addEventListener('keydown', (e) => { if (e.key === 'Enter') btn.click(); });
+    });
+  }
+
+  function renderTracker() {
+    const list = document.getElementById('tracker-list');
+    if (!list) return;
+    const mistakes = getAllMistakes();
+    if (mistakes.length === 0) {
+      list.innerHTML = '<p class="tracker-empty">No open mistakes on this chapter — nice work.</p>';
+      return;
+    }
+    list.innerHTML = mistakes.map(m => `
+      <div class="tracker-item">
+        <span>${m.prompt || m.itemId} <span style="color:var(--ink-mute);">(missed ${m.count}×)</span></span>
+        <button class="clear-btn" data-clear="${m.itemId}">mark reviewed</button>
+      </div>`).join('');
+    list.querySelectorAll('[data-clear]').forEach(b => {
+      b.addEventListener('click', () => clearMistake(b.getAttribute('data-clear')));
+    });
+  }
+
+  wireExercise('kapitel9');
+  renderTracker();
+
+  return { logMistake, clearMistake, getAllMistakes };
+})();
+</script>
+</body>
+</html>

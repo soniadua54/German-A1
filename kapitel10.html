@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kapitel 10 — Studium und Beruf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf6ee;
+  --paper-2:#f2ecdf;
+  --ink:#241f16;
+  --ink-soft:#5b5344;
+  --ink-mute:#8c8471;
+  --rule:#ddd3bd;
+  --rule-strong:#c6b998;
+  --blue:#2d4a63;
+  --blue-bg:#e4ecf1;
+  --green:#3c6b3f;
+  --green-bg:#e6efe2;
+  --red:#a3402f;
+  --red-bg:#f4e5df;
+  --amber:#8a5a1f;
+  --amber-bg:#f3e7d2;
+  --serif:'Fraunces', Georgia, serif;
+  --sans:'Inter', -apple-system, sans-serif;
+  --mono:'JetBrains Mono', monospace;
+}
+:root[data-mode="dark"]{
+  --paper:#1c1912;
+  --paper-2:#242019;
+  --ink:#ece4d3;
+  --ink-soft:#c2b8a2;
+  --ink-mute:#8f8672;
+  --rule:#3a3527;
+  --rule-strong:#4d4632;
+  --blue:#9dc0dd;
+  --blue-bg:#243440;
+  --green:#a9cba0;
+  --green-bg:#25352a;
+  --red:#e3a493;
+  --red-bg:#3a2823;
+  --amber:#e0bb7c;
+  --amber-bg:#3a3020;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-mode="light"]){
+    --paper:#1c1912; --paper-2:#242019; --ink:#ece4d3; --ink-soft:#c2b8a2; --ink-mute:#8f8672;
+    --rule:#3a3527; --rule-strong:#4d4632; --blue:#9dc0dd; --blue-bg:#243440;
+    --green:#a9cba0; --green-bg:#25352a; --red:#e3a493; --red-bg:#3a2823;
+    --amber:#e0bb7c; --amber-bg:#3a3020;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.65;
+  font-size:16px;
+}
+.wrap{max-width:760px; margin:0 auto; padding:0 24px 120px;}
+@media (max-width:600px){.wrap{padding:0 16px 100px;}}
+
+/* header */
+header.hero{
+  border-bottom:1px solid var(--rule);
+  padding:56px 0 40px;
+  margin-bottom:8px;
+}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:13px;
+  color:var(--ink-mute);
+  letter-spacing:0.02em;
+  margin:0 0 14px;
+}
+h1.title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:44px;
+  line-height:1.1;
+  margin:0 0 12px;
+  letter-spacing:-0.01em;
+}
+h1.title em{font-style:italic; font-weight:500; color:var(--blue);}
+.subtitle{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:19px;
+  color:var(--ink-soft);
+  margin:0;
+}
+
+/* nav */
+nav.toc{
+  position:sticky; top:0; z-index:10;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+  padding:10px 0;
+  margin-bottom:48px;
+  overflow-x:auto;
+  white-space:nowrap;
+  -webkit-overflow-scrolling:touch;
+}
+nav.toc::-webkit-scrollbar{height:0;}
+nav.toc a{
+  font-family:var(--sans);
+  font-size:13.5px;
+  color:var(--ink-soft);
+  text-decoration:none;
+  margin-right:22px;
+  padding-bottom:2px;
+  border-bottom:1px solid transparent;
+}
+nav.toc a:hover{color:var(--ink); border-bottom-color:var(--rule-strong);}
+
+section{margin-bottom:64px;}
+section:last-of-type{margin-bottom:24px;}
+
+h2.section-title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:28px;
+  margin:0 0 6px;
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+}
+.section-title .de{color:var(--ink);}
+.section-title .en{
+  font-family:var(--sans);
+  font-style:normal;
+  font-size:15px;
+  font-weight:400;
+  color:var(--ink-mute);
+}
+.section-intro{color:var(--ink-soft); margin:0 0 28px; max-width:64ch;}
+
+h3.sub{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:20px;
+  margin:36px 0 6px;
+  color:var(--ink);
+}
+h3.sub .en{font-family:var(--sans); font-size:14px; font-weight:400; color:var(--ink-mute); margin-left:8px;}
+
+p{margin:0 0 14px; max-width:66ch;}
+ul,ol{margin:0 0 14px; padding-left:22px; max-width:64ch;}
+li{margin-bottom:6px;}
+
+/* german text styling */
+.de-text{font-family:var(--serif); font-size:1.05em;}
+
+/* grammar box */
+.formula{
+  font-family:var(--mono);
+  font-size:15px;
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:6px;
+  padding:14px 18px;
+  margin:14px 0 20px;
+  color:var(--ink);
+  overflow-x:auto;
+}
+.formula .slot{color:var(--blue); font-weight:500;}
+
+.order-row{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 22px;
+}
+.order-cell{
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  padding:8px 14px;
+  text-align:center;
+  min-width:64px;
+}
+.order-cell .word{font-family:var(--serif); font-size:16px; display:block;}
+.order-cell .tag{font-family:var(--mono); font-size:10.5px; color:var(--ink-mute); text-transform:uppercase; letter-spacing:0.04em; display:block; margin-top:4px;}
+
+.ex-block{margin:8px 0 4px;}
+.ex-line{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:6px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.ex-line:last-child{border-bottom:none;}
+.mark{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  flex-shrink:0;
+  width:20px;
+  padding-top:3px;
+}
+.mark.pos{color:var(--green);}
+.mark.neg{color:var(--red);}
+.ex-text{flex:1;}
+.ex-de{font-family:var(--serif); font-size:16.5px; color:var(--ink);}
+.ex-en{font-size:13.5px; color:var(--ink-mute); margin-top:2px;}
+
+/* callout boxes */
+.box{
+  border-radius:8px;
+  padding:16px 20px;
+  margin:18px 0;
+}
+.box-title{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  margin:0 0 8px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.box p, .box ul{margin-bottom:0;}
+.box p + p{margin-top:8px;}
+.box.mistake{background:var(--red-bg);}
+.box.mistake .box-title{color:var(--red);}
+.box.trick{background:var(--amber-bg);}
+.box.trick .box-title{color:var(--amber);}
+.box.note{background:var(--blue-bg);}
+.box.note .box-title{color:var(--blue);}
+.dot{width:7px; height:7px; border-radius:50%; display:inline-block;}
+.dot.red{background:var(--red);}
+.dot.amber{background:var(--amber);}
+.dot.blue{background:var(--blue);}
+
+/* mistake pair */
+.mistake-pair{margin:16px 0 22px;}
+.mp-line{padding:5px 0 5px 26px; position:relative; font-family:var(--serif); font-size:16px;}
+.mp-line.x::before{content:"✕"; position:absolute; left:0; color:var(--red); font-family:var(--sans); font-size:13px; top:8px;}
+.mp-line.ok::before{content:"✓"; position:absolute; left:0; color:var(--green); font-family:var(--sans); font-size:13px; top:8px;}
+.mp-why{font-family:var(--sans); font-size:13.5px; color:var(--ink-mute); padding-left:26px; margin-top:2px;}
+
+/* tables */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:16px 0 24px;
+  font-size:14.5px;
+}
+th{
+  text-align:left;
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12.5px;
+  color:var(--ink-mute);
+  text-transform:none;
+  padding:8px 10px;
+  border-bottom:1px solid var(--rule-strong);
+}
+td{
+  padding:9px 10px;
+  border-bottom:1px solid var(--rule);
+  vertical-align:top;
+}
+td.de{font-family:var(--serif); font-size:15.5px;}
+tr:last-child td{border-bottom:none;}
+
+/* dialogue */
+.dialogue{
+  border-left:2px solid var(--rule-strong);
+  padding-left:20px;
+  margin:16px 0 24px;
+}
+.turn{margin-bottom:14px;}
+.speaker{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12.5px;
+  color:var(--ink-mute);
+  margin-bottom:2px;
+}
+.line-de{font-family:var(--serif); font-size:17px; color:var(--ink);}
+.line-en{font-size:13.5px; color:var(--ink-mute); margin-top:2px;}
+
+/* chunk pills */
+.chunks{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 22px;}
+.chunk{
+  border:1px solid var(--rule-strong);
+  border-radius:20px;
+  padding:6px 14px;
+  font-family:var(--serif);
+  font-size:14.5px;
+}
+
+/* exercise */
+.exercise{
+  margin:20px 0;
+  padding:16px 0 4px;
+  border-top:1px solid var(--rule);
+}
+.exercise:first-of-type{border-top:none; padding-top:0;}
+.ex-num{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--ink-mute);
+  margin-bottom:4px;
+}
+.ex-prompt{margin-bottom:6px;}
+.ex-blank{
+  display:inline-block;
+  min-width:90px;
+  border-bottom:1px solid var(--ink-mute);
+  margin:0 3px;
+}
+
+/* answer key */
+.answers{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:24px 28px;
+}
+.answers h3.sub{margin-top:0;}
+.ans-line{
+  font-family:var(--serif);
+  font-size:15.5px;
+  padding:5px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.ans-line:last-child{border-bottom:none;}
+.ans-num{font-family:var(--sans); color:var(--ink-mute); font-size:13px; margin-right:8px;}
+
+/* pronunciation */
+.sound-row{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:12px 0;
+  border-bottom:1px solid var(--rule);
+}
+.sound-row:last-child{border-bottom:none;}
+.ipa{
+  font-family:var(--mono);
+  font-size:18px;
+  color:var(--blue);
+  min-width:52px;
+}
+.sound-body{flex:1;}
+.sound-words{font-family:var(--serif); font-size:15.5px; margin-top:2px;}
+
+/* revision */
+.revision-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+}
+@media (max-width:600px){.revision-grid{grid-template-columns:1fr;}}
+.rev-col h3.sub{margin-top:0;}
+.rev-item{
+  font-family:var(--serif);
+  font-size:15.5px;
+  padding:6px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.rev-item:last-child{border-bottom:none;}
+
+hr.rule{border:none; border-top:1px solid var(--rule); margin:0;}
+
+footer{
+  text-align:center;
+  padding:32px 0 8px;
+  color:var(--ink-mute);
+  font-size:13px;
+}
+/* interactive exercise widgets */
+.ex-check{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:6px;
+}
+.ex-input{
+  font-family:var(--serif);
+  font-size:15px;
+  padding:6px 10px;
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  background:var(--paper);
+  color:var(--ink);
+  min-width:160px;
+}
+.ex-input:focus{outline:none; border-color:var(--blue);}
+.check-btn{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  padding:6px 14px;
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  background:var(--paper-2);
+  color:var(--ink);
+  cursor:pointer;
+}
+.check-btn:hover{background:var(--rule);}
+.ex-feedback{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  min-width:120px;
+}
+.tracker-box{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:18px 22px;
+  margin:20px 0;
+}
+.tracker-box h4{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:600;
+  margin:0 0 10px;
+  color:var(--ink-mute);
+}
+.tracker-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 0;
+  border-bottom:1px dotted var(--rule);
+  font-size:14px;
+}
+.tracker-item:last-child{border-bottom:none;}
+.tracker-item .clear-btn{
+  font-family:var(--sans);
+  font-size:12px;
+  color:var(--ink-mute);
+  background:none;
+  border:none;
+  cursor:pointer;
+  text-decoration:underline;
+}
+.tracker-empty{color:var(--ink-mute); font-size:13.5px; font-style:italic;}
+.persist-note{font-size:12px; color:var(--ink-mute); margin-top:8px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow">Netzwerk neu A1 · Kapitel 10</p>
+  <h1 class="title">Studium und Beruf <em>— Studies and career</em></h1>
+  <p class="subtitle">Job searching, phone calls, and the Perfekt — talking about the past</p>
+</header>
+
+<nav class="toc" aria-label="Chapter sections">
+  <a href="#overview">Overview</a>
+  <a href="#grammar">Grammar</a>
+  <a href="#sentence-factory">Sentence factory</a>
+  <a href="#question-factory">Question factory</a>
+  <a href="#speaking-factory">Speaking factory</a>
+  <a href="#vocabulary">Vocabulary</a>
+  <a href="#exercises">Exercises</a>
+  <a href="#answers">Answer key</a>
+  <a href="#pronunciation">Pronunciation</a>
+  <a href="#mistakes">Common mistakes</a>
+  <a href="#revision">Quick revision</a>
+</nav>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <h2 class="section-title"><span class="de">Kapitelüberblick</span><span class="en">Chapter overview</span></h2>
+  <p class="section-intro">This is the payoff chapter for the "Learn Later" notes back in Kapitel 6: the Perfekt tense, the real everyday past tense for almost every German verb. Once you have this, you can talk about anything that already happened.</p>
+
+  <h3 class="sub">What this chapter is about</h3>
+  <p>You'll learn to describe your daily routine and past events using the Perfekt (compound past with <span class="de-text">haben</span> or <span class="de-text">sein</span> + past participle), talk about job searching and studies, and handle a phone call professionally.</p>
+
+  <h3 class="sub">What you should be able to say after finishing it</h3>
+  <ul>
+    <li>Describe what you did yesterday or last week</li>
+    <li>Form the past participle of regular and common irregular verbs</li>
+    <li>Know when to use haben vs. sein as the helper verb</li>
+    <li>Talk about job searching, studies, and qualifications</li>
+    <li>Handle a basic phone call, including asking someone to repeat something</li>
+  </ul>
+
+  <h3 class="sub">Where you use this in real life</h3>
+  <p>Recounting your day to Sonia, describing a work project you finished, explaining your study background in an interview, or narrating a weekend activity beyond just war/hatte.</p>
+</section>
+
+<!-- GRAMMAR -->
+<section id="grammar">
+  <h2 class="section-title"><span class="de">Grammatik</span><span class="en">Grammar</span></h2>
+  <p class="section-intro">The main event: the Perfekt tense. This is the tense native speakers reach for by default when talking about the past in conversation.</p>
+
+  <h3 class="sub">1. What Perfekt is <span class="en">a two-part past tense</span></h3>
+  <p>Perfekt is built from two pieces: a helper verb (<span class="de-text">haben</span> or <span class="de-text">sein</span>, conjugated normally in the present tense) plus the past participle of the main verb, which is pushed to the very end of the sentence — the same "verb bracket" shape you saw with modal verbs in Kapitel 5.</p>
+  <div class="formula">[subject] + haben/sein (conjugated) + [rest] + [past participle].</div>
+  <div class="order-row">
+    <div class="order-cell"><span class="word">Ich</span><span class="tag">subject</span></div>
+    <div class="order-cell"><span class="word">habe</span><span class="tag">helper — pos. 2</span></div>
+    <div class="order-cell"><span class="word">gestern</span><span class="tag">middle</span></div>
+    <div class="order-cell"><span class="word">gearbeitet.</span><span class="tag">participle — end</span></div>
+  </div>
+
+  <h3 class="sub">2. Forming the past participle — regular verbs</h3>
+  <div class="formula">ge- + [stem] + -t</div>
+  <table>
+    <tr><th>Infinitive</th><th>Participle</th></tr>
+    <tr><td class="de">arbeiten</td><td class="de">gearbeitet</td></tr>
+    <tr><td class="de">machen</td><td class="de">gemacht</td></tr>
+    <tr><td class="de">kaufen</td><td class="de">gekauft</td></tr>
+    <tr><td class="de">lernen</td><td class="de">gelernt</td></tr>
+  </table>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich habe gestern gearbeitet.</div><div class="ex-en">I worked yesterday.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wir haben Deutsch gelernt.</div><div class="ex-en">We studied German.</div></div></div>
+  </div>
+
+  <h3 class="sub">3. Irregular past participles <span class="en">learn these individually</span></h3>
+  <table>
+    <tr><th>Infinitive</th><th>Participle</th><th>Meaning</th></tr>
+    <tr><td class="de">essen</td><td class="de">gegessen</td><td>eaten</td></tr>
+    <tr><td class="de">trinken</td><td class="de">getrunken</td><td>drunk</td></tr>
+    <tr><td class="de">sehen</td><td class="de">gesehen</td><td>seen</td></tr>
+    <tr><td class="de">lesen</td><td class="de">gelesen</td><td>read</td></tr>
+    <tr><td class="de">sprechen</td><td class="de">gesprochen</td><td>spoken</td></tr>
+    <tr><td class="de">nehmen</td><td class="de">genommen</td><td>taken</td></tr>
+    <tr><td class="de">helfen</td><td class="de">geholfen</td><td>helped</td></tr>
+  </table>
+  <div class="box note">
+    <p class="box-title"><span class="dot blue"></span>Learn later</p>
+    <p>Irregular participles follow patterns (vowel changes) that get fully systematized in A2. For now, memorize each one individually as vocabulary — treat <span class="de-text">essen → gegessen</span> as a fixed fact, not something to derive from a rule.</p>
+  </div>
+
+  <h3 class="sub">4. Haben or sein? <span class="en">choosing the right helper verb</span></h3>
+  <p>Most verbs use <span class="de-text">haben</span>. A smaller group — mostly verbs of motion (going somewhere) or change of state — use <span class="de-text">sein</span> instead.</p>
+  <table>
+    <tr><th>Infinitive</th><th>Participle</th><th>Helper</th></tr>
+    <tr><td class="de">gehen</td><td class="de">gegangen</td><td class="de">sein</td></tr>
+    <tr><td class="de">fahren</td><td class="de">gefahren</td><td class="de">sein</td></tr>
+    <tr><td class="de">kommen</td><td class="de">gekommen</td><td class="de">sein</td></tr>
+    <tr><td class="de">machen</td><td class="de">gemacht</td><td class="de">haben</td></tr>
+    <tr><td class="de">arbeiten</td><td class="de">gearbeitet</td><td class="de">haben</td></tr>
+  </table>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich bin ins Büro gegangen.</div><div class="ex-en">I went to the office. (motion → sein)</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich habe eine Präsentation gemacht.</div><div class="ex-en">I gave a presentation. (not motion → haben)</div></div></div>
+    <div class="ex-line"><span class="mark neg">✕</span><div class="ex-text"><div class="ex-de">Ich habe ins Büro gegangen.</div><div class="ex-en">Wrong — gehen is a motion verb and takes sein, not haben</div></div></div>
+  </div>
+  <div class="box trick">
+    <p class="box-title"><span class="dot amber"></span>Memory trick</p>
+    <p>A rough (not perfect, but useful at A1) rule: if you can picture the subject physically moving from A to B, or changing state (like <span class="de-text">werden</span> — to become), it's probably <span class="de-text">sein</span>. Everything else defaults to <span class="de-text">haben</span>. <span class="de-text">sein</span> and <span class="de-text">bleiben</span> (to stay) are themselves oddball exceptions that also take sein despite not being motion verbs — just memorize those two as extras.</p>
+  </div>
+
+  <h3 class="sub">5. Separable verbs in Perfekt <span class="en">the ge- lands in the middle</span></h3>
+  <p>For separable verbs (like <span class="de-text">einkaufen</span>), the <span class="de-text">ge-</span> of the participle is inserted between the prefix and the stem.</p>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich habe eingekauft.</div><div class="ex-en">I went shopping. (ein + ge + kauft)</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich bin aufgestanden.</div><div class="ex-en">I got up. (auf + ge + standen)</div></div></div>
+  </div>
+</section>
+
+<!-- SENTENCE FACTORY -->
+<section id="sentence-factory">
+  <h2 class="section-title"><span class="de">Satzfabrik</span><span class="en">Sentence factory</span></h2>
+
+  <h3 class="sub">Base pattern: describing a past action</h3>
+  <div class="formula">[subject] + habe/hat/haben + [rest] + [participle].</div>
+  <table>
+    <tr><th>Subject</th><th>Helper</th><th>Rest</th><th>Participle</th></tr>
+    <tr><td class="de">Ich</td><td class="de">habe</td><td class="de">gestern</td><td class="de">gearbeitet.</td></tr>
+    <tr><td class="de">Sie</td><td class="de">hat</td><td class="de">einen Kaffee</td><td class="de">getrunken.</td></tr>
+    <tr><td class="de">Wir</td><td class="de">haben</td><td class="de">Deutsch</td><td class="de">gelernt.</td></tr>
+  </table>
+
+  <h3 class="sub">Swap between haben and sein</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich bin nach Hause gegangen.</div><div class="ex-en">I went home.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich habe ein Buch gelesen.</div><div class="ex-en">I read a book.</div></div></div>
+  </div>
+
+  <h3 class="sub">Swap the activity</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich habe eine E-Mail geschrieben.</div><div class="ex-en">I wrote an email.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich habe mit dem Chef gesprochen.</div><div class="ex-en">I spoke with the boss.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich bin zur Uni gefahren.</div><div class="ex-en">I drove to the university.</div></div></div>
+  </div>
+</section>
+
+<!-- QUESTION FACTORY -->
+<section id="question-factory">
+  <h2 class="section-title"><span class="de">Fragefabrik</span><span class="en">Question factory</span></h2>
+
+  <h3 class="sub">Was <span class="en">what — asking about a past activity</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Was hast du gestern gemacht? — Ich habe gearbeitet.</div><div class="ex-en">What did you do yesterday? — I worked.</div></div></div>
+  </div>
+
+  <h3 class="sub">Wo/Wohin <span class="en">where — past location/movement</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wohin bist du gegangen? — Ins Büro.</div><div class="ex-en">Where did you go? — To the office.</div></div></div>
+  </div>
+
+  <h3 class="sub">Yes/No questions</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Hast du schon gegessen? — Ja, ich habe schon gegessen.</div><div class="ex-en">Have you already eaten? — Yes, I've already eaten.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Bist du zur Arbeit gefahren? — Nein, ich bin gelaufen.</div><div class="ex-en">Did you drive to work? — No, I walked.</div></div></div>
+  </div>
+
+  <h3 class="sub">Short answers vs. full answers</h3>
+  <table>
+    <tr><th>Question</th><th>Short answer</th><th>Full answer</th></tr>
+    <tr><td class="de">Was hast du gemacht?</td><td class="de">Gearbeitet.</td><td class="de">Ich habe gearbeitet.</td></tr>
+    <tr><td class="de">Hast du schon gegessen?</td><td class="de">Ja, schon.</td><td class="de">Ja, ich habe schon gegessen.</td></tr>
+  </table>
+</section>
+
+<!-- SPEAKING FACTORY -->
+<section id="speaking-factory">
+  <h2 class="section-title"><span class="de">Sprechfabrik</span><span class="en">Speaking factory</span></h2>
+
+  <h3 class="sub">Dialogue 1 — Recounting your day</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">SONIA</div><div class="line-de">Was hast du heute gemacht?</div><div class="line-en">What did you do today?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Ich bin ins Büro gegangen und habe eine Präsentation gemacht.</div><div class="line-en">I went to the office and gave a presentation.</div></div>
+    <div class="turn"><div class="speaker">SONIA</div><div class="line-de">Und danach?</div><div class="line-en">And after that?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Ich habe mit einem Kollegen gesprochen und bin dann nach Hause gefahren.</div><div class="line-en">I spoke with a colleague and then drove home.</div></div>
+  </div>
+
+  <h3 class="sub">Dialogue 2 — A phone call about a job</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Guten Tag, ich rufe wegen der Stelle an.</div><div class="line-en">Good day, I'm calling about the position.</div></div>
+    <div class="turn"><div class="speaker">PERSONAL</div><div class="line-de">Haben Sie schon studiert?</div><div class="line-en">Have you already studied (at university)?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Ja, ich habe Ingenieurwesen studiert.</div><div class="line-en">Yes, I studied engineering.</div></div>
+    <div class="turn"><div class="speaker">PERSONAL</div><div class="line-de">Wie bitte? Können Sie das wiederholen?</div><div class="line-en">Sorry, what? Can you repeat that?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Ich habe Ingenieurwesen studiert.</div><div class="line-en">I studied engineering.</div></div>
+  </div>
+
+  <h3 class="sub">Dialogue 3 — Weekend recap</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">LISA</div><div class="line-de">Was hast du am Wochenende gemacht?</div><div class="line-en">What did you do on the weekend?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Ich habe ein Buch gelesen und bin spazieren gegangen.</div><div class="line-en">I read a book and went for a walk.</div></div>
+  </div>
+
+  <h3 class="sub">Reusable speaking chunks</h3>
+  <div class="chunks">
+    <span class="chunk">Was hast du gemacht?</span>
+    <span class="chunk">Ich habe gearbeitet/gelernt/gelesen.</span>
+    <span class="chunk">Ich bin gegangen/gefahren/gekommen.</span>
+    <span class="chunk">Ich rufe wegen... an.</span>
+    <span class="chunk">Wie bitte?</span>
+    <span class="chunk">Können Sie das wiederholen?</span>
+    <span class="chunk">Ich habe studiert.</span>
+    <span class="chunk">danach</span>
+  </div>
+</section>
+
+<!-- VOCABULARY -->
+<section id="vocabulary">
+  <h2 class="section-title"><span class="de">Wortschatz</span><span class="en">Vocabulary</span></h2>
+
+  <h3 class="sub">Study and job nouns</h3>
+  <table>
+    <tr><th>Article</th><th>Singular</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">das</td><td class="de">Studium</td><td class="de">Studien</td><td>university studies</td></tr>
+    <tr><td class="de">die</td><td class="de">Uni/Universität</td><td class="de">Universitäten</td><td>university</td></tr>
+    <tr><td class="de">die</td><td class="de">Stelle</td><td class="de">Stellen</td><td>position/job</td></tr>
+    <tr><td class="de">die</td><td class="de">Bewerbung</td><td class="de">Bewerbungen</td><td>job application</td></tr>
+    <tr><td class="de">der</td><td class="de">Chef</td><td class="de">Chefs</td><td>boss</td></tr>
+    <tr><td class="de">die</td><td class="de">Mensa</td><td class="de">Mensen</td><td>university cafeteria</td></tr>
+    <tr><td class="de">die</td><td class="de">Bibliothek</td><td class="de">Bibliotheken</td><td>library</td></tr>
+  </table>
+
+  <h3 class="sub">Common past participles (reference table)</h3>
+  <table>
+    <tr><th>Infinitive</th><th>Participle</th><th>Helper</th></tr>
+    <tr><td class="de">machen</td><td class="de">gemacht</td><td class="de">haben</td></tr>
+    <tr><td class="de">arbeiten</td><td class="de">gearbeitet</td><td class="de">haben</td></tr>
+    <tr><td class="de">lernen</td><td class="de">gelernt</td><td class="de">haben</td></tr>
+    <tr><td class="de">essen</td><td class="de">gegessen</td><td class="de">haben</td></tr>
+    <tr><td class="de">trinken</td><td class="de">getrunken</td><td class="de">haben</td></tr>
+    <tr><td class="de">lesen</td><td class="de">gelesen</td><td class="de">haben</td></tr>
+    <tr><td class="de">sprechen</td><td class="de">gesprochen</td><td class="de">haben</td></tr>
+    <tr><td class="de">schreiben</td><td class="de">geschrieben</td><td class="de">haben</td></tr>
+    <tr><td class="de">studieren</td><td class="de">studiert</td><td class="de">haben</td></tr>
+    <tr><td class="de">gehen</td><td class="de">gegangen</td><td class="de">sein</td></tr>
+    <tr><td class="de">fahren</td><td class="de">gefahren</td><td class="de">sein</td></tr>
+    <tr><td class="de">kommen</td><td class="de">gekommen</td><td class="de">sein</td></tr>
+    <tr><td class="de">einkaufen</td><td class="de">eingekauft</td><td class="de">haben</td></tr>
+    <tr><td class="de">aufstehen</td><td class="de">aufgestanden</td><td class="de">sein</td></tr>
+  </table>
+
+  <h3 class="sub">Useful expressions</h3>
+  <table>
+    <tr><td class="de">Ich rufe wegen ... an.</td><td>I'm calling about ...</td></tr>
+    <tr><td class="de">Können Sie das wiederholen?</td><td>can you repeat that?</td></tr>
+    <tr><td class="de">Wie bitte?</td><td>sorry, what?</td></tr>
+    <tr><td class="de">danach</td><td>after that</td></tr>
+    <tr><td class="de">schon / noch nicht</td><td>already / not yet</td></tr>
+  </table>
+</section>
+
+<!-- EXERCISES -->
+<section id="exercises">
+  <h2 class="section-title"><span class="de">Übungen</span><span class="en">Exercises</span></h2>
+
+  <div class="exercise">
+    <p class="ex-num">A · Sentence building</p>
+    <p class="ex-prompt">1. Build a sentence from: <span class="de-text">habe / gestern / ich / gearbeitet</span></p>
+    <p class="ex-prompt">2. Build a sentence from: <span class="de-text">bin / ich / gegangen / ins Büro</span></p>
+    <p class="ex-prompt">3. Build a sentence from: <span class="de-text">gelesen / ich / habe / ein Buch</span></p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">B · Question building</p>
+    <p class="ex-prompt">4. Ask a friend what they did yesterday.</p>
+    <p class="ex-prompt">5. Ask if someone has already eaten.</p>
+    <p class="ex-prompt">6. Ask where someone went (past).</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">C · Translation</p>
+    <p class="ex-prompt">7. Translate: "I went to the office and worked."</p>
+    <p class="ex-prompt">8. Translate: "I studied engineering."</p>
+    <p class="ex-prompt">9. Translate: "Sorry, can you repeat that?"</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">D · Fill in the blank (haben or sein + participle)</p>
+
+    <div data-answer="habe|gearbeitet" data-id="d10" data-prompt="Ich ___ gestern ___. (arbeiten) — type: habe gearbeitet">
+      <p class="ex-prompt">10. Ich <span class="ex-blank" style="display:none;"></span> gestern <span class="ex-blank" style="display:none;"></span>.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="bin|gegangen" data-id="d11" data-prompt="Ich ___ nach Hause ___. (gehen) — type: bin gegangen">
+      <p class="ex-prompt">11. Ich <span class="ex-blank" style="display:none;"></span> nach Hause <span class="ex-blank" style="display:none;"></span>.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="hat|gelesen" data-id="d12" data-prompt="Sie ___ ein Buch ___. (lesen) — type: hat gelesen">
+      <p class="ex-prompt">12. Sie <span class="ex-blank" style="display:none;"></span> ein Buch <span class="ex-blank" style="display:none;"></span>.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="haben|gelernt" data-id="d13" data-prompt="Wir ___ Deutsch ___. (lernen) — type: haben gelernt">
+      <p class="ex-prompt">13. Wir <span class="ex-blank" style="display:none;"></span> Deutsch <span class="ex-blank" style="display:none;"></span>.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">E · Correction</p>
+
+    <div data-answer="Ich bin ins Büro gegangen." data-id="e14" data-prompt="Ich habe ins Büro gegangen.">
+      <p class="ex-prompt">14. <span class="de-text">Ich habe ins Büro gegangen.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Ich habe gestern gearbeitet." data-id="e15" data-prompt="Ich habe gestern gearbeitet gehabt.">
+      <p class="ex-prompt">15. <span class="de-text">Ich habe gestern gearbeitet gehabt.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Ich habe ein Buch gelesen." data-id="e16" data-prompt="Ich bin ein Buch gelesen.">
+      <p class="ex-prompt">16. <span class="de-text">Ich bin ein Buch gelesen.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">F · Speaking prompts</p>
+    <p class="ex-prompt">17. Describe three things you did yesterday, using Perfekt.</p>
+    <p class="ex-prompt">18. Make a phone call about a job, using the fixed phrases.</p>
+    <p class="ex-prompt">19. Say what you studied and where.</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">G · Mixed review</p>
+    <p class="ex-prompt">20. Write a short recap of your weekend using at least three Perfekt sentences.</p>
+  </div>
+<div class="tracker-box" id="mistake-tracker">
+    <h4>Your missed items on this chapter</h4>
+    <div id="tracker-list"><p class="tracker-empty">Loading…</p></div>
+    
+  </div>
+</section>
+
+<!-- ANSWER KEY -->
+<section id="answers">
+  <h2 class="section-title"><span class="de">Lösungen</span><span class="en">Answer key</span></h2>
+  <div class="answers">
+    <h3 class="sub">A · Sentence building</h3>
+    <div class="ans-line"><span class="ans-num">1</span><span class="de-text">Ich habe gestern gearbeitet.</span></div>
+    <div class="ans-line"><span class="ans-num">2</span><span class="de-text">Ich bin ins Büro gegangen.</span></div>
+    <div class="ans-line"><span class="ans-num">3</span><span class="de-text">Ich habe ein Buch gelesen.</span></div>
+
+    <h3 class="sub">B · Question building</h3>
+    <div class="ans-line"><span class="ans-num">4</span><span class="de-text">Was hast du gestern gemacht?</span></div>
+    <div class="ans-line"><span class="ans-num">5</span><span class="de-text">Hast du schon gegessen?</span></div>
+    <div class="ans-line"><span class="ans-num">6</span><span class="de-text">Wohin bist du gegangen?</span></div>
+
+    <h3 class="sub">C · Translation</h3>
+    <div class="ans-line"><span class="ans-num">7</span><span class="de-text">Ich bin ins Büro gegangen und habe gearbeitet.</span></div>
+    <div class="ans-line"><span class="ans-num">8</span><span class="de-text">Ich habe Ingenieurwesen studiert.</span></div>
+    <div class="ans-line"><span class="ans-num">9</span><span class="de-text">Wie bitte, können Sie das wiederholen?</span></div>
+
+    <h3 class="sub">D · Fill in the blank</h3>
+    <div class="ans-line"><span class="ans-num">10</span><span class="de-text">habe ... gearbeitet</span></div>
+    <div class="ans-line"><span class="ans-num">11</span><span class="de-text">bin ... gegangen</span></div>
+    <div class="ans-line"><span class="ans-num">12</span><span class="de-text">hat ... gelesen</span></div>
+    <div class="ans-line"><span class="ans-num">13</span><span class="de-text">haben ... gelernt</span></div>
+
+    <h3 class="sub">E · Correction</h3>
+    <div class="ans-line"><span class="ans-num">14</span><span class="de-text">Ich bin ins Büro gegangen.</span> — gehen is a motion verb and takes sein, not haben</div>
+    <div class="ans-line"><span class="ans-num">15</span><span class="de-text">Ich habe gestern gearbeitet.</span> — Perfekt only needs one helper verb, not a doubled-up construction</div>
+    <div class="ans-line"><span class="ans-num">16</span><span class="de-text">Ich habe ein Buch gelesen.</span> — lesen is not a motion verb, so it takes haben, not sein</div>
+
+    <h3 class="sub">G · Mixed review — sample answer</h3>
+    <div class="ans-line"><span class="ans-num">20</span><span class="de-text">Ich bin spazieren gegangen. Ich habe ein Buch gelesen. Am Sonntag habe ich eingekauft.</span></div>
+  </div>
+</section>
+
+<!-- PRONUNCIATION -->
+<section id="pronunciation">
+  <h2 class="section-title"><span class="de">Aussprache</span><span class="en">Pronunciation</span></h2>
+
+  <div class="sound-row">
+    <div class="ipa">ge- (unstressed)</div>
+    <div class="sound-body">The ge- prefix of past participles is always unstressed — the emphasis falls on the verb stem that follows it.
+      <div class="sound-words">gemacht (stress on -MACHT) · gegangen (stress on -GAN-)</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">-iert (studiert)</div>
+    <div class="sound-body">Verbs borrowed from other languages (often ending -ieren) form their participle with just -t, no ge- prefix, and the stress falls on the -ier- syllable.
+      <div class="sound-words">studiert · telefoniert</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">ei (Arbeit)</div>
+    <div class="sound-body">"Eye" sound, as established since Kapitel 1.
+      <div class="sound-words">Arbeit · gearbeitet</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMON MISTAKES -->
+<section id="mistakes">
+  <h2 class="section-title"><span class="de">Häufige Fehler</span><span class="en">Common mistakes</span></h2>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Ich habe ins Büro gegangen.</div>
+    <div class="mp-line ok">Ich bin ins Büro gegangen.</div>
+    <div class="mp-why">Why: gehen is a motion verb and belongs to the smaller group that takes sein as the helper, not haben.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Ich habe gegessen das Brot.</div>
+    <div class="mp-line ok">Ich habe das Brot gegessen.</div>
+    <div class="mp-why">Why: the past participle must go all the way to the end of the sentence — this is the same verb-bracket rule you saw with modal verbs.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Ich bin ein Buch gelesen.</div>
+    <div class="mp-line ok">Ich habe ein Buch gelesen.</div>
+    <div class="mp-why">Why: lesen doesn't involve motion or a change of state, so it defaults to haben, not sein.</div>
+  </div>
+</section>
+
+<!-- QUICK REVISION -->
+<section id="revision">
+  <h2 class="section-title"><span class="de">Kurze Wiederholung</span><span class="en">Quick revision</span></h2>
+  <div class="revision-grid">
+    <div class="rev-col">
+      <h3 class="sub">Sentence patterns</h3>
+      <div class="rev-item">[subject] + habe/hat/haben + ... + [participle].</div>
+      <div class="rev-item">[subject] + bin/ist/sind + ... + [participle].</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Question forms</h3>
+      <div class="rev-item">Was hast du gemacht?</div>
+      <div class="rev-item">Wohin bist du gegangen?</div>
+      <div class="rev-item">Hast du schon...?</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Most important words</h3>
+      <div class="rev-item">gemacht, gearbeitet, gelernt (haben)</div>
+      <div class="rev-item">gegangen, gefahren, gekommen (sein)</div>
+      <div class="rev-item">schon, noch nicht, danach</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Sound traps</h3>
+      <div class="rev-item">ge- always unstressed</div>
+      <div class="rev-item">-ieren verbs skip ge- (studiert)</div>
+      <div class="rev-item">motion verbs default to sein</div>
+    </div>
+  </div>
+</section>
+
+<footer>Kapitel 10 · Studium und Beruf — Netzwerk neu A1</footer>
+
+</div>
+
+
+<script>
+const NA1 = (() => {
+  const STORAGE_KEY = 'na1_mistakes_kapitel10';
+
+  function loadMistakes() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+    catch (e) { return {}; }
+  }
+  function saveMistakes(obj) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(obj)); } catch (e) {}
+  }
+
+  function norm(s){ return (s||'').trim().toLowerCase().replace(/\s+/g,' '); }
+
+  function logMistake(itemId, meta) {
+    const all = loadMistakes();
+    const prev = all[itemId] || { count: 0 };
+    all[itemId] = {
+      itemId, chapter: meta.chapter, prompt: meta.prompt,
+      count: (prev.count || 0) + 1,
+      lastWrong: new Date().toISOString(),
+      cleared: false
+    };
+    saveMistakes(all);
+    renderTracker();
+  }
+
+  function clearMistake(itemId) {
+    const all = loadMistakes();
+    if (all[itemId]) { all[itemId].cleared = true; saveMistakes(all); renderTracker(); }
+  }
+
+  function getAllMistakes() {
+    const all = loadMistakes();
+    return Object.values(all).filter(m => !m.cleared);
+  }
+
+  function wireExercise(chapterLabel) {
+    document.querySelectorAll('[data-answer]').forEach(item => {
+      const input = item.querySelector('input');
+      const btn = item.querySelector('.check-btn');
+      const feedback = item.querySelector('.ex-feedback');
+      if (!input || !btn) return;
+      btn.addEventListener('click', () => {
+        const correctRaw = item.getAttribute('data-answer');
+        const options = correctRaw.split('|').map(norm);
+        const given = norm(input.value);
+        const isRight = options.includes(given);
+        feedback.textContent = isRight ? 'Richtig!' : `Not quite — correct: ${correctRaw}`;
+        feedback.style.color = isRight ? 'var(--green)' : 'var(--red)';
+        input.style.borderColor = isRight ? 'var(--green)' : 'var(--red)';
+        const itemId = `kapitel10-${item.getAttribute('data-id')}`;
+        if (!isRight) {
+          logMistake(itemId, { chapter: 'kapitel10', prompt: item.getAttribute('data-prompt') || '' });
+        } else {
+          clearMistake(itemId);
+        }
+      });
+      input.addEventListener('keydown', (e) => { if (e.key === 'Enter') btn.click(); });
+    });
+  }
+
+  function renderTracker() {
+    const list = document.getElementById('tracker-list');
+    if (!list) return;
+    const mistakes = getAllMistakes();
+    if (mistakes.length === 0) {
+      list.innerHTML = '<p class="tracker-empty">No open mistakes on this chapter — nice work.</p>';
+      return;
+    }
+    list.innerHTML = mistakes.map(m => `
+      <div class="tracker-item">
+        <span>${m.prompt || m.itemId} <span style="color:var(--ink-mute);">(missed ${m.count}×)</span></span>
+        <button class="clear-btn" data-clear="${m.itemId}">mark reviewed</button>
+      </div>`).join('');
+    list.querySelectorAll('[data-clear]').forEach(b => {
+      b.addEventListener('click', () => clearMistake(b.getAttribute('data-clear')));
+    });
+  }
+
+  wireExercise('kapitel10');
+  renderTracker();
+
+  return { logMistake, clearMistake, getAllMistakes };
+})();
+</script>
+</body>
+</html>

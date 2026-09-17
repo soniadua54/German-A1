@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kapitel 8 — Fit und gesund</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf6ee;
+  --paper-2:#f2ecdf;
+  --ink:#241f16;
+  --ink-soft:#5b5344;
+  --ink-mute:#8c8471;
+  --rule:#ddd3bd;
+  --rule-strong:#c6b998;
+  --blue:#2d4a63;
+  --blue-bg:#e4ecf1;
+  --green:#3c6b3f;
+  --green-bg:#e6efe2;
+  --red:#a3402f;
+  --red-bg:#f4e5df;
+  --amber:#8a5a1f;
+  --amber-bg:#f3e7d2;
+  --serif:'Fraunces', Georgia, serif;
+  --sans:'Inter', -apple-system, sans-serif;
+  --mono:'JetBrains Mono', monospace;
+}
+:root[data-mode="dark"]{
+  --paper:#1c1912;
+  --paper-2:#242019;
+  --ink:#ece4d3;
+  --ink-soft:#c2b8a2;
+  --ink-mute:#8f8672;
+  --rule:#3a3527;
+  --rule-strong:#4d4632;
+  --blue:#9dc0dd;
+  --blue-bg:#243440;
+  --green:#a9cba0;
+  --green-bg:#25352a;
+  --red:#e3a493;
+  --red-bg:#3a2823;
+  --amber:#e0bb7c;
+  --amber-bg:#3a3020;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-mode="light"]){
+    --paper:#1c1912; --paper-2:#242019; --ink:#ece4d3; --ink-soft:#c2b8a2; --ink-mute:#8f8672;
+    --rule:#3a3527; --rule-strong:#4d4632; --blue:#9dc0dd; --blue-bg:#243440;
+    --green:#a9cba0; --green-bg:#25352a; --red:#e3a493; --red-bg:#3a2823;
+    --amber:#e0bb7c; --amber-bg:#3a3020;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.65;
+  font-size:16px;
+}
+.wrap{max-width:760px; margin:0 auto; padding:0 24px 120px;}
+@media (max-width:600px){.wrap{padding:0 16px 100px;}}
+
+/* header */
+header.hero{
+  border-bottom:1px solid var(--rule);
+  padding:56px 0 40px;
+  margin-bottom:8px;
+}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:13px;
+  color:var(--ink-mute);
+  letter-spacing:0.02em;
+  margin:0 0 14px;
+}
+h1.title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:44px;
+  line-height:1.1;
+  margin:0 0 12px;
+  letter-spacing:-0.01em;
+}
+h1.title em{font-style:italic; font-weight:500; color:var(--blue);}
+.subtitle{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:19px;
+  color:var(--ink-soft);
+  margin:0;
+}
+
+/* nav */
+nav.toc{
+  position:sticky; top:0; z-index:10;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+  padding:10px 0;
+  margin-bottom:48px;
+  overflow-x:auto;
+  white-space:nowrap;
+  -webkit-overflow-scrolling:touch;
+}
+nav.toc::-webkit-scrollbar{height:0;}
+nav.toc a{
+  font-family:var(--sans);
+  font-size:13.5px;
+  color:var(--ink-soft);
+  text-decoration:none;
+  margin-right:22px;
+  padding-bottom:2px;
+  border-bottom:1px solid transparent;
+}
+nav.toc a:hover{color:var(--ink); border-bottom-color:var(--rule-strong);}
+
+section{margin-bottom:64px;}
+section:last-of-type{margin-bottom:24px;}
+
+h2.section-title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:28px;
+  margin:0 0 6px;
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+}
+.section-title .de{color:var(--ink);}
+.section-title .en{
+  font-family:var(--sans);
+  font-style:normal;
+  font-size:15px;
+  font-weight:400;
+  color:var(--ink-mute);
+}
+.section-intro{color:var(--ink-soft); margin:0 0 28px; max-width:64ch;}
+
+h3.sub{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:20px;
+  margin:36px 0 6px;
+  color:var(--ink);
+}
+h3.sub .en{font-family:var(--sans); font-size:14px; font-weight:400; color:var(--ink-mute); margin-left:8px;}
+
+p{margin:0 0 14px; max-width:66ch;}
+ul,ol{margin:0 0 14px; padding-left:22px; max-width:64ch;}
+li{margin-bottom:6px;}
+
+/* german text styling */
+.de-text{font-family:var(--serif); font-size:1.05em;}
+
+/* grammar box */
+.formula{
+  font-family:var(--mono);
+  font-size:15px;
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:6px;
+  padding:14px 18px;
+  margin:14px 0 20px;
+  color:var(--ink);
+  overflow-x:auto;
+}
+.formula .slot{color:var(--blue); font-weight:500;}
+
+.order-row{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 22px;
+}
+.order-cell{
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  padding:8px 14px;
+  text-align:center;
+  min-width:64px;
+}
+.order-cell .word{font-family:var(--serif); font-size:16px; display:block;}
+.order-cell .tag{font-family:var(--mono); font-size:10.5px; color:var(--ink-mute); text-transform:uppercase; letter-spacing:0.04em; display:block; margin-top:4px;}
+
+.ex-block{margin:8px 0 4px;}
+.ex-line{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:6px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.ex-line:last-child{border-bottom:none;}
+.mark{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  flex-shrink:0;
+  width:20px;
+  padding-top:3px;
+}
+.mark.pos{color:var(--green);}
+.mark.neg{color:var(--red);}
+.ex-text{flex:1;}
+.ex-de{font-family:var(--serif); font-size:16.5px; color:var(--ink);}
+.ex-en{font-size:13.5px; color:var(--ink-mute); margin-top:2px;}
+
+/* callout boxes */
+.box{
+  border-radius:8px;
+  padding:16px 20px;
+  margin:18px 0;
+}
+.box-title{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  margin:0 0 8px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.box p, .box ul{margin-bottom:0;}
+.box p + p{margin-top:8px;}
+.box.mistake{background:var(--red-bg);}
+.box.mistake .box-title{color:var(--red);}
+.box.trick{background:var(--amber-bg);}
+.box.trick .box-title{color:var(--amber);}
+.box.note{background:var(--blue-bg);}
+.box.note .box-title{color:var(--blue);}
+.dot{width:7px; height:7px; border-radius:50%; display:inline-block;}
+.dot.red{background:var(--red);}
+.dot.amber{background:var(--amber);}
+.dot.blue{background:var(--blue);}
+
+/* mistake pair */
+.mistake-pair{margin:16px 0 22px;}
+.mp-line{padding:5px 0 5px 26px; position:relative; font-family:var(--serif); font-size:16px;}
+.mp-line.x::before{content:"✕"; position:absolute; left:0; color:var(--red); font-family:var(--sans); font-size:13px; top:8px;}
+.mp-line.ok::before{content:"✓"; position:absolute; left:0; color:var(--green); font-family:var(--sans); font-size:13px; top:8px;}
+.mp-why{font-family:var(--sans); font-size:13.5px; color:var(--ink-mute); padding-left:26px; margin-top:2px;}
+
+/* tables */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:16px 0 24px;
+  font-size:14.5px;
+}
+th{
+  text-align:left;
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12.5px;
+  color:var(--ink-mute);
+  text-transform:none;
+  padding:8px 10px;
+  border-bottom:1px solid var(--rule-strong);
+}
+td{
+  padding:9px 10px;
+  border-bottom:1px solid var(--rule);
+  vertical-align:top;
+}
+td.de{font-family:var(--serif); font-size:15.5px;}
+tr:last-child td{border-bottom:none;}
+
+/* dialogue */
+.dialogue{
+  border-left:2px solid var(--rule-strong);
+  padding-left:20px;
+  margin:16px 0 24px;
+}
+.turn{margin-bottom:14px;}
+.speaker{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12.5px;
+  color:var(--ink-mute);
+  margin-bottom:2px;
+}
+.line-de{font-family:var(--serif); font-size:17px; color:var(--ink);}
+.line-en{font-size:13.5px; color:var(--ink-mute); margin-top:2px;}
+
+/* chunk pills */
+.chunks{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 22px;}
+.chunk{
+  border:1px solid var(--rule-strong);
+  border-radius:20px;
+  padding:6px 14px;
+  font-family:var(--serif);
+  font-size:14.5px;
+}
+
+/* exercise */
+.exercise{
+  margin:20px 0;
+  padding:16px 0 4px;
+  border-top:1px solid var(--rule);
+}
+.exercise:first-of-type{border-top:none; padding-top:0;}
+.ex-num{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--ink-mute);
+  margin-bottom:4px;
+}
+.ex-prompt{margin-bottom:6px;}
+.ex-blank{
+  display:inline-block;
+  min-width:90px;
+  border-bottom:1px solid var(--ink-mute);
+  margin:0 3px;
+}
+
+/* answer key */
+.answers{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:24px 28px;
+}
+.answers h3.sub{margin-top:0;}
+.ans-line{
+  font-family:var(--serif);
+  font-size:15.5px;
+  padding:5px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.ans-line:last-child{border-bottom:none;}
+.ans-num{font-family:var(--sans); color:var(--ink-mute); font-size:13px; margin-right:8px;}
+
+/* pronunciation */
+.sound-row{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:12px 0;
+  border-bottom:1px solid var(--rule);
+}
+.sound-row:last-child{border-bottom:none;}
+.ipa{
+  font-family:var(--mono);
+  font-size:18px;
+  color:var(--blue);
+  min-width:52px;
+}
+.sound-body{flex:1;}
+.sound-words{font-family:var(--serif); font-size:15.5px; margin-top:2px;}
+
+/* revision */
+.revision-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+}
+@media (max-width:600px){.revision-grid{grid-template-columns:1fr;}}
+.rev-col h3.sub{margin-top:0;}
+.rev-item{
+  font-family:var(--serif);
+  font-size:15.5px;
+  padding:6px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.rev-item:last-child{border-bottom:none;}
+
+hr.rule{border:none; border-top:1px solid var(--rule); margin:0;}
+
+footer{
+  text-align:center;
+  padding:32px 0 8px;
+  color:var(--ink-mute);
+  font-size:13px;
+}
+/* interactive exercise widgets */
+.ex-check{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:6px;
+}
+.ex-input{
+  font-family:var(--serif);
+  font-size:15px;
+  padding:6px 10px;
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  background:var(--paper);
+  color:var(--ink);
+  min-width:160px;
+}
+.ex-input:focus{outline:none; border-color:var(--blue);}
+.check-btn{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  padding:6px 14px;
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  background:var(--paper-2);
+  color:var(--ink);
+  cursor:pointer;
+}
+.check-btn:hover{background:var(--rule);}
+.ex-feedback{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  min-width:120px;
+}
+.tracker-box{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:18px 22px;
+  margin:20px 0;
+}
+.tracker-box h4{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:600;
+  margin:0 0 10px;
+  color:var(--ink-mute);
+}
+.tracker-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 0;
+  border-bottom:1px dotted var(--rule);
+  font-size:14px;
+}
+.tracker-item:last-child{border-bottom:none;}
+.tracker-item .clear-btn{
+  font-family:var(--sans);
+  font-size:12px;
+  color:var(--ink-mute);
+  background:none;
+  border:none;
+  cursor:pointer;
+  text-decoration:underline;
+}
+.tracker-empty{color:var(--ink-mute); font-size:13.5px; font-style:italic;}
+.persist-note{font-size:12px; color:var(--ink-mute); margin-top:8px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow">Netzwerk neu A1 · Kapitel 8</p>
+  <h1 class="title">Fit und gesund <em>— Fit and healthy</em></h1>
+  <p class="subtitle">Body, health, the doctor's office, and commands with du/ihr</p>
+</header>
+
+<nav class="toc" aria-label="Chapter sections">
+  <a href="#overview">Overview</a>
+  <a href="#grammar">Grammar</a>
+  <a href="#sentence-factory">Sentence factory</a>
+  <a href="#question-factory">Question factory</a>
+  <a href="#speaking-factory">Speaking factory</a>
+  <a href="#vocabulary">Vocabulary</a>
+  <a href="#exercises">Exercises</a>
+  <a href="#answers">Answer key</a>
+  <a href="#pronunciation">Pronunciation</a>
+  <a href="#mistakes">Common mistakes</a>
+  <a href="#revision">Quick revision</a>
+</nav>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <h2 class="section-title"><span class="de">Kapitelüberblick</span><span class="en">Chapter overview</span></h2>
+  <p class="section-intro">Kapitel 8 extends the imperative (command form) you learned in Kapitel 3 to du and ihr — the forms you'll actually use with friends, family, or a doctor giving you informal advice. It's paired with body-part and health vocabulary because commands and advice go hand in hand.</p>
+
+  <h3 class="sub">What this chapter is about</h3>
+  <p>You'll learn body parts, common illnesses and symptoms, how to describe pain and injuries, basic vocabulary for a doctor's visit, and — grammatically — the du- and ihr-imperative forms, which let you give informal instructions and advice.</p>
+
+  <h3 class="sub">What you should be able to say after finishing it</h3>
+  <ul>
+    <li>Name body parts and say where something hurts</li>
+    <li>Describe basic symptoms to a doctor or pharmacist</li>
+    <li>Give informal commands and advice to a friend</li>
+    <li>Understand simple health instructions and recommendations</li>
+    <li>Talk about fitness and exercise habits</li>
+  </ul>
+
+  <h3 class="sub">Where you use this in real life</h3>
+  <p>Describing an ache to a doctor or pharmacist, telling a friend to rest or drink water when they're sick, following basic health instructions in German, or discussing fitness routines.</p>
+</section>
+
+<!-- GRAMMAR -->
+<section id="grammar">
+  <h2 class="section-title"><span class="de">Grammatik</span><span class="en">Grammar</span></h2>
+  <p class="section-intro">The main new grammar: du- and ihr-imperative forms, completing the command system you started with Sie in Kapitel 3.</p>
+
+  <h3 class="sub">1. The du-imperative <span class="en">informal singular commands</span></h3>
+  <p>To give an informal command to one person, drop the <span class="de-text">-st</span> ending from the du-form and often drop the <span class="de-text">-e</span> from the stem too (though keeping it is also fine and common).</p>
+  <div class="formula">du-form minus -st → imperative (no "du" spoken)</div>
+  <table>
+    <tr><th>Infinitive</th><th>du-form</th><th>du-imperative</th></tr>
+    <tr><td class="de">trinken</td><td class="de">du trinkst</td><td class="de">Trink!</td></tr>
+    <tr><td class="de">essen</td><td class="de">du isst</td><td class="de">Iss!</td></tr>
+    <tr><td class="de">schlafen</td><td class="de">du schläfst</td><td class="de">Schlaf!</td></tr>
+    <tr><td class="de">nehmen</td><td class="de">du nimmst</td><td class="de">Nimm!</td></tr>
+  </table>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Trink viel Wasser!</div><div class="ex-en">Drink lots of water!</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Nimm die Tablette!</div><div class="ex-en">Take the pill!</div></div></div>
+    <div class="ex-line"><span class="mark neg">✕</span><div class="ex-text"><div class="ex-de">Du trink viel Wasser!</div><div class="ex-en">Wrong — the du-imperative drops "du" entirely; you never say it aloud</div></div></div>
+  </div>
+  <div class="box mistake">
+    <p class="box-title"><span class="dot red"></span>Common mistake</p>
+    <p>Verbs that change their vowel in the du-form (like <span class="de-text">nehmen → nimmst</span>, <span class="de-text">essen → isst</span>) keep that vowel change in the imperative too: <span class="de-text">Nimm!</span>, <span class="de-text">Iss!</span> — not <span class="de-text">Nehm!</span> or <span class="de-text">Ess!</span>. This is a frequent A1 error because it looks like it should go back to the infinitive stem.</p>
+  </div>
+
+  <h3 class="sub">2. The ihr-imperative <span class="en">informal plural commands</span></h3>
+  <p>For a group of people you'd address as <span class="de-text">ihr</span>, simply use the ihr-form of the verb and drop the pronoun.</p>
+  <table>
+    <tr><th>Infinitive</th><th>ihr-form</th><th>ihr-imperative</th></tr>
+    <tr><td class="de">trinken</td><td class="de">ihr trinkt</td><td class="de">Trinkt!</td></tr>
+    <tr><td class="de">essen</td><td class="de">ihr esst</td><td class="de">Esst!</td></tr>
+  </table>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Kommt bitte pünktlich!</div><div class="ex-en">Please come on time! (to a group of friends)</div></div></div>
+  </div>
+
+  <h3 class="sub">3. Summary — all three imperative forms together</h3>
+  <table>
+    <tr><th>Form</th><th>Used for</th><th>trinken</th><th>nehmen</th></tr>
+    <tr><td class="de">Sie</td><td>formal, any number</td><td class="de">Trinken Sie!</td><td class="de">Nehmen Sie!</td></tr>
+    <tr><td class="de">du</td><td>informal, one person</td><td class="de">Trink!</td><td class="de">Nimm!</td></tr>
+    <tr><td class="de">ihr</td><td>informal, group</td><td class="de">Trinkt!</td><td class="de">Nehmt!</td></tr>
+  </table>
+  <div class="box trick">
+    <p class="box-title"><span class="dot amber"></span>Memory trick</p>
+    <p>Only the Sie-imperative keeps its pronoun and flips word order (verb-Sie). Both du- and ihr-imperatives simply drop the pronoun from the normal present-tense form — no word order change needed, just delete "du"/"ihr" and, for du, usually the -st ending.</p>
+  </div>
+
+  <h3 class="sub">4. Saying where something hurts <span class="en">weh tun</span></h3>
+  <div class="formula">[body part, dative if pronoun] + tut/tun + [dative person] + weh.</div>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Mein Kopf tut weh.</div><div class="ex-en">My head hurts.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Mir tut der Bauch weh.</div><div class="ex-en">My stomach hurts. (literally: "to me the stomach hurts")</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Meine Beine tun weh.</div><div class="ex-en">My legs hurt. (plural: tun, not tut)</div></div></div>
+  </div>
+</section>
+
+<!-- SENTENCE FACTORY -->
+<section id="sentence-factory">
+  <h2 class="section-title"><span class="de">Satzfabrik</span><span class="en">Sentence factory</span></h2>
+
+  <h3 class="sub">Base pattern: giving health advice</h3>
+  <div class="formula">[imperative verb] + [rest]!</div>
+  <table>
+    <tr><th>Imperative</th><th>Rest</th><th>Full sentence</th></tr>
+    <tr><td class="de">Trink</td><td class="de">viel Wasser!</td><td class="de">Trink viel Wasser!</td></tr>
+    <tr><td class="de">Schlaf</td><td class="de">gut!</td><td class="de">Schlaf gut!</td></tr>
+    <tr><td class="de">Nimm</td><td class="de">eine Tablette!</td><td class="de">Nimm eine Tablette!</td></tr>
+  </table>
+
+  <h3 class="sub">Swap the body part in pain</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Mein Kopf tut weh.</div><div class="ex-en">My head hurts.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Mein Hals tut weh.</div><div class="ex-en">My throat hurts.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Mein Rücken tut weh.</div><div class="ex-en">My back hurts.</div></div></div>
+  </div>
+
+  <h3 class="sub">Swap the imperative form (Sie/du/ihr)</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Nehmen Sie zwei Tabletten! (formal)</div><div class="ex-en">Take two tablets!</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Nimm zwei Tabletten! (informal, one person)</div><div class="ex-en">Take two tablets!</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Nehmt zwei Tabletten! (informal, group)</div><div class="ex-en">Take two tablets!</div></div></div>
+  </div>
+</section>
+
+<!-- QUESTION FACTORY -->
+<section id="question-factory">
+  <h2 class="section-title"><span class="de">Fragefabrik</span><span class="en">Question factory</span></h2>
+
+  <h3 class="sub">Was <span class="en">what — symptoms</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Was fehlt dir? — Ich habe Kopfschmerzen.</div><div class="ex-en">What's wrong? — I have a headache.</div></div></div>
+  </div>
+
+  <h3 class="sub">Wo <span class="en">where — pinpointing pain</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wo tut es weh? — Hier, am Bauch.</div><div class="ex-en">Where does it hurt? — Here, the stomach.</div></div></div>
+  </div>
+
+  <h3 class="sub">Wie lange <span class="en">how long — duration of symptoms</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wie lange hast du schon Fieber? — Seit zwei Tagen.</div><div class="ex-en">How long have you had a fever? — For two days.</div></div></div>
+  </div>
+
+  <h3 class="sub">Yes/No questions</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Hast du Fieber? — Ja, ein bisschen.</div><div class="ex-en">Do you have a fever? — Yes, a little.</div></div></div>
+  </div>
+
+  <h3 class="sub">Short answers vs. full answers</h3>
+  <table>
+    <tr><th>Question</th><th>Short answer</th><th>Full answer</th></tr>
+    <tr><td class="de">Was fehlt dir?</td><td class="de">Kopfschmerzen.</td><td class="de">Ich habe Kopfschmerzen.</td></tr>
+    <tr><td class="de">Wo tut es weh?</td><td class="de">Am Bauch.</td><td class="de">Es tut mir am Bauch weh.</td></tr>
+  </table>
+</section>
+
+<!-- SPEAKING FACTORY -->
+<section id="speaking-factory">
+  <h2 class="section-title"><span class="de">Sprechfabrik</span><span class="en">Speaking factory</span></h2>
+
+  <h3 class="sub">Dialogue 1 — At the doctor's</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">ARZT</div><div class="line-de">Was fehlt Ihnen?</div><div class="line-en">What's wrong?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Ich habe Kopfschmerzen und Fieber.</div><div class="line-en">I have a headache and a fever.</div></div>
+    <div class="turn"><div class="speaker">ARZT</div><div class="line-de">Seit wann?</div><div class="line-en">Since when?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Seit zwei Tagen.</div><div class="line-en">For two days.</div></div>
+    <div class="turn"><div class="speaker">ARZT</div><div class="line-de">Nehmen Sie diese Tabletten und trinken Sie viel Wasser.</div><div class="line-en">Take these tablets and drink lots of water.</div></div>
+  </div>
+
+  <h3 class="sub">Dialogue 2 — Advising a sick friend (informal)</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">SONIA</div><div class="line-de">Mir geht es nicht gut. Mein Hals tut weh.</div><div class="line-en">I don't feel well. My throat hurts.</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Trink Tee mit Honig und schlaf viel.</div><div class="line-en">Drink tea with honey and sleep a lot.</div></div>
+    <div class="turn"><div class="speaker">SONIA</div><div class="line-de">Gute Idee, danke.</div><div class="line-en">Good idea, thanks.</div></div>
+  </div>
+
+  <h3 class="sub">Dialogue 3 — At the pharmacy</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">APOTHEKERIN</div><div class="line-de">Was brauchen Sie?</div><div class="line-en">What do you need?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Ich habe Bauchschmerzen. Haben Sie etwas dagegen?</div><div class="line-en">I have a stomachache. Do you have something for it?</div></div>
+    <div class="turn"><div class="speaker">APOTHEKERIN</div><div class="line-de">Ja, nehmen Sie diese Tropfen dreimal am Tag.</div><div class="line-en">Yes, take these drops three times a day.</div></div>
+  </div>
+
+  <h3 class="sub">Reusable speaking chunks</h3>
+  <div class="chunks">
+    <span class="chunk">Was fehlt dir/Ihnen?</span>
+    <span class="chunk">Mir geht es nicht gut.</span>
+    <span class="chunk">Ich habe Kopfschmerzen.</span>
+    <span class="chunk">Mein/meine ... tut weh.</span>
+    <span class="chunk">Seit wann?</span>
+    <span class="chunk">Seit zwei Tagen.</span>
+    <span class="chunk">Trink viel Wasser.</span>
+    <span class="chunk">Schlaf gut.</span>
+    <span class="chunk">Nimm eine Tablette.</span>
+    <span class="chunk">Gute Besserung!</span>
+  </div>
+</section>
+
+<!-- VOCABULARY -->
+<section id="vocabulary">
+  <h2 class="section-title"><span class="de">Wortschatz</span><span class="en">Vocabulary</span></h2>
+
+  <h3 class="sub">Body parts</h3>
+  <table>
+    <tr><th>Article</th><th>Singular</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">der</td><td class="de">Kopf</td><td class="de">Köpfe</td><td>head</td></tr>
+    <tr><td class="de">der</td><td class="de">Hals</td><td class="de">Hälse</td><td>throat/neck</td></tr>
+    <tr><td class="de">der</td><td class="de">Bauch</td><td class="de">Bäuche</td><td>stomach/belly</td></tr>
+    <tr><td class="de">der</td><td class="de">Rücken</td><td class="de">Rücken</td><td>back</td></tr>
+    <tr><td class="de">das</td><td class="de">Bein</td><td class="de">Beine</td><td>leg</td></tr>
+    <tr><td class="de">der</td><td class="de">Arm</td><td class="de">Arme</td><td>arm</td></tr>
+    <tr><td class="de">die</td><td class="de">Hand</td><td class="de">Hände</td><td>hand</td></tr>
+    <tr><td class="de">der</td><td class="de">Fuß</td><td class="de">Füße</td><td>foot</td></tr>
+    <tr><td class="de">das</td><td class="de">Auge</td><td class="de">Augen</td><td>eye</td></tr>
+    <tr><td class="de">das</td><td class="de">Ohr</td><td class="de">Ohren</td><td>ear</td></tr>
+    <tr><td class="de">die</td><td class="de">Nase</td><td class="de">Nasen</td><td>nose</td></tr>
+  </table>
+
+  <h3 class="sub">Health nouns</h3>
+  <table>
+    <tr><th>Article</th><th>Singular</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">die</td><td class="de">Kopfschmerzen</td><td class="de">—</td><td>headache (plural)</td></tr>
+    <tr><td class="de">die</td><td class="de">Bauchschmerzen</td><td class="de">—</td><td>stomachache (plural)</td></tr>
+    <tr><td class="de">das</td><td class="de">Fieber</td><td class="de">—</td><td>fever</td></tr>
+    <tr><td class="de">der</td><td class="de">Schnupfen</td><td class="de">—</td><td>cold (runny nose)</td></tr>
+    <tr><td class="de">die</td><td class="de">Tablette</td><td class="de">Tabletten</td><td>tablet/pill</td></tr>
+    <tr><td class="de">der</td><td class="de">Tropfen</td><td class="de">Tropfen</td><td>drop (medicine)</td></tr>
+    <tr><td class="de">das</td><td class="de">Rezept</td><td class="de">Rezepte</td><td>prescription</td></tr>
+    <tr><td class="de">die</td><td class="de">Apotheke</td><td class="de">Apotheken</td><td>pharmacy</td></tr>
+    <tr><td class="de">der</td><td class="de">Schmerz</td><td class="de">Schmerzen</td><td>pain</td></tr>
+  </table>
+
+  <h3 class="sub">Verbs</h3>
+  <table>
+    <tr><th>Infinitive</th><th>Meaning</th></tr>
+    <tr><td class="de">weh tun</td><td>to hurt</td></tr>
+    <tr><td class="de">nehmen</td><td>to take</td></tr>
+    <tr><td class="de">sich fühlen</td><td>to feel</td></tr>
+  </table>
+
+  <h3 class="sub">Useful expressions</h3>
+  <table>
+    <tr><td class="de">Mir geht es (nicht) gut.</td><td>I'm (not) feeling well</td></tr>
+    <tr><td class="de">Was fehlt dir/Ihnen?</td><td>what's wrong (with you)?</td></tr>
+    <tr><td class="de">Gute Besserung!</td><td>get well soon!</td></tr>
+    <tr><td class="de">Seit wann?</td><td>since when?</td></tr>
+    <tr><td class="de">dreimal am Tag</td><td>three times a day</td></tr>
+  </table>
+</section>
+
+<!-- EXERCISES -->
+<section id="exercises">
+  <h2 class="section-title"><span class="de">Übungen</span><span class="en">Exercises</span></h2>
+
+  <div class="exercise">
+    <p class="ex-num">A · Sentence building</p>
+    <p class="ex-prompt">1. Build a sentence from: <span class="de-text">tut / mein Kopf / weh</span></p>
+    <p class="ex-prompt">2. Build an informal command from: <span class="de-text">Wasser / trink / viel</span></p>
+    <p class="ex-prompt">3. Build a sentence from: <span class="de-text">Kopfschmerzen / ich / habe</span></p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">B · Question building</p>
+    <p class="ex-prompt">4. Ask a friend what's wrong (informal).</p>
+    <p class="ex-prompt">5. Ask where it hurts.</p>
+    <p class="ex-prompt">6. Ask how long someone has had a fever.</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">C · Translation</p>
+    <p class="ex-prompt">7. Translate: "My throat hurts and I have a fever."</p>
+    <p class="ex-prompt">8. Translate: "Take two tablets and sleep a lot." (informal, one person)</p>
+    <p class="ex-prompt">9. Translate: "Get well soon!"</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">D · Fill in the blank (imperative)</p>
+
+    <div data-answer="Trink" data-id="d10" data-prompt="___ viel Wasser! (trinken — du)">
+      <p class="ex-prompt">10. <span class="ex-blank" style="display:none;"></span> viel Wasser!</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Nimm" data-id="d11" data-prompt="___ die Tablette! (nehmen — du)">
+      <p class="ex-prompt">11. <span class="ex-blank" style="display:none;"></span> die Tablette!</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Kommt" data-id="d12" data-prompt="___ pünktlich! (kommen — ihr)">
+      <p class="ex-prompt">12. <span class="ex-blank" style="display:none;"></span> pünktlich!</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Schlaf" data-id="d13" data-prompt="___ gut! (schlafen — du)">
+      <p class="ex-prompt">13. <span class="ex-blank" style="display:none;"></span> gut!</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">E · Correction</p>
+
+    <div data-answer="Trink viel Wasser!" data-id="e14" data-prompt="Du trink viel Wasser!">
+      <p class="ex-prompt">14. <span class="de-text">Du trink viel Wasser!</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Nimm die Tablette!" data-id="e15" data-prompt="Nehm die Tablette!">
+      <p class="ex-prompt">15. <span class="de-text">Nehm die Tablette!</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Mein Kopf tut weh." data-id="e16" data-prompt="Mein Kopf tun weh.">
+      <p class="ex-prompt">16. <span class="de-text">Mein Kopf tun weh.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">F · Speaking prompts</p>
+    <p class="ex-prompt">17. Tell a friend two things they should do because they're sick.</p>
+    <p class="ex-prompt">18. Describe a symptom to a pharmacist.</p>
+    <p class="ex-prompt">19. Name five body parts out loud.</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">G · Mixed review</p>
+    <p class="ex-prompt">20. Write a short doctor's visit dialogue: describe a symptom, get advice, thank the doctor.</p>
+  </div>
+<div class="tracker-box" id="mistake-tracker">
+    <h4>Your missed items on this chapter</h4>
+    <div id="tracker-list"><p class="tracker-empty">Loading…</p></div>
+    
+  </div>
+</section>
+
+<!-- ANSWER KEY -->
+<section id="answers">
+  <h2 class="section-title"><span class="de">Lösungen</span><span class="en">Answer key</span></h2>
+  <div class="answers">
+    <h3 class="sub">A · Sentence building</h3>
+    <div class="ans-line"><span class="ans-num">1</span><span class="de-text">Mein Kopf tut weh.</span></div>
+    <div class="ans-line"><span class="ans-num">2</span><span class="de-text">Trink viel Wasser!</span></div>
+    <div class="ans-line"><span class="ans-num">3</span><span class="de-text">Ich habe Kopfschmerzen.</span></div>
+
+    <h3 class="sub">B · Question building</h3>
+    <div class="ans-line"><span class="ans-num">4</span><span class="de-text">Was fehlt dir?</span></div>
+    <div class="ans-line"><span class="ans-num">5</span><span class="de-text">Wo tut es weh?</span></div>
+    <div class="ans-line"><span class="ans-num">6</span><span class="de-text">Wie lange hast du schon Fieber?</span></div>
+
+    <h3 class="sub">C · Translation</h3>
+    <div class="ans-line"><span class="ans-num">7</span><span class="de-text">Mein Hals tut weh und ich habe Fieber.</span></div>
+    <div class="ans-line"><span class="ans-num">8</span><span class="de-text">Nimm zwei Tabletten und schlaf viel.</span></div>
+    <div class="ans-line"><span class="ans-num">9</span><span class="de-text">Gute Besserung!</span></div>
+
+    <h3 class="sub">D · Fill in the blank</h3>
+    <div class="ans-line"><span class="ans-num">10</span><span class="de-text">Trink</span></div>
+    <div class="ans-line"><span class="ans-num">11</span><span class="de-text">Nimm</span></div>
+    <div class="ans-line"><span class="ans-num">12</span><span class="de-text">Kommt</span></div>
+    <div class="ans-line"><span class="ans-num">13</span><span class="de-text">Schlaf</span></div>
+
+    <h3 class="sub">E · Correction</h3>
+    <div class="ans-line"><span class="ans-num">14</span><span class="de-text">Trink viel Wasser!</span> — the pronoun "du" is dropped entirely in the imperative</div>
+    <div class="ans-line"><span class="ans-num">15</span><span class="de-text">Nimm die Tablette!</span> — nehmen's stem-vowel change (e→i) carries into the imperative</div>
+    <div class="ans-line"><span class="ans-num">16</span><span class="de-text">Mein Kopf tut weh.</span> — Kopf is singular, so it takes tut, not tun</div>
+
+    <h3 class="sub">G · Mixed review — sample answer</h3>
+    <div class="ans-line"><span class="ans-num">20</span><span class="de-text">— Was fehlt Ihnen? — Ich habe Kopfschmerzen. — Nehmen Sie diese Tabletten. — Danke schön!</span></div>
+  </div>
+</section>
+
+<!-- PRONUNCIATION -->
+<section id="pronunciation">
+  <h2 class="section-title"><span class="de">Aussprache</span><span class="en">Pronunciation</span></h2>
+
+  <div class="sound-row">
+    <div class="ipa">au (Bauch)</div>
+    <div class="sound-body">Like English "ow" in "how," reinforcing what you saw in Kapitel 3.
+      <div class="sound-words">Bauch · Kopfschmerzen (no au, contrast)</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">ö (Köpfe)</div>
+    <div class="sound-body">Round lips, say "e" — appears in the plural of Kopf.
+      <div class="sound-words">Köpfe</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">pf</div>
+    <div class="sound-body">Both letters pronounced together as a single sound — don't drop the p.
+      <div class="sound-words">Kopf · Apotheke (no pf, contrast: Tropfen has pf)</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMON MISTAKES -->
+<section id="mistakes">
+  <h2 class="section-title"><span class="de">Häufige Fehler</span><span class="en">Common mistakes</span></h2>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Du trink viel Wasser!</div>
+    <div class="mp-line ok">Trink viel Wasser!</div>
+    <div class="mp-why">Why: the imperative drops the pronoun entirely — saying "du" out loud in a command sounds unnatural and defeats the purpose of the imperative form.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Nehm die Tablette!</div>
+    <div class="mp-line ok">Nimm die Tablette!</div>
+    <div class="mp-why">Why: verbs with a stem-vowel change in the du-form (nehmen → nimmst) keep that change in the imperative — it doesn't revert to the plain infinitive stem.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Mein Kopf tun weh.</div>
+    <div class="mp-line ok">Mein Kopf tut weh.</div>
+    <div class="mp-why">Why: Kopf is singular, so the verb must agree — tut, not the plural tun.</div>
+  </div>
+</section>
+
+<!-- QUICK REVISION -->
+<section id="revision">
+  <h2 class="section-title"><span class="de">Kurze Wiederholung</span><span class="en">Quick revision</span></h2>
+  <div class="revision-grid">
+    <div class="rev-col">
+      <h3 class="sub">Sentence patterns</h3>
+      <div class="rev-item">[body part] + tut/tun + weh.</div>
+      <div class="rev-item">Ich habe [symptom].</div>
+      <div class="rev-item">[Imperative]! (Sie/du/ihr)</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Question forms</h3>
+      <div class="rev-item">Was fehlt dir/Ihnen?</div>
+      <div class="rev-item">Wo tut es weh?</div>
+      <div class="rev-item">Wie lange...?</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Most important words</h3>
+      <div class="rev-item">Trink!, Nimm!, Schlaf! (du-imperative)</div>
+      <div class="rev-item">Kopfschmerzen, Fieber, Bauch</div>
+      <div class="rev-item">Gute Besserung!</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Sound traps</h3>
+      <div class="rev-item">au = "ow" (Bauch)</div>
+      <div class="rev-item">ö = rounded lips + "e" (Köpfe)</div>
+      <div class="rev-item">pf pronounced together, not dropped</div>
+    </div>
+  </div>
+</section>
+
+<footer>Kapitel 8 · Fit und gesund — Netzwerk neu A1</footer>
+
+</div>
+
+
+<script>
+const NA1 = (() => {
+  const STORAGE_KEY = 'na1_mistakes_kapitel8';
+
+  function loadMistakes() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+    catch (e) { return {}; }
+  }
+  function saveMistakes(obj) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(obj)); } catch (e) {}
+  }
+
+  function norm(s){ return (s||'').trim().toLowerCase().replace(/\s+/g,' '); }
+
+  function logMistake(itemId, meta) {
+    const all = loadMistakes();
+    const prev = all[itemId] || { count: 0 };
+    all[itemId] = {
+      itemId, chapter: meta.chapter, prompt: meta.prompt,
+      count: (prev.count || 0) + 1,
+      lastWrong: new Date().toISOString(),
+      cleared: false
+    };
+    saveMistakes(all);
+    renderTracker();
+  }
+
+  function clearMistake(itemId) {
+    const all = loadMistakes();
+    if (all[itemId]) { all[itemId].cleared = true; saveMistakes(all); renderTracker(); }
+  }
+
+  function getAllMistakes() {
+    const all = loadMistakes();
+    return Object.values(all).filter(m => !m.cleared);
+  }
+
+  function wireExercise(chapterLabel) {
+    document.querySelectorAll('[data-answer]').forEach(item => {
+      const input = item.querySelector('input');
+      const btn = item.querySelector('.check-btn');
+      const feedback = item.querySelector('.ex-feedback');
+      if (!input || !btn) return;
+      btn.addEventListener('click', () => {
+        const correctRaw = item.getAttribute('data-answer');
+        const options = correctRaw.split('|').map(norm);
+        const given = norm(input.value);
+        const isRight = options.includes(given);
+        feedback.textContent = isRight ? 'Richtig!' : `Not quite — correct: ${correctRaw}`;
+        feedback.style.color = isRight ? 'var(--green)' : 'var(--red)';
+        input.style.borderColor = isRight ? 'var(--green)' : 'var(--red)';
+        const itemId = `kapitel8-${item.getAttribute('data-id')}`;
+        if (!isRight) {
+          logMistake(itemId, { chapter: 'kapitel8', prompt: item.getAttribute('data-prompt') || '' });
+        } else {
+          clearMistake(itemId);
+        }
+      });
+      input.addEventListener('keydown', (e) => { if (e.key === 'Enter') btn.click(); });
+    });
+  }
+
+  function renderTracker() {
+    const list = document.getElementById('tracker-list');
+    if (!list) return;
+    const mistakes = getAllMistakes();
+    if (mistakes.length === 0) {
+      list.innerHTML = '<p class="tracker-empty">No open mistakes on this chapter — nice work.</p>';
+      return;
+    }
+    list.innerHTML = mistakes.map(m => `
+      <div class="tracker-item">
+        <span>${m.prompt || m.itemId} <span style="color:var(--ink-mute);">(missed ${m.count}×)</span></span>
+        <button class="clear-btn" data-clear="${m.itemId}">mark reviewed</button>
+      </div>`).join('');
+    list.querySelectorAll('[data-clear]').forEach(b => {
+      b.addEventListener('click', () => clearMistake(b.getAttribute('data-clear')));
+    });
+  }
+
+  wireExercise('kapitel8');
+  renderTracker();
+
+  return { logMistake, clearMistake, getAllMistakes };
+})();
+</script>
+</body>
+</html>

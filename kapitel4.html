@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kapitel 4 — Guten Appetit!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf6ee;
+  --paper-2:#f2ecdf;
+  --ink:#241f16;
+  --ink-soft:#5b5344;
+  --ink-mute:#8c8471;
+  --rule:#ddd3bd;
+  --rule-strong:#c6b998;
+  --blue:#2d4a63;
+  --blue-bg:#e4ecf1;
+  --green:#3c6b3f;
+  --green-bg:#e6efe2;
+  --red:#a3402f;
+  --red-bg:#f4e5df;
+  --amber:#8a5a1f;
+  --amber-bg:#f3e7d2;
+  --serif:'Fraunces', Georgia, serif;
+  --sans:'Inter', -apple-system, sans-serif;
+  --mono:'JetBrains Mono', monospace;
+}
+:root[data-mode="dark"]{
+  --paper:#1c1912;
+  --paper-2:#242019;
+  --ink:#ece4d3;
+  --ink-soft:#c2b8a2;
+  --ink-mute:#8f8672;
+  --rule:#3a3527;
+  --rule-strong:#4d4632;
+  --blue:#9dc0dd;
+  --blue-bg:#243440;
+  --green:#a9cba0;
+  --green-bg:#25352a;
+  --red:#e3a493;
+  --red-bg:#3a2823;
+  --amber:#e0bb7c;
+  --amber-bg:#3a3020;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-mode="light"]){
+    --paper:#1c1912; --paper-2:#242019; --ink:#ece4d3; --ink-soft:#c2b8a2; --ink-mute:#8f8672;
+    --rule:#3a3527; --rule-strong:#4d4632; --blue:#9dc0dd; --blue-bg:#243440;
+    --green:#a9cba0; --green-bg:#25352a; --red:#e3a493; --red-bg:#3a2823;
+    --amber:#e0bb7c; --amber-bg:#3a3020;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.65;
+  font-size:16px;
+}
+.wrap{max-width:760px; margin:0 auto; padding:0 24px 120px;}
+@media (max-width:600px){.wrap{padding:0 16px 100px;}}
+
+/* header */
+header.hero{
+  border-bottom:1px solid var(--rule);
+  padding:56px 0 40px;
+  margin-bottom:8px;
+}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:13px;
+  color:var(--ink-mute);
+  letter-spacing:0.02em;
+  margin:0 0 14px;
+}
+h1.title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:44px;
+  line-height:1.1;
+  margin:0 0 12px;
+  letter-spacing:-0.01em;
+}
+h1.title em{font-style:italic; font-weight:500; color:var(--blue);}
+.subtitle{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:19px;
+  color:var(--ink-soft);
+  margin:0;
+}
+
+/* nav */
+nav.toc{
+  position:sticky; top:0; z-index:10;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+  padding:10px 0;
+  margin-bottom:48px;
+  overflow-x:auto;
+  white-space:nowrap;
+  -webkit-overflow-scrolling:touch;
+}
+nav.toc::-webkit-scrollbar{height:0;}
+nav.toc a{
+  font-family:var(--sans);
+  font-size:13.5px;
+  color:var(--ink-soft);
+  text-decoration:none;
+  margin-right:22px;
+  padding-bottom:2px;
+  border-bottom:1px solid transparent;
+}
+nav.toc a:hover{color:var(--ink); border-bottom-color:var(--rule-strong);}
+
+section{margin-bottom:64px;}
+section:last-of-type{margin-bottom:24px;}
+
+h2.section-title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:28px;
+  margin:0 0 6px;
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+}
+.section-title .de{color:var(--ink);}
+.section-title .en{
+  font-family:var(--sans);
+  font-style:normal;
+  font-size:15px;
+  font-weight:400;
+  color:var(--ink-mute);
+}
+.section-intro{color:var(--ink-soft); margin:0 0 28px; max-width:64ch;}
+
+h3.sub{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:20px;
+  margin:36px 0 6px;
+  color:var(--ink);
+}
+h3.sub .en{font-family:var(--sans); font-size:14px; font-weight:400; color:var(--ink-mute); margin-left:8px;}
+
+p{margin:0 0 14px; max-width:66ch;}
+ul,ol{margin:0 0 14px; padding-left:22px; max-width:64ch;}
+li{margin-bottom:6px;}
+
+/* german text styling */
+.de-text{font-family:var(--serif); font-size:1.05em;}
+
+/* grammar box */
+.formula{
+  font-family:var(--mono);
+  font-size:15px;
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:6px;
+  padding:14px 18px;
+  margin:14px 0 20px;
+  color:var(--ink);
+  overflow-x:auto;
+}
+.formula .slot{color:var(--blue); font-weight:500;}
+
+.order-row{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 22px;
+}
+.order-cell{
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  padding:8px 14px;
+  text-align:center;
+  min-width:64px;
+}
+.order-cell .word{font-family:var(--serif); font-size:16px; display:block;}
+.order-cell .tag{font-family:var(--mono); font-size:10.5px; color:var(--ink-mute); text-transform:uppercase; letter-spacing:0.04em; display:block; margin-top:4px;}
+
+.ex-block{margin:8px 0 4px;}
+.ex-line{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:6px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.ex-line:last-child{border-bottom:none;}
+.mark{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  flex-shrink:0;
+  width:20px;
+  padding-top:3px;
+}
+.mark.pos{color:var(--green);}
+.mark.neg{color:var(--red);}
+.ex-text{flex:1;}
+.ex-de{font-family:var(--serif); font-size:16.5px; color:var(--ink);}
+.ex-en{font-size:13.5px; color:var(--ink-mute); margin-top:2px;}
+
+/* callout boxes */
+.box{
+  border-radius:8px;
+  padding:16px 20px;
+  margin:18px 0;
+}
+.box-title{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  margin:0 0 8px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.box p, .box ul{margin-bottom:0;}
+.box p + p{margin-top:8px;}
+.box.mistake{background:var(--red-bg);}
+.box.mistake .box-title{color:var(--red);}
+.box.trick{background:var(--amber-bg);}
+.box.trick .box-title{color:var(--amber);}
+.box.note{background:var(--blue-bg);}
+.box.note .box-title{color:var(--blue);}
+.dot{width:7px; height:7px; border-radius:50%; display:inline-block;}
+.dot.red{background:var(--red);}
+.dot.amber{background:var(--amber);}
+.dot.blue{background:var(--blue);}
+
+/* mistake pair */
+.mistake-pair{margin:16px 0 22px;}
+.mp-line{padding:5px 0 5px 26px; position:relative; font-family:var(--serif); font-size:16px;}
+.mp-line.x::before{content:"✕"; position:absolute; left:0; color:var(--red); font-family:var(--sans); font-size:13px; top:8px;}
+.mp-line.ok::before{content:"✓"; position:absolute; left:0; color:var(--green); font-family:var(--sans); font-size:13px; top:8px;}
+.mp-why{font-family:var(--sans); font-size:13.5px; color:var(--ink-mute); padding-left:26px; margin-top:2px;}
+
+/* tables */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:16px 0 24px;
+  font-size:14.5px;
+}
+th{
+  text-align:left;
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12.5px;
+  color:var(--ink-mute);
+  text-transform:none;
+  padding:8px 10px;
+  border-bottom:1px solid var(--rule-strong);
+}
+td{
+  padding:9px 10px;
+  border-bottom:1px solid var(--rule);
+  vertical-align:top;
+}
+td.de{font-family:var(--serif); font-size:15.5px;}
+tr:last-child td{border-bottom:none;}
+
+/* dialogue */
+.dialogue{
+  border-left:2px solid var(--rule-strong);
+  padding-left:20px;
+  margin:16px 0 24px;
+}
+.turn{margin-bottom:14px;}
+.speaker{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12.5px;
+  color:var(--ink-mute);
+  margin-bottom:2px;
+}
+.line-de{font-family:var(--serif); font-size:17px; color:var(--ink);}
+.line-en{font-size:13.5px; color:var(--ink-mute); margin-top:2px;}
+
+/* chunk pills */
+.chunks{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 22px;}
+.chunk{
+  border:1px solid var(--rule-strong);
+  border-radius:20px;
+  padding:6px 14px;
+  font-family:var(--serif);
+  font-size:14.5px;
+}
+
+/* exercise */
+.exercise{
+  margin:20px 0;
+  padding:16px 0 4px;
+  border-top:1px solid var(--rule);
+}
+.exercise:first-of-type{border-top:none; padding-top:0;}
+.ex-num{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--ink-mute);
+  margin-bottom:4px;
+}
+.ex-prompt{margin-bottom:6px;}
+.ex-blank{
+  display:inline-block;
+  min-width:90px;
+  border-bottom:1px solid var(--ink-mute);
+  margin:0 3px;
+}
+
+/* answer key */
+.answers{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:24px 28px;
+}
+.answers h3.sub{margin-top:0;}
+.ans-line{
+  font-family:var(--serif);
+  font-size:15.5px;
+  padding:5px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.ans-line:last-child{border-bottom:none;}
+.ans-num{font-family:var(--sans); color:var(--ink-mute); font-size:13px; margin-right:8px;}
+
+/* pronunciation */
+.sound-row{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:12px 0;
+  border-bottom:1px solid var(--rule);
+}
+.sound-row:last-child{border-bottom:none;}
+.ipa{
+  font-family:var(--mono);
+  font-size:18px;
+  color:var(--blue);
+  min-width:52px;
+}
+.sound-body{flex:1;}
+.sound-words{font-family:var(--serif); font-size:15.5px; margin-top:2px;}
+
+/* revision */
+.revision-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+}
+@media (max-width:600px){.revision-grid{grid-template-columns:1fr;}}
+.rev-col h3.sub{margin-top:0;}
+.rev-item{
+  font-family:var(--serif);
+  font-size:15.5px;
+  padding:6px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.rev-item:last-child{border-bottom:none;}
+
+hr.rule{border:none; border-top:1px solid var(--rule); margin:0;}
+
+footer{
+  text-align:center;
+  padding:32px 0 8px;
+  color:var(--ink-mute);
+  font-size:13px;
+}
+/* interactive exercise widgets */
+.ex-check{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:6px;
+}
+.ex-input{
+  font-family:var(--serif);
+  font-size:15px;
+  padding:6px 10px;
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  background:var(--paper);
+  color:var(--ink);
+  min-width:160px;
+}
+.ex-input:focus{outline:none; border-color:var(--blue);}
+.check-btn{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  padding:6px 14px;
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  background:var(--paper-2);
+  color:var(--ink);
+  cursor:pointer;
+}
+.check-btn:hover{background:var(--rule);}
+.ex-feedback{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  min-width:120px;
+}
+.tracker-box{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:18px 22px;
+  margin:20px 0;
+}
+.tracker-box h4{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:600;
+  margin:0 0 10px;
+  color:var(--ink-mute);
+}
+.tracker-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 0;
+  border-bottom:1px dotted var(--rule);
+  font-size:14px;
+}
+.tracker-item:last-child{border-bottom:none;}
+.tracker-item .clear-btn{
+  font-family:var(--sans);
+  font-size:12px;
+  color:var(--ink-mute);
+  background:none;
+  border:none;
+  cursor:pointer;
+  text-decoration:underline;
+}
+.tracker-empty{color:var(--ink-mute); font-size:13.5px; font-style:italic;}
+.persist-note{font-size:12px; color:var(--ink-mute); margin-top:8px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow">Netzwerk neu A1 · Kapitel 4</p>
+  <h1 class="title">Guten Appetit! <em>— Enjoy your meal!</em></h1>
+  <p class="subtitle">Food, drinks, shopping — and the accusative case</p>
+</header>
+
+<nav class="toc" aria-label="Chapter sections">
+  <a href="#overview">Overview</a>
+  <a href="#grammar">Grammar</a>
+  <a href="#sentence-factory">Sentence factory</a>
+  <a href="#question-factory">Question factory</a>
+  <a href="#speaking-factory">Speaking factory</a>
+  <a href="#vocabulary">Vocabulary</a>
+  <a href="#exercises">Exercises</a>
+  <a href="#answers">Answer key</a>
+  <a href="#pronunciation">Pronunciation</a>
+  <a href="#mistakes">Common mistakes</a>
+  <a href="#revision">Quick revision</a>
+</nav>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <h2 class="section-title"><span class="de">Kapitelüberblick</span><span class="en">Chapter overview</span></h2>
+  <p class="section-intro">Kapitel 4 introduces the accusative case — the first real German grammar hurdle. It changes how articles behave the moment a noun becomes the object of a sentence, and it shows up everywhere once you start talking about eating, buying, and wanting things.</p>
+
+  <h3 class="sub">What this chapter is about</h3>
+  <p>You'll learn food and drink vocabulary, the names of different shops, how to talk about meals and mealtimes, and — most importantly — the accusative case: how "the/a" changes when a noun is the direct object of a verb like <span class="de-text">essen, kaufen, brauchen, möchten</span>.</p>
+
+  <h3 class="sub">What you should be able to say after finishing it</h3>
+  <ul>
+    <li>Name common foods, drinks, and meals</li>
+    <li>Say what you eat, buy, need, or would like, using correct accusative articles</li>
+    <li>Have a basic shopping conversation at a bakery, butcher, or supermarket</li>
+    <li>Order food or drink politely</li>
+    <li>Say "Guten Appetit" and respond to it correctly</li>
+  </ul>
+
+  <h3 class="sub">Where you use this in real life</h3>
+  <p>Ordering in a café, shopping for groceries, telling a host what you'd like to eat, or explaining your diet — this chapter's grammar (accusative) will keep appearing in almost every future chapter, so it's worth getting solid here.</p>
+</section>
+
+<!-- GRAMMAR -->
+<section id="grammar">
+  <h2 class="section-title"><span class="de">Grammatik</span><span class="en">Grammar</span></h2>
+  <p class="section-intro">The accusative case marks the direct object of a sentence — the thing being eaten, bought, or wanted. Only the masculine article actually changes; feminine, neuter, and plural stay the same as nominative. This makes it more manageable than it sounds.</p>
+
+  <h3 class="sub">1. What "case" means <span class="en">the role a noun plays in the sentence</span></h3>
+  <p>In English, word order tells you who does what: "I eat the apple" — "I" is the doer (subject), "the apple" is the thing being acted on (object). German uses word order too, but it also changes the article to mark this role explicitly. The subject's case is called nominative (which you already know — der/die/das). The direct object's case is called accusative.</p>
+
+  <h3 class="sub">2. The accusative article change <span class="en">only masculine changes</span></h3>
+  <div class="formula">der → den (masculine only)<br>die → die (no change)<br>das → das (no change)<br>die (plural) → die (no change)</div>
+  <table>
+    <tr><th>Gender</th><th>Nominative (subject)</th><th>Accusative (object)</th></tr>
+    <tr><td>masculine</td><td class="de">der Kuchen</td><td class="de">den Kuchen</td></tr>
+    <tr><td>feminine</td><td class="de">die Wurst</td><td class="de">die Wurst</td></tr>
+    <tr><td>neuter</td><td class="de">das Brot</td><td class="de">das Brot</td></tr>
+    <tr><td>plural</td><td class="de">die Eier</td><td class="de">die Eier</td></tr>
+  </table>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich esse den Kuchen.</div><div class="ex-en">I eat the cake. (der Kuchen → den Kuchen, because it's the object)</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich kaufe die Wurst.</div><div class="ex-en">I buy the sausage. (die stays die)</div></div></div>
+    <div class="ex-line"><span class="mark neg">✕</span><div class="ex-text"><div class="ex-de">Ich esse der Kuchen.</div><div class="ex-en">Wrong — der must become den when it's the object of essen</div></div></div>
+  </div>
+  <div class="box trick">
+    <p class="box-title"><span class="dot amber"></span>Memory trick</p>
+    <p>Only masculine changes, and only in one direction: <span class="de-text">der → den</span>. Feminine, neuter, and plural nouns are "invisible" to the accusative — they look exactly the same as nominative. This means you only have to actively remember one change, not four.</p>
+  </div>
+
+  <h3 class="sub">3. Indefinite article in the accusative <span class="de-text">ein → einen</span></h3>
+  <p>The same pattern applies to <span class="de-text">ein</span>: masculine <span class="de-text">ein</span> becomes <span class="de-text">einen</span> in the accusative. Feminine <span class="de-text">eine</span> and neuter <span class="de-text">ein</span> stay unchanged.</p>
+  <table>
+    <tr><th>Gender</th><th>Nominative</th><th>Accusative</th></tr>
+    <tr><td>masculine</td><td class="de">ein Apfel</td><td class="de">einen Apfel</td></tr>
+    <tr><td>feminine</td><td class="de">eine Banane</td><td class="de">eine Banane</td></tr>
+    <tr><td>neuter</td><td class="de">ein Brot</td><td class="de">ein Brot</td></tr>
+  </table>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich möchte einen Apfel.</div><div class="ex-en">I'd like an apple.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich brauche eine Gurke.</div><div class="ex-en">I need a cucumber.</div></div></div>
+  </div>
+  <p>The same happens to <span class="de-text">kein</span>: <span class="de-text">kein → keinen</span> for masculine.</p>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich habe keinen Käse mehr.</div><div class="ex-en">I don't have any more cheese.</div></div></div>
+  </div>
+
+  <h3 class="sub">4. Verbs that take an accusative object <span class="en">the verbs that trigger this whole chapter</span></h3>
+  <table>
+    <tr><th>Verb</th><th>Meaning</th><th>Example</th></tr>
+    <tr><td class="de">essen</td><td>to eat</td><td class="de">Ich esse den Salat.</td></tr>
+    <tr><td class="de">trinken</td><td>to drink</td><td class="de">Ich trinke den Kaffee.</td></tr>
+    <tr><td class="de">kaufen</td><td>to buy</td><td class="de">Ich kaufe das Brot.</td></tr>
+    <tr><td class="de">brauchen</td><td>to need</td><td class="de">Ich brauche den Zucker.</td></tr>
+    <tr><td class="de">möchten</td><td>would like</td><td class="de">Ich möchte den Kuchen.</td></tr>
+    <tr><td class="de">nehmen</td><td>to take</td><td class="de">Ich nehme den Fisch.</td></tr>
+  </table>
+  <div class="box mistake">
+    <p class="box-title"><span class="dot red"></span>Common mistake</p>
+    <p>English speakers often skip the article change because English doesn't do this at all — "I eat the apple" never changes "the" no matter its grammatical role. In German, forgetting to change <span class="de-text">der → den</span> after these verbs is one of the most common A1 errors, and it's the one teachers correct most.</p>
+  </div>
+
+  <h3 class="sub">5. <span class="de-text">essen</span> — irregular, stem-changing verb</h3>
+  <table>
+    <tr><th>Pronoun</th><th>Form</th></tr>
+    <tr><td class="de">ich</td><td class="de">esse</td></tr>
+    <tr><td class="de">du</td><td class="de">isst</td></tr>
+    <tr><td class="de">er/sie/es</td><td class="de">isst</td></tr>
+    <tr><td class="de">wir</td><td class="de">essen</td></tr>
+  </table>
+  <div class="box note">
+    <p class="box-title"><span class="dot blue"></span>Watch the spelling</p>
+    <p><span class="de-text">du isst</span> and <span class="de-text">er/sie isst</span> are identical — this is a coincidence of German spelling rules (the stem already ends in -ss, so the -t ending merges visually). Don't second-guess it; it's correct as written.</p>
+  </div>
+</section>
+
+<!-- SENTENCE FACTORY -->
+<section id="sentence-factory">
+  <h2 class="section-title"><span class="de">Satzfabrik</span><span class="en">Sentence factory</span></h2>
+
+  <h3 class="sub">Base pattern: subject + accusative-verb + [den/die/das/einen + noun]</h3>
+  <div class="formula">[subject] + [esse/kaufe/brauche/möchte] + [accusative article] + [noun]</div>
+  <table>
+    <tr><th>Subject</th><th>Verb</th><th>Object (accusative)</th><th>Full sentence</th></tr>
+    <tr><td class="de">Ich</td><td class="de">esse</td><td class="de">den Kuchen.</td><td class="de">Ich esse den Kuchen.</td></tr>
+    <tr><td class="de">Ich</td><td class="de">kaufe</td><td class="de">die Milch.</td><td class="de">Ich kaufe die Milch.</td></tr>
+    <tr><td class="de">Ich</td><td class="de">möchte</td><td class="de">einen Kaffee.</td><td class="de">Ich möchte einen Kaffee.</td></tr>
+  </table>
+
+  <h3 class="sub">Swap the object</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich esse den Fisch.</div><div class="ex-en">I eat the fish.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich esse das Brot.</div><div class="ex-en">I eat the bread.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich esse die Suppe.</div><div class="ex-en">I eat the soup.</div></div></div>
+  </div>
+
+  <h3 class="sub">Swap the verb</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich kaufe den Käse.</div><div class="ex-en">I buy the cheese.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich brauche den Zucker.</div><div class="ex-en">I need the sugar.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich nehme den Salat.</div><div class="ex-en">I'll take the salad.</div></div></div>
+  </div>
+
+  <h3 class="sub">Swap the subject</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Sonia isst den Salat.</div><div class="ex-en">Sonia eats the salad.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wir kaufen die Eier.</div><div class="ex-en">We buy the eggs.</div></div></div>
+  </div>
+
+  <h3 class="sub">Add place: shopping at a specific shop</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich kaufe das Brot in der Bäckerei.</div><div class="ex-en">I buy the bread at the bakery.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich kaufe den Schinken in der Metzgerei.</div><div class="ex-en">I buy the ham at the butcher's.</div></div></div>
+  </div>
+</section>
+
+<!-- QUESTION FACTORY -->
+<section id="question-factory">
+  <h2 class="section-title"><span class="de">Fragefabrik</span><span class="en">Question factory</span></h2>
+
+  <h3 class="sub">Was <span class="en">what — for food and shopping</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Was möchten Sie? — Ich möchte einen Kaffee, bitte.</div><div class="ex-en">What would you like? — I'd like a coffee, please.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Was isst du gern? — Ich esse gern Pizza.</div><div class="ex-en">What do you like to eat? — I like eating pizza.</div></div></div>
+  </div>
+
+  <h3 class="sub">Wo <span class="en">where — for finding things in a shop</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wo finde ich den Reis? — Dort links.</div><div class="ex-en">Where do I find the rice? — Over there on the left.</div></div></div>
+  </div>
+
+  <h3 class="sub">Yes/No questions</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Haben Sie Eier? — Ja, hier bitte.</div><div class="ex-en">Do you have eggs? — Yes, here you go.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Brauchen Sie eine Tüte? — Ja, danke.</div><div class="ex-en">Do you need a bag? — Yes, thanks.</div></div></div>
+  </div>
+
+  <h3 class="sub">Short answers vs. full answers</h3>
+  <table>
+    <tr><th>Question</th><th>Short answer</th><th>Full answer</th></tr>
+    <tr><td class="de">Was möchten Sie?</td><td class="de">Einen Kaffee, bitte.</td><td class="de">Ich möchte einen Kaffee, bitte.</td></tr>
+    <tr><td class="de">Wo finde ich den Reis?</td><td class="de">Dort links.</td><td class="de">Den Reis finden Sie dort links.</td></tr>
+    <tr><td class="de">Was kostet das?</td><td class="de">Zwei Euro.</td><td class="de">Das kostet zwei Euro.</td></tr>
+  </table>
+</section>
+
+<!-- SPEAKING FACTORY -->
+<section id="speaking-factory">
+  <h2 class="section-title"><span class="de">Sprechfabrik</span><span class="en">Speaking factory</span></h2>
+
+  <h3 class="sub">Dialogue 1 — At the bakery</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">VERKÄUFERIN</div><div class="line-de">Guten Tag! Was möchten Sie?</div><div class="line-en">Good day! What would you like?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Ich möchte eine Gurke, einen Salat und acht Brötchen.</div><div class="line-en">I'd like a cucumber, a lettuce, and eight rolls.</div></div>
+    <div class="turn"><div class="speaker">VERKÄUFERIN</div><div class="line-de">Tut mir leid, ich habe keinen Salat mehr.</div><div class="line-en">Sorry, I don't have any more lettuce.</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Oh. Dann nehme ich eine Packung Nudeln und ein Stück Schinken.</div><div class="line-en">Oh. Then I'll take a packet of pasta and a piece of ham.</div></div>
+    <div class="turn"><div class="speaker">VERKÄUFERIN</div><div class="line-de">Bitte. Haben Sie sonst noch einen Wunsch?</div><div class="line-en">Here you go. Anything else?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Nein, danke. Das ist alles.</div><div class="line-en">No, thanks. That's all.</div></div>
+  </div>
+
+  <h3 class="sub">Dialogue 2 — At the dinner table</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">SONIA</div><div class="line-de">Guten Appetit!</div><div class="line-en">Enjoy your meal!</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Danke, gleichfalls!</div><div class="line-en">Thanks, you too!</div></div>
+    <div class="turn"><div class="speaker">SONIA</div><div class="line-de">Möchtest du noch ein Würstchen?</div><div class="line-en">Would you like another sausage?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Ja, gerne. Danke.</div><div class="line-en">Yes, gladly. Thanks.</div></div>
+  </div>
+
+  <h3 class="sub">Dialogue 3 — In a café</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">KELLNER</div><div class="line-de">Was trinken Sie?</div><div class="line-en">What are you drinking?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Ich möchte einen Milchkaffee, bitte.</div><div class="line-en">I'd like a latte, please.</div></div>
+    <div class="turn"><div class="speaker">KELLNER</div><div class="line-de">Und etwas essen?</div><div class="line-en">And something to eat?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Ja, einen Kuchen, bitte.</div><div class="line-en">Yes, a piece of cake, please.</div></div>
+  </div>
+
+  <h3 class="sub">Reusable speaking chunks</h3>
+  <div class="chunks">
+    <span class="chunk">Was möchten Sie?</span>
+    <span class="chunk">Ich möchte...</span>
+    <span class="chunk">Ich nehme...</span>
+    <span class="chunk">Haben Sie...?</span>
+    <span class="chunk">Ich habe keinen/keine/kein...</span>
+    <span class="chunk">Das ist alles.</span>
+    <span class="chunk">Guten Appetit!</span>
+    <span class="chunk">Danke, gleichfalls!</span>
+    <span class="chunk">Tut mir leid.</span>
+    <span class="chunk">Was kostet das?</span>
+    <span class="chunk">Sonst noch etwas?</span>
+  </div>
+</section>
+
+<!-- VOCABULARY -->
+<section id="vocabulary">
+  <h2 class="section-title"><span class="de">Wortschatz</span><span class="en">Vocabulary</span></h2>
+
+  <h3 class="sub">Food nouns</h3>
+  <table>
+    <tr><th>Article</th><th>Singular</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">das</td><td class="de">Brot</td><td class="de">Brote</td><td>bread</td></tr>
+    <tr><td class="de">das</td><td class="de">Brötchen</td><td class="de">Brötchen</td><td>bread roll</td></tr>
+    <tr><td class="de">der</td><td class="de">Käse</td><td class="de">Käse</td><td>cheese</td></tr>
+    <tr><td class="de">die</td><td class="de">Wurst</td><td class="de">Würste</td><td>sausage (cold cut)</td></tr>
+    <tr><td class="de">das</td><td class="de">Würstchen</td><td class="de">Würstchen</td><td>small sausage/frank</td></tr>
+    <tr><td class="de">der</td><td class="de">Schinken</td><td class="de">Schinken</td><td>ham</td></tr>
+    <tr><td class="de">das</td><td class="de">Ei</td><td class="de">Eier</td><td>egg</td></tr>
+    <tr><td class="de">der</td><td class="de">Reis</td><td class="de">—</td><td>rice</td></tr>
+    <tr><td class="de">der</td><td class="de">Fisch</td><td class="de">Fische</td><td>fish</td></tr>
+    <tr><td class="de">der</td><td class="de">Salat</td><td class="de">Salate</td><td>salad / lettuce</td></tr>
+    <tr><td class="de">die</td><td class="de">Gurke</td><td class="de">Gurken</td><td>cucumber</td></tr>
+    <tr><td class="de">die</td><td class="de">Tomate</td><td class="de">Tomaten</td><td>tomato</td></tr>
+    <tr><td class="de">die</td><td class="de">Kartoffel</td><td class="de">Kartoffeln</td><td>potato</td></tr>
+    <tr><td class="de">der</td><td class="de">Apfel</td><td class="de">Äpfel</td><td>apple</td></tr>
+    <tr><td class="de">die</td><td class="de">Banane</td><td class="de">Bananen</td><td>banana</td></tr>
+    <tr><td class="de">das</td><td class="de">Obst</td><td class="de">—</td><td>fruit</td></tr>
+    <tr><td class="de">das</td><td class="de">Gemüse</td><td class="de">—</td><td>vegetables</td></tr>
+    <tr><td class="de">der</td><td class="de">Zucker</td><td class="de">—</td><td>sugar</td></tr>
+    <tr><td class="de">die</td><td class="de">Butter</td><td class="de">—</td><td>butter</td></tr>
+    <tr><td class="de">der</td><td class="de">Kuchen</td><td class="de">Kuchen</td><td>cake</td></tr>
+  </table>
+
+  <h3 class="sub">Drinks</h3>
+  <table>
+    <tr><th>Article</th><th>Singular</th><th>English</th></tr>
+    <tr><td class="de">das</td><td class="de">Wasser</td><td>water</td></tr>
+    <tr><td class="de">der</td><td class="de">Saft</td><td>juice</td></tr>
+    <tr><td class="de">die</td><td class="de">Milch</td><td>milk</td></tr>
+    <tr><td class="de">der</td><td class="de">Kaffee</td><td>coffee</td></tr>
+    <tr><td class="de">der</td><td class="de">Milchkaffee</td><td>latte (milk coffee)</td></tr>
+    <tr><td class="de">der</td><td class="de">Tee</td><td>tea</td></tr>
+  </table>
+
+  <h3 class="sub">Shops</h3>
+  <table>
+    <tr><td class="de">die Bäckerei</td><td>bakery</td></tr>
+    <tr><td class="de">die Metzgerei</td><td>butcher's shop</td></tr>
+    <tr><td class="de">der Supermarkt</td><td>supermarket</td></tr>
+    <tr><td class="de">der Markt</td><td>(farmers') market</td></tr>
+  </table>
+
+  <h3 class="sub">Verbs</h3>
+  <table>
+    <tr><th>Infinitive</th><th>Meaning</th><th>ich</th><th>du</th><th>er/sie</th></tr>
+    <tr><td class="de">essen</td><td>to eat</td><td class="de">esse</td><td class="de">isst</td><td class="de">isst</td></tr>
+    <tr><td class="de">trinken</td><td>to drink</td><td class="de">trinke</td><td class="de">trinkst</td><td class="de">trinkt</td></tr>
+    <tr><td class="de">kaufen</td><td>to buy</td><td class="de">kaufe</td><td class="de">kaufst</td><td class="de">kauft</td></tr>
+    <tr><td class="de">brauchen</td><td>to need</td><td class="de">brauche</td><td class="de">brauchst</td><td class="de">braucht</td></tr>
+    <tr><td class="de">kosten</td><td>to cost</td><td>—</td><td>—</td><td class="de">kostet</td></tr>
+  </table>
+
+  <h3 class="sub">Meals and packaging/measure words</h3>
+  <table>
+    <tr><td class="de">das Frühstück</td><td>breakfast</td></tr>
+    <tr><td class="de">das Mittagessen</td><td>lunch</td></tr>
+    <tr><td class="de">das Abendessen</td><td>dinner</td></tr>
+    <tr><td class="de">die Flasche</td><td>bottle</td></tr>
+    <tr><td class="de">die Packung</td><td>packet</td></tr>
+    <tr><td class="de">das Stück</td><td>piece</td></tr>
+    <tr><td class="de">das Kilo / das Gramm</td><td>kilo / gram</td></tr>
+    <tr><td class="de">die Tüte</td><td>bag</td></tr>
+  </table>
+
+  <h3 class="sub">Useful expressions</h3>
+  <table>
+    <tr><td class="de">Guten Appetit! — Danke, gleichfalls!</td><td>enjoy your meal — thanks, you too</td></tr>
+    <tr><td class="de">Tut mir leid.</td><td>I'm sorry (I don't have that)</td></tr>
+    <tr><td class="de">Das ist alles.</td><td>that's all</td></tr>
+    <tr><td class="de">Sonst noch etwas?</td><td>anything else?</td></tr>
+    <tr><td class="de">Was kostet das?</td><td>how much does that cost?</td></tr>
+  </table>
+</section>
+
+<!-- EXERCISES -->
+<section id="exercises">
+  <h2 class="section-title"><span class="de">Übungen</span><span class="en">Exercises</span></h2>
+
+  <div class="exercise">
+    <p class="ex-num">A · Sentence building</p>
+    <p class="ex-prompt">1. Build a sentence from: <span class="de-text">esse / den / ich / Kuchen</span></p>
+    <p class="ex-prompt">2. Build a sentence from: <span class="de-text">kaufe / die / ich / Milch</span></p>
+    <p class="ex-prompt">3. Build a sentence from: <span class="de-text">möchte / einen / ich / Kaffee</span></p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">B · Question building</p>
+    <p class="ex-prompt">4. Ask, formally, what someone would like (at a shop).</p>
+    <p class="ex-prompt">5. Ask a friend what they like eating.</p>
+    <p class="ex-prompt">6. Ask how much something costs.</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">C · Translation</p>
+    <p class="ex-prompt">7. Translate: "I'd like a coffee and a piece of cake, please."</p>
+    <p class="ex-prompt">8. Translate: "I don't have any more bread."</p>
+    <p class="ex-prompt">9. Translate: "Enjoy your meal! — Thanks, you too!"</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">D · Fill in the blank (accusative articles)</p>
+
+    <div data-answer="den" data-id="d10" data-prompt="Ich esse ___ Kuchen. (der)">
+      <p class="ex-prompt">10. Ich esse <span class="ex-blank" style="display:none;"></span> Kuchen.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="die" data-id="d11" data-prompt="Ich kaufe ___ Wurst. (die)">
+      <p class="ex-prompt">11. Ich kaufe <span class="ex-blank" style="display:none;"></span> Wurst.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="das" data-id="d12" data-prompt="Ich brauche ___ Brot. (das)">
+      <p class="ex-prompt">12. Ich brauche <span class="ex-blank" style="display:none;"></span> Brot.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="einen" data-id="d13" data-prompt="Ich möchte ___ Apfel. (ein)">
+      <p class="ex-prompt">13. Ich möchte <span class="ex-blank" style="display:none;"></span> Apfel.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">E · Correction</p>
+
+    <div data-answer="Ich esse den Kuchen." data-id="e14" data-prompt="Ich esse der Kuchen.">
+      <p class="ex-prompt">14. <span class="de-text">Ich esse der Kuchen.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Ich möchte einen Kaffee." data-id="e15" data-prompt="Ich möchte ein Kaffee.">
+      <p class="ex-prompt">15. <span class="de-text">Ich möchte ein Kaffee.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Ich habe keinen Käse mehr." data-id="e16" data-prompt="Ich habe kein Käse mehr.">
+      <p class="ex-prompt">16. <span class="de-text">Ich habe kein Käse mehr.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">F · Speaking prompts</p>
+    <p class="ex-prompt">17. Order two food items and one drink at a café.</p>
+    <p class="ex-prompt">18. Say what you eat for breakfast, using essen correctly.</p>
+    <p class="ex-prompt">19. Say "enjoy your meal" and respond correctly when someone says it to you.</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">G · Mixed review</p>
+    <p class="ex-prompt">20. Write a short shopping dialogue: you ask for three items, the shopkeeper says one is out of stock, you choose an alternative.</p>
+  </div>
+<div class="tracker-box" id="mistake-tracker">
+    <h4>Your missed items on this chapter</h4>
+    <div id="tracker-list"><p class="tracker-empty">Loading…</p></div>
+    
+  </div>
+</section>
+
+<!-- ANSWER KEY -->
+<section id="answers">
+  <h2 class="section-title"><span class="de">Lösungen</span><span class="en">Answer key</span></h2>
+  <div class="answers">
+    <h3 class="sub">A · Sentence building</h3>
+    <div class="ans-line"><span class="ans-num">1</span><span class="de-text">Ich esse den Kuchen.</span></div>
+    <div class="ans-line"><span class="ans-num">2</span><span class="de-text">Ich kaufe die Milch.</span></div>
+    <div class="ans-line"><span class="ans-num">3</span><span class="de-text">Ich möchte einen Kaffee.</span></div>
+
+    <h3 class="sub">B · Question building</h3>
+    <div class="ans-line"><span class="ans-num">4</span><span class="de-text">Was möchten Sie?</span></div>
+    <div class="ans-line"><span class="ans-num">5</span><span class="de-text">Was isst du gern?</span></div>
+    <div class="ans-line"><span class="ans-num">6</span><span class="de-text">Was kostet das?</span></div>
+
+    <h3 class="sub">C · Translation</h3>
+    <div class="ans-line"><span class="ans-num">7</span><span class="de-text">Ich möchte einen Kaffee und ein Stück Kuchen, bitte.</span></div>
+    <div class="ans-line"><span class="ans-num">8</span><span class="de-text">Ich habe kein Brot mehr.</span></div>
+    <div class="ans-line"><span class="ans-num">9</span><span class="de-text">Guten Appetit! — Danke, gleichfalls!</span></div>
+
+    <h3 class="sub">D · Fill in the blank</h3>
+    <div class="ans-line"><span class="ans-num">10</span><span class="de-text">den</span></div>
+    <div class="ans-line"><span class="ans-num">11</span><span class="de-text">die</span></div>
+    <div class="ans-line"><span class="ans-num">12</span><span class="de-text">das</span></div>
+    <div class="ans-line"><span class="ans-num">13</span><span class="de-text">einen</span></div>
+
+    <h3 class="sub">E · Correction</h3>
+    <div class="ans-line"><span class="ans-num">14</span><span class="de-text">Ich esse den Kuchen.</span> — der becomes den as the accusative object</div>
+    <div class="ans-line"><span class="ans-num">15</span><span class="de-text">Ich möchte einen Kaffee.</span> — ein becomes einen for masculine accusative</div>
+    <div class="ans-line"><span class="ans-num">16</span><span class="de-text">Ich habe keinen Käse mehr.</span> — kein becomes keinen for masculine accusative (der Käse)</div>
+
+    <h3 class="sub">G · Mixed review — sample answer</h3>
+    <div class="ans-line"><span class="ans-num">20</span><span class="de-text">— Ich möchte einen Salat, einen Käse und ein Brot. — Tut mir leid, ich habe keinen Salat mehr. — Dann nehme ich eine Gurke.</span></div>
+  </div>
+</section>
+
+<!-- PRONUNCIATION -->
+<section id="pronunciation">
+  <h2 class="section-title"><span class="de">Aussprache</span><span class="en">Pronunciation</span></h2>
+
+  <div class="sound-row">
+    <div class="ipa">st</div>
+    <div class="sound-body">In the middle of a word (not word-initial), s+t is a normal English-style "st," not "sh-t."
+      <div class="sound-words">isst · kostet</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">ä</div>
+    <div class="sound-body">Like the "e" in English "bed," slightly more open.
+      <div class="sound-words">Äpfel · Käse (long ä-sound in Käse is actually "ä" spelled with umlaut on a, but pronounced like a long version)</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">eu / äu</div>
+    <div class="sound-body">Both spelled differently but pronounced the same: like "oy" in English "boy."
+      <div class="sound-words">Bäckerei (no eu here, but note the ei = "eye") · neu · Häuser</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">g (final)</div>
+    <div class="sound-body">At the end of a word, g often softens toward a "k" sound.
+      <div class="sound-words">Tag (sounds close to "Tak")</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMON MISTAKES -->
+<section id="mistakes">
+  <h2 class="section-title"><span class="de">Häufige Fehler</span><span class="en">Common mistakes</span></h2>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Ich esse der Kuchen.</div>
+    <div class="mp-line ok">Ich esse den Kuchen.</div>
+    <div class="mp-why">Why: der Kuchen is the direct object of essen, so it must take the accusative form den — English never marks this change, which is why it's so easy to forget.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Ich möchte ein Kaffee.</div>
+    <div class="mp-line ok">Ich möchte einen Kaffee.</div>
+    <div class="mp-why">Why: der Kaffee is masculine, so ein becomes einen in the accusative.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Ich habe kein Käse mehr.</div>
+    <div class="mp-line ok">Ich habe keinen Käse mehr.</div>
+    <div class="mp-why">Why: same accusative rule applies to kein — der Käse is masculine, so kein becomes keinen.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Ich mag essen Pizza.</div>
+    <div class="mp-line ok">Ich esse gern Pizza.</div>
+    <div class="mp-why">Why: as in Kapitel 2, use gern + conjugated verb for activities, not mögen + infinitive.</div>
+  </div>
+</section>
+
+<!-- QUICK REVISION -->
+<section id="revision">
+  <h2 class="section-title"><span class="de">Kurze Wiederholung</span><span class="en">Quick revision</span></h2>
+  <div class="revision-grid">
+    <div class="rev-col">
+      <h3 class="sub">Sentence patterns</h3>
+      <div class="rev-item">Ich esse/kaufe/brauche/möchte den/die/das/einen [noun]</div>
+      <div class="rev-item">der → den (masculine only, accusative)</div>
+      <div class="rev-item">ein → einen, kein → keinen (masculine)</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Question forms</h3>
+      <div class="rev-item">Was möchten Sie?</div>
+      <div class="rev-item">Was isst du gern?</div>
+      <div class="rev-item">Was kostet das?</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Most important words</h3>
+      <div class="rev-item">essen: esse / isst / isst</div>
+      <div class="rev-item">Guten Appetit! — Danke, gleichfalls!</div>
+      <div class="rev-item">Tut mir leid, Das ist alles</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Sound traps</h3>
+      <div class="rev-item">ä = open "e" · eu/äu = "oy"</div>
+      <div class="rev-item">final g softens toward "k"</div>
+      <div class="rev-item">only masculine changes in accusative</div>
+    </div>
+  </div>
+</section>
+
+<footer>Kapitel 4 · Guten Appetit! — Netzwerk neu A1</footer>
+
+</div>
+
+
+<script>
+const NA1 = (() => {
+  const STORAGE_KEY = 'na1_mistakes_kapitel4';
+
+  function loadMistakes() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+    catch (e) { return {}; }
+  }
+  function saveMistakes(obj) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(obj)); } catch (e) {}
+  }
+
+  function norm(s){ return (s||'').trim().toLowerCase().replace(/\s+/g,' '); }
+
+  function logMistake(itemId, meta) {
+    const all = loadMistakes();
+    const prev = all[itemId] || { count: 0 };
+    all[itemId] = {
+      itemId, chapter: meta.chapter, prompt: meta.prompt,
+      count: (prev.count || 0) + 1,
+      lastWrong: new Date().toISOString(),
+      cleared: false
+    };
+    saveMistakes(all);
+    renderTracker();
+  }
+
+  function clearMistake(itemId) {
+    const all = loadMistakes();
+    if (all[itemId]) { all[itemId].cleared = true; saveMistakes(all); renderTracker(); }
+  }
+
+  function getAllMistakes() {
+    const all = loadMistakes();
+    return Object.values(all).filter(m => !m.cleared);
+  }
+
+  function wireExercise(chapterLabel) {
+    document.querySelectorAll('[data-answer]').forEach(item => {
+      const input = item.querySelector('input');
+      const btn = item.querySelector('.check-btn');
+      const feedback = item.querySelector('.ex-feedback');
+      if (!input || !btn) return;
+      btn.addEventListener('click', () => {
+        const correctRaw = item.getAttribute('data-answer');
+        const options = correctRaw.split('|').map(norm);
+        const given = norm(input.value);
+        const isRight = options.includes(given);
+        feedback.textContent = isRight ? 'Richtig!' : `Not quite — correct: ${correctRaw}`;
+        feedback.style.color = isRight ? 'var(--green)' : 'var(--red)';
+        input.style.borderColor = isRight ? 'var(--green)' : 'var(--red)';
+        const itemId = `kapitel4-${item.getAttribute('data-id')}`;
+        if (!isRight) {
+          logMistake(itemId, { chapter: 'kapitel4', prompt: item.getAttribute('data-prompt') || '' });
+        } else {
+          clearMistake(itemId);
+        }
+      });
+      input.addEventListener('keydown', (e) => { if (e.key === 'Enter') btn.click(); });
+    });
+  }
+
+  function renderTracker() {
+    const list = document.getElementById('tracker-list');
+    if (!list) return;
+    const mistakes = getAllMistakes();
+    if (mistakes.length === 0) {
+      list.innerHTML = '<p class="tracker-empty">No open mistakes on this chapter — nice work.</p>';
+      return;
+    }
+    list.innerHTML = mistakes.map(m => `
+      <div class="tracker-item">
+        <span>${m.prompt || m.itemId} <span style="color:var(--ink-mute);">(missed ${m.count}×)</span></span>
+        <button class="clear-btn" data-clear="${m.itemId}">mark reviewed</button>
+      </div>`).join('');
+    list.querySelectorAll('[data-clear]').forEach(b => {
+      b.addEventListener('click', () => clearMistake(b.getAttribute('data-clear')));
+    });
+  }
+
+  wireExercise('kapitel4');
+  renderTracker();
+
+  return { logMistake, clearMistake, getAllMistakes };
+})();
+</script>
+</body>
+</html>

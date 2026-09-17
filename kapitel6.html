@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kapitel 6 — Zeit mit Freunden</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf6ee;
+  --paper-2:#f2ecdf;
+  --ink:#241f16;
+  --ink-soft:#5b5344;
+  --ink-mute:#8c8471;
+  --rule:#ddd3bd;
+  --rule-strong:#c6b998;
+  --blue:#2d4a63;
+  --blue-bg:#e4ecf1;
+  --green:#3c6b3f;
+  --green-bg:#e6efe2;
+  --red:#a3402f;
+  --red-bg:#f4e5df;
+  --amber:#8a5a1f;
+  --amber-bg:#f3e7d2;
+  --serif:'Fraunces', Georgia, serif;
+  --sans:'Inter', -apple-system, sans-serif;
+  --mono:'JetBrains Mono', monospace;
+}
+:root[data-mode="dark"]{
+  --paper:#1c1912;
+  --paper-2:#242019;
+  --ink:#ece4d3;
+  --ink-soft:#c2b8a2;
+  --ink-mute:#8f8672;
+  --rule:#3a3527;
+  --rule-strong:#4d4632;
+  --blue:#9dc0dd;
+  --blue-bg:#243440;
+  --green:#a9cba0;
+  --green-bg:#25352a;
+  --red:#e3a493;
+  --red-bg:#3a2823;
+  --amber:#e0bb7c;
+  --amber-bg:#3a3020;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-mode="light"]){
+    --paper:#1c1912; --paper-2:#242019; --ink:#ece4d3; --ink-soft:#c2b8a2; --ink-mute:#8f8672;
+    --rule:#3a3527; --rule-strong:#4d4632; --blue:#9dc0dd; --blue-bg:#243440;
+    --green:#a9cba0; --green-bg:#25352a; --red:#e3a493; --red-bg:#3a2823;
+    --amber:#e0bb7c; --amber-bg:#3a3020;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.65;
+  font-size:16px;
+}
+.wrap{max-width:760px; margin:0 auto; padding:0 24px 120px;}
+@media (max-width:600px){.wrap{padding:0 16px 100px;}}
+
+/* header */
+header.hero{
+  border-bottom:1px solid var(--rule);
+  padding:56px 0 40px;
+  margin-bottom:8px;
+}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:13px;
+  color:var(--ink-mute);
+  letter-spacing:0.02em;
+  margin:0 0 14px;
+}
+h1.title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:44px;
+  line-height:1.1;
+  margin:0 0 12px;
+  letter-spacing:-0.01em;
+}
+h1.title em{font-style:italic; font-weight:500; color:var(--blue);}
+.subtitle{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:19px;
+  color:var(--ink-soft);
+  margin:0;
+}
+
+/* nav */
+nav.toc{
+  position:sticky; top:0; z-index:10;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+  padding:10px 0;
+  margin-bottom:48px;
+  overflow-x:auto;
+  white-space:nowrap;
+  -webkit-overflow-scrolling:touch;
+}
+nav.toc::-webkit-scrollbar{height:0;}
+nav.toc a{
+  font-family:var(--sans);
+  font-size:13.5px;
+  color:var(--ink-soft);
+  text-decoration:none;
+  margin-right:22px;
+  padding-bottom:2px;
+  border-bottom:1px solid transparent;
+}
+nav.toc a:hover{color:var(--ink); border-bottom-color:var(--rule-strong);}
+
+section{margin-bottom:64px;}
+section:last-of-type{margin-bottom:24px;}
+
+h2.section-title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:28px;
+  margin:0 0 6px;
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+}
+.section-title .de{color:var(--ink);}
+.section-title .en{
+  font-family:var(--sans);
+  font-style:normal;
+  font-size:15px;
+  font-weight:400;
+  color:var(--ink-mute);
+}
+.section-intro{color:var(--ink-soft); margin:0 0 28px; max-width:64ch;}
+
+h3.sub{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:20px;
+  margin:36px 0 6px;
+  color:var(--ink);
+}
+h3.sub .en{font-family:var(--sans); font-size:14px; font-weight:400; color:var(--ink-mute); margin-left:8px;}
+
+p{margin:0 0 14px; max-width:66ch;}
+ul,ol{margin:0 0 14px; padding-left:22px; max-width:64ch;}
+li{margin-bottom:6px;}
+
+/* german text styling */
+.de-text{font-family:var(--serif); font-size:1.05em;}
+
+/* grammar box */
+.formula{
+  font-family:var(--mono);
+  font-size:15px;
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:6px;
+  padding:14px 18px;
+  margin:14px 0 20px;
+  color:var(--ink);
+  overflow-x:auto;
+}
+.formula .slot{color:var(--blue); font-weight:500;}
+
+.order-row{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 22px;
+}
+.order-cell{
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  padding:8px 14px;
+  text-align:center;
+  min-width:64px;
+}
+.order-cell .word{font-family:var(--serif); font-size:16px; display:block;}
+.order-cell .tag{font-family:var(--mono); font-size:10.5px; color:var(--ink-mute); text-transform:uppercase; letter-spacing:0.04em; display:block; margin-top:4px;}
+
+.ex-block{margin:8px 0 4px;}
+.ex-line{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:6px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.ex-line:last-child{border-bottom:none;}
+.mark{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  flex-shrink:0;
+  width:20px;
+  padding-top:3px;
+}
+.mark.pos{color:var(--green);}
+.mark.neg{color:var(--red);}
+.ex-text{flex:1;}
+.ex-de{font-family:var(--serif); font-size:16.5px; color:var(--ink);}
+.ex-en{font-size:13.5px; color:var(--ink-mute); margin-top:2px;}
+
+/* callout boxes */
+.box{
+  border-radius:8px;
+  padding:16px 20px;
+  margin:18px 0;
+}
+.box-title{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  margin:0 0 8px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.box p, .box ul{margin-bottom:0;}
+.box p + p{margin-top:8px;}
+.box.mistake{background:var(--red-bg);}
+.box.mistake .box-title{color:var(--red);}
+.box.trick{background:var(--amber-bg);}
+.box.trick .box-title{color:var(--amber);}
+.box.note{background:var(--blue-bg);}
+.box.note .box-title{color:var(--blue);}
+.dot{width:7px; height:7px; border-radius:50%; display:inline-block;}
+.dot.red{background:var(--red);}
+.dot.amber{background:var(--amber);}
+.dot.blue{background:var(--blue);}
+
+/* mistake pair */
+.mistake-pair{margin:16px 0 22px;}
+.mp-line{padding:5px 0 5px 26px; position:relative; font-family:var(--serif); font-size:16px;}
+.mp-line.x::before{content:"✕"; position:absolute; left:0; color:var(--red); font-family:var(--sans); font-size:13px; top:8px;}
+.mp-line.ok::before{content:"✓"; position:absolute; left:0; color:var(--green); font-family:var(--sans); font-size:13px; top:8px;}
+.mp-why{font-family:var(--sans); font-size:13.5px; color:var(--ink-mute); padding-left:26px; margin-top:2px;}
+
+/* tables */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:16px 0 24px;
+  font-size:14.5px;
+}
+th{
+  text-align:left;
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12.5px;
+  color:var(--ink-mute);
+  text-transform:none;
+  padding:8px 10px;
+  border-bottom:1px solid var(--rule-strong);
+}
+td{
+  padding:9px 10px;
+  border-bottom:1px solid var(--rule);
+  vertical-align:top;
+}
+td.de{font-family:var(--serif); font-size:15.5px;}
+tr:last-child td{border-bottom:none;}
+
+/* dialogue */
+.dialogue{
+  border-left:2px solid var(--rule-strong);
+  padding-left:20px;
+  margin:16px 0 24px;
+}
+.turn{margin-bottom:14px;}
+.speaker{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12.5px;
+  color:var(--ink-mute);
+  margin-bottom:2px;
+}
+.line-de{font-family:var(--serif); font-size:17px; color:var(--ink);}
+.line-en{font-size:13.5px; color:var(--ink-mute); margin-top:2px;}
+
+/* chunk pills */
+.chunks{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 22px;}
+.chunk{
+  border:1px solid var(--rule-strong);
+  border-radius:20px;
+  padding:6px 14px;
+  font-family:var(--serif);
+  font-size:14.5px;
+}
+
+/* exercise */
+.exercise{
+  margin:20px 0;
+  padding:16px 0 4px;
+  border-top:1px solid var(--rule);
+}
+.exercise:first-of-type{border-top:none; padding-top:0;}
+.ex-num{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--ink-mute);
+  margin-bottom:4px;
+}
+.ex-prompt{margin-bottom:6px;}
+.ex-blank{
+  display:inline-block;
+  min-width:90px;
+  border-bottom:1px solid var(--ink-mute);
+  margin:0 3px;
+}
+
+/* answer key */
+.answers{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:24px 28px;
+}
+.answers h3.sub{margin-top:0;}
+.ans-line{
+  font-family:var(--serif);
+  font-size:15.5px;
+  padding:5px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.ans-line:last-child{border-bottom:none;}
+.ans-num{font-family:var(--sans); color:var(--ink-mute); font-size:13px; margin-right:8px;}
+
+/* pronunciation */
+.sound-row{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:12px 0;
+  border-bottom:1px solid var(--rule);
+}
+.sound-row:last-child{border-bottom:none;}
+.ipa{
+  font-family:var(--mono);
+  font-size:18px;
+  color:var(--blue);
+  min-width:52px;
+}
+.sound-body{flex:1;}
+.sound-words{font-family:var(--serif); font-size:15.5px; margin-top:2px;}
+
+/* revision */
+.revision-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+}
+@media (max-width:600px){.revision-grid{grid-template-columns:1fr;}}
+.rev-col h3.sub{margin-top:0;}
+.rev-item{
+  font-family:var(--serif);
+  font-size:15.5px;
+  padding:6px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.rev-item:last-child{border-bottom:none;}
+
+hr.rule{border:none; border-top:1px solid var(--rule); margin:0;}
+
+footer{
+  text-align:center;
+  padding:32px 0 8px;
+  color:var(--ink-mute);
+  font-size:13px;
+}
+/* interactive exercise widgets */
+.ex-check{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:6px;
+}
+.ex-input{
+  font-family:var(--serif);
+  font-size:15px;
+  padding:6px 10px;
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  background:var(--paper);
+  color:var(--ink);
+  min-width:160px;
+}
+.ex-input:focus{outline:none; border-color:var(--blue);}
+.check-btn{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  padding:6px 14px;
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  background:var(--paper-2);
+  color:var(--ink);
+  cursor:pointer;
+}
+.check-btn:hover{background:var(--rule);}
+.ex-feedback{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  min-width:120px;
+}
+.tracker-box{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:18px 22px;
+  margin:20px 0;
+}
+.tracker-box h4{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:600;
+  margin:0 0 10px;
+  color:var(--ink-mute);
+}
+.tracker-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 0;
+  border-bottom:1px dotted var(--rule);
+  font-size:14px;
+}
+.tracker-item:last-child{border-bottom:none;}
+.tracker-item .clear-btn{
+  font-family:var(--sans);
+  font-size:12px;
+  color:var(--ink-mute);
+  background:none;
+  border:none;
+  cursor:pointer;
+  text-decoration:underline;
+}
+.tracker-empty{color:var(--ink-mute); font-size:13.5px; font-style:italic;}
+.persist-note{font-size:12px; color:var(--ink-mute); margin-top:8px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow">Netzwerk neu A1 · Kapitel 6</p>
+  <h1 class="title">Zeit mit Freunden <em>— Time with friends</em></h1>
+  <p class="subtitle">Making plans, dates, weather, and talking about the past with war/hatte</p>
+</header>
+
+<nav class="toc" aria-label="Chapter sections">
+  <a href="#overview">Overview</a>
+  <a href="#grammar">Grammar</a>
+  <a href="#sentence-factory">Sentence factory</a>
+  <a href="#question-factory">Question factory</a>
+  <a href="#speaking-factory">Speaking factory</a>
+  <a href="#vocabulary">Vocabulary</a>
+  <a href="#exercises">Exercises</a>
+  <a href="#answers">Answer key</a>
+  <a href="#pronunciation">Pronunciation</a>
+  <a href="#mistakes">Common mistakes</a>
+  <a href="#revision">Quick revision</a>
+</nav>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <h2 class="section-title"><span class="de">Kapitelüberblick</span><span class="en">Chapter overview</span></h2>
+  <p class="section-intro">Kapitel 6 gives you your first taste of talking about the past — but only for two verbs. This is deliberate: German uses a special simple-past form for haben and sein even in casual speech, while almost every other verb uses a different past tense you'll learn later. Learn these two now; they're used constantly.</p>
+
+  <h3 class="sub">What this chapter is about</h3>
+  <p>You'll learn to make plans with friends, talk about dates and birthdays, describe the weather, and use the simple past (Präteritum) forms of <span class="de-text">haben</span> and <span class="de-text">sein</span> — <span class="de-text">hatte</span> and <span class="de-text">war</span> — to talk about how your weekend was.</p>
+
+  <h3 class="sub">What you should be able to say after finishing it</h3>
+  <ul>
+    <li>Suggest meeting up and agree on a time and place</li>
+    <li>Say the date and wish someone happy birthday</li>
+    <li>Describe the weather</li>
+    <li>Say how your weekend was, using war and hatte</li>
+    <li>Apologize for being late and respond graciously when someone apologizes to you</li>
+  </ul>
+
+  <h3 class="sub">Where you use this in real life</h3>
+  <p>Arranging a weekend meetup, small talk about the weather (a genuine German conversational staple), wishing a colleague happy birthday, or the classic Monday-morning "how was your weekend?" exchange.</p>
+</section>
+
+<!-- GRAMMAR -->
+<section id="grammar">
+  <h2 class="section-title"><span class="de">Grammatik</span><span class="en">Grammar</span></h2>
+  <p class="section-intro">The headline grammar point: the simple past of haben and sein. Also covered: dates with am, and weather expressions using es.</p>
+
+  <h3 class="sub">1. Präteritum of <span class="de-text">sein</span> <span class="en">"was/were" — war</span></h3>
+  <table>
+    <tr><th>Pronoun</th><th>Form</th></tr>
+    <tr><td class="de">ich</td><td class="de">war</td></tr>
+    <tr><td class="de">du</td><td class="de">warst</td></tr>
+    <tr><td class="de">er/sie/es</td><td class="de">war</td></tr>
+    <tr><td class="de">wir</td><td class="de">waren</td></tr>
+  </table>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wie war dein Wochenende? — Es war sehr schön.</div><div class="ex-en">How was your weekend? — It was very nice.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Das Wetter war super.</div><div class="ex-en">The weather was great.</div></div></div>
+    <div class="ex-line"><span class="mark neg">✕</span><div class="ex-text"><div class="ex-de">Das Wetter ist super gewesen letztes Wochenende.</div><div class="ex-en">Overcomplicated — for sein, native speakers default to the simple war, not the compound perfect tense</div></div></div>
+  </div>
+
+  <h3 class="sub">2. Präteritum of <span class="de-text">haben</span> <span class="en">"had" — hatte</span></h3>
+  <table>
+    <tr><th>Pronoun</th><th>Form</th></tr>
+    <tr><td class="de">ich</td><td class="de">hatte</td></tr>
+    <tr><td class="de">du</td><td class="de">hattest</td></tr>
+    <tr><td class="de">er/sie/es</td><td class="de">hatte</td></tr>
+    <tr><td class="de">wir</td><td class="de">hatten</td></tr>
+  </table>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich hatte Geburtstag am Samstag.</div><div class="ex-en">I had my birthday on Saturday. (German literally says "had birthday")</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Hattest du Spaß?</div><div class="ex-en">Did you have fun?</div></div></div>
+  </div>
+  <div class="box trick">
+    <p class="box-title"><span class="dot amber"></span>Memory trick</p>
+    <p>war and hatte are the two exceptions to the "learn Perfekt for the past" rule you'll meet in later chapters. Even fluent speakers say <span class="de-text">ich war</span> and <span class="de-text">ich hatte</span>, never the clunkier compound forms, in everyday conversation. Learn these two now as fixed, frequently-used words.</p>
+  </div>
+  <div class="box note">
+    <p class="box-title"><span class="dot blue"></span>Learn later</p>
+    <p>Every other verb's past tense (Perfekt, with haben/sein + past participle — e.g. <span class="de-text">ich habe gespielt</span>) comes in a later chapter. For now, only war and hatte are yours to use freely.</p>
+  </div>
+
+  <h3 class="sub">3. Dates with <span class="de-text">am</span> <span class="en">saying "on the ___th"</span></h3>
+  <div class="formula">am + [ordinal number] + [month]</div>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Mein Geburtstag ist am zwölften Juni.</div><div class="ex-en">My birthday is on the 12th of June.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wir treffen uns am ersten Mai.</div><div class="ex-en">We're meeting on the 1st of May.</div></div></div>
+  </div>
+  <div class="box note">
+    <p class="box-title"><span class="dot blue"></span>Learn later</p>
+    <p>The full system for forming ordinal numbers (erster, zweiter, dritter...) is grammar-heavy — for A1, memorize the dates you personally need (your birthday, key appointments) as fixed chunks rather than trying to derive every ordinal number from a rule yet.</p>
+  </div>
+
+  <h3 class="sub">4. Talking about weather <span class="en">using the impersonal "es"</span></h3>
+  <p>Weather in German is expressed with the impersonal subject <span class="de-text">es</span> ("it") — similar to English "it's raining."</p>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Es regnet.</div><div class="ex-en">It's raining.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Es ist warm/kalt/sonnig.</div><div class="ex-en">It's warm/cold/sunny.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wie war das Wetter? — Es war sonnig und warm.</div><div class="ex-en">How was the weather? — It was sunny and warm.</div></div></div>
+  </div>
+</section>
+
+<!-- SENTENCE FACTORY -->
+<section id="sentence-factory">
+  <h2 class="section-title"><span class="de">Satzfabrik</span><span class="en">Sentence factory</span></h2>
+
+  <h3 class="sub">Base pattern: talking about the past with war/hatte</h3>
+  <div class="formula">[subject] + war/hatte + [rest].</div>
+  <table>
+    <tr><th>Subject</th><th>Verb</th><th>Rest</th><th>Full sentence</th></tr>
+    <tr><td class="de">Das Wochenende</td><td class="de">war</td><td class="de">toll.</td><td class="de">Das Wochenende war toll.</td></tr>
+    <tr><td class="de">Ich</td><td class="de">hatte</td><td class="de">Geburtstag.</td><td class="de">Ich hatte Geburtstag.</td></tr>
+  </table>
+
+  <h3 class="sub">Swap the subject</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Meine Schwester hatte Geburtstag.</div><div class="ex-en">My sister had her birthday.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wir waren im Park.</div><div class="ex-en">We were at the park.</div></div></div>
+  </div>
+
+  <h3 class="sub">Swap the description</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Das Wetter war schlecht.</div><div class="ex-en">The weather was bad.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Die Party war sehr lustig.</div><div class="ex-en">The party was very fun.</div></div></div>
+  </div>
+
+  <h3 class="sub">Making plans</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Treffen wir uns am Samstag?</div><div class="ex-en">Shall we meet on Saturday?</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wollen wir ins Kino gehen?</div><div class="ex-en">Do we want to go to the cinema?</div></div></div>
+  </div>
+</section>
+
+<!-- QUESTION FACTORY -->
+<section id="question-factory">
+  <h2 class="section-title"><span class="de">Fragefabrik</span><span class="en">Question factory</span></h2>
+
+  <h3 class="sub">Wie <span class="en">how — for describing the past</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wie war dein Wochenende? — Sehr gut, danke.</div><div class="ex-en">How was your weekend? — Very good, thanks.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wie war das Wetter? — Es war kalt.</div><div class="ex-en">How was the weather? — It was cold.</div></div></div>
+  </div>
+
+  <h3 class="sub">Wann <span class="en">when — for making plans</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wann treffen wir uns? — Am Samstag um drei.</div><div class="ex-en">When are we meeting? — On Saturday at three.</div></div></div>
+  </div>
+
+  <h3 class="sub">Yes/No questions</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Hattest du Spaß? — Ja, es war toll.</div><div class="ex-en">Did you have fun? — Yes, it was great.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wollen wir ins Kino gehen? — Ja, gern.</div><div class="ex-en">Do you want to go to the cinema? — Yes, gladly.</div></div></div>
+  </div>
+
+  <h3 class="sub">Short answers vs. full answers</h3>
+  <table>
+    <tr><th>Question</th><th>Short answer</th><th>Full answer</th></tr>
+    <tr><td class="de">Wie war dein Wochenende?</td><td class="de">Sehr gut.</td><td class="de">Mein Wochenende war sehr gut.</td></tr>
+    <tr><td class="de">Wann treffen wir uns?</td><td class="de">Am Samstag.</td><td class="de">Wir treffen uns am Samstag.</td></tr>
+  </table>
+</section>
+
+<!-- SPEAKING FACTORY -->
+<section id="speaking-factory">
+  <h2 class="section-title"><span class="de">Sprechfabrik</span><span class="en">Speaking factory</span></h2>
+
+  <h3 class="sub">Dialogue 1 — Monday morning small talk</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">KOLLEGIN</div><div class="line-de">Wie war dein Wochenende?</div><div class="line-en">How was your weekend?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Gut, danke! Ich hatte Geburtstag und war mit Freunden in der Strandbar.</div><div class="line-en">Good, thanks! I had my birthday and was with friends at the beach bar.</div></div>
+    <div class="turn"><div class="speaker">KOLLEGIN</div><div class="line-de">Oh, du hattest Geburtstag? Herzlichen Glückwunsch!</div><div class="line-en">Oh, it was your birthday? Congratulations!</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Danke schön! Und das Wetter war super.</div><div class="line-en">Thank you! And the weather was great.</div></div>
+  </div>
+
+  <h3 class="sub">Dialogue 2 — Making plans</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">LISA</div><div class="line-de">Wollen wir am Samstag etwas machen?</div><div class="line-en">Do we want to do something on Saturday?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Ja, gern! Wollen wir ins Kino gehen?</div><div class="line-en">Yes, gladly! Do we want to go to the cinema?</div></div>
+    <div class="turn"><div class="speaker">LISA</div><div class="line-de">Gute Idee. Um wie viel Uhr?</div><div class="line-en">Good idea. What time?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Um sieben. Treffpunkt am Bahnhof?</div><div class="line-en">At seven. Meeting point at the station?</div></div>
+    <div class="turn"><div class="speaker">LISA</div><div class="line-de">Perfekt, bis Samstag!</div><div class="line-en">Perfect, see you Saturday!</div></div>
+  </div>
+
+  <h3 class="sub">Dialogue 3 — Apologizing for being late</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Entschuldigung, ich bin spät. Der Bus war spät.</div><div class="line-en">Sorry, I'm late. The bus was late.</div></div>
+    <div class="turn"><div class="speaker">SONIA</div><div class="line-de">Kein Problem. Das nächste Mal bitte pünktlich!</div><div class="line-en">No problem. Please be on time next time!</div></div>
+  </div>
+
+  <h3 class="sub">Reusable speaking chunks</h3>
+  <div class="chunks">
+    <span class="chunk">Wie war dein Wochenende?</span>
+    <span class="chunk">Es war toll/gut/schlecht.</span>
+    <span class="chunk">Ich hatte Geburtstag.</span>
+    <span class="chunk">Herzlichen Glückwunsch!</span>
+    <span class="chunk">Das Wetter war...</span>
+    <span class="chunk">Wollen wir...?</span>
+    <span class="chunk">Gute Idee.</span>
+    <span class="chunk">Treffpunkt...</span>
+    <span class="chunk">Bis Samstag!</span>
+    <span class="chunk">Das nächste Mal bitte pünktlich!</span>
+  </div>
+</section>
+
+<!-- VOCABULARY -->
+<section id="vocabulary">
+  <h2 class="section-title"><span class="de">Wortschatz</span><span class="en">Vocabulary</span></h2>
+
+  <h3 class="sub">Nouns</h3>
+  <table>
+    <tr><th>Article</th><th>Singular</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">der</td><td class="de">Geburtstag</td><td class="de">Geburtstage</td><td>birthday</td></tr>
+    <tr><td class="de">der</td><td class="de">Treffpunkt</td><td class="de">Treffpunkte</td><td>meeting point</td></tr>
+    <tr><td class="de">das</td><td class="de">Wetter</td><td class="de">—</td><td>weather</td></tr>
+    <tr><td class="de">der</td><td class="de">Spaß</td><td class="de">—</td><td>fun</td></tr>
+    <tr><td class="de">das</td><td class="de">Geschenk</td><td class="de">Geschenke</td><td>gift</td></tr>
+    <tr><td class="de">die</td><td class="de">Party</td><td class="de">Partys</td><td>party</td></tr>
+    <tr><td class="de">die</td><td class="de">Blume</td><td class="de">Blumen</td><td>flower</td></tr>
+  </table>
+
+  <h3 class="sub">Weather words</h3>
+  <table>
+    <tr><td class="de">Es regnet.</td><td>It's raining.</td></tr>
+    <tr><td class="de">Es schneit.</td><td>It's snowing.</td></tr>
+    <tr><td class="de">Es ist sonnig.</td><td>It's sunny.</td></tr>
+    <tr><td class="de">Es ist warm/kalt.</td><td>It's warm/cold.</td></tr>
+    <tr><td class="de">Es ist windig.</td><td>It's windy.</td></tr>
+  </table>
+
+  <h3 class="sub">Verbs and activities</h3>
+  <table>
+    <tr><td class="de">klettern</td><td>to climb</td></tr>
+    <tr><td class="de">Fahrrad fahren</td><td>to ride a bike</td></tr>
+    <tr><td class="de">mitbringen</td><td>to bring along</td></tr>
+    <tr><td class="de">sich treffen</td><td>to meet up</td></tr>
+  </table>
+
+  <h3 class="sub">war / hatte — full conjugation</h3>
+  <table>
+    <tr><th>Pronoun</th><th>sein (war)</th><th>haben (hatte)</th></tr>
+    <tr><td class="de">ich</td><td class="de">war</td><td class="de">hatte</td></tr>
+    <tr><td class="de">du</td><td class="de">warst</td><td class="de">hattest</td></tr>
+    <tr><td class="de">er/sie/es</td><td class="de">war</td><td class="de">hatte</td></tr>
+    <tr><td class="de">wir</td><td class="de">waren</td><td class="de">hatten</td></tr>
+  </table>
+
+  <h3 class="sub">Useful expressions</h3>
+  <table>
+    <tr><td class="de">Herzlichen Glückwunsch!</td><td>congratulations! (used for birthdays too)</td></tr>
+    <tr><td class="de">Das nächste Mal bitte pünktlich!</td><td>please be on time next time!</td></tr>
+    <tr><td class="de">Schon gut, kein Problem.</td><td>it's fine, no problem</td></tr>
+    <tr><td class="de">Macht nichts.</td><td>doesn't matter / never mind</td></tr>
+    <tr><td class="de">Bitte entschuldigen Sie.</td><td>please excuse me (formal)</td></tr>
+  </table>
+</section>
+
+<!-- EXERCISES -->
+<section id="exercises">
+  <h2 class="section-title"><span class="de">Übungen</span><span class="en">Exercises</span></h2>
+
+  <div class="exercise">
+    <p class="ex-num">A · Sentence building</p>
+    <p class="ex-prompt">1. Build a sentence from: <span class="de-text">war / toll / das Wochenende</span></p>
+    <p class="ex-prompt">2. Build a sentence from: <span class="de-text">hatte / ich / Geburtstag</span></p>
+    <p class="ex-prompt">3. Build a sentence from: <span class="de-text">wollen / gehen / wir / ins Kino</span></p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">B · Question building</p>
+    <p class="ex-prompt">4. Ask a colleague how their weekend was.</p>
+    <p class="ex-prompt">5. Ask when you're meeting up.</p>
+    <p class="ex-prompt">6. Ask if someone had fun.</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">C · Translation</p>
+    <p class="ex-prompt">7. Translate: "The weather was very bad."</p>
+    <p class="ex-prompt">8. Translate: "I had my birthday on Saturday."</p>
+    <p class="ex-prompt">9. Translate: "Sorry, I'm late. — No problem."</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">D · Fill in the blank</p>
+
+    <div data-answer="war" data-id="d10" data-prompt="Das Wochenende ___ toll. (sein — past)">
+      <p class="ex-prompt">10. Das Wochenende <span class="ex-blank" style="display:none;"></span> toll.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="hatte" data-id="d11" data-prompt="Ich ___ Geburtstag am Freitag. (haben — past)">
+      <p class="ex-prompt">11. Ich <span class="ex-blank" style="display:none;"></span> Geburtstag am Freitag.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="war" data-id="d12" data-prompt="Wie ___ das Wetter? (sein — past)">
+      <p class="ex-prompt">12. Wie <span class="ex-blank" style="display:none;"></span> das Wetter?</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="waren" data-id="d13" data-prompt="Wir ___ im Park. (sein — past, wir-form)">
+      <p class="ex-prompt">13. Wir <span class="ex-blank" style="display:none;"></span> im Park.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">E · Correction</p>
+
+    <div data-answer="Ich hatte Geburtstag." data-id="e14" data-prompt="Ich bin Geburtstag gehabt.">
+      <p class="ex-prompt">14. <span class="de-text">Ich bin Geburtstag gehabt.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Das Wetter war letztes Wochenende gut." data-id="e15" data-prompt="Das Wetter ist gut gewesen letztes Wochenende.">
+      <p class="ex-prompt">15. <span class="de-text">Das Wetter ist gut gewesen letztes Wochenende.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Du warst spät." data-id="e16" data-prompt="Du war spät.">
+      <p class="ex-prompt">16. <span class="de-text">Du war spät.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">F · Speaking prompts</p>
+    <p class="ex-prompt">17. Say how your weekend was, using war and hatte.</p>
+    <p class="ex-prompt">18. Suggest meeting a friend on Saturday and propose a time.</p>
+    <p class="ex-prompt">19. Describe today's weather.</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">G · Mixed review</p>
+    <p class="ex-prompt">20. Write a short Monday-morning exchange about the weekend, including the weather and one activity.</p>
+  </div>
+<div class="tracker-box" id="mistake-tracker">
+    <h4>Your missed items on this chapter</h4>
+    <div id="tracker-list"><p class="tracker-empty">Loading…</p></div>
+    
+  </div>
+</section>
+
+<!-- ANSWER KEY -->
+<section id="answers">
+  <h2 class="section-title"><span class="de">Lösungen</span><span class="en">Answer key</span></h2>
+  <div class="answers">
+    <h3 class="sub">A · Sentence building</h3>
+    <div class="ans-line"><span class="ans-num">1</span><span class="de-text">Das Wochenende war toll.</span></div>
+    <div class="ans-line"><span class="ans-num">2</span><span class="de-text">Ich hatte Geburtstag.</span></div>
+    <div class="ans-line"><span class="ans-num">3</span><span class="de-text">Wollen wir ins Kino gehen?</span></div>
+
+    <h3 class="sub">B · Question building</h3>
+    <div class="ans-line"><span class="ans-num">4</span><span class="de-text">Wie war dein Wochenende?</span></div>
+    <div class="ans-line"><span class="ans-num">5</span><span class="de-text">Wann treffen wir uns?</span></div>
+    <div class="ans-line"><span class="ans-num">6</span><span class="de-text">Hattest du Spaß?</span></div>
+
+    <h3 class="sub">C · Translation</h3>
+    <div class="ans-line"><span class="ans-num">7</span><span class="de-text">Das Wetter war sehr schlecht.</span></div>
+    <div class="ans-line"><span class="ans-num">8</span><span class="de-text">Ich hatte Geburtstag am Samstag.</span></div>
+    <div class="ans-line"><span class="ans-num">9</span><span class="de-text">Entschuldigung, ich bin spät. — Kein Problem.</span></div>
+
+    <h3 class="sub">D · Fill in the blank</h3>
+    <div class="ans-line"><span class="ans-num">10</span><span class="de-text">war</span></div>
+    <div class="ans-line"><span class="ans-num">11</span><span class="de-text">hatte</span></div>
+    <div class="ans-line"><span class="ans-num">12</span><span class="de-text">war</span></div>
+    <div class="ans-line"><span class="ans-num">13</span><span class="de-text">waren</span></div>
+
+    <h3 class="sub">E · Correction</h3>
+    <div class="ans-line"><span class="ans-num">14</span><span class="de-text">Ich hatte Geburtstag.</span> — use the simple past hatte, not a compound form</div>
+    <div class="ans-line"><span class="ans-num">15</span><span class="de-text">Das Wetter war letztes Wochenende gut.</span> — use war, not the perfect tense</div>
+    <div class="ans-line"><span class="ans-num">16</span><span class="de-text">Du warst spät.</span> — du takes warst, not war</div>
+
+    <h3 class="sub">G · Mixed review — sample answer</h3>
+    <div class="ans-line"><span class="ans-num">20</span><span class="de-text">— Wie war dein Wochenende? — Gut! Das Wetter war sonnig und ich war im Park. Und du?</span></div>
+  </div>
+</section>
+
+<!-- PRONUNCIATION -->
+<section id="pronunciation">
+  <h2 class="section-title"><span class="de">Aussprache</span><span class="en">Pronunciation</span></h2>
+
+  <div class="sound-row">
+    <div class="ipa">w (war)</div>
+    <div class="sound-body">Pronounced "v," as established in Kapitel 1 — worth reinforcing here since war/warst/waren appear constantly.
+      <div class="sound-words">war · warst · waren</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">ü (Glückwunsch)</div>
+    <div class="sound-body">Round lips, say "i" — appears in this very common congratulatory phrase.
+      <div class="sound-words">Glückwunsch</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">pünktlich</div>
+    <div class="sound-body">ü + a crisp final -lich (like "likh," soft ch after i/e sounds).
+      <div class="sound-words">pünktlich</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMON MISTAKES -->
+<section id="mistakes">
+  <h2 class="section-title"><span class="de">Häufige Fehler</span><span class="en">Common mistakes</span></h2>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Das Wetter ist gut gewesen.</div>
+    <div class="mp-line ok">Das Wetter war gut.</div>
+    <div class="mp-why">Why: native speakers default to the simple past war for sein, even in speech — the compound form, while not wrong, sounds unnecessarily formal here.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Du war spät.</div>
+    <div class="mp-line ok">Du warst spät.</div>
+    <div class="mp-why">Why: war only goes with ich/er/sie/es — du takes warst, a different ending entirely.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Ich bin Geburtstag gehabt.</div>
+    <div class="mp-line ok">Ich hatte Geburtstag.</div>
+    <div class="mp-why">Why: this mixes up two different verb systems — use hatte, the simple past of haben, not a compound form built with sein.</div>
+  </div>
+</section>
+
+<!-- QUICK REVISION -->
+<section id="revision">
+  <h2 class="section-title"><span class="de">Kurze Wiederholung</span><span class="en">Quick revision</span></h2>
+  <div class="revision-grid">
+    <div class="rev-col">
+      <h3 class="sub">Sentence patterns</h3>
+      <div class="rev-item">[subject] + war/hatte + [rest].</div>
+      <div class="rev-item">Wollen wir...? (making plans)</div>
+      <div class="rev-item">Es ist/war [weather word].</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Question forms</h3>
+      <div class="rev-item">Wie war dein Wochenende?</div>
+      <div class="rev-item">Wann treffen wir uns?</div>
+      <div class="rev-item">Hattest du Spaß?</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Most important words</h3>
+      <div class="rev-item">war/warst/waren, hatte/hattest/hatten</div>
+      <div class="rev-item">Herzlichen Glückwunsch!</div>
+      <div class="rev-item">pünktlich, Treffpunkt</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Sound traps</h3>
+      <div class="rev-item">w = "v" (war, warst)</div>
+      <div class="rev-item">ü = rounded lips + "i"</div>
+      <div class="rev-item">du warst, not du war</div>
+    </div>
+  </div>
+</section>
+
+<footer>Kapitel 6 · Zeit mit Freunden — Netzwerk neu A1</footer>
+
+</div>
+
+
+<script>
+const NA1 = (() => {
+  const STORAGE_KEY = 'na1_mistakes_kapitel6';
+
+  function loadMistakes() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+    catch (e) { return {}; }
+  }
+  function saveMistakes(obj) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(obj)); } catch (e) {}
+  }
+
+  function norm(s){ return (s||'').trim().toLowerCase().replace(/\s+/g,' '); }
+
+  function logMistake(itemId, meta) {
+    const all = loadMistakes();
+    const prev = all[itemId] || { count: 0 };
+    all[itemId] = {
+      itemId, chapter: meta.chapter, prompt: meta.prompt,
+      count: (prev.count || 0) + 1,
+      lastWrong: new Date().toISOString(),
+      cleared: false
+    };
+    saveMistakes(all);
+    renderTracker();
+  }
+
+  function clearMistake(itemId) {
+    const all = loadMistakes();
+    if (all[itemId]) { all[itemId].cleared = true; saveMistakes(all); renderTracker(); }
+  }
+
+  function getAllMistakes() {
+    const all = loadMistakes();
+    return Object.values(all).filter(m => !m.cleared);
+  }
+
+  function wireExercise(chapterLabel) {
+    document.querySelectorAll('[data-answer]').forEach(item => {
+      const input = item.querySelector('input');
+      const btn = item.querySelector('.check-btn');
+      const feedback = item.querySelector('.ex-feedback');
+      if (!input || !btn) return;
+      btn.addEventListener('click', () => {
+        const correctRaw = item.getAttribute('data-answer');
+        const options = correctRaw.split('|').map(norm);
+        const given = norm(input.value);
+        const isRight = options.includes(given);
+        feedback.textContent = isRight ? 'Richtig!' : `Not quite — correct: ${correctRaw}`;
+        feedback.style.color = isRight ? 'var(--green)' : 'var(--red)';
+        input.style.borderColor = isRight ? 'var(--green)' : 'var(--red)';
+        const itemId = `kapitel6-${item.getAttribute('data-id')}`;
+        if (!isRight) {
+          logMistake(itemId, { chapter: 'kapitel6', prompt: item.getAttribute('data-prompt') || '' });
+        } else {
+          clearMistake(itemId);
+        }
+      });
+      input.addEventListener('keydown', (e) => { if (e.key === 'Enter') btn.click(); });
+    });
+  }
+
+  function renderTracker() {
+    const list = document.getElementById('tracker-list');
+    if (!list) return;
+    const mistakes = getAllMistakes();
+    if (mistakes.length === 0) {
+      list.innerHTML = '<p class="tracker-empty">No open mistakes on this chapter — nice work.</p>';
+      return;
+    }
+    list.innerHTML = mistakes.map(m => `
+      <div class="tracker-item">
+        <span>${m.prompt || m.itemId} <span style="color:var(--ink-mute);">(missed ${m.count}×)</span></span>
+        <button class="clear-btn" data-clear="${m.itemId}">mark reviewed</button>
+      </div>`).join('');
+    list.querySelectorAll('[data-clear]').forEach(b => {
+      b.addEventListener('click', () => clearMistake(b.getAttribute('data-clear')));
+    });
+  }
+
+  wireExercise('kapitel6');
+  renderTracker();
+
+  return { logMistake, clearMistake, getAllMistakes };
+})();
+</script>
+</body>
+</html>

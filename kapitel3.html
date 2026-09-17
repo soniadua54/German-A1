@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kapitel 3 — In Hamburg</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf6ee;
+  --paper-2:#f2ecdf;
+  --ink:#241f16;
+  --ink-soft:#5b5344;
+  --ink-mute:#8c8471;
+  --rule:#ddd3bd;
+  --rule-strong:#c6b998;
+  --blue:#2d4a63;
+  --blue-bg:#e4ecf1;
+  --green:#3c6b3f;
+  --green-bg:#e6efe2;
+  --red:#a3402f;
+  --red-bg:#f4e5df;
+  --amber:#8a5a1f;
+  --amber-bg:#f3e7d2;
+  --serif:'Fraunces', Georgia, serif;
+  --sans:'Inter', -apple-system, sans-serif;
+  --mono:'JetBrains Mono', monospace;
+}
+:root[data-mode="dark"]{
+  --paper:#1c1912;
+  --paper-2:#242019;
+  --ink:#ece4d3;
+  --ink-soft:#c2b8a2;
+  --ink-mute:#8f8672;
+  --rule:#3a3527;
+  --rule-strong:#4d4632;
+  --blue:#9dc0dd;
+  --blue-bg:#243440;
+  --green:#a9cba0;
+  --green-bg:#25352a;
+  --red:#e3a493;
+  --red-bg:#3a2823;
+  --amber:#e0bb7c;
+  --amber-bg:#3a3020;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-mode="light"]){
+    --paper:#1c1912; --paper-2:#242019; --ink:#ece4d3; --ink-soft:#c2b8a2; --ink-mute:#8f8672;
+    --rule:#3a3527; --rule-strong:#4d4632; --blue:#9dc0dd; --blue-bg:#243440;
+    --green:#a9cba0; --green-bg:#25352a; --red:#e3a493; --red-bg:#3a2823;
+    --amber:#e0bb7c; --amber-bg:#3a3020;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.65;
+  font-size:16px;
+}
+.wrap{max-width:760px; margin:0 auto; padding:0 24px 120px;}
+@media (max-width:600px){.wrap{padding:0 16px 100px;}}
+
+/* header */
+header.hero{
+  border-bottom:1px solid var(--rule);
+  padding:56px 0 40px;
+  margin-bottom:8px;
+}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:13px;
+  color:var(--ink-mute);
+  letter-spacing:0.02em;
+  margin:0 0 14px;
+}
+h1.title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:44px;
+  line-height:1.1;
+  margin:0 0 12px;
+  letter-spacing:-0.01em;
+}
+h1.title em{font-style:italic; font-weight:500; color:var(--blue);}
+.subtitle{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:19px;
+  color:var(--ink-soft);
+  margin:0;
+}
+
+/* nav */
+nav.toc{
+  position:sticky; top:0; z-index:10;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+  padding:10px 0;
+  margin-bottom:48px;
+  overflow-x:auto;
+  white-space:nowrap;
+  -webkit-overflow-scrolling:touch;
+}
+nav.toc::-webkit-scrollbar{height:0;}
+nav.toc a{
+  font-family:var(--sans);
+  font-size:13.5px;
+  color:var(--ink-soft);
+  text-decoration:none;
+  margin-right:22px;
+  padding-bottom:2px;
+  border-bottom:1px solid transparent;
+}
+nav.toc a:hover{color:var(--ink); border-bottom-color:var(--rule-strong);}
+
+section{margin-bottom:64px;}
+section:last-of-type{margin-bottom:24px;}
+
+h2.section-title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:28px;
+  margin:0 0 6px;
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+}
+.section-title .de{color:var(--ink);}
+.section-title .en{
+  font-family:var(--sans);
+  font-style:normal;
+  font-size:15px;
+  font-weight:400;
+  color:var(--ink-mute);
+}
+.section-intro{color:var(--ink-soft); margin:0 0 28px; max-width:64ch;}
+
+h3.sub{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:20px;
+  margin:36px 0 6px;
+  color:var(--ink);
+}
+h3.sub .en{font-family:var(--sans); font-size:14px; font-weight:400; color:var(--ink-mute); margin-left:8px;}
+
+p{margin:0 0 14px; max-width:66ch;}
+ul,ol{margin:0 0 14px; padding-left:22px; max-width:64ch;}
+li{margin-bottom:6px;}
+
+/* german text styling */
+.de-text{font-family:var(--serif); font-size:1.05em;}
+
+/* grammar box */
+.formula{
+  font-family:var(--mono);
+  font-size:15px;
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:6px;
+  padding:14px 18px;
+  margin:14px 0 20px;
+  color:var(--ink);
+  overflow-x:auto;
+}
+.formula .slot{color:var(--blue); font-weight:500;}
+
+.order-row{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 22px;
+}
+.order-cell{
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  padding:8px 14px;
+  text-align:center;
+  min-width:64px;
+}
+.order-cell .word{font-family:var(--serif); font-size:16px; display:block;}
+.order-cell .tag{font-family:var(--mono); font-size:10.5px; color:var(--ink-mute); text-transform:uppercase; letter-spacing:0.04em; display:block; margin-top:4px;}
+
+.ex-block{margin:8px 0 4px;}
+.ex-line{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:6px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.ex-line:last-child{border-bottom:none;}
+.mark{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  flex-shrink:0;
+  width:20px;
+  padding-top:3px;
+}
+.mark.pos{color:var(--green);}
+.mark.neg{color:var(--red);}
+.ex-text{flex:1;}
+.ex-de{font-family:var(--serif); font-size:16.5px; color:var(--ink);}
+.ex-en{font-size:13.5px; color:var(--ink-mute); margin-top:2px;}
+
+/* callout boxes */
+.box{
+  border-radius:8px;
+  padding:16px 20px;
+  margin:18px 0;
+}
+.box-title{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  margin:0 0 8px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.box p, .box ul{margin-bottom:0;}
+.box p + p{margin-top:8px;}
+.box.mistake{background:var(--red-bg);}
+.box.mistake .box-title{color:var(--red);}
+.box.trick{background:var(--amber-bg);}
+.box.trick .box-title{color:var(--amber);}
+.box.note{background:var(--blue-bg);}
+.box.note .box-title{color:var(--blue);}
+.dot{width:7px; height:7px; border-radius:50%; display:inline-block;}
+.dot.red{background:var(--red);}
+.dot.amber{background:var(--amber);}
+.dot.blue{background:var(--blue);}
+
+/* mistake pair */
+.mistake-pair{margin:16px 0 22px;}
+.mp-line{padding:5px 0 5px 26px; position:relative; font-family:var(--serif); font-size:16px;}
+.mp-line.x::before{content:"✕"; position:absolute; left:0; color:var(--red); font-family:var(--sans); font-size:13px; top:8px;}
+.mp-line.ok::before{content:"✓"; position:absolute; left:0; color:var(--green); font-family:var(--sans); font-size:13px; top:8px;}
+.mp-why{font-family:var(--sans); font-size:13.5px; color:var(--ink-mute); padding-left:26px; margin-top:2px;}
+
+/* tables */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:16px 0 24px;
+  font-size:14.5px;
+}
+th{
+  text-align:left;
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12.5px;
+  color:var(--ink-mute);
+  text-transform:none;
+  padding:8px 10px;
+  border-bottom:1px solid var(--rule-strong);
+}
+td{
+  padding:9px 10px;
+  border-bottom:1px solid var(--rule);
+  vertical-align:top;
+}
+td.de{font-family:var(--serif); font-size:15.5px;}
+tr:last-child td{border-bottom:none;}
+
+/* dialogue */
+.dialogue{
+  border-left:2px solid var(--rule-strong);
+  padding-left:20px;
+  margin:16px 0 24px;
+}
+.turn{margin-bottom:14px;}
+.speaker{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12.5px;
+  color:var(--ink-mute);
+  margin-bottom:2px;
+}
+.line-de{font-family:var(--serif); font-size:17px; color:var(--ink);}
+.line-en{font-size:13.5px; color:var(--ink-mute); margin-top:2px;}
+
+/* chunk pills */
+.chunks{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 22px;}
+.chunk{
+  border:1px solid var(--rule-strong);
+  border-radius:20px;
+  padding:6px 14px;
+  font-family:var(--serif);
+  font-size:14.5px;
+}
+
+/* exercise */
+.exercise{
+  margin:20px 0;
+  padding:16px 0 4px;
+  border-top:1px solid var(--rule);
+}
+.exercise:first-of-type{border-top:none; padding-top:0;}
+.ex-num{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--ink-mute);
+  margin-bottom:4px;
+}
+.ex-prompt{margin-bottom:6px;}
+.ex-blank{
+  display:inline-block;
+  min-width:90px;
+  border-bottom:1px solid var(--ink-mute);
+  margin:0 3px;
+}
+
+/* answer key */
+.answers{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:24px 28px;
+}
+.answers h3.sub{margin-top:0;}
+.ans-line{
+  font-family:var(--serif);
+  font-size:15.5px;
+  padding:5px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.ans-line:last-child{border-bottom:none;}
+.ans-num{font-family:var(--sans); color:var(--ink-mute); font-size:13px; margin-right:8px;}
+
+/* pronunciation */
+.sound-row{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:12px 0;
+  border-bottom:1px solid var(--rule);
+}
+.sound-row:last-child{border-bottom:none;}
+.ipa{
+  font-family:var(--mono);
+  font-size:18px;
+  color:var(--blue);
+  min-width:52px;
+}
+.sound-body{flex:1;}
+.sound-words{font-family:var(--serif); font-size:15.5px; margin-top:2px;}
+
+/* revision */
+.revision-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+}
+@media (max-width:600px){.revision-grid{grid-template-columns:1fr;}}
+.rev-col h3.sub{margin-top:0;}
+.rev-item{
+  font-family:var(--serif);
+  font-size:15.5px;
+  padding:6px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.rev-item:last-child{border-bottom:none;}
+
+hr.rule{border:none; border-top:1px solid var(--rule); margin:0;}
+
+footer{
+  text-align:center;
+  padding:32px 0 8px;
+  color:var(--ink-mute);
+  font-size:13px;
+}
+/* interactive exercise widgets */
+.ex-check{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:6px;
+}
+.ex-input{
+  font-family:var(--serif);
+  font-size:15px;
+  padding:6px 10px;
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  background:var(--paper);
+  color:var(--ink);
+  min-width:160px;
+}
+.ex-input:focus{outline:none; border-color:var(--blue);}
+.check-btn{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  padding:6px 14px;
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  background:var(--paper-2);
+  color:var(--ink);
+  cursor:pointer;
+}
+.check-btn:hover{background:var(--rule);}
+.ex-feedback{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  min-width:120px;
+}
+.tracker-box{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:18px 22px;
+  margin:20px 0;
+}
+.tracker-box h4{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:600;
+  margin:0 0 10px;
+  color:var(--ink-mute);
+}
+.tracker-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 0;
+  border-bottom:1px dotted var(--rule);
+  font-size:14px;
+}
+.tracker-item:last-child{border-bottom:none;}
+.tracker-item .clear-btn{
+  font-family:var(--sans);
+  font-size:12px;
+  color:var(--ink-mute);
+  background:none;
+  border:none;
+  cursor:pointer;
+  text-decoration:underline;
+}
+.tracker-empty{color:var(--ink-mute); font-size:13.5px; font-style:italic;}
+.persist-note{font-size:12px; color:var(--ink-mute); margin-top:8px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow">Netzwerk neu A1 · Kapitel 3</p>
+  <h1 class="title">In Hamburg <em>— In Hamburg</em></h1>
+  <p class="subtitle">Places in a city, articles, plurals, and asking for directions</p>
+</header>
+
+<nav class="toc" aria-label="Chapter sections">
+  <a href="#overview">Overview</a>
+  <a href="#grammar">Grammar</a>
+  <a href="#sentence-factory">Sentence factory</a>
+  <a href="#question-factory">Question factory</a>
+  <a href="#speaking-factory">Speaking factory</a>
+  <a href="#vocabulary">Vocabulary</a>
+  <a href="#exercises">Exercises</a>
+  <a href="#answers">Answer key</a>
+  <a href="#pronunciation">Pronunciation</a>
+  <a href="#mistakes">Common mistakes</a>
+  <a href="#revision">Quick revision</a>
+</nav>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <h2 class="section-title"><span class="de">Kapitelüberblick</span><span class="en">Chapter overview</span></h2>
+  <p class="section-intro">Kapitel 3 takes you outside — naming what you see in a city and asking a stranger how to get somewhere. It also introduces the indefinite article properly (ein/eine) and its negative twin (kein/keine), which you'll use every single day.</p>
+
+  <h3 class="sub">What this chapter is about</h3>
+  <p>You'll learn to name buildings and places in a city, use <span class="de-text">ein/eine</span> ("a/an") and <span class="de-text">kein/keine</span> ("not a / no"), form plurals (you've been seeing them, now you learn the patterns), ask for and understand directions, and give simple commands using the imperative — the polite "Sie" command form used constantly for instructions.</p>
+
+  <h3 class="sub">What you should be able to say after finishing it</h3>
+  <ul>
+    <li>Name common city buildings and places: town hall, station, church, bridge, park, cinema</li>
+    <li>Say "there is a..." and "there is no..." for places and objects</li>
+    <li>Ask politely for directions and understand basic direction instructions</li>
+    <li>Use command forms: "go straight," "turn left," "take the bus"</li>
+    <li>Recognize and form plurals for nouns you already know</li>
+  </ul>
+
+  <h3 class="sub">Where you use this in real life</h3>
+  <p>Finding your way around an unfamiliar German city, asking a passerby for directions to the Bahnhof, understanding a receptionist's instructions ("Gehen Sie geradeaus, dann links"), or describing your own neighborhood in Noida to someone in German.</p>
+</section>
+
+<!-- GRAMMAR -->
+<section id="grammar">
+  <h2 class="section-title"><span class="de">Grammatik</span><span class="en">Grammar</span></h2>
+  <p class="section-intro">Three big ideas: indefinite/negative articles, plural patterns, and the imperative (command form).</p>
+
+  <h3 class="sub">1. Indefinite article <span class="de-text">ein/eine</span> <span class="en">"a/an"</span></h3>
+  <p>German nouns have grammatical gender: masculine (der), feminine (die), neuter (das). The indefinite article changes to match — but only two forms exist at this stage: <span class="de-text">ein</span> for masculine and neuter, <span class="de-text">eine</span> for feminine.</p>
+  <div class="formula">der/das noun → ein + noun<br>die noun → eine + noun</div>
+  <table>
+    <tr><th>Definite (the)</th><th>Indefinite (a/an)</th><th>English</th></tr>
+    <tr><td class="de">der Bahnhof</td><td class="de">ein Bahnhof</td><td>a station</td></tr>
+    <tr><td class="de">das Hotel</td><td class="de">ein Hotel</td><td>a hotel</td></tr>
+    <tr><td class="de">die Kirche</td><td class="de">eine Kirche</td><td>a church</td></tr>
+  </table>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Das ist ein Park.</div><div class="ex-en">That's a park.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Das ist eine Brücke.</div><div class="ex-en">That's a bridge.</div></div></div>
+    <div class="ex-line"><span class="mark neg">✕</span><div class="ex-text"><div class="ex-de">Das ist ein Brücke.</div><div class="ex-en">Wrong — Brücke is feminine (die), so it needs eine</div></div></div>
+  </div>
+  <div class="box trick">
+    <p class="box-title"><span class="dot amber"></span>Memory trick</p>
+    <p>Always learn a new noun together with its article — say "die Brücke," never just "Brücke." Trying to guess gender from the English meaning fails constantly; German gender is often arbitrary to an English speaker's ear.</p>
+  </div>
+
+  <h3 class="sub">2. Negative article <span class="de-text">kein/keine</span> <span class="en">"not a / no"</span></h3>
+  <p><span class="de-text">kein</span> negates a noun that has (or could have) an indefinite article. It follows the exact same der/das → kein, die → keine pattern as <span class="de-text">ein</span>.</p>
+  <div class="formula">kein + [der/das-noun] · keine + [die-noun]</div>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Das ist kein Hotel.</div><div class="ex-en">That's not a hotel.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Das ist keine Kirche, das ist ein Museum.</div><div class="ex-en">That's not a church, that's a museum.</div></div></div>
+    <div class="ex-line"><span class="mark neg">✕</span><div class="ex-text"><div class="ex-de">Das ist nicht ein Hotel.</div><div class="ex-en">Wrong (or at least unnatural) — English speakers reach for nicht + ein out of habit, but German merges them into kein</div></div></div>
+  </div>
+  <div class="box mistake">
+    <p class="box-title"><span class="dot red"></span>Common mistake</p>
+    <p>English negates with "not" and leaves the article alone ("that is not a hotel"). German fuses the negation into the article itself: <span class="de-text">nicht + ein → kein</span>. Using <span class="de-text">nicht ein</span> is a dead giveaway of English-brain translation.</p>
+  </div>
+
+  <h3 class="sub">3. Plural forms <span class="en">no single rule — but recognizable patterns</span></h3>
+  <p>German plurals don't follow one universal rule the way English "-s" mostly does. Instead there are several patterns, and you learn each noun's plural as part of vocabulary. The good news: patterns cluster, so you start recognizing them.</p>
+  <table>
+    <tr><th>Pattern</th><th>Singular</th><th>Plural</th></tr>
+    <tr><td>-e</td><td class="de">der Park</td><td class="de">die Parks</td></tr>
+    <tr><td>-e (+ umlaut)</td><td class="de">der Turm</td><td class="de">die Türme</td></tr>
+    <tr><td>-er (+ umlaut)</td><td class="de">das Haus</td><td class="de">die Häuser</td></tr>
+    <tr><td>-en</td><td class="de">die Kirche</td><td class="de">die Kirchen</td></tr>
+    <tr><td>-s</td><td class="de">das Hotel</td><td class="de">die Hotels</td></tr>
+    <tr><td>no change</td><td class="de">der Bahnhof</td><td class="de">die Bahnhöfe</td></tr>
+  </table>
+  <div class="box note">
+    <p class="box-title"><span class="dot blue"></span>One rule that always holds</p>
+    <p>Whatever the plural pattern, the plural article is always <span class="de-text">die</span> — regardless of the singular's gender. <span class="de-text">das Hotel → die Hotels</span>, <span class="de-text">der Turm → die Türme</span>. This is the one shortcut you can rely on completely.</p>
+  </div>
+
+  <h3 class="sub">4. The imperative <span class="en">giving commands and instructions — Sie-form</span></h3>
+  <p>To tell someone (formally) to do something, take the <span class="de-text">Sie</span>-form of the verb and simply swap the order: verb first, then <span class="de-text">Sie</span>.</p>
+  <div class="formula"><span class="slot">VERB</span> + Sie + (rest)!</div>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Gehen Sie geradeaus!</div><div class="ex-en">Go straight ahead!</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Nehmen Sie den Bus!</div><div class="ex-en">Take the bus!</div></div></div>
+    <div class="ex-line"><span class="mark neg">✕</span><div class="ex-text"><div class="ex-de">Sie gehen geradeaus!</div><div class="ex-en">Not a command — this is just a statement ("you go straight") with an exclamation mark</div></div></div>
+  </div>
+  <div class="box trick">
+    <p class="box-title"><span class="dot amber"></span>Memory trick</p>
+    <p>The Sie-imperative looks exactly like a yes/no question except it ends in "!" instead of "?" — <span class="de-text">Gehen Sie geradeaus?</span> (question) vs. <span class="de-text">Gehen Sie geradeaus!</span> (command). Same word order, different punctuation and intonation.</p>
+  </div>
+
+  <h3 class="sub">5. Asking politely for directions</h3>
+  <div class="formula">Entschuldigung, wo ist [der/die/das + place]?</div>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Entschuldigung, wo ist der Bahnhof?</div><div class="ex-en">Excuse me, where is the station?</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Entschuldigung, wo ist hier eine Bank?</div><div class="ex-en">Excuse me, is there a bank around here?</div></div></div>
+  </div>
+</section>
+
+<!-- SENTENCE FACTORY -->
+<section id="sentence-factory">
+  <h2 class="section-title"><span class="de">Satzfabrik</span><span class="en">Sentence factory</span></h2>
+
+  <h3 class="sub">Base pattern: <span class="de-text">Das ist ein/eine ...</span></h3>
+  <div class="formula">Das ist + ein/eine/kein/keine + [noun].</div>
+  <table>
+    <tr><th>Subject</th><th>Verb</th><th>Article+noun</th><th>Full sentence</th></tr>
+    <tr><td class="de">Das</td><td class="de">ist</td><td class="de">ein Rathaus.</td><td class="de">Das ist ein Rathaus.</td></tr>
+    <tr><td class="de">Das</td><td class="de">ist</td><td class="de">eine Kirche.</td><td class="de">Das ist eine Kirche.</td></tr>
+    <tr><td class="de">Das</td><td class="de">ist</td><td class="de">kein Hotel.</td><td class="de">Das ist kein Hotel.</td></tr>
+  </table>
+
+  <h3 class="sub">Swap the place</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Das ist ein Museum.</div><div class="ex-en">That's a museum.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Das ist ein Park.</div><div class="ex-en">That's a park.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Das ist eine Brücke.</div><div class="ex-en">That's a bridge.</div></div></div>
+  </div>
+
+  <h3 class="sub">Swap the command verb</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Gehen Sie links!</div><div class="ex-en">Go left!</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Gehen Sie rechts!</div><div class="ex-en">Go right!</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Nehmen Sie ein Taxi!</div><div class="ex-en">Take a taxi!</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Fahren Sie mit dem Bus!</div><div class="ex-en">Go by bus!</div></div></div>
+  </div>
+
+  <h3 class="sub">Chain directions together</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Gehen Sie geradeaus, dann links.</div><div class="ex-en">Go straight, then left.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Gehen Sie hier rechts und dann geradeaus.</div><div class="ex-en">Go right here and then straight ahead.</div></div></div>
+  </div>
+</section>
+
+<!-- QUESTION FACTORY -->
+<section id="question-factory">
+  <h2 class="section-title"><span class="de">Fragefabrik</span><span class="en">Question factory</span></h2>
+
+  <h3 class="sub">Wo <span class="en">where — for directions</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wo ist der Bahnhof? — Er ist da vorne, geradeaus.</div><div class="ex-en">Where's the station? — It's right there, straight ahead.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wo ist hier ein Supermarkt? — Links um die Ecke.</div><div class="ex-en">Where's a supermarket around here? — Left, around the corner.</div></div></div>
+  </div>
+
+  <h3 class="sub">Was <span class="en">what — for identifying a building</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Was ist das? — Das ist das Rathaus.</div><div class="ex-en">What's that? — That's the town hall.</div></div></div>
+  </div>
+
+  <h3 class="sub">Yes/No questions</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ist das ein Motorrad? — Nein, das ist ein Fahrrad.</div><div class="ex-en">Is that a motorcycle? — No, that's a bicycle.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ist hier eine Bank? — Ja, da drüben.</div><div class="ex-en">Is there a bank here? — Yes, over there.</div></div></div>
+  </div>
+
+  <h3 class="sub">Short answers vs. full answers</h3>
+  <table>
+    <tr><th>Question</th><th>Short answer</th><th>Full answer</th></tr>
+    <tr><td class="de">Wo ist der Bahnhof?</td><td class="de">Da vorne.</td><td class="de">Der Bahnhof ist da vorne.</td></tr>
+    <tr><td class="de">Was ist das?</td><td class="de">Ein Park.</td><td class="de">Das ist ein Park.</td></tr>
+    <tr><td class="de">Ist das ein Hotel?</td><td class="de">Nein.</td><td class="de">Nein, das ist kein Hotel.</td></tr>
+  </table>
+</section>
+
+<!-- SPEAKING FACTORY -->
+<section id="speaking-factory">
+  <h2 class="section-title"><span class="de">Sprechfabrik</span><span class="en">Speaking factory</span></h2>
+
+  <h3 class="sub">Dialogue 1 — Asking for directions on the street</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Entschuldigung, wo ist der Bahnhof?</div><div class="line-en">Excuse me, where's the station?</div></div>
+    <div class="turn"><div class="speaker">PASSANT</div><div class="line-de">Gehen Sie geradeaus, dann links.</div><div class="line-en">Go straight, then left.</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Geradeaus, dann links. Danke schön!</div><div class="line-en">Straight, then left. Thanks a lot!</div></div>
+    <div class="turn"><div class="speaker">PASSANT</div><div class="line-de">Bitte, gern geschehen.</div><div class="line-en">You're welcome.</div></div>
+  </div>
+
+  <h3 class="sub">Dialogue 2 — At the reception desk, asking about a nearby place</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Entschuldigung, ist hier ein Supermarkt in der Nähe?</div><div class="line-en">Excuse me, is there a supermarket nearby?</div></div>
+    <div class="turn"><div class="speaker">REZEPTION</div><div class="line-de">Ja, ganz einfach. Gehen Sie hier rechts und dann geradeaus.</div><div class="line-en">Yes, very easy. Go right here and then straight ahead.</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Ist das weit?</div><div class="line-en">Is that far?</div></div>
+    <div class="turn"><div class="speaker">REZEPTION</div><div class="line-de">Nein, das ist nicht weit. Fünf Minuten zu Fuß.</div><div class="line-en">No, that's not far. Five minutes on foot.</div></div>
+  </div>
+
+  <h3 class="sub">Dialogue 3 — Identifying buildings on a walk</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">SONIA</div><div class="line-de">Was ist das da drüben?</div><div class="line-en">What's that over there?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Das ist das Rathaus. Und das ist eine Kirche.</div><div class="line-en">That's the town hall. And that's a church.</div></div>
+    <div class="turn"><div class="speaker">SONIA</div><div class="line-de">Ist das ein Museum?</div><div class="line-en">Is that a museum?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Nein, das ist kein Museum. Das ist ein Kino.</div><div class="line-en">No, that's not a museum. That's a cinema.</div></div>
+  </div>
+
+  <h3 class="sub">Reusable speaking chunks</h3>
+  <div class="chunks">
+    <span class="chunk">Entschuldigung, wo ist...?</span>
+    <span class="chunk">Gehen Sie geradeaus.</span>
+    <span class="chunk">Gehen Sie links/rechts.</span>
+    <span class="chunk">um die Ecke</span>
+    <span class="chunk">in der Nähe</span>
+    <span class="chunk">Das ist weit / nicht weit.</span>
+    <span class="chunk">zu Fuß</span>
+    <span class="chunk">mit dem Bus/Zug</span>
+    <span class="chunk">Danke schön!</span>
+    <span class="chunk">Bitte, gern geschehen.</span>
+    <span class="chunk">Das ist ganz einfach.</span>
+  </div>
+</section>
+
+<!-- VOCABULARY -->
+<section id="vocabulary">
+  <h2 class="section-title"><span class="de">Wortschatz</span><span class="en">Vocabulary</span></h2>
+
+  <h3 class="sub">Places in the city</h3>
+  <table>
+    <tr><th>Article</th><th>Singular</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">das</td><td class="de">Rathaus</td><td class="de">Rathäuser</td><td>town hall</td></tr>
+    <tr><td class="de">der</td><td class="de">Bahnhof</td><td class="de">Bahnhöfe</td><td>train station</td></tr>
+    <tr><td class="de">die</td><td class="de">Kirche</td><td class="de">Kirchen</td><td>church</td></tr>
+    <tr><td class="de">die</td><td class="de">Brücke</td><td class="de">Brücken</td><td>bridge</td></tr>
+    <tr><td class="de">der</td><td class="de">Turm</td><td class="de">Türme</td><td>tower</td></tr>
+    <tr><td class="de">die</td><td class="de">Kunsthalle</td><td class="de">Kunsthallen</td><td>art gallery</td></tr>
+    <tr><td class="de">das</td><td class="de">Hotel</td><td class="de">Hotels</td><td>hotel</td></tr>
+    <tr><td class="de">das</td><td class="de">Kino</td><td class="de">Kinos</td><td>cinema</td></tr>
+    <tr><td class="de">der</td><td class="de">Park</td><td class="de">Parks</td><td>park</td></tr>
+    <tr><td class="de">der</td><td class="de">Markt</td><td class="de">Märkte</td><td>market</td></tr>
+    <tr><td class="de">das</td><td class="de">Museum</td><td class="de">Museen</td><td>museum</td></tr>
+    <tr><td class="de">der</td><td class="de">Supermarkt</td><td class="de">Supermärkte</td><td>supermarket</td></tr>
+    <tr><td class="de">das</td><td class="de">Krankenhaus</td><td class="de">Krankenhäuser</td><td>hospital</td></tr>
+    <tr><td class="de">der</td><td class="de">Fluss</td><td class="de">Flüsse</td><td>river</td></tr>
+    <tr><td class="de">der</td><td class="de">See</td><td class="de">Seen</td><td>lake</td></tr>
+  </table>
+
+  <h3 class="sub">Vehicles</h3>
+  <table>
+    <tr><th>Article</th><th>Singular</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">das</td><td class="de">Auto</td><td class="de">Autos</td><td>car</td></tr>
+    <tr><td class="de">das</td><td class="de">Fahrrad</td><td class="de">Fahrräder</td><td>bicycle</td></tr>
+    <tr><td class="de">das</td><td class="de">Motorrad</td><td class="de">Motorräder</td><td>motorcycle</td></tr>
+    <tr><td class="de">der</td><td class="de">Bus</td><td class="de">Busse</td><td>bus</td></tr>
+    <tr><td class="de">der</td><td class="de">Zug</td><td class="de">Züge</td><td>train</td></tr>
+    <tr><td class="de">das</td><td class="de">Schiff</td><td class="de">Schiffe</td><td>ship</td></tr>
+    <tr><td class="de">das</td><td class="de">Flugzeug</td><td class="de">Flugzeuge</td><td>airplane</td></tr>
+    <tr><td class="de">das</td><td class="de">Taxi</td><td class="de">Taxis</td><td>taxi</td></tr>
+  </table>
+
+  <h3 class="sub">Verbs</h3>
+  <table>
+    <tr><th>Infinitive</th><th>Meaning</th><th>Sie-imperative</th></tr>
+    <tr><td class="de">gehen</td><td>to go/walk</td><td class="de">Gehen Sie!</td></tr>
+    <tr><td class="de">nehmen</td><td>to take</td><td class="de">Nehmen Sie!</td></tr>
+    <tr><td class="de">fahren</td><td>to go/drive/travel (by vehicle)</td><td class="de">Fahren Sie!</td></tr>
+    <tr><td class="de">sein</td><td>to be</td><td class="de">Seien Sie! (irregular)</td></tr>
+  </table>
+
+  <h3 class="sub">Direction words</h3>
+  <table>
+    <tr><td class="de">links</td><td>left</td></tr>
+    <tr><td class="de">rechts</td><td>right</td></tr>
+    <tr><td class="de">geradeaus</td><td>straight ahead</td></tr>
+    <tr><td class="de">hier</td><td>here</td></tr>
+    <tr><td class="de">da / da drüben</td><td>there / over there</td></tr>
+    <tr><td class="de">um die Ecke</td><td>around the corner</td></tr>
+    <tr><td class="de">in der Nähe</td><td>nearby</td></tr>
+    <tr><td class="de">weit</td><td>far</td></tr>
+    <tr><td class="de">zu Fuß</td><td>on foot</td></tr>
+  </table>
+
+  <h3 class="sub">Useful expressions</h3>
+  <table>
+    <tr><td class="de">Entschuldigung</td><td>excuse me</td></tr>
+    <tr><td class="de">Danke schön / Vielen Dank</td><td>thank you (very) much</td></tr>
+    <tr><td class="de">Bitte, gern geschehen</td><td>you're welcome</td></tr>
+    <tr><td class="de">Das ist ganz einfach.</td><td>that's very easy</td></tr>
+    <tr><td class="de">genau</td><td>exactly / that's right</td></tr>
+  </table>
+</section>
+
+<!-- EXERCISES -->
+<section id="exercises">
+  <h2 class="section-title"><span class="de">Übungen</span><span class="en">Exercises</span></h2>
+
+  <div class="exercise">
+    <p class="ex-num">A · Sentence building</p>
+    <p class="ex-prompt">1. Build a sentence from: <span class="de-text">Rathaus / das / ein / ist</span></p>
+    <p class="ex-prompt">2. Build a sentence from: <span class="de-text">Sie / links / gehen</span></p>
+    <p class="ex-prompt">3. Build a negative sentence: <span class="de-text">Hotel / das / kein / ist</span></p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">B · Question building</p>
+    <p class="ex-prompt">4. Ask a stranger politely where the train station is.</p>
+    <p class="ex-prompt">5. Ask whether there's a bank nearby.</p>
+    <p class="ex-prompt">6. Ask what a building is (pointing at it).</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">C · Translation</p>
+    <p class="ex-prompt">7. Translate: "Go straight, then right."</p>
+    <p class="ex-prompt">8. Translate: "That's not a museum, that's a cinema."</p>
+    <p class="ex-prompt">9. Translate: "Excuse me, is that far?"</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">D · Fill in the blank</p>
+
+    <div data-answer="eine" data-id="d10" data-prompt="Das ist ___ Brücke. (ein/eine)">
+      <p class="ex-prompt">10. Das ist <span class="ex-blank" style="display:none;"></span> Brücke.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="ein" data-id="d11" data-prompt="Das ist ___ Park. (ein/eine)">
+      <p class="ex-prompt">11. Das ist <span class="ex-blank" style="display:none;"></span> Park.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="kein" data-id="d12" data-prompt="Das ist ___ Hotel, das ist ein Museum. (kein/keine)">
+      <p class="ex-prompt">12. Das ist <span class="ex-blank" style="display:none;"></span> Hotel, das ist ein Museum.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Gehen" data-id="d13" data-prompt="___ Sie geradeaus! (gehen — imperative)">
+      <p class="ex-prompt">13. <span class="ex-blank" style="display:none;"></span> Sie geradeaus!</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">E · Correction</p>
+
+    <div data-answer="Das ist eine Brücke." data-id="e14" data-prompt="Das ist ein Brücke.">
+      <p class="ex-prompt">14. <span class="de-text">Das ist ein Brücke.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Das ist kein Hotel." data-id="e15" data-prompt="Das ist nicht ein Hotel.">
+      <p class="ex-prompt">15. <span class="de-text">Das ist nicht ein Hotel.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Gehen Sie geradeaus, dann links!" data-id="e16" data-prompt="Sie gehen geradeaus, dann links.">
+      <p class="ex-prompt">16. <span class="de-text">Sie gehen geradeaus, dann links.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">F · Speaking prompts</p>
+    <p class="ex-prompt">17. Ask a passerby for directions to a supermarket, and thank them after.</p>
+    <p class="ex-prompt">18. Point at three buildings and name each one.</p>
+    <p class="ex-prompt">19. Give directions: go straight, then left, then it's on the right.</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">G · Mixed review</p>
+    <p class="ex-prompt">20. Write a short exchange: someone asks where the station is, you give full directions.</p>
+  </div>
+<div class="tracker-box" id="mistake-tracker">
+    <h4>Your missed items on this chapter</h4>
+    <div id="tracker-list"><p class="tracker-empty">Loading…</p></div>
+    
+  </div>
+</section>
+
+<!-- ANSWER KEY -->
+<section id="answers">
+  <h2 class="section-title"><span class="de">Lösungen</span><span class="en">Answer key</span></h2>
+  <div class="answers">
+    <h3 class="sub">A · Sentence building</h3>
+    <div class="ans-line"><span class="ans-num">1</span><span class="de-text">Das ist ein Rathaus.</span></div>
+    <div class="ans-line"><span class="ans-num">2</span><span class="de-text">Gehen Sie links.</span></div>
+    <div class="ans-line"><span class="ans-num">3</span><span class="de-text">Das ist kein Hotel.</span></div>
+
+    <h3 class="sub">B · Question building</h3>
+    <div class="ans-line"><span class="ans-num">4</span><span class="de-text">Entschuldigung, wo ist der Bahnhof?</span></div>
+    <div class="ans-line"><span class="ans-num">5</span><span class="de-text">Ist hier eine Bank in der Nähe?</span></div>
+    <div class="ans-line"><span class="ans-num">6</span><span class="de-text">Was ist das?</span></div>
+
+    <h3 class="sub">C · Translation</h3>
+    <div class="ans-line"><span class="ans-num">7</span><span class="de-text">Gehen Sie geradeaus, dann rechts.</span></div>
+    <div class="ans-line"><span class="ans-num">8</span><span class="de-text">Das ist kein Museum, das ist ein Kino.</span></div>
+    <div class="ans-line"><span class="ans-num">9</span><span class="de-text">Entschuldigung, ist das weit?</span></div>
+
+    <h3 class="sub">D · Fill in the blank</h3>
+    <div class="ans-line"><span class="ans-num">10</span><span class="de-text">eine</span></div>
+    <div class="ans-line"><span class="ans-num">11</span><span class="de-text">ein</span></div>
+    <div class="ans-line"><span class="ans-num">12</span><span class="de-text">kein</span></div>
+    <div class="ans-line"><span class="ans-num">13</span><span class="de-text">Gehen</span></div>
+
+    <h3 class="sub">E · Correction</h3>
+    <div class="ans-line"><span class="ans-num">14</span><span class="de-text">Das ist eine Brücke.</span> — Brücke is feminine (die)</div>
+    <div class="ans-line"><span class="ans-num">15</span><span class="de-text">Das ist kein Hotel.</span> — nicht + ein fuses into kein</div>
+    <div class="ans-line"><span class="ans-num">16</span><span class="de-text">Gehen Sie geradeaus, dann links!</span> — verb-first for a command</div>
+
+    <h3 class="sub">G · Mixed review — sample answer</h3>
+    <div class="ans-line"><span class="ans-num">20</span><span class="de-text">— Entschuldigung, wo ist der Bahnhof? — Gehen Sie geradeaus, dann links. Der Bahnhof ist da vorne.</span></div>
+  </div>
+</section>
+
+<!-- PRONUNCIATION -->
+<section id="pronunciation">
+  <h2 class="section-title"><span class="de">Aussprache</span><span class="en">Pronunciation</span></h2>
+
+  <div class="sound-row">
+    <div class="ipa">ü</div>
+    <div class="sound-body">Round your lips as for "u," but say "i." Appears in many plurals with umlaut, so getting it right matters constantly.
+      <div class="sound-words">Brücke · Türme · Züge</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">sch</div>
+    <div class="sound-body">Like English "sh" in "shoe."
+      <div class="sound-words">Schiff · geschehen</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">s+p / s+t</div>
+    <div class="sound-body">At the start of a word or syllable, s before p or t is pronounced "sh" — Straße sounds like "Shtrasse," not "Strasse."
+      <div class="sound-words">Supermarkt (soo-per-markt — note: not word-initial st, so normal s) · Straße</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">au</div>
+    <div class="sound-body">Like English "ow" in "how."
+      <div class="sound-words">Rathaus · geradeaus · Auto</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMON MISTAKES -->
+<section id="mistakes">
+  <h2 class="section-title"><span class="de">Häufige Fehler</span><span class="en">Common mistakes</span></h2>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Das ist nicht ein Hotel.</div>
+    <div class="mp-line ok">Das ist kein Hotel.</div>
+    <div class="mp-why">Why: German fuses nicht + ein into the single word kein — you never say them side by side.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Das ist ein Brücke.</div>
+    <div class="mp-line ok">Das ist eine Brücke.</div>
+    <div class="mp-why">Why: Brücke is a die-noun (feminine), so the indefinite article must be eine, not ein.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Sie gehen geradeaus!</div>
+    <div class="mp-line ok">Gehen Sie geradeaus!</div>
+    <div class="mp-why">Why: the Sie-imperative always puts the verb first — leaving Sie in front makes it a statement, not a command.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">die Hotel</div>
+    <div class="mp-line ok">die Hotels</div>
+    <div class="mp-why">Why: das Hotel becomes die Hotels in the plural — the plural article is always die, but the noun itself still needs its plural ending, which is easy to forget.</div>
+  </div>
+</section>
+
+<!-- QUICK REVISION -->
+<section id="revision">
+  <h2 class="section-title"><span class="de">Kurze Wiederholung</span><span class="en">Quick revision</span></h2>
+  <div class="revision-grid">
+    <div class="rev-col">
+      <h3 class="sub">Sentence patterns</h3>
+      <div class="rev-item">Das ist ein/eine/kein/keine [noun].</div>
+      <div class="rev-item">[Verb] + Sie + [rest]! (command)</div>
+      <div class="rev-item">Gehen Sie geradeaus, dann links.</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Question forms</h3>
+      <div class="rev-item">Wo ist der/die/das...?</div>
+      <div class="rev-item">Was ist das?</div>
+      <div class="rev-item">Ist das ein/eine...? (yes/no)</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Most important words</h3>
+      <div class="rev-item">ein/eine, kein/keine</div>
+      <div class="rev-item">links, rechts, geradeaus</div>
+      <div class="rev-item">Entschuldigung, Danke schön</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Sound traps</h3>
+      <div class="rev-item">ü = rounded lips + "i"</div>
+      <div class="rev-item">au = "ow" · sch = "sh"</div>
+      <div class="rev-item">plural article always die</div>
+    </div>
+  </div>
+</section>
+
+<footer>Kapitel 3 · In Hamburg — Netzwerk neu A1</footer>
+
+</div>
+
+
+<script>
+const NA1 = (() => {
+  const STORAGE_KEY = 'na1_mistakes_kapitel3';
+
+  function loadMistakes() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+    catch (e) { return {}; }
+  }
+  function saveMistakes(obj) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(obj)); } catch (e) {}
+  }
+
+  function norm(s){ return (s||'').trim().toLowerCase().replace(/\s+/g,' '); }
+
+  function logMistake(itemId, meta) {
+    const all = loadMistakes();
+    const prev = all[itemId] || { count: 0 };
+    all[itemId] = {
+      itemId, chapter: meta.chapter, prompt: meta.prompt,
+      count: (prev.count || 0) + 1,
+      lastWrong: new Date().toISOString(),
+      cleared: false
+    };
+    saveMistakes(all);
+    renderTracker();
+  }
+
+  function clearMistake(itemId) {
+    const all = loadMistakes();
+    if (all[itemId]) { all[itemId].cleared = true; saveMistakes(all); renderTracker(); }
+  }
+
+  function getAllMistakes() {
+    const all = loadMistakes();
+    return Object.values(all).filter(m => !m.cleared);
+  }
+
+  function wireExercise(chapterLabel) {
+    document.querySelectorAll('[data-answer]').forEach(item => {
+      const input = item.querySelector('input');
+      const btn = item.querySelector('.check-btn');
+      const feedback = item.querySelector('.ex-feedback');
+      if (!input || !btn) return;
+      btn.addEventListener('click', () => {
+        const correctRaw = item.getAttribute('data-answer');
+        const options = correctRaw.split('|').map(norm);
+        const given = norm(input.value);
+        const isRight = options.includes(given);
+        feedback.textContent = isRight ? 'Richtig!' : `Not quite — correct: ${correctRaw}`;
+        feedback.style.color = isRight ? 'var(--green)' : 'var(--red)';
+        input.style.borderColor = isRight ? 'var(--green)' : 'var(--red)';
+        const itemId = `kapitel3-${item.getAttribute('data-id')}`;
+        if (!isRight) {
+          logMistake(itemId, { chapter: 'kapitel3', prompt: item.getAttribute('data-prompt') || '' });
+        } else {
+          clearMistake(itemId);
+        }
+      });
+      input.addEventListener('keydown', (e) => { if (e.key === 'Enter') btn.click(); });
+    });
+  }
+
+  function renderTracker() {
+    const list = document.getElementById('tracker-list');
+    if (!list) return;
+    const mistakes = getAllMistakes();
+    if (mistakes.length === 0) {
+      list.innerHTML = '<p class="tracker-empty">No open mistakes on this chapter — nice work.</p>';
+      return;
+    }
+    list.innerHTML = mistakes.map(m => `
+      <div class="tracker-item">
+        <span>${m.prompt || m.itemId} <span style="color:var(--ink-mute);">(missed ${m.count}×)</span></span>
+        <button class="clear-btn" data-clear="${m.itemId}">mark reviewed</button>
+      </div>`).join('');
+    list.querySelectorAll('[data-clear]').forEach(b => {
+      b.addEventListener('click', () => clearMistake(b.getAttribute('data-clear')));
+    });
+  }
+
+  wireExercise('kapitel3');
+  renderTracker();
+
+  return { logMistake, clearMistake, getAllMistakes };
+})();
+</script>
+</body>
+</html>

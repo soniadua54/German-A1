@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kapitel 11 — Die Jacke gefällt mir!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf6ee;
+  --paper-2:#f2ecdf;
+  --ink:#241f16;
+  --ink-soft:#5b5344;
+  --ink-mute:#8c8471;
+  --rule:#ddd3bd;
+  --rule-strong:#c6b998;
+  --blue:#2d4a63;
+  --blue-bg:#e4ecf1;
+  --green:#3c6b3f;
+  --green-bg:#e6efe2;
+  --red:#a3402f;
+  --red-bg:#f4e5df;
+  --amber:#8a5a1f;
+  --amber-bg:#f3e7d2;
+  --serif:'Fraunces', Georgia, serif;
+  --sans:'Inter', -apple-system, sans-serif;
+  --mono:'JetBrains Mono', monospace;
+}
+:root[data-mode="dark"]{
+  --paper:#1c1912;
+  --paper-2:#242019;
+  --ink:#ece4d3;
+  --ink-soft:#c2b8a2;
+  --ink-mute:#8f8672;
+  --rule:#3a3527;
+  --rule-strong:#4d4632;
+  --blue:#9dc0dd;
+  --blue-bg:#243440;
+  --green:#a9cba0;
+  --green-bg:#25352a;
+  --red:#e3a493;
+  --red-bg:#3a2823;
+  --amber:#e0bb7c;
+  --amber-bg:#3a3020;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-mode="light"]){
+    --paper:#1c1912; --paper-2:#242019; --ink:#ece4d3; --ink-soft:#c2b8a2; --ink-mute:#8f8672;
+    --rule:#3a3527; --rule-strong:#4d4632; --blue:#9dc0dd; --blue-bg:#243440;
+    --green:#a9cba0; --green-bg:#25352a; --red:#e3a493; --red-bg:#3a2823;
+    --amber:#e0bb7c; --amber-bg:#3a3020;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.65;
+  font-size:16px;
+}
+.wrap{max-width:760px; margin:0 auto; padding:0 24px 120px;}
+@media (max-width:600px){.wrap{padding:0 16px 100px;}}
+
+/* header */
+header.hero{
+  border-bottom:1px solid var(--rule);
+  padding:56px 0 40px;
+  margin-bottom:8px;
+}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:13px;
+  color:var(--ink-mute);
+  letter-spacing:0.02em;
+  margin:0 0 14px;
+}
+h1.title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:44px;
+  line-height:1.1;
+  margin:0 0 12px;
+  letter-spacing:-0.01em;
+}
+h1.title em{font-style:italic; font-weight:500; color:var(--blue);}
+.subtitle{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:19px;
+  color:var(--ink-soft);
+  margin:0;
+}
+
+/* nav */
+nav.toc{
+  position:sticky; top:0; z-index:10;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+  padding:10px 0;
+  margin-bottom:48px;
+  overflow-x:auto;
+  white-space:nowrap;
+  -webkit-overflow-scrolling:touch;
+}
+nav.toc::-webkit-scrollbar{height:0;}
+nav.toc a{
+  font-family:var(--sans);
+  font-size:13.5px;
+  color:var(--ink-soft);
+  text-decoration:none;
+  margin-right:22px;
+  padding-bottom:2px;
+  border-bottom:1px solid transparent;
+}
+nav.toc a:hover{color:var(--ink); border-bottom-color:var(--rule-strong);}
+
+section{margin-bottom:64px;}
+section:last-of-type{margin-bottom:24px;}
+
+h2.section-title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:28px;
+  margin:0 0 6px;
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+}
+.section-title .de{color:var(--ink);}
+.section-title .en{
+  font-family:var(--sans);
+  font-style:normal;
+  font-size:15px;
+  font-weight:400;
+  color:var(--ink-mute);
+}
+.section-intro{color:var(--ink-soft); margin:0 0 28px; max-width:64ch;}
+
+h3.sub{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:20px;
+  margin:36px 0 6px;
+  color:var(--ink);
+}
+h3.sub .en{font-family:var(--sans); font-size:14px; font-weight:400; color:var(--ink-mute); margin-left:8px;}
+
+p{margin:0 0 14px; max-width:66ch;}
+ul,ol{margin:0 0 14px; padding-left:22px; max-width:64ch;}
+li{margin-bottom:6px;}
+
+/* german text styling */
+.de-text{font-family:var(--serif); font-size:1.05em;}
+
+/* grammar box */
+.formula{
+  font-family:var(--mono);
+  font-size:15px;
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:6px;
+  padding:14px 18px;
+  margin:14px 0 20px;
+  color:var(--ink);
+  overflow-x:auto;
+}
+.formula .slot{color:var(--blue); font-weight:500;}
+
+.order-row{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 22px;
+}
+.order-cell{
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  padding:8px 14px;
+  text-align:center;
+  min-width:64px;
+}
+.order-cell .word{font-family:var(--serif); font-size:16px; display:block;}
+.order-cell .tag{font-family:var(--mono); font-size:10.5px; color:var(--ink-mute); text-transform:uppercase; letter-spacing:0.04em; display:block; margin-top:4px;}
+
+.ex-block{margin:8px 0 4px;}
+.ex-line{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:6px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.ex-line:last-child{border-bottom:none;}
+.mark{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  flex-shrink:0;
+  width:20px;
+  padding-top:3px;
+}
+.mark.pos{color:var(--green);}
+.mark.neg{color:var(--red);}
+.ex-text{flex:1;}
+.ex-de{font-family:var(--serif); font-size:16.5px; color:var(--ink);}
+.ex-en{font-size:13.5px; color:var(--ink-mute); margin-top:2px;}
+
+/* callout boxes */
+.box{
+  border-radius:8px;
+  padding:16px 20px;
+  margin:18px 0;
+}
+.box-title{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  margin:0 0 8px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.box p, .box ul{margin-bottom:0;}
+.box p + p{margin-top:8px;}
+.box.mistake{background:var(--red-bg);}
+.box.mistake .box-title{color:var(--red);}
+.box.trick{background:var(--amber-bg);}
+.box.trick .box-title{color:var(--amber);}
+.box.note{background:var(--blue-bg);}
+.box.note .box-title{color:var(--blue);}
+.dot{width:7px; height:7px; border-radius:50%; display:inline-block;}
+.dot.red{background:var(--red);}
+.dot.amber{background:var(--amber);}
+.dot.blue{background:var(--blue);}
+
+/* mistake pair */
+.mistake-pair{margin:16px 0 22px;}
+.mp-line{padding:5px 0 5px 26px; position:relative; font-family:var(--serif); font-size:16px;}
+.mp-line.x::before{content:"✕"; position:absolute; left:0; color:var(--red); font-family:var(--sans); font-size:13px; top:8px;}
+.mp-line.ok::before{content:"✓"; position:absolute; left:0; color:var(--green); font-family:var(--sans); font-size:13px; top:8px;}
+.mp-why{font-family:var(--sans); font-size:13.5px; color:var(--ink-mute); padding-left:26px; margin-top:2px;}
+
+/* tables */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:16px 0 24px;
+  font-size:14.5px;
+}
+th{
+  text-align:left;
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12.5px;
+  color:var(--ink-mute);
+  text-transform:none;
+  padding:8px 10px;
+  border-bottom:1px solid var(--rule-strong);
+}
+td{
+  padding:9px 10px;
+  border-bottom:1px solid var(--rule);
+  vertical-align:top;
+}
+td.de{font-family:var(--serif); font-size:15.5px;}
+tr:last-child td{border-bottom:none;}
+
+/* dialogue */
+.dialogue{
+  border-left:2px solid var(--rule-strong);
+  padding-left:20px;
+  margin:16px 0 24px;
+}
+.turn{margin-bottom:14px;}
+.speaker{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12.5px;
+  color:var(--ink-mute);
+  margin-bottom:2px;
+}
+.line-de{font-family:var(--serif); font-size:17px; color:var(--ink);}
+.line-en{font-size:13.5px; color:var(--ink-mute); margin-top:2px;}
+
+/* chunk pills */
+.chunks{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 22px;}
+.chunk{
+  border:1px solid var(--rule-strong);
+  border-radius:20px;
+  padding:6px 14px;
+  font-family:var(--serif);
+  font-size:14.5px;
+}
+
+/* exercise */
+.exercise{
+  margin:20px 0;
+  padding:16px 0 4px;
+  border-top:1px solid var(--rule);
+}
+.exercise:first-of-type{border-top:none; padding-top:0;}
+.ex-num{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--ink-mute);
+  margin-bottom:4px;
+}
+.ex-prompt{margin-bottom:6px;}
+.ex-blank{
+  display:inline-block;
+  min-width:90px;
+  border-bottom:1px solid var(--ink-mute);
+  margin:0 3px;
+}
+
+/* answer key */
+.answers{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:24px 28px;
+}
+.answers h3.sub{margin-top:0;}
+.ans-line{
+  font-family:var(--serif);
+  font-size:15.5px;
+  padding:5px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.ans-line:last-child{border-bottom:none;}
+.ans-num{font-family:var(--sans); color:var(--ink-mute); font-size:13px; margin-right:8px;}
+
+/* pronunciation */
+.sound-row{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:12px 0;
+  border-bottom:1px solid var(--rule);
+}
+.sound-row:last-child{border-bottom:none;}
+.ipa{
+  font-family:var(--mono);
+  font-size:18px;
+  color:var(--blue);
+  min-width:52px;
+}
+.sound-body{flex:1;}
+.sound-words{font-family:var(--serif); font-size:15.5px; margin-top:2px;}
+
+/* revision */
+.revision-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+}
+@media (max-width:600px){.revision-grid{grid-template-columns:1fr;}}
+.rev-col h3.sub{margin-top:0;}
+.rev-item{
+  font-family:var(--serif);
+  font-size:15.5px;
+  padding:6px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.rev-item:last-child{border-bottom:none;}
+
+hr.rule{border:none; border-top:1px solid var(--rule); margin:0;}
+
+footer{
+  text-align:center;
+  padding:32px 0 8px;
+  color:var(--ink-mute);
+  font-size:13px;
+}
+/* interactive exercise widgets */
+.ex-check{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:6px;
+}
+.ex-input{
+  font-family:var(--serif);
+  font-size:15px;
+  padding:6px 10px;
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  background:var(--paper);
+  color:var(--ink);
+  min-width:160px;
+}
+.ex-input:focus{outline:none; border-color:var(--blue);}
+.check-btn{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  padding:6px 14px;
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  background:var(--paper-2);
+  color:var(--ink);
+  cursor:pointer;
+}
+.check-btn:hover{background:var(--rule);}
+.ex-feedback{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  min-width:120px;
+}
+.tracker-box{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:18px 22px;
+  margin:20px 0;
+}
+.tracker-box h4{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:600;
+  margin:0 0 10px;
+  color:var(--ink-mute);
+}
+.tracker-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 0;
+  border-bottom:1px dotted var(--rule);
+  font-size:14px;
+}
+.tracker-item:last-child{border-bottom:none;}
+.tracker-item .clear-btn{
+  font-family:var(--sans);
+  font-size:12px;
+  color:var(--ink-mute);
+  background:none;
+  border:none;
+  cursor:pointer;
+  text-decoration:underline;
+}
+.tracker-empty{color:var(--ink-mute); font-size:13.5px; font-style:italic;}
+.persist-note{font-size:12px; color:var(--ink-mute); margin-top:8px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow">Netzwerk neu A1 · Kapitel 11</p>
+  <h1 class="title">Die Jacke gefällt mir! <em>— I like the jacket!</em></h1>
+  <p class="subtitle">Clothing, shopping, tastes, and welch-/dieser (which/this)</p>
+</header>
+
+<nav class="toc" aria-label="Chapter sections">
+  <a href="#overview">Overview</a>
+  <a href="#grammar">Grammar</a>
+  <a href="#sentence-factory">Sentence factory</a>
+  <a href="#question-factory">Question factory</a>
+  <a href="#speaking-factory">Speaking factory</a>
+  <a href="#vocabulary">Vocabulary</a>
+  <a href="#exercises">Exercises</a>
+  <a href="#answers">Answer key</a>
+  <a href="#pronunciation">Pronunciation</a>
+  <a href="#mistakes">Common mistakes</a>
+  <a href="#revision">Quick revision</a>
+</nav>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <h2 class="section-title"><span class="de">Kapitelüberblick</span><span class="en">Chapter overview</span></h2>
+  <p class="section-intro">Kapitel 11 is shopping-focused: clothing vocabulary and the small but essential grammar pair welch- ("which") and dieser ("this"), which behave like twins across all three cases you already know.</p>
+
+  <h3 class="sub">What this chapter is about</h3>
+  <p>You'll learn clothing items and colors, verbs for talking about how clothes look and fit (<span class="de-text">gefallen, stehen, aussehen</span>), and the question word <span class="de-text">welch-</span> ("which") together with the demonstrative <span class="de-text">dieser</span> ("this") across nominative, accusative, and dative.</p>
+
+  <h3 class="sub">What you should be able to say after finishing it</h3>
+  <ul>
+    <li>Name clothing items and colors</li>
+    <li>Say what you like, what suits you, and what looks good</li>
+    <li>Ask "which one?" and answer "this one" in any case</li>
+    <li>Have a basic clothes-shopping conversation</li>
+    <li>Give an opinion about someone's outfit politely</li>
+  </ul>
+
+  <h3 class="sub">Where you use this in real life</h3>
+  <p>Shopping for clothes, asking a shop assistant which size or color is available, complimenting or asking Sonia's opinion on an outfit, or browsing online (Zalando, Amazon) and discussing options.</p>
+</section>
+
+<!-- GRAMMAR -->
+<section id="grammar">
+  <h2 class="section-title"><span class="de">Grammatik</span><span class="en">Grammar</span></h2>
+  <p class="section-intro">welch- and dieser both change their endings exactly like der/die/das across the cases — once you see the pattern, both words become easy.</p>
+
+  <h3 class="sub">1. <span class="de-text">welch-</span> <span class="en">"which" — asks for a specific choice</span></h3>
+  <table>
+    <tr><th>Case</th><th>Masculine</th><th>Feminine</th><th>Neuter</th><th>Plural</th></tr>
+    <tr><td>Nominative</td><td class="de">welcher</td><td class="de">welche</td><td class="de">welches</td><td class="de">welche</td></tr>
+    <tr><td>Accusative</td><td class="de">welchen</td><td class="de">welche</td><td class="de">welches</td><td class="de">welche</td></tr>
+    <tr><td>Dative</td><td class="de">welchem</td><td class="de">welcher</td><td class="de">welchem</td><td class="de">welchen</td></tr>
+  </table>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Welcher Pullover gefällt dir?</div><div class="ex-en">Which sweater do you like? (nominative, masc.)</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Welche Jacke möchtest du?</div><div class="ex-en">Which jacket would you like? (accusative, fem. — no change from nom.)</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Mit welchem Anzug gehst du?</div><div class="ex-en">Which suit are you going with? (dative, masc., after mit)</div></div></div>
+  </div>
+
+  <h3 class="sub">2. <span class="de-text">dieser</span> <span class="en">"this" — points to something specific, follows the same pattern</span></h3>
+  <table>
+    <tr><th>Case</th><th>Masculine</th><th>Feminine</th><th>Neuter</th><th>Plural</th></tr>
+    <tr><td>Nominative</td><td class="de">dieser</td><td class="de">diese</td><td class="de">dieses</td><td class="de">diese</td></tr>
+    <tr><td>Accusative</td><td class="de">diesen</td><td class="de">diese</td><td class="de">dieses</td><td class="de">diese</td></tr>
+    <tr><td>Dative</td><td class="de">diesem</td><td class="de">dieser</td><td class="de">diesem</td><td class="de">diesen</td></tr>
+  </table>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Welcher Rock? — Dieser hier.</div><div class="ex-en">Which skirt? — This one here.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Welches Hemd? — Dieses hier.</div><div class="ex-en">Which shirt? — This one here.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Mit diesem Anzug.</div><div class="ex-en">With this suit. (dative)</div></div></div>
+  </div>
+  <div class="box trick">
+    <p class="box-title"><span class="dot amber"></span>Memory trick</p>
+    <p><span class="de-text">welch-</span> and <span class="de-text">dieser</span> share the exact same set of endings — -er, -e, -es, -en, -em — laid over their different stems. If you know one, you effectively know both. They also mirror the der/die/das pattern you already learned, just with a different starting letter.</p>
+  </div>
+
+  <h3 class="sub">3. Verbs for talking about clothes</h3>
+  <table>
+    <tr><th>Verb</th><th>Meaning</th><th>Example</th></tr>
+    <tr><td class="de">gefallen</td><td>to like (dative)</td><td class="de">Die Jacke gefällt mir.</td></tr>
+    <tr><td class="de">stehen</td><td>to suit (dative)</td><td class="de">Das steht dir gut.</td></tr>
+    <tr><td class="de">aussehen</td><td>to look (appearance)</td><td class="de">Du siehst toll aus.</td></tr>
+    <tr><td class="de">passen</td><td>to fit (dative)</td><td class="de">Die Hose passt mir nicht.</td></tr>
+    <tr><td class="de">anziehen</td><td>to put on (separable)</td><td class="de">Ich ziehe die Jacke an.</td></tr>
+  </table>
+  <div class="box mistake">
+    <p class="box-title"><span class="dot red"></span>Common mistake</p>
+    <p>All four of <span class="de-text">gefallen, stehen, passen</span>, and the object of admiration in <span class="de-text">gefallen</span> take a dative person — this is the same dative-verb pattern from Kapitel 7, now applied to shopping. <span class="de-text">Das gefällt ich</span> is wrong; it must be <span class="de-text">Das gefällt mir</span>.</p>
+  </div>
+</section>
+
+<!-- SENTENCE FACTORY -->
+<section id="sentence-factory">
+  <h2 class="section-title"><span class="de">Satzfabrik</span><span class="en">Sentence factory</span></h2>
+
+  <h3 class="sub">Base pattern: expressing opinion on clothing</h3>
+  <div class="formula">[clothing item] + gefällt/steht + [dative pronoun].</div>
+  <table>
+    <tr><th>Subject</th><th>Verb</th><th>Dative</th><th>Full sentence</th></tr>
+    <tr><td class="de">Die Jacke</td><td class="de">gefällt</td><td class="de">mir.</td><td class="de">Die Jacke gefällt mir.</td></tr>
+    <tr><td class="de">Das Kleid</td><td class="de">steht</td><td class="de">dir</td><td class="de">Das Kleid steht dir gut.</td></tr>
+  </table>
+
+  <h3 class="sub">Swap the clothing item</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Der Pullover gefällt mir.</div><div class="ex-en">I like the sweater.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Die Hose passt mir gut.</div><div class="ex-en">The trousers fit me well.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Das T-Shirt ist zu eng.</div><div class="ex-en">The T-shirt is too tight.</div></div></div>
+  </div>
+
+  <h3 class="sub">Ask which one, answer with dieser</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Welche Jacke möchtest du? — Diese hier.</div><div class="ex-en">Which jacket would you like? — This one here.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Welchen Rock findest du schön? — Diesen hier.</div><div class="ex-en">Which skirt do you find nice? — This one here.</div></div></div>
+  </div>
+</section>
+
+<!-- QUESTION FACTORY -->
+<section id="question-factory">
+  <h2 class="section-title"><span class="de">Fragefabrik</span><span class="en">Question factory</span></h2>
+
+  <h3 class="sub">Welch- <span class="en">which</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Welche Farbe möchtest du?</div><div class="ex-en">Which color would you like?</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Welches Kleid gefällt dir am besten?</div><div class="ex-en">Which dress do you like best?</div></div></div>
+  </div>
+
+  <h3 class="sub">Was <span class="en">what — for price</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Was kostet die Jeans? — Fünfzig Euro.</div><div class="ex-en">How much do the jeans cost? — Fifty euros.</div></div></div>
+  </div>
+
+  <h3 class="sub">Wie <span class="en">how — for opinion</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wie findest du diesen Rock?</div><div class="ex-en">What do you think of this skirt?</div></div></div>
+  </div>
+
+  <h3 class="sub">Yes/No questions</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Steht mir das? — Ja, das steht dir super.</div><div class="ex-en">Does this suit me? — Yes, it suits you great.</div></div></div>
+  </div>
+
+  <h3 class="sub">Short answers vs. full answers</h3>
+  <table>
+    <tr><th>Question</th><th>Short answer</th><th>Full answer</th></tr>
+    <tr><td class="de">Welche Jacke?</td><td class="de">Diese hier.</td><td class="de">Ich möchte diese Jacke hier.</td></tr>
+    <tr><td class="de">Was kostet das?</td><td class="de">Fünfzig Euro.</td><td class="de">Das kostet fünfzig Euro.</td></tr>
+  </table>
+</section>
+
+<!-- SPEAKING FACTORY -->
+<section id="speaking-factory">
+  <h2 class="section-title"><span class="de">Sprechfabrik</span><span class="en">Speaking factory</span></h2>
+
+  <h3 class="sub">Dialogue 1 — Shopping for clothes</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">VERKÄUFERIN</div><div class="line-de">Welche Größe suchen Sie?</div><div class="line-en">What size are you looking for?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Ich suche eine Jacke, Größe L.</div><div class="line-en">I'm looking for a jacket, size L.</div></div>
+    <div class="turn"><div class="speaker">VERKÄUFERIN</div><div class="line-de">Wie finden Sie diese hier?</div><div class="line-en">What do you think of this one here?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Die gefällt mir sehr. Was kostet sie?</div><div class="line-en">I like it a lot. How much does it cost?</div></div>
+    <div class="turn"><div class="speaker">VERKÄUFERIN</div><div class="line-de">Achtzig Euro.</div><div class="line-en">Eighty euros.</div></div>
+  </div>
+
+  <h3 class="sub">Dialogue 2 — Asking for an opinion</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">SONIA</div><div class="line-de">Wie findest du dieses Kleid?</div><div class="line-en">What do you think of this dress?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Das steht dir sehr gut! Die Farbe gefällt mir.</div><div class="line-en">That suits you very well! I like the color.</div></div>
+    <div class="turn"><div class="speaker">SONIA</div><div class="line-de">Wirklich? Danke!</div><div class="line-en">Really? Thanks!</div></div>
+  </div>
+
+  <h3 class="sub">Dialogue 3 — Something doesn't fit</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Die Hose passt mir leider nicht.</div><div class="line-en">Unfortunately the trousers don't fit me.</div></div>
+    <div class="turn"><div class="speaker">VERKÄUFERIN</div><div class="line-de">Möchten Sie eine andere Größe?</div><div class="line-en">Would you like a different size?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Ja, gern. Haben Sie Größe M?</div><div class="line-en">Yes, gladly. Do you have size M?</div></div>
+  </div>
+
+  <h3 class="sub">Reusable speaking chunks</h3>
+  <div class="chunks">
+    <span class="chunk">Die/Der/Das ... gefällt mir.</span>
+    <span class="chunk">Das steht dir gut.</span>
+    <span class="chunk">Du siehst toll aus.</span>
+    <span class="chunk">Es passt mir (nicht).</span>
+    <span class="chunk">Was kostet...?</span>
+    <span class="chunk">Wie findest du...?</span>
+    <span class="chunk">Welche Größe?</span>
+    <span class="chunk">Diese/dieser/dieses hier.</span>
+  </div>
+</section>
+
+<!-- VOCABULARY -->
+<section id="vocabulary">
+  <h2 class="section-title"><span class="de">Wortschatz</span><span class="en">Vocabulary</span></h2>
+
+  <h3 class="sub">Clothing nouns</h3>
+  <table>
+    <tr><th>Article</th><th>Singular</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">die</td><td class="de">Kleidung</td><td class="de">—</td><td>clothing (general)</td></tr>
+    <tr><td class="de">die</td><td class="de">Jacke</td><td class="de">Jacken</td><td>jacket</td></tr>
+    <tr><td class="de">das</td><td class="de">T-Shirt</td><td class="de">T-Shirts</td><td>t-shirt</td></tr>
+    <tr><td class="de">die</td><td class="de">Hose</td><td class="de">Hosen</td><td>trousers</td></tr>
+    <tr><td class="de">das</td><td class="de">Kleid</td><td class="de">Kleider</td><td>dress</td></tr>
+    <tr><td class="de">die</td><td class="de">Bluse</td><td class="de">Blusen</td><td>blouse</td></tr>
+    <tr><td class="de">der</td><td class="de">Rock</td><td class="de">Röcke</td><td>skirt</td></tr>
+    <tr><td class="de">die</td><td class="de">Jeans</td><td class="de">Jeans</td><td>jeans</td></tr>
+    <tr><td class="de">der</td><td class="de">Pullover</td><td class="de">Pullover</td><td>sweater</td></tr>
+    <tr><td class="de">der</td><td class="de">Mantel</td><td class="de">Mäntel</td><td>coat</td></tr>
+    <tr><td class="de">das</td><td class="de">Hemd</td><td class="de">Hemden</td><td>shirt (button-up)</td></tr>
+    <tr><td class="de">der</td><td class="de">Anzug</td><td class="de">Anzüge</td><td>suit</td></tr>
+    <tr><td class="de">der</td><td class="de">Schuh</td><td class="de">Schuhe</td><td>shoe</td></tr>
+    <tr><td class="de">der</td><td class="de">Stiefel</td><td class="de">Stiefel</td><td>boot</td></tr>
+    <tr><td class="de">die</td><td class="de">Tasche</td><td class="de">Taschen</td><td>bag</td></tr>
+  </table>
+
+  <h3 class="sub">Colors</h3>
+  <table>
+    <tr><td class="de">rot</td><td>red</td><td class="de">blau</td><td>blue</td></tr>
+    <tr><td class="de">grün</td><td>green</td><td class="de">gelb</td><td>yellow</td></tr>
+    <tr><td class="de">schwarz</td><td>black</td><td class="de">weiß</td><td>white</td></tr>
+    <tr><td class="de">grau</td><td>gray</td><td class="de">orange</td><td>orange</td></tr>
+  </table>
+
+  <h3 class="sub">Verbs</h3>
+  <table>
+    <tr><th>Infinitive</th><th>Meaning</th></tr>
+    <tr><td class="de">gefallen</td><td>to like (dative)</td></tr>
+    <tr><td class="de">stehen</td><td>to suit (dative)</td></tr>
+    <tr><td class="de">aussehen</td><td>to look/appear</td></tr>
+    <tr><td class="de">passen</td><td>to fit (dative)</td></tr>
+    <tr><td class="de">anziehen</td><td>to put on</td></tr>
+  </table>
+
+  <h3 class="sub">Useful expressions</h3>
+  <table>
+    <tr><td class="de">Das steht dir gut!</td><td>that suits you well!</td></tr>
+    <tr><td class="de">Du siehst toll aus!</td><td>you look great!</td></tr>
+    <tr><td class="de">zu eng / zu groß / zu klein</td><td>too tight / too big / too small</td></tr>
+    <tr><td class="de">Welche Größe?</td><td>what size?</td></tr>
+    <tr><td class="de">Wie viel kostet...?</td><td>how much does ... cost?</td></tr>
+  </table>
+</section>
+
+<!-- EXERCISES -->
+<section id="exercises">
+  <h2 class="section-title"><span class="de">Übungen</span><span class="en">Exercises</span></h2>
+
+  <div class="exercise">
+    <p class="ex-num">A · Sentence building</p>
+    <p class="ex-prompt">1. Build a sentence from: <span class="de-text">gefällt / mir / die Jacke</span></p>
+    <p class="ex-prompt">2. Build a sentence from: <span class="de-text">steht / gut / dir / das Kleid</span></p>
+    <p class="ex-prompt">3. Build a question from: <span class="de-text">möchtest / welche / du / Jacke</span></p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">B · Question building</p>
+    <p class="ex-prompt">4. Ask which color someone would like.</p>
+    <p class="ex-prompt">5. Ask how much a jacket costs.</p>
+    <p class="ex-prompt">6. Ask what someone thinks of a dress.</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">C · Translation</p>
+    <p class="ex-prompt">7. Translate: "I like the sweater, but it's too tight."</p>
+    <p class="ex-prompt">8. Translate: "Which jacket? — This one here."</p>
+    <p class="ex-prompt">9. Translate: "You look great!"</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">D · Fill in the blank (welch-/dieser)</p>
+
+    <div data-answer="Welcher" data-id="d10" data-prompt="___ Pullover gefällt dir? (welch- — masc. nom.)">
+      <p class="ex-prompt">10. <span class="ex-blank" style="display:none;"></span> Pullover gefällt dir?</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="diese" data-id="d11" data-prompt="Ich möchte ___ Jacke. (dieser — fem. acc.)">
+      <p class="ex-prompt">11. Ich möchte <span class="ex-blank" style="display:none;"></span> Jacke.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="welchem" data-id="d12" data-prompt="Mit ___ Anzug? (welch- — masc. dat.)">
+      <p class="ex-prompt">12. Mit <span class="ex-blank" style="display:none;"></span> Anzug?</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Dieses" data-id="d13" data-prompt="___ Kleid gefällt mir am besten. (dieser — neut. nom.)">
+      <p class="ex-prompt">13. <span class="ex-blank" style="display:none;"></span> Kleid gefällt mir am besten.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">E · Correction</p>
+
+    <div data-answer="Das gefällt mir." data-id="e14" data-prompt="Das gefällt ich.">
+      <p class="ex-prompt">14. <span class="de-text">Das gefällt ich.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Welche Jacke möchtest du?" data-id="e15" data-prompt="Welcher Jacke möchtest du?">
+      <p class="ex-prompt">15. <span class="de-text">Welcher Jacke möchtest du?</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Die Hose passt mir nicht." data-id="e16" data-prompt="Die Hose passt ich nicht.">
+      <p class="ex-prompt">16. <span class="de-text">Die Hose passt ich nicht.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">F · Speaking prompts</p>
+    <p class="ex-prompt">17. Ask someone which jacket they like and why.</p>
+    <p class="ex-prompt">18. Compliment someone's outfit using two different verbs.</p>
+    <p class="ex-prompt">19. Describe what you're wearing today, including a color.</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">G · Mixed review</p>
+    <p class="ex-prompt">20. Write a short shopping exchange: ask which size, express liking an item, ask the price.</p>
+  </div>
+<div class="tracker-box" id="mistake-tracker">
+    <h4>Your missed items on this chapter</h4>
+    <div id="tracker-list"><p class="tracker-empty">Loading…</p></div>
+    
+  </div>
+</section>
+
+<!-- ANSWER KEY -->
+<section id="answers">
+  <h2 class="section-title"><span class="de">Lösungen</span><span class="en">Answer key</span></h2>
+  <div class="answers">
+    <h3 class="sub">A · Sentence building</h3>
+    <div class="ans-line"><span class="ans-num">1</span><span class="de-text">Die Jacke gefällt mir.</span></div>
+    <div class="ans-line"><span class="ans-num">2</span><span class="de-text">Das Kleid steht dir gut.</span></div>
+    <div class="ans-line"><span class="ans-num">3</span><span class="de-text">Welche Jacke möchtest du?</span></div>
+
+    <h3 class="sub">B · Question building</h3>
+    <div class="ans-line"><span class="ans-num">4</span><span class="de-text">Welche Farbe möchtest du?</span></div>
+    <div class="ans-line"><span class="ans-num">5</span><span class="de-text">Was kostet die Jacke?</span></div>
+    <div class="ans-line"><span class="ans-num">6</span><span class="de-text">Wie findest du das Kleid?</span></div>
+
+    <h3 class="sub">C · Translation</h3>
+    <div class="ans-line"><span class="ans-num">7</span><span class="de-text">Der Pullover gefällt mir, aber er ist zu eng.</span></div>
+    <div class="ans-line"><span class="ans-num">8</span><span class="de-text">Welche Jacke? — Diese hier.</span></div>
+    <div class="ans-line"><span class="ans-num">9</span><span class="de-text">Du siehst toll aus!</span></div>
+
+    <h3 class="sub">D · Fill in the blank</h3>
+    <div class="ans-line"><span class="ans-num">10</span><span class="de-text">Welcher</span></div>
+    <div class="ans-line"><span class="ans-num">11</span><span class="de-text">diese</span></div>
+    <div class="ans-line"><span class="ans-num">12</span><span class="de-text">welchem</span></div>
+    <div class="ans-line"><span class="ans-num">13</span><span class="de-text">Dieses</span></div>
+
+    <h3 class="sub">E · Correction</h3>
+    <div class="ans-line"><span class="ans-num">14</span><span class="de-text">Das gefällt mir.</span> — gefallen takes a dative pronoun</div>
+    <div class="ans-line"><span class="ans-num">15</span><span class="de-text">Welche Jacke möchtest du?</span> — Jacke is feminine, so welche, not welcher</div>
+    <div class="ans-line"><span class="ans-num">16</span><span class="de-text">Die Hose passt mir nicht.</span> — passen takes a dative pronoun</div>
+
+    <h3 class="sub">G · Mixed review — sample answer</h3>
+    <div class="ans-line"><span class="ans-num">20</span><span class="de-text">— Welche Größe suchen Sie? — Größe M. Diese Jacke gefällt mir. Was kostet sie?</span></div>
+  </div>
+</section>
+
+<!-- PRONUNCIATION -->
+<section id="pronunciation">
+  <h2 class="section-title"><span class="de">Aussprache</span><span class="en">Pronunciation</span></h2>
+
+  <div class="sound-row">
+    <div class="ipa">j (Jacke, Jeans)</div>
+    <div class="sound-body">Pronounced "y," as established since Kapitel 2 — reinforcing since it appears constantly in clothing words.
+      <div class="sound-words">Jacke · Jeans</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">z (schwarz)</div>
+    <div class="sound-body">"Ts" sound, as always.
+      <div class="sound-words">schwarz</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">ö (Röcke)</div>
+    <div class="sound-body">Rounded lips + "e," appearing in the plural of Rock.
+      <div class="sound-words">Röcke</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMON MISTAKES -->
+<section id="mistakes">
+  <h2 class="section-title"><span class="de">Häufige Fehler</span><span class="en">Common mistakes</span></h2>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Das gefällt ich.</div>
+    <div class="mp-line ok">Das gefällt mir.</div>
+    <div class="mp-why">Why: gefallen always takes a dative pronoun for the person doing the liking, never a nominative subject pronoun.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Welcher Jacke gefällt dir?</div>
+    <div class="mp-line ok">Welche Jacke gefällt dir?</div>
+    <div class="mp-why">Why: die Jacke is feminine, so welch- must take its feminine ending (welche), matching der/die/das exactly.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Die Hose passt ich nicht.</div>
+    <div class="mp-line ok">Die Hose passt mir nicht.</div>
+    <div class="mp-why">Why: passen, like gefallen and stehen, is a fixed dative verb — the person is always the dative object.</div>
+  </div>
+</section>
+
+<!-- QUICK REVISION -->
+<section id="revision">
+  <h2 class="section-title"><span class="de">Kurze Wiederholung</span><span class="en">Quick revision</span></h2>
+  <div class="revision-grid">
+    <div class="rev-col">
+      <h3 class="sub">Sentence patterns</h3>
+      <div class="rev-item">[clothing] gefällt/steht/passt + [dative pronoun]</div>
+      <div class="rev-item">Welch- + [noun]? — Dieser/diese/dieses hier.</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Question forms</h3>
+      <div class="rev-item">Welche Farbe/Größe möchtest du?</div>
+      <div class="rev-item">Was kostet...?</div>
+      <div class="rev-item">Wie findest du...?</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Most important words</h3>
+      <div class="rev-item">gefallen, stehen, passen, aussehen</div>
+      <div class="rev-item">welcher/welche/welches</div>
+      <div class="rev-item">dieser/diese/dieses</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Sound traps</h3>
+      <div class="rev-item">j = "y" (Jacke, Jeans)</div>
+      <div class="rev-item">z = "ts" (schwarz)</div>
+      <div class="rev-item">welch-/dieser mirror der/die/das endings</div>
+    </div>
+  </div>
+</section>
+
+<footer>Kapitel 11 · Die Jacke gefällt mir! — Netzwerk neu A1</footer>
+
+</div>
+
+
+<script>
+const NA1 = (() => {
+  const STORAGE_KEY = 'na1_mistakes_kapitel11';
+
+  function loadMistakes() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+    catch (e) { return {}; }
+  }
+  function saveMistakes(obj) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(obj)); } catch (e) {}
+  }
+
+  function norm(s){ return (s||'').trim().toLowerCase().replace(/\s+/g,' '); }
+
+  function logMistake(itemId, meta) {
+    const all = loadMistakes();
+    const prev = all[itemId] || { count: 0 };
+    all[itemId] = {
+      itemId, chapter: meta.chapter, prompt: meta.prompt,
+      count: (prev.count || 0) + 1,
+      lastWrong: new Date().toISOString(),
+      cleared: false
+    };
+    saveMistakes(all);
+    renderTracker();
+  }
+
+  function clearMistake(itemId) {
+    const all = loadMistakes();
+    if (all[itemId]) { all[itemId].cleared = true; saveMistakes(all); renderTracker(); }
+  }
+
+  function getAllMistakes() {
+    const all = loadMistakes();
+    return Object.values(all).filter(m => !m.cleared);
+  }
+
+  function wireExercise(chapterLabel) {
+    document.querySelectorAll('[data-answer]').forEach(item => {
+      const input = item.querySelector('input');
+      const btn = item.querySelector('.check-btn');
+      const feedback = item.querySelector('.ex-feedback');
+      if (!input || !btn) return;
+      btn.addEventListener('click', () => {
+        const correctRaw = item.getAttribute('data-answer');
+        const options = correctRaw.split('|').map(norm);
+        const given = norm(input.value);
+        const isRight = options.includes(given);
+        feedback.textContent = isRight ? 'Richtig!' : `Not quite — correct: ${correctRaw}`;
+        feedback.style.color = isRight ? 'var(--green)' : 'var(--red)';
+        input.style.borderColor = isRight ? 'var(--green)' : 'var(--red)';
+        const itemId = `kapitel11-${item.getAttribute('data-id')}`;
+        if (!isRight) {
+          logMistake(itemId, { chapter: 'kapitel11', prompt: item.getAttribute('data-prompt') || '' });
+        } else {
+          clearMistake(itemId);
+        }
+      });
+      input.addEventListener('keydown', (e) => { if (e.key === 'Enter') btn.click(); });
+    });
+  }
+
+  function renderTracker() {
+    const list = document.getElementById('tracker-list');
+    if (!list) return;
+    const mistakes = getAllMistakes();
+    if (mistakes.length === 0) {
+      list.innerHTML = '<p class="tracker-empty">No open mistakes on this chapter — nice work.</p>';
+      return;
+    }
+    list.innerHTML = mistakes.map(m => `
+      <div class="tracker-item">
+        <span>${m.prompt || m.itemId} <span style="color:var(--ink-mute);">(missed ${m.count}×)</span></span>
+        <button class="clear-btn" data-clear="${m.itemId}">mark reviewed</button>
+      </div>`).join('');
+    list.querySelectorAll('[data-clear]').forEach(b => {
+      b.addEventListener('click', () => clearMistake(b.getAttribute('data-clear')));
+    });
+  }
+
+  wireExercise('kapitel11');
+  renderTracker();
+
+  return { logMistake, clearMistake, getAllMistakes };
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kapitel 12 — Ab in den Urlaub!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf6ee;
+  --paper-2:#f2ecdf;
+  --ink:#241f16;
+  --ink-soft:#5b5344;
+  --ink-mute:#8c8471;
+  --rule:#ddd3bd;
+  --rule-strong:#c6b998;
+  --blue:#2d4a63;
+  --blue-bg:#e4ecf1;
+  --green:#3c6b3f;
+  --green-bg:#e6efe2;
+  --red:#a3402f;
+  --red-bg:#f4e5df;
+  --amber:#8a5a1f;
+  --amber-bg:#f3e7d2;
+  --serif:'Fraunces', Georgia, serif;
+  --sans:'Inter', -apple-system, sans-serif;
+  --mono:'JetBrains Mono', monospace;
+}
+:root[data-mode="dark"]{
+  --paper:#1c1912;
+  --paper-2:#242019;
+  --ink:#ece4d3;
+  --ink-soft:#c2b8a2;
+  --ink-mute:#8f8672;
+  --rule:#3a3527;
+  --rule-strong:#4d4632;
+  --blue:#9dc0dd;
+  --blue-bg:#243440;
+  --green:#a9cba0;
+  --green-bg:#25352a;
+  --red:#e3a493;
+  --red-bg:#3a2823;
+  --amber:#e0bb7c;
+  --amber-bg:#3a3020;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-mode="light"]){
+    --paper:#1c1912; --paper-2:#242019; --ink:#ece4d3; --ink-soft:#c2b8a2; --ink-mute:#8f8672;
+    --rule:#3a3527; --rule-strong:#4d4632; --blue:#9dc0dd; --blue-bg:#243440;
+    --green:#a9cba0; --green-bg:#25352a; --red:#e3a493; --red-bg:#3a2823;
+    --amber:#e0bb7c; --amber-bg:#3a3020;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.65;
+  font-size:16px;
+}
+.wrap{max-width:760px; margin:0 auto; padding:0 24px 120px;}
+@media (max-width:600px){.wrap{padding:0 16px 100px;}}
+
+/* header */
+header.hero{
+  border-bottom:1px solid var(--rule);
+  padding:56px 0 40px;
+  margin-bottom:8px;
+}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:13px;
+  color:var(--ink-mute);
+  letter-spacing:0.02em;
+  margin:0 0 14px;
+}
+h1.title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:44px;
+  line-height:1.1;
+  margin:0 0 12px;
+  letter-spacing:-0.01em;
+}
+h1.title em{font-style:italic; font-weight:500; color:var(--blue);}
+.subtitle{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:19px;
+  color:var(--ink-soft);
+  margin:0;
+}
+
+/* nav */
+nav.toc{
+  position:sticky; top:0; z-index:10;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+  padding:10px 0;
+  margin-bottom:48px;
+  overflow-x:auto;
+  white-space:nowrap;
+  -webkit-overflow-scrolling:touch;
+}
+nav.toc::-webkit-scrollbar{height:0;}
+nav.toc a{
+  font-family:var(--sans);
+  font-size:13.5px;
+  color:var(--ink-soft);
+  text-decoration:none;
+  margin-right:22px;
+  padding-bottom:2px;
+  border-bottom:1px solid transparent;
+}
+nav.toc a:hover{color:var(--ink); border-bottom-color:var(--rule-strong);}
+
+section{margin-bottom:64px;}
+section:last-of-type{margin-bottom:24px;}
+
+h2.section-title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:28px;
+  margin:0 0 6px;
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+}
+.section-title .de{color:var(--ink);}
+.section-title .en{
+  font-family:var(--sans);
+  font-style:normal;
+  font-size:15px;
+  font-weight:400;
+  color:var(--ink-mute);
+}
+.section-intro{color:var(--ink-soft); margin:0 0 28px; max-width:64ch;}
+
+h3.sub{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:20px;
+  margin:36px 0 6px;
+  color:var(--ink);
+}
+h3.sub .en{font-family:var(--sans); font-size:14px; font-weight:400; color:var(--ink-mute); margin-left:8px;}
+
+p{margin:0 0 14px; max-width:66ch;}
+ul,ol{margin:0 0 14px; padding-left:22px; max-width:64ch;}
+li{margin-bottom:6px;}
+
+/* german text styling */
+.de-text{font-family:var(--serif); font-size:1.05em;}
+
+/* grammar box */
+.formula{
+  font-family:var(--mono);
+  font-size:15px;
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:6px;
+  padding:14px 18px;
+  margin:14px 0 20px;
+  color:var(--ink);
+  overflow-x:auto;
+}
+.formula .slot{color:var(--blue); font-weight:500;}
+
+.order-row{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 22px;
+}
+.order-cell{
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  padding:8px 14px;
+  text-align:center;
+  min-width:64px;
+}
+.order-cell .word{font-family:var(--serif); font-size:16px; display:block;}
+.order-cell .tag{font-family:var(--mono); font-size:10.5px; color:var(--ink-mute); text-transform:uppercase; letter-spacing:0.04em; display:block; margin-top:4px;}
+
+.ex-block{margin:8px 0 4px;}
+.ex-line{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:6px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.ex-line:last-child{border-bottom:none;}
+.mark{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  flex-shrink:0;
+  width:20px;
+  padding-top:3px;
+}
+.mark.pos{color:var(--green);}
+.mark.neg{color:var(--red);}
+.ex-text{flex:1;}
+.ex-de{font-family:var(--serif); font-size:16.5px; color:var(--ink);}
+.ex-en{font-size:13.5px; color:var(--ink-mute); margin-top:2px;}
+
+/* callout boxes */
+.box{
+  border-radius:8px;
+  padding:16px 20px;
+  margin:18px 0;
+}
+.box-title{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  margin:0 0 8px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.box p, .box ul{margin-bottom:0;}
+.box p + p{margin-top:8px;}
+.box.mistake{background:var(--red-bg);}
+.box.mistake .box-title{color:var(--red);}
+.box.trick{background:var(--amber-bg);}
+.box.trick .box-title{color:var(--amber);}
+.box.note{background:var(--blue-bg);}
+.box.note .box-title{color:var(--blue);}
+.dot{width:7px; height:7px; border-radius:50%; display:inline-block;}
+.dot.red{background:var(--red);}
+.dot.amber{background:var(--amber);}
+.dot.blue{background:var(--blue);}
+
+/* mistake pair */
+.mistake-pair{margin:16px 0 22px;}
+.mp-line{padding:5px 0 5px 26px; position:relative; font-family:var(--serif); font-size:16px;}
+.mp-line.x::before{content:"✕"; position:absolute; left:0; color:var(--red); font-family:var(--sans); font-size:13px; top:8px;}
+.mp-line.ok::before{content:"✓"; position:absolute; left:0; color:var(--green); font-family:var(--sans); font-size:13px; top:8px;}
+.mp-why{font-family:var(--sans); font-size:13.5px; color:var(--ink-mute); padding-left:26px; margin-top:2px;}
+
+/* tables */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:16px 0 24px;
+  font-size:14.5px;
+}
+th{
+  text-align:left;
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12.5px;
+  color:var(--ink-mute);
+  text-transform:none;
+  padding:8px 10px;
+  border-bottom:1px solid var(--rule-strong);
+}
+td{
+  padding:9px 10px;
+  border-bottom:1px solid var(--rule);
+  vertical-align:top;
+}
+td.de{font-family:var(--serif); font-size:15.5px;}
+tr:last-child td{border-bottom:none;}
+
+/* dialogue */
+.dialogue{
+  border-left:2px solid var(--rule-strong);
+  padding-left:20px;
+  margin:16px 0 24px;
+}
+.turn{margin-bottom:14px;}
+.speaker{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12.5px;
+  color:var(--ink-mute);
+  margin-bottom:2px;
+}
+.line-de{font-family:var(--serif); font-size:17px; color:var(--ink);}
+.line-en{font-size:13.5px; color:var(--ink-mute); margin-top:2px;}
+
+/* chunk pills */
+.chunks{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 22px;}
+.chunk{
+  border:1px solid var(--rule-strong);
+  border-radius:20px;
+  padding:6px 14px;
+  font-family:var(--serif);
+  font-size:14.5px;
+}
+
+/* exercise */
+.exercise{
+  margin:20px 0;
+  padding:16px 0 4px;
+  border-top:1px solid var(--rule);
+}
+.exercise:first-of-type{border-top:none; padding-top:0;}
+.ex-num{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--ink-mute);
+  margin-bottom:4px;
+}
+.ex-prompt{margin-bottom:6px;}
+.ex-blank{
+  display:inline-block;
+  min-width:90px;
+  border-bottom:1px solid var(--ink-mute);
+  margin:0 3px;
+}
+
+/* answer key */
+.answers{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:24px 28px;
+}
+.answers h3.sub{margin-top:0;}
+.ans-line{
+  font-family:var(--serif);
+  font-size:15.5px;
+  padding:5px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.ans-line:last-child{border-bottom:none;}
+.ans-num{font-family:var(--sans); color:var(--ink-mute); font-size:13px; margin-right:8px;}
+
+/* pronunciation */
+.sound-row{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:12px 0;
+  border-bottom:1px solid var(--rule);
+}
+.sound-row:last-child{border-bottom:none;}
+.ipa{
+  font-family:var(--mono);
+  font-size:18px;
+  color:var(--blue);
+  min-width:52px;
+}
+.sound-body{flex:1;}
+.sound-words{font-family:var(--serif); font-size:15.5px; margin-top:2px;}
+
+/* revision */
+.revision-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+}
+@media (max-width:600px){.revision-grid{grid-template-columns:1fr;}}
+.rev-col h3.sub{margin-top:0;}
+.rev-item{
+  font-family:var(--serif);
+  font-size:15.5px;
+  padding:6px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.rev-item:last-child{border-bottom:none;}
+
+hr.rule{border:none; border-top:1px solid var(--rule); margin:0;}
+
+footer{
+  text-align:center;
+  padding:32px 0 8px;
+  color:var(--ink-mute);
+  font-size:13px;
+}
+/* interactive exercise widgets */
+.ex-check{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:6px;
+}
+.ex-input{
+  font-family:var(--serif);
+  font-size:15px;
+  padding:6px 10px;
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  background:var(--paper);
+  color:var(--ink);
+  min-width:160px;
+}
+.ex-input:focus{outline:none; border-color:var(--blue);}
+.check-btn{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  padding:6px 14px;
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  background:var(--paper-2);
+  color:var(--ink);
+  cursor:pointer;
+}
+.check-btn:hover{background:var(--rule);}
+.ex-feedback{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  min-width:120px;
+}
+.tracker-box{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:18px 22px;
+  margin:20px 0;
+}
+.tracker-box h4{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:600;
+  margin:0 0 10px;
+  color:var(--ink-mute);
+}
+.tracker-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 0;
+  border-bottom:1px dotted var(--rule);
+  font-size:14px;
+}
+.tracker-item:last-child{border-bottom:none;}
+.tracker-item .clear-btn{
+  font-family:var(--sans);
+  font-size:12px;
+  color:var(--ink-mute);
+  background:none;
+  border:none;
+  cursor:pointer;
+  text-decoration:underline;
+}
+.tracker-empty{color:var(--ink-mute); font-size:13.5px; font-style:italic;}
+.persist-note{font-size:12px; color:var(--ink-mute); margin-top:8px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow">Netzwerk neu A1 · Kapitel 12</p>
+  <h1 class="title">Ab in den Urlaub! <em>— Off on vacation!</em></h1>
+  <p class="subtitle">Travel, weather, the pronoun man, and finishing your A1 question words</p>
+</header>
+
+<nav class="toc" aria-label="Chapter sections">
+  <a href="#overview">Overview</a>
+  <a href="#grammar">Grammar</a>
+  <a href="#sentence-factory">Sentence factory</a>
+  <a href="#question-factory">Question factory</a>
+  <a href="#speaking-factory">Speaking factory</a>
+  <a href="#vocabulary">Vocabulary</a>
+  <a href="#exercises">Exercises</a>
+  <a href="#answers">Answer key</a>
+  <a href="#pronunciation">Pronunciation</a>
+  <a href="#mistakes">Common mistakes</a>
+  <a href="#revision">Quick revision</a>
+</nav>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <h2 class="section-title"><span class="de">Kapitelüberblick</span><span class="en">Chapter overview</span></h2>
+  <p class="section-intro">The final A1 chapter. It rounds off your question-word toolkit (adding wen and wem, the accusative and dative forms of "who") and introduces the impersonal pronoun man — genuinely one of the most useful small words in German.</p>
+
+  <h3 class="sub">What this chapter is about</h3>
+  <p>You'll learn vacation types and destinations, weather vocabulary (building on Kapitel 6), compass directions, the impersonal pronoun <span class="de-text">man</span> ("one/you," used generically), and the complete set of question pronouns: <span class="de-text">wer, wen, wem, was</span>.</p>
+
+  <h3 class="sub">What you should be able to say after finishing it</h3>
+  <ul>
+    <li>Talk about vacation plans, past trips, and travel preferences</li>
+    <li>Describe weather across different regions</li>
+    <li>Use man to make general statements ("you can..." / "one does...")</li>
+    <li>Ask "who" in every grammatical role: subject, direct object, indirect object</li>
+    <li>Write a simple postcard or describe a trip you took</li>
+  </ul>
+
+  <h3 class="sub">Where you use this in real life</h3>
+  <p>Planning your Bali trip in German for practice, describing a past holiday, writing a postcard, or making general statements about what people typically do somewhere ("man spricht hier Deutsch" — "German is spoken here").</p>
+</section>
+
+<!-- GRAMMAR -->
+<section id="grammar">
+  <h2 class="section-title"><span class="de">Grammatik</span><span class="en">Grammar</span></h2>
+  <p class="section-intro">Two final building blocks: the impersonal pronoun man, and the complete wer/wen/wem/was question paradigm.</p>
+
+  <h3 class="sub">1. The impersonal pronoun <span class="de-text">man</span> <span class="en">"one/you/people in general"</span></h3>
+  <p><span class="de-text">man</span> is used to make a general statement without naming who specifically — similar to English "you" or "one" in "you can see the sea from here," where "you" doesn't mean the listener specifically. It's conjugated exactly like <span class="de-text">er/sie/es</span> (third person singular).</p>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Man kann hier gut schwimmen.</div><div class="ex-en">You can swim well here. (generally, anyone can)</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Hier spricht man Deutsch.</div><div class="ex-en">German is spoken here. (people in general speak it)</div></div></div>
+    <div class="ex-line"><span class="mark neg">✕</span><div class="ex-text"><div class="ex-de">Man spreche Deutsch.</div><div class="ex-en">Wrong — man conjugates normally like er/sie/es, not as some special form</div></div></div>
+  </div>
+  <div class="box trick">
+    <p class="box-title"><span class="dot amber"></span>Memory trick</p>
+    <p>Never confuse <span class="de-text">man</span> (the pronoun "one/you") with <span class="de-text">der Mann</span> (the noun "man/husband") — they sound similar but are completely unrelated grammatically. <span class="de-text">man</span> is lowercase and never takes an article.</p>
+  </div>
+
+  <h3 class="sub">2. The complete wer-family <span class="en">who, in every case</span></h3>
+  <p>You've used <span class="de-text">wer</span> (nominative "who") since Kapitel 2. This chapter completes the set: <span class="de-text">wen</span> (accusative "whom") and <span class="de-text">wem</span> (dative "to whom").</p>
+  <table>
+    <tr><th>Case</th><th>Word</th><th>Asks about</th></tr>
+    <tr><td>Nominative</td><td class="de">wer</td><td>the subject — "who does X?"</td></tr>
+    <tr><td>Accusative</td><td class="de">wen</td><td>the direct object — "who(m) do you see?"</td></tr>
+    <tr><td>Dative</td><td class="de">wem</td><td>the indirect object — "to/for whom?"</td></tr>
+  </table>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wer kommt mit?</div><div class="ex-en">Who's coming along? (subject)</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wen besuchst du?</div><div class="ex-en">Who(m) are you visiting? (direct object — besuchen takes accusative)</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wem gibst du das Geschenk?</div><div class="ex-en">To whom are you giving the gift? (indirect object — dative)</div></div></div>
+  </div>
+  <div class="box mistake">
+    <p class="box-title"><span class="dot red"></span>Common mistake</p>
+    <p>English speakers often use "who" for everything ("who do you see?" is common even though formally it should be "whom"), which makes it easy to default to <span class="de-text">wer</span> for every question in German too. Check the verb: does it take accusative (<span class="de-text">wen</span>) or dative (<span class="de-text">wem</span>)? <span class="de-text">helfen</span> is dative, so "who are you helping" is <span class="de-text">Wem hilfst du?</span>, not <span class="de-text">Wen hilfst du?</span></p>
+  </div>
+
+  <h3 class="sub">3. Compass directions <span class="en">Himmelsrichtungen</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Im Norden regnet es, im Süden ist es sonnig.</div><div class="ex-en">In the north it's raining, in the south it's sunny.</div></div></div>
+  </div>
+
+  <h3 class="sub">4. Talking about trips with Perfekt <span class="en">reinforcing Kapitel 10</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wir sind ans Meer gefahren.</div><div class="ex-en">We drove to the sea.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Sie hat das Rathaus besucht.</div><div class="ex-en">She visited the town hall.</div></div></div>
+  </div>
+</section>
+
+<!-- SENTENCE FACTORY -->
+<section id="sentence-factory">
+  <h2 class="section-title"><span class="de">Satzfabrik</span><span class="en">Sentence factory</span></h2>
+
+  <h3 class="sub">Base pattern: general statements with man</h3>
+  <div class="formula">Man + [verb, er/sie/es-form] + [rest].</div>
+  <table>
+    <tr><th>Subject</th><th>Verb</th><th>Rest</th><th>Full sentence</th></tr>
+    <tr><td class="de">Man</td><td class="de">kann</td><td class="de">hier gut schwimmen.</td><td class="de">Man kann hier gut schwimmen.</td></tr>
+    <tr><td class="de">Man</td><td class="de">spricht</td><td class="de">hier Deutsch.</td><td class="de">Hier spricht man Deutsch.</td></tr>
+  </table>
+
+  <h3 class="sub">Swap the activity</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Man kann hier gut wandern.</div><div class="ex-en">You can hike well here.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Man braucht hier einen Regenschirm.</div><div class="ex-en">You need an umbrella here.</div></div></div>
+  </div>
+
+  <h3 class="sub">Swap the destination</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wir fahren ans Meer.</div><div class="ex-en">We're going to the sea.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wir fahren in die Berge.</div><div class="ex-en">We're going to the mountains.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wir fliegen auf eine Insel.</div><div class="ex-en">We're flying to an island.</div></div></div>
+  </div>
+</section>
+
+<!-- QUESTION FACTORY -->
+<section id="question-factory">
+  <h2 class="section-title"><span class="de">Fragefabrik</span><span class="en">Question factory</span></h2>
+
+  <h3 class="sub">The full wer-family</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wer fährt mit? — Ich!</div><div class="ex-en">Who's coming along? — Me!</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wen triffst du im Urlaub? — Meine Familie.</div><div class="ex-en">Who are you meeting on vacation? — My family.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wem schickst du die Postkarte? — Meiner Mutter.</div><div class="ex-en">Who are you sending the postcard to? — My mother.</div></div></div>
+  </div>
+
+  <h3 class="sub">Wohin <span class="en">where to — for trips</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wohin fahrt ihr im Urlaub? — Ans Meer.</div><div class="ex-en">Where are you going on vacation? — To the sea.</div></div></div>
+  </div>
+
+  <h3 class="sub">Wie war <span class="en">how was — recapping a trip</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wie war der Urlaub? — Toll! Das Wetter war super.</div><div class="ex-en">How was the vacation? — Great! The weather was fantastic.</div></div></div>
+  </div>
+
+  <h3 class="sub">Short answers vs. full answers</h3>
+  <table>
+    <tr><th>Question</th><th>Short answer</th><th>Full answer</th></tr>
+    <tr><td class="de">Wohin fahrt ihr?</td><td class="de">Ans Meer.</td><td class="de">Wir fahren ans Meer.</td></tr>
+    <tr><td class="de">Wie war der Urlaub?</td><td class="de">Toll.</td><td class="de">Der Urlaub war toll.</td></tr>
+  </table>
+</section>
+
+<!-- SPEAKING FACTORY -->
+<section id="speaking-factory">
+  <h2 class="section-title"><span class="de">Sprechfabrik</span><span class="en">Speaking factory</span></h2>
+
+  <h3 class="sub">Dialogue 1 — Planning a trip</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">SONIA</div><div class="line-de">Wohin fahren wir im Urlaub?</div><div class="line-en">Where are we going on vacation?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Wollen wir ans Meer fahren?</div><div class="line-en">Do we want to go to the sea?</div></div>
+    <div class="turn"><div class="speaker">SONIA</div><div class="line-de">Gute Idee! Wie ist das Wetter dort?</div><div class="line-en">Good idea! How's the weather there?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Im Süden ist es meistens sonnig und warm.</div><div class="line-en">In the south it's usually sunny and warm.</div></div>
+  </div>
+
+  <h3 class="sub">Dialogue 2 — After the trip</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">LISA</div><div class="line-de">Wie war der Urlaub?</div><div class="line-en">How was the vacation?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Sehr schön! Wir sind ans Meer gefahren und haben viel geschwommen.</div><div class="line-en">Very nice! We drove to the sea and swam a lot.</div></div>
+    <div class="turn"><div class="speaker">LISA</div><div class="line-de">Wie war das Wetter?</div><div class="line-en">How was the weather?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Super! Es war sonnig, man konnte den ganzen Tag draußen sein.</div><div class="line-en">Great! It was sunny, you could be outside the whole day.</div></div>
+  </div>
+
+  <h3 class="sub">Dialogue 3 — Writing a postcard</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">POSTKARTE</div><div class="line-de">Liebe Sonia, hier ist es toll. Man kann gut schwimmen und wandern. Bis bald!</div><div class="line-en">Dear Sonia, it's great here. You can swim and hike well. See you soon!</div></div>
+  </div>
+
+  <h3 class="sub">Reusable speaking chunks</h3>
+  <div class="chunks">
+    <span class="chunk">Wohin fahren wir?</span>
+    <span class="chunk">Wollen wir ... fahren?</span>
+    <span class="chunk">Wie war der Urlaub?</span>
+    <span class="chunk">Man kann hier...</span>
+    <span class="chunk">im Norden/Süden</span>
+    <span class="chunk">Liebe/r ..., hier ist es toll.</span>
+    <span class="chunk">Bis bald!</span>
+    <span class="chunk">Gute Reise!</span>
+  </div>
+</section>
+
+<!-- VOCABULARY -->
+<section id="vocabulary">
+  <h2 class="section-title"><span class="de">Wortschatz</span><span class="en">Vocabulary</span></h2>
+
+  <h3 class="sub">Travel nouns</h3>
+  <table>
+    <tr><th>Article</th><th>Singular</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">der</td><td class="de">Urlaub</td><td class="de">Urlaube</td><td>vacation</td></tr>
+    <tr><td class="de">die</td><td class="de">Reise</td><td class="de">Reisen</td><td>trip</td></tr>
+    <tr><td class="de">das</td><td class="de">Meer</td><td class="de">Meere</td><td>sea</td></tr>
+    <tr><td class="de">der</td><td class="de">Berg</td><td class="de">Berge</td><td>mountain</td></tr>
+    <tr><td class="de">die</td><td class="de">Insel</td><td class="de">Inseln</td><td>island</td></tr>
+    <tr><td class="de">der</td><td class="de">Rucksack</td><td class="de">Rucksäcke</td><td>backpack</td></tr>
+    <tr><td class="de">das</td><td class="de">Gepäck</td><td class="de">—</td><td>luggage</td></tr>
+    <tr><td class="de">die</td><td class="de">Postkarte</td><td class="de">Postkarten</td><td>postcard</td></tr>
+    <tr><td class="de">das</td><td class="de">Taxi</td><td class="de">Taxis</td><td>taxi</td></tr>
+  </table>
+
+  <h3 class="sub">Compass directions</h3>
+  <table>
+    <tr><td class="de">der Norden</td><td>north</td></tr>
+    <tr><td class="de">der Süden</td><td>south</td></tr>
+    <tr><td class="de">der Osten</td><td>east</td></tr>
+    <tr><td class="de">der Westen</td><td>west</td></tr>
+  </table>
+
+  <h3 class="sub">Question pronouns — complete set</h3>
+  <table>
+    <tr><td class="de">wer</td><td>who (subject)</td></tr>
+    <tr><td class="de">wen</td><td>who(m) (direct object)</td></tr>
+    <tr><td class="de">wem</td><td>to whom (indirect object)</td></tr>
+    <tr><td class="de">was</td><td>what</td></tr>
+  </table>
+
+  <h3 class="sub">Useful expressions</h3>
+  <table>
+    <tr><td class="de">Gute Reise!</td><td>have a good trip!</td></tr>
+    <tr><td class="de">Wie war der Urlaub?</td><td>how was the vacation?</td></tr>
+    <tr><td class="de">Man kann...</td><td>you/one can...</td></tr>
+    <tr><td class="de">Liebe/r ...,</td><td>dear ... (letter/postcard opening)</td></tr>
+    <tr><td class="de">Bis bald!</td><td>see you soon!</td></tr>
+  </table>
+</section>
+
+<!-- EXERCISES -->
+<section id="exercises">
+  <h2 class="section-title"><span class="de">Übungen</span><span class="en">Exercises</span></h2>
+
+  <div class="exercise">
+    <p class="ex-num">A · Sentence building</p>
+    <p class="ex-prompt">1. Build a sentence from: <span class="de-text">kann / man / gut schwimmen / hier</span></p>
+    <p class="ex-prompt">2. Build a sentence from: <span class="de-text">sind / wir / ans Meer / gefahren</span></p>
+    <p class="ex-prompt">3. Build a sentence from: <span class="de-text">spricht / man / hier / Deutsch</span></p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">B · Question building</p>
+    <p class="ex-prompt">4. Ask who's coming along.</p>
+    <p class="ex-prompt">5. Ask who(m) someone is visiting (accusative).</p>
+    <p class="ex-prompt">6. Ask to whom someone is sending a postcard (dative).</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">C · Translation</p>
+    <p class="ex-prompt">7. Translate: "You can swim well here."</p>
+    <p class="ex-prompt">8. Translate: "How was the vacation? — Great!"</p>
+    <p class="ex-prompt">9. Translate: "We drove to the sea and swam a lot."</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">D · Fill in the blank (wer/wen/wem)</p>
+
+    <div data-answer="Wer" data-id="d10" data-prompt="___ kommt mit? (subject)">
+      <p class="ex-prompt">10. <span class="ex-blank" style="display:none;"></span> kommt mit?</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Wen" data-id="d11" data-prompt="___ besuchst du? (direct object)">
+      <p class="ex-prompt">11. <span class="ex-blank" style="display:none;"></span> besuchst du?</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Wem" data-id="d12" data-prompt="___ hilfst du? (indirect object, dative)">
+      <p class="ex-prompt">12. <span class="ex-blank" style="display:none;"></span> hilfst du?</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Man" data-id="d13" data-prompt="___ kann hier gut wandern.">
+      <p class="ex-prompt">13. <span class="ex-blank" style="display:none;"></span> kann hier gut wandern.</p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">E · Correction</p>
+
+    <div data-answer="Man spricht hier Deutsch." data-id="e14" data-prompt="Man spreche hier Deutsch.">
+      <p class="ex-prompt">14. <span class="de-text">Man spreche hier Deutsch.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Wem hilfst du?" data-id="e15" data-prompt="Wen hilfst du?">
+      <p class="ex-prompt">15. <span class="de-text">Wen hilfst du?</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Wir sind ans Meer gefahren." data-id="e16" data-prompt="Wir sind ans Meer gemacht.">
+      <p class="ex-prompt">16. <span class="de-text">Wir sind ans Meer gemacht.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">F · Speaking prompts</p>
+    <p class="ex-prompt">17. Describe where you want to go on your next vacation.</p>
+    <p class="ex-prompt">18. Recap a past trip in three Perfekt sentences.</p>
+    <p class="ex-prompt">19. Make two general statements using man.</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">G · Mixed review</p>
+    <p class="ex-prompt">20. Write a short postcard: where you are, what the weather is like, one thing you did.</p>
+  </div>
+<div class="tracker-box" id="mistake-tracker">
+    <h4>Your missed items on this chapter</h4>
+    <div id="tracker-list"><p class="tracker-empty">Loading…</p></div>
+    
+  </div>
+</section>
+
+<!-- ANSWER KEY -->
+<section id="answers">
+  <h2 class="section-title"><span class="de">Lösungen</span><span class="en">Answer key</span></h2>
+  <div class="answers">
+    <h3 class="sub">A · Sentence building</h3>
+    <div class="ans-line"><span class="ans-num">1</span><span class="de-text">Man kann hier gut schwimmen.</span></div>
+    <div class="ans-line"><span class="ans-num">2</span><span class="de-text">Wir sind ans Meer gefahren.</span></div>
+    <div class="ans-line"><span class="ans-num">3</span><span class="de-text">Man spricht hier Deutsch.</span></div>
+
+    <h3 class="sub">B · Question building</h3>
+    <div class="ans-line"><span class="ans-num">4</span><span class="de-text">Wer kommt mit?</span></div>
+    <div class="ans-line"><span class="ans-num">5</span><span class="de-text">Wen besuchst du?</span></div>
+    <div class="ans-line"><span class="ans-num">6</span><span class="de-text">Wem schickst du die Postkarte?</span></div>
+
+    <h3 class="sub">C · Translation</h3>
+    <div class="ans-line"><span class="ans-num">7</span><span class="de-text">Man kann hier gut schwimmen.</span></div>
+    <div class="ans-line"><span class="ans-num">8</span><span class="de-text">Wie war der Urlaub? — Toll!</span></div>
+    <div class="ans-line"><span class="ans-num">9</span><span class="de-text">Wir sind ans Meer gefahren und haben viel geschwommen.</span></div>
+
+    <h3 class="sub">D · Fill in the blank</h3>
+    <div class="ans-line"><span class="ans-num">10</span><span class="de-text">Wer</span></div>
+    <div class="ans-line"><span class="ans-num">11</span><span class="de-text">Wen</span></div>
+    <div class="ans-line"><span class="ans-num">12</span><span class="de-text">Wem</span></div>
+    <div class="ans-line"><span class="ans-num">13</span><span class="de-text">Man</span></div>
+
+    <h3 class="sub">E · Correction</h3>
+    <div class="ans-line"><span class="ans-num">14</span><span class="de-text">Man spricht hier Deutsch.</span> — man conjugates like er/sie/es in the present tense, no special form</div>
+    <div class="ans-line"><span class="ans-num">15</span><span class="de-text">Wem hilfst du?</span> — helfen always takes a dative object, so the question word must be wem, not wen</div>
+    <div class="ans-line"><span class="ans-num">16</span><span class="de-text">Wir sind ans Meer gefahren.</span> — the verb should be fahren (to travel/drive), not machen, for describing the trip itself</div>
+
+    <h3 class="sub">G · Mixed review — sample answer</h3>
+    <div class="ans-line"><span class="ans-num">20</span><span class="de-text">Liebe Sonia, hier ist es toll. Das Wetter ist sonnig. Ich bin heute geschwommen. Bis bald!</span></div>
+  </div>
+</section>
+
+<!-- PRONUNCIATION -->
+<section id="pronunciation">
+  <h2 class="section-title"><span class="de">Aussprache</span><span class="en">Pronunciation</span></h2>
+
+  <div class="sound-row">
+    <div class="ipa">man vs. Mann</div>
+    <div class="sound-body">Pronounced identically, but never confuse them in writing — man is the pronoun (lowercase, no article), Mann is the noun "man/husband" (capitalized, takes der).
+      <div class="sound-words">man kann · der Mann</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">ei (Meer — no, contrast: Urlaub has au)</div>
+    <div class="sound-body">Reinforcing the "ow" sound of au from earlier chapters, since Urlaub uses it.
+      <div class="sound-words">Urlaub</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">st (Osten, Westen)</div>
+    <div class="sound-body">Mid-word st is pronounced plainly, as covered in Kapitel 4 — not the "sht" sound reserved for word-initial st.
+      <div class="sound-words">Osten · Westen</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMON MISTAKES -->
+<section id="mistakes">
+  <h2 class="section-title"><span class="de">Häufige Fehler</span><span class="en">Common mistakes</span></h2>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Man spreche Deutsch hier.</div>
+    <div class="mp-line ok">Man spricht hier Deutsch.</div>
+    <div class="mp-why">Why: man is conjugated exactly like er/sie/es in the normal present tense — there's no special subjunctive-like form needed.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Wen hilfst du?</div>
+    <div class="mp-line ok">Wem hilfst du?</div>
+    <div class="mp-why">Why: helfen is one of the fixed dative verbs from Kapitel 7, so its question word must be wem (dative), not wen (accusative).</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Wir sind ans Meer gemacht.</div>
+    <div class="mp-line ok">Wir sind ans Meer gefahren.</div>
+    <div class="mp-why">Why: describing travel to a destination needs a motion verb like fahren, which also correctly triggers sein as the Perfekt helper — machen would need haben and doesn't fit the meaning.</div>
+  </div>
+</section>
+
+<!-- QUICK REVISION -->
+<section id="revision">
+  <h2 class="section-title"><span class="de">Kurze Wiederholung</span><span class="en">Quick revision</span></h2>
+  <div class="revision-grid">
+    <div class="rev-col">
+      <h3 class="sub">Sentence patterns</h3>
+      <div class="rev-item">Man kann/spricht + [verb, er/sie/es form].</div>
+      <div class="rev-item">Wir sind/haben + ... + [participle]. (trip recap)</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Question forms</h3>
+      <div class="rev-item">Wer / Wen / Wem — who, in every case</div>
+      <div class="rev-item">Wohin fahrt ihr?</div>
+      <div class="rev-item">Wie war der Urlaub?</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Most important words</h3>
+      <div class="rev-item">man kann, man spricht</div>
+      <div class="rev-item">Norden, Süden, Osten, Westen</div>
+      <div class="rev-item">Gute Reise!, Bis bald!</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Sound traps</h3>
+      <div class="rev-item">man vs. Mann — identical sound, different word</div>
+      <div class="rev-item">au = "ow" (Urlaub)</div>
+      <div class="rev-item">wem for dative verbs (helfen), not wen</div>
+    </div>
+  </div>
+</section>
+
+<footer>Kapitel 12 · Ab in den Urlaub! — Netzwerk neu A1 · End of A1 course</footer>
+
+</div>
+
+
+<script>
+const NA1 = (() => {
+  const STORAGE_KEY = 'na1_mistakes_kapitel12';
+
+  function loadMistakes() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+    catch (e) { return {}; }
+  }
+  function saveMistakes(obj) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(obj)); } catch (e) {}
+  }
+
+  function norm(s){ return (s||'').trim().toLowerCase().replace(/\s+/g,' '); }
+
+  function logMistake(itemId, meta) {
+    const all = loadMistakes();
+    const prev = all[itemId] || { count: 0 };
+    all[itemId] = {
+      itemId, chapter: meta.chapter, prompt: meta.prompt,
+      count: (prev.count || 0) + 1,
+      lastWrong: new Date().toISOString(),
+      cleared: false
+    };
+    saveMistakes(all);
+    renderTracker();
+  }
+
+  function clearMistake(itemId) {
+    const all = loadMistakes();
+    if (all[itemId]) { all[itemId].cleared = true; saveMistakes(all); renderTracker(); }
+  }
+
+  function getAllMistakes() {
+    const all = loadMistakes();
+    return Object.values(all).filter(m => !m.cleared);
+  }
+
+  function wireExercise(chapterLabel) {
+    document.querySelectorAll('[data-answer]').forEach(item => {
+      const input = item.querySelector('input');
+      const btn = item.querySelector('.check-btn');
+      const feedback = item.querySelector('.ex-feedback');
+      if (!input || !btn) return;
+      btn.addEventListener('click', () => {
+        const correctRaw = item.getAttribute('data-answer');
+        const options = correctRaw.split('|').map(norm);
+        const given = norm(input.value);
+        const isRight = options.includes(given);
+        feedback.textContent = isRight ? 'Richtig!' : `Not quite — correct: ${correctRaw}`;
+        feedback.style.color = isRight ? 'var(--green)' : 'var(--red)';
+        input.style.borderColor = isRight ? 'var(--green)' : 'var(--red)';
+        const itemId = `kapitel12-${item.getAttribute('data-id')}`;
+        if (!isRight) {
+          logMistake(itemId, { chapter: 'kapitel12', prompt: item.getAttribute('data-prompt') || '' });
+        } else {
+          clearMistake(itemId);
+        }
+      });
+      input.addEventListener('keydown', (e) => { if (e.key === 'Enter') btn.click(); });
+    });
+  }
+
+  function renderTracker() {
+    const list = document.getElementById('tracker-list');
+    if (!list) return;
+    const mistakes = getAllMistakes();
+    if (mistakes.length === 0) {
+      list.innerHTML = '<p class="tracker-empty">No open mistakes on this chapter — nice work.</p>';
+      return;
+    }
+    list.innerHTML = mistakes.map(m => `
+      <div class="tracker-item">
+        <span>${m.prompt || m.itemId} <span style="color:var(--ink-mute);">(missed ${m.count}×)</span></span>
+        <button class="clear-btn" data-clear="${m.itemId}">mark reviewed</button>
+      </div>`).join('');
+    list.querySelectorAll('[data-clear]').forEach(b => {
+      b.addEventListener('click', () => clearMistake(b.getAttribute('data-clear')));
+    });
+  }
+
+  wireExercise('kapitel12');
+  renderTracker();
+
+  return { logMistake, clearMistake, getAllMistakes };
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kapitel 1 — Guten Tag!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf6ee;
+  --paper-2:#f2ecdf;
+  --ink:#241f16;
+  --ink-soft:#5b5344;
+  --ink-mute:#8c8471;
+  --rule:#ddd3bd;
+  --rule-strong:#c6b998;
+  --blue:#2d4a63;
+  --blue-bg:#e4ecf1;
+  --green:#3c6b3f;
+  --green-bg:#e6efe2;
+  --red:#a3402f;
+  --red-bg:#f4e5df;
+  --amber:#8a5a1f;
+  --amber-bg:#f3e7d2;
+  --serif:'Fraunces', Georgia, serif;
+  --sans:'Inter', -apple-system, sans-serif;
+  --mono:'JetBrains Mono', monospace;
+}
+:root[data-mode="dark"]{
+  --paper:#1c1912;
+  --paper-2:#242019;
+  --ink:#ece4d3;
+  --ink-soft:#c2b8a2;
+  --ink-mute:#8f8672;
+  --rule:#3a3527;
+  --rule-strong:#4d4632;
+  --blue:#9dc0dd;
+  --blue-bg:#243440;
+  --green:#a9cba0;
+  --green-bg:#25352a;
+  --red:#e3a493;
+  --red-bg:#3a2823;
+  --amber:#e0bb7c;
+  --amber-bg:#3a3020;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-mode="light"]){
+    --paper:#1c1912; --paper-2:#242019; --ink:#ece4d3; --ink-soft:#c2b8a2; --ink-mute:#8f8672;
+    --rule:#3a3527; --rule-strong:#4d4632; --blue:#9dc0dd; --blue-bg:#243440;
+    --green:#a9cba0; --green-bg:#25352a; --red:#e3a493; --red-bg:#3a2823;
+    --amber:#e0bb7c; --amber-bg:#3a3020;
+  }
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.65;
+  font-size:16px;
+}
+.wrap{max-width:760px; margin:0 auto; padding:0 24px 120px;}
+@media (max-width:600px){.wrap{padding:0 16px 100px;}}
+
+/* header */
+header.hero{
+  border-bottom:1px solid var(--rule);
+  padding:56px 0 40px;
+  margin-bottom:8px;
+}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:13px;
+  color:var(--ink-mute);
+  letter-spacing:0.02em;
+  margin:0 0 14px;
+}
+h1.title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:44px;
+  line-height:1.1;
+  margin:0 0 12px;
+  letter-spacing:-0.01em;
+}
+h1.title em{font-style:italic; font-weight:500; color:var(--blue);}
+.subtitle{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:19px;
+  color:var(--ink-soft);
+  margin:0;
+}
+
+/* nav */
+nav.toc{
+  position:sticky; top:0; z-index:10;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+  padding:10px 0;
+  margin-bottom:48px;
+  overflow-x:auto;
+  white-space:nowrap;
+  -webkit-overflow-scrolling:touch;
+}
+nav.toc::-webkit-scrollbar{height:0;}
+nav.toc a{
+  font-family:var(--sans);
+  font-size:13.5px;
+  color:var(--ink-soft);
+  text-decoration:none;
+  margin-right:22px;
+  padding-bottom:2px;
+  border-bottom:1px solid transparent;
+}
+nav.toc a:hover{color:var(--ink); border-bottom-color:var(--rule-strong);}
+
+section{margin-bottom:64px;}
+section:last-of-type{margin-bottom:24px;}
+
+h2.section-title{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:28px;
+  margin:0 0 6px;
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+}
+.section-title .de{color:var(--ink);}
+.section-title .en{
+  font-family:var(--sans);
+  font-style:normal;
+  font-size:15px;
+  font-weight:400;
+  color:var(--ink-mute);
+}
+.section-intro{color:var(--ink-soft); margin:0 0 28px; max-width:64ch;}
+
+h3.sub{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:20px;
+  margin:36px 0 6px;
+  color:var(--ink);
+}
+h3.sub .en{font-family:var(--sans); font-size:14px; font-weight:400; color:var(--ink-mute); margin-left:8px;}
+
+p{margin:0 0 14px; max-width:66ch;}
+ul,ol{margin:0 0 14px; padding-left:22px; max-width:64ch;}
+li{margin-bottom:6px;}
+
+/* german text styling */
+.de-text{font-family:var(--serif); font-size:1.05em;}
+
+/* grammar box */
+.formula{
+  font-family:var(--mono);
+  font-size:15px;
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:6px;
+  padding:14px 18px;
+  margin:14px 0 20px;
+  color:var(--ink);
+  overflow-x:auto;
+}
+.formula .slot{color:var(--blue); font-weight:500;}
+
+.order-row{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 22px;
+}
+.order-cell{
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  padding:8px 14px;
+  text-align:center;
+  min-width:64px;
+}
+.order-cell .word{font-family:var(--serif); font-size:16px; display:block;}
+.order-cell .tag{font-family:var(--mono); font-size:10.5px; color:var(--ink-mute); text-transform:uppercase; letter-spacing:0.04em; display:block; margin-top:4px;}
+
+.ex-block{margin:8px 0 4px;}
+.ex-line{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:6px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.ex-line:last-child{border-bottom:none;}
+.mark{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  flex-shrink:0;
+  width:20px;
+  padding-top:3px;
+}
+.mark.pos{color:var(--green);}
+.mark.neg{color:var(--red);}
+.ex-text{flex:1;}
+.ex-de{font-family:var(--serif); font-size:16.5px; color:var(--ink);}
+.ex-en{font-size:13.5px; color:var(--ink-mute); margin-top:2px;}
+
+/* callout boxes */
+.box{
+  border-radius:8px;
+  padding:16px 20px;
+  margin:18px 0;
+}
+.box-title{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:13px;
+  margin:0 0 8px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.box p, .box ul{margin-bottom:0;}
+.box p + p{margin-top:8px;}
+.box.mistake{background:var(--red-bg);}
+.box.mistake .box-title{color:var(--red);}
+.box.trick{background:var(--amber-bg);}
+.box.trick .box-title{color:var(--amber);}
+.box.note{background:var(--blue-bg);}
+.box.note .box-title{color:var(--blue);}
+.dot{width:7px; height:7px; border-radius:50%; display:inline-block;}
+.dot.red{background:var(--red);}
+.dot.amber{background:var(--amber);}
+.dot.blue{background:var(--blue);}
+
+/* mistake pair */
+.mistake-pair{margin:16px 0 22px;}
+.mp-line{padding:5px 0 5px 26px; position:relative; font-family:var(--serif); font-size:16px;}
+.mp-line.x::before{content:"✕"; position:absolute; left:0; color:var(--red); font-family:var(--sans); font-size:13px; top:8px;}
+.mp-line.ok::before{content:"✓"; position:absolute; left:0; color:var(--green); font-family:var(--sans); font-size:13px; top:8px;}
+.mp-why{font-family:var(--sans); font-size:13.5px; color:var(--ink-mute); padding-left:26px; margin-top:2px;}
+
+/* tables */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:16px 0 24px;
+  font-size:14.5px;
+}
+th{
+  text-align:left;
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12.5px;
+  color:var(--ink-mute);
+  text-transform:none;
+  padding:8px 10px;
+  border-bottom:1px solid var(--rule-strong);
+}
+td{
+  padding:9px 10px;
+  border-bottom:1px solid var(--rule);
+  vertical-align:top;
+}
+td.de{font-family:var(--serif); font-size:15.5px;}
+tr:last-child td{border-bottom:none;}
+
+/* dialogue */
+.dialogue{
+  border-left:2px solid var(--rule-strong);
+  padding-left:20px;
+  margin:16px 0 24px;
+}
+.turn{margin-bottom:14px;}
+.speaker{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12.5px;
+  color:var(--ink-mute);
+  margin-bottom:2px;
+}
+.line-de{font-family:var(--serif); font-size:17px; color:var(--ink);}
+.line-en{font-size:13.5px; color:var(--ink-mute); margin-top:2px;}
+
+/* chunk pills */
+.chunks{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 22px;}
+.chunk{
+  border:1px solid var(--rule-strong);
+  border-radius:20px;
+  padding:6px 14px;
+  font-family:var(--serif);
+  font-size:14.5px;
+}
+
+/* exercise */
+.exercise{
+  margin:20px 0;
+  padding:16px 0 4px;
+  border-top:1px solid var(--rule);
+}
+.exercise:first-of-type{border-top:none; padding-top:0;}
+.ex-num{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--ink-mute);
+  margin-bottom:4px;
+}
+.ex-prompt{margin-bottom:6px;}
+.ex-blank{
+  display:inline-block;
+  min-width:90px;
+  border-bottom:1px solid var(--ink-mute);
+  margin:0 3px;
+}
+
+/* answer key */
+.answers{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:24px 28px;
+}
+.answers h3.sub{margin-top:0;}
+.ans-line{
+  font-family:var(--serif);
+  font-size:15.5px;
+  padding:5px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.ans-line:last-child{border-bottom:none;}
+.ans-num{font-family:var(--sans); color:var(--ink-mute); font-size:13px; margin-right:8px;}
+
+/* pronunciation */
+.sound-row{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:12px 0;
+  border-bottom:1px solid var(--rule);
+}
+.sound-row:last-child{border-bottom:none;}
+.ipa{
+  font-family:var(--mono);
+  font-size:18px;
+  color:var(--blue);
+  min-width:52px;
+}
+.sound-body{flex:1;}
+.sound-words{font-family:var(--serif); font-size:15.5px; margin-top:2px;}
+
+/* revision */
+.revision-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+}
+@media (max-width:600px){.revision-grid{grid-template-columns:1fr;}}
+.rev-col h3.sub{margin-top:0;}
+.rev-item{
+  font-family:var(--serif);
+  font-size:15.5px;
+  padding:6px 0;
+  border-bottom:1px dotted var(--rule);
+}
+.rev-item:last-child{border-bottom:none;}
+
+hr.rule{border:none; border-top:1px solid var(--rule); margin:0;}
+
+footer{
+  text-align:center;
+  padding:32px 0 8px;
+  color:var(--ink-mute);
+  font-size:13px;
+}
+
+/* interactive exercise widgets */
+.ex-check{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:6px;
+}
+.ex-input{
+  font-family:var(--serif);
+  font-size:15px;
+  padding:6px 10px;
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  background:var(--paper);
+  color:var(--ink);
+  min-width:160px;
+}
+.ex-input:focus{outline:none; border-color:var(--blue);}
+.check-btn{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  padding:6px 14px;
+  border:1px solid var(--rule-strong);
+  border-radius:6px;
+  background:var(--paper-2);
+  color:var(--ink);
+  cursor:pointer;
+}
+.check-btn:hover{background:var(--rule);}
+.ex-feedback{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  min-width:120px;
+}
+.tracker-box{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:18px 22px;
+  margin:20px 0;
+}
+.tracker-box h4{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:600;
+  margin:0 0 10px;
+  color:var(--ink-mute);
+}
+.tracker-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 0;
+  border-bottom:1px dotted var(--rule);
+  font-size:14px;
+}
+.tracker-item:last-child{border-bottom:none;}
+.tracker-item .clear-btn{
+  font-family:var(--sans);
+  font-size:12px;
+  color:var(--ink-mute);
+  background:none;
+  border:none;
+  cursor:pointer;
+  text-decoration:underline;
+}
+.tracker-empty{color:var(--ink-mute); font-size:13.5px; font-style:italic;}
+.persist-note{font-size:12px; color:var(--ink-mute); margin-top:8px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow">Netzwerk neu A1 · Kapitel 1</p>
+  <h1 class="title">Guten Tag! <em>— Hello / Good day</em></h1>
+  <p class="subtitle">Greetings, introductions, and the words that open every conversation</p>
+</header>
+
+<nav class="toc" aria-label="Chapter sections">
+  <a href="#overview">Overview</a>
+  <a href="#grammar">Grammar</a>
+  <a href="#sentence-factory">Sentence factory</a>
+  <a href="#question-factory">Question factory</a>
+  <a href="#speaking-factory">Speaking factory</a>
+  <a href="#vocabulary">Vocabulary</a>
+  <a href="#exercises">Exercises</a>
+  <a href="#answers">Answer key</a>
+  <a href="#pronunciation">Pronunciation</a>
+  <a href="#mistakes">Common mistakes</a>
+  <a href="#revision">Quick revision</a>
+</nav>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <h2 class="section-title"><span class="de">Kapitelüberblick</span><span class="en">Chapter overview</span></h2>
+  <p class="section-intro">Kapitel 1 is where you learn to open your mouth in German without freezing. It's short on grammar and long on survival phrases — the goal is fluency in a narrow, extremely common situation: meeting someone.</p>
+
+  <h3 class="sub">What this chapter is about</h3>
+  <p>You'll learn to greet people appropriately for time of day and formality, say who you are, ask who someone else is, say where you're from and what language(s) you speak, and count from 0–20 (needed for phone numbers and basic exchanges). Grammatically, the whole chapter rests on one verb: <span class="de-text">sein</span> ("to be") in the <span class="de-text">ich / du / Sie / er / sie</span> forms, plus the very first taste of German word order.</p>
+
+  <h3 class="sub">What you should be able to say after finishing it</h3>
+  <ul>
+    <li>Greet someone correctly at any time of day, formally or informally</li>
+    <li>Introduce yourself: name, origin, language(s)</li>
+    <li>Ask someone else the same things, both formally (<span class="de-text">Sie</span>) and informally (<span class="de-text">du</span>)</li>
+    <li>Spell your name using the German alphabet</li>
+    <li>Say goodbye appropriately</li>
+    <li>Count 0–20 and exchange a phone number</li>
+  </ul>
+
+  <h3 class="sub">Where you use this in real life</h3>
+  <p>Literally the first 30 seconds of any interaction in German: at the door of a language school, at a reception desk, meeting a neighbor, on the phone, at the start of a class. If you only ever learned this chapter, you could survive a first meeting — badly, but you'd survive it.</p>
+</section>
+
+<!-- GRAMMAR -->
+<section id="grammar">
+  <h2 class="section-title"><span class="de">Grammatik</span><span class="en">Grammar</span></h2>
+  <p class="section-intro">Three things: the verb <span class="de-text">sein</span>, subject pronouns, and the skeleton of a German sentence (verb in position two — this rule will run your whole German life, so get it early).</p>
+
+  <h3 class="sub">1. Personal pronouns <span class="en">who's talking</span></h3>
+  <p>German has a formality split English doesn't: <span class="de-text">du</span> (informal "you," one person) vs. <span class="de-text">Sie</span> (formal "you," always capitalized, singular or plural). Getting this wrong isn't a small mistake — calling a stranger or your boss <span class="de-text">du</span> can sound rude or overly familiar.</p>
+  <table>
+    <tr><th>German</th><th>English</th><th>Used for</th></tr>
+    <tr><td class="de">ich</td><td>I</td><td>yourself</td></tr>
+    <tr><td class="de">du</td><td>you (informal)</td><td>friends, family, children, other students</td></tr>
+    <tr><td class="de">Sie</td><td>you (formal)</td><td>strangers, teachers, officials, anyone older/senior — always capital S</td></tr>
+    <tr><td class="de">er / sie / es</td><td>he / she / it</td><td>talking about someone or something</td></tr>
+    <tr><td class="de">wir</td><td>we</td><td>yourself + others</td></tr>
+    <tr><td class="de">ihr</td><td>you all (informal)</td><td>a group of friends</td></tr>
+    <tr><td class="de">sie</td><td>they</td><td>lowercase — context tells you it's not "Sie"</td></tr>
+  </table>
+  <div class="box trick">
+    <p class="box-title"><span class="dot amber"></span>Memory trick</p>
+    <p>If you'd shake their hand and use a title (Herr/Frau + last name) → <span class="de-text">Sie</span>. If you'd hug them or use their first name → <span class="de-text">du</span>. When in real doubt in Germany, start with <span class="de-text">Sie</span> — going formal-to-informal is safe, the reverse is awkward.</p>
+  </div>
+
+  <h3 class="sub">2. The verb <span class="de-text">sein</span> <span class="en">"to be" — irregular, memorize it now</span></h3>
+  <p>Like English "to be," German <span class="de-text">sein</span> is irregular — it doesn't follow the normal verb pattern you'll learn later. You must simply learn these forms by heart; you'll use them constantly.</p>
+  <table>
+    <tr><th>Pronoun</th><th>Form</th><th>Example</th></tr>
+    <tr><td class="de">ich</td><td class="de">bin</td><td class="de">Ich bin Aman.</td></tr>
+    <tr><td class="de">du</td><td class="de">bist</td><td class="de">Du bist müde.</td></tr>
+    <tr><td class="de">Sie</td><td class="de">sind</td><td class="de">Sie sind Frau Klein.</td></tr>
+    <tr><td class="de">er/sie/es</td><td class="de">ist</td><td class="de">Sie ist aus Berlin.</td></tr>
+    <tr><td class="de">wir</td><td class="de">sind</td><td class="de">Wir sind hier.</td></tr>
+    <tr><td class="de">ihr</td><td class="de">seid</td><td class="de">Ihr seid spät.</td></tr>
+    <tr><td class="de">sie (they)</td><td class="de">sind</td><td class="de">Sie sind Kollegen.</td></tr>
+  </table>
+  <div class="box trick">
+    <p class="box-title"><span class="dot amber"></span>Memory trick</p>
+    <p><span class="de-text">Sie</span>, <span class="de-text">wir</span>, and <span class="de-text">sie</span> (they) all take <span class="de-text">sind</span> — three different subjects, one shared form. Learn that cluster together.</p>
+  </div>
+
+  <h3 class="sub">3. Word order: verb in position two <span class="en">the rule that runs everything</span></h3>
+  <p>In a normal statement, the conjugated verb is always the second element — not necessarily the second word, but the second "slot." The subject usually comes first, but it doesn't have to.</p>
+  <div class="formula">Position 1 (any element) — <span class="slot">VERB</span> — rest of sentence</div>
+  <div class="order-row">
+    <div class="order-cell"><span class="word">Ich</span><span class="tag">pos. 1</span></div>
+    <div class="order-cell"><span class="word">bin</span><span class="tag">verb — pos. 2</span></div>
+    <div class="order-cell"><span class="word">Aman.</span><span class="tag">rest</span></div>
+  </div>
+  <p>Now watch what happens when you move something else to position one — the verb <em>stays</em> in position two, and the subject slides after it. This is different from English, where the subject is glued to the front.</p>
+  <div class="order-row">
+    <div class="order-cell"><span class="word">Heute</span><span class="tag">pos. 1</span></div>
+    <div class="order-cell"><span class="word">bin</span><span class="tag">verb — pos. 2</span></div>
+    <div class="order-cell"><span class="word">ich</span><span class="tag">subject moves</span></div>
+    <div class="order-cell"><span class="word">müde.</span><span class="tag">rest</span></div>
+  </div>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich bin aus Indien.</div><div class="ex-en">I am from India.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Aus Indien bin ich.</div><div class="ex-en">From India, I am. (verb still position 2 — sounds a little poetic/emphatic, but grammatically correct)</div></div></div>
+    <div class="ex-line"><span class="mark neg">✕</span><div class="ex-text"><div class="ex-de">Aus Indien ich bin.</div><div class="ex-en">Wrong — verb has drifted to position three</div></div></div>
+  </div>
+  <div class="box mistake">
+    <p class="box-title"><span class="dot red"></span>Common mistake</p>
+    <p>English speakers default to Subject–Verb–Object no matter what, so when a time word or place word starts the sentence, they forget to move the verb up. <span class="de-text">Heute ich bin müde</span> is the literal English order translated — and it's wrong. The verb must stay glued to position two.</p>
+  </div>
+
+  <h3 class="sub">4. Yes/No questions: verb moves to position one <span class="en">flipping a statement into a question</span></h3>
+  <div class="formula"><span class="slot">VERB</span> — subject — rest — ?</div>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Sind Sie Frau Meyer?</div><div class="ex-en">Are you Ms. Meyer?</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Bist du müde?</div><div class="ex-en">Are you tired?</div></div></div>
+  </div>
+
+  <h3 class="sub">5. W-questions <span class="en">"question word" questions</span></h3>
+  <div class="formula">Question word — <span class="slot">VERB</span> — subject — rest — ?</div>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wie heißen Sie?</div><div class="ex-en">What is your name? (literally: "how are you called")</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Woher kommst du?</div><div class="ex-en">Where are you from?</div></div></div>
+  </div>
+  <p>Notice: the verb is <em>still</em> in position two, right after the question word. The rule never breaks — it's the same skeleton as a statement, just with a question word occupying position one instead of the subject.</p>
+</section>
+
+<!-- SENTENCE FACTORY -->
+<section id="sentence-factory">
+  <h2 class="section-title"><span class="de">Satzfabrik</span><span class="en">Sentence factory</span></h2>
+  <p class="section-intro">One pattern, many real sentences. Watch how swapping a single slot changes the whole meaning — this is how you stop translating and start building.</p>
+
+  <h3 class="sub">Base pattern: <span class="de-text">Ich bin ... / Ich komme aus ... / Ich spreche ...</span></h3>
+  <div class="formula"><span class="slot">ich</span> + bin/komme/spreche + [name / place / language]</div>
+
+  <table>
+    <tr><th>Subject</th><th>Verb</th><th>Rest</th><th>Full sentence</th></tr>
+    <tr><td class="de">Ich</td><td class="de">bin</td><td class="de">Aman.</td><td class="de">Ich bin Aman.</td></tr>
+    <tr><td class="de">Ich</td><td class="de">komme</td><td class="de">aus Indien.</td><td class="de">Ich komme aus Indien.</td></tr>
+    <tr><td class="de">Ich</td><td class="de">spreche</td><td class="de">Deutsch und Englisch.</td><td class="de">Ich spreche Deutsch und Englisch.</td></tr>
+    <tr><td class="de">Ich</td><td class="de">wohne</td><td class="de">in Delhi.</td><td class="de">Ich wohne in Delhi.</td></tr>
+  </table>
+
+  <h3 class="sub">Swap the subject — same skeleton, new person</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Sonia kommt aus Deutschland.</div><div class="ex-en">Sonia is from Germany.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Er ist Lehrer.</div><div class="ex-en">He is a teacher.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wir kommen aus Noida.</div><div class="ex-en">We're from Noida.</div></div></div>
+  </div>
+  <div class="box note">
+    <p class="box-title"><span class="dot blue"></span>Watch the verb ending</p>
+    <p>The subject changes → the verb ending changes with it: <span class="de-text">ich komme</span>, <span class="de-text">er/sie kommt</span>, <span class="de-text">wir kommen</span>. This is verb conjugation — you'll get the full regular pattern in Kapitel 2, but notice it starting here.</p>
+  </div>
+
+  <h3 class="sub">Swap the time or place slot — move it to position one</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">In Delhi wohne ich.</div><div class="ex-en">In Delhi is where I live. (place fronted for emphasis)</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Heute bin ich müde.</div><div class="ex-en">Today I'm tired.</div></div></div>
+  </div>
+
+  <h3 class="sub">Chain sentences with <span class="de-text">und</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich heiße Aman und ich komme aus Indien.</div><div class="ex-en">My name is Aman and I'm from India.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Sie ist aus Berlin und sie spricht Deutsch und Englisch.</div><div class="ex-en">She's from Berlin and she speaks German and English.</div></div></div>
+  </div>
+</section>
+
+<!-- QUESTION FACTORY -->
+<section id="question-factory">
+  <h2 class="section-title"><span class="de">Fragefabrik</span><span class="en">Question factory</span></h2>
+  <p class="section-intro">Kapitel 1 only needs four question words plus yes/no questions. Master the pattern below and you can ask a stranger everything you need at a first meeting.</p>
+
+  <h3 class="sub">Wie <span class="en">how</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wie heißen Sie? — Ich heiße Aman Bhatt.</div><div class="ex-en">What's your name? — My name is Aman Bhatt.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wie geht es Ihnen? — Danke, gut.</div><div class="ex-en">How are you (formal)? — Fine, thanks.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wie geht's? — Gut, danke, und dir?</div><div class="ex-en">How's it going (informal)? — Good, thanks, and you?</div></div></div>
+  </div>
+
+  <h3 class="sub">Woher <span class="en">where...from</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Woher kommen Sie? — Ich komme aus Indien.</div><div class="ex-en">Where are you from? — I'm from India.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Woher kommst du? — Aus Delhi.</div><div class="ex-en">Where are you from (informal)? — From Delhi. (short answer)</div></div></div>
+  </div>
+
+  <h3 class="sub">Wo <span class="en">where (location, not origin)</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wo wohnen Sie? — Ich wohne in Noida.</div><div class="ex-en">Where do you live? — I live in Noida.</div></div></div>
+  </div>
+  <div class="box mistake">
+    <p class="box-title"><span class="dot red"></span>Common mistake</p>
+    <p><span class="de-text">Wo</span> and <span class="de-text">woher</span> are not interchangeable. <span class="de-text">Wo</span> = where (currently located). <span class="de-text">Woher</span> = where from (origin). "Woher wohnen Sie?" is wrong — you don't "live from" somewhere.</p>
+  </div>
+
+  <h3 class="sub">Was <span class="en">what</span></h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Was sind Sie von Beruf? — Ich bin Ingenieur.</div><div class="ex-en">What's your profession? — I'm an engineer.</div></div></div>
+  </div>
+
+  <h3 class="sub">Yes/No questions</h3>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Kommen Sie aus Deutschland? — Nein, ich komme aus Indien.</div><div class="ex-en">Are you from Germany? — No, I'm from India.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Sprichst du Englisch? — Ja, ein bisschen.</div><div class="ex-en">Do you speak English? — Yes, a little.</div></div></div>
+  </div>
+
+  <h3 class="sub">Short answers vs. full answers</h3>
+  <table>
+    <tr><th>Question</th><th>Short answer</th><th>Full answer</th></tr>
+    <tr><td class="de">Woher kommst du?</td><td class="de">Aus Indien.</td><td class="de">Ich komme aus Indien.</td></tr>
+    <tr><td class="de">Wie heißt du?</td><td class="de">Aman.</td><td class="de">Ich heiße Aman.</td></tr>
+    <tr><td class="de">Sprechen Sie Deutsch?</td><td class="de">Ja, ein bisschen.</td><td class="de">Ja, ich spreche ein bisschen Deutsch.</td></tr>
+  </table>
+  <p>Native speakers use short answers constantly in casual speech — full answers everywhere sound stiff and textbook-y. Learn both, but lean on the short form when you speak.</p>
+</section>
+
+<!-- SPEAKING FACTORY -->
+<section id="speaking-factory">
+  <h2 class="section-title"><span class="de">Sprechfabrik</span><span class="en">Speaking factory</span></h2>
+  <p class="section-intro">Real exchanges, not vocabulary lists. Read these out loud — the goal is that your mouth produces these chunks without your brain translating first.</p>
+
+  <h3 class="sub">Dialogue 1 — Formal, first meeting <span class="en">at a reception desk</span></h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">FRAU KLEIN</div><div class="line-de">Guten Tag! Ich bin Frau Klein.</div><div class="line-en">Good day! I'm Ms. Klein.</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Guten Tag, Frau Klein. Ich bin Aman Bhatt.</div><div class="line-en">Good day, Ms. Klein. I'm Aman Bhatt.</div></div>
+    <div class="turn"><div class="speaker">FRAU KLEIN</div><div class="line-de">Woher kommen Sie, Herr Bhatt?</div><div class="line-en">Where are you from, Mr. Bhatt?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Ich komme aus Indien, aus Delhi.</div><div class="line-en">I'm from India, from Delhi.</div></div>
+    <div class="turn"><div class="speaker">FRAU KLEIN</div><div class="line-de">Sprechen Sie Deutsch?</div><div class="line-en">Do you speak German?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Ja, ein bisschen. Ich lerne Deutsch.</div><div class="line-en">Yes, a little. I'm learning German.</div></div>
+    <div class="turn"><div class="speaker">FRAU KLEIN</div><div class="line-de">Sehr gut! Auf Wiedersehen.</div><div class="line-en">Very good! Goodbye.</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Auf Wiedersehen!</div><div class="line-en">Goodbye!</div></div>
+  </div>
+
+  <h3 class="sub">Dialogue 2 — Informal, two students in class</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">LISA</div><div class="line-de">Hallo! Wie heißt du?</div><div class="line-en">Hi! What's your name?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Ich heiße Aman. Und du?</div><div class="line-en">My name's Aman. And you?</div></div>
+    <div class="turn"><div class="speaker">LISA</div><div class="line-de">Ich bin Lisa. Woher kommst du?</div><div class="line-en">I'm Lisa. Where are you from?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Aus Indien. Und du, woher kommst du?</div><div class="line-en">From India. And you, where are you from?</div></div>
+    <div class="turn"><div class="speaker">LISA</div><div class="line-de">Ich komme aus Hamburg. Wie geht's?</div><div class="line-en">I'm from Hamburg. How's it going?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Gut, danke. Bis später!</div><div class="line-en">Good, thanks. See you later!</div></div>
+  </div>
+
+  <h3 class="sub">Dialogue 3 — Spelling your name</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">HERR MÜLLER</div><div class="line-de">Wie schreibt man das?</div><div class="line-en">How do you spell that?</div></div>
+    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">A-M-A-N, B-H-A-T-T.</div><div class="line-en">A-M-A-N, B-H-A-T-T.</div></div>
+  </div>
+
+  <h3 class="sub">Reusable speaking chunks <span class="en">say these without translating</span></h3>
+  <div class="chunks">
+    <span class="chunk">Guten Morgen!</span>
+    <span class="chunk">Guten Tag!</span>
+    <span class="chunk">Guten Abend!</span>
+    <span class="chunk">Hallo!</span>
+    <span class="chunk">Wie geht's?</span>
+    <span class="chunk">Gut, danke.</span>
+    <span class="chunk">Und dir? / Und Ihnen?</span>
+    <span class="chunk">Ein bisschen.</span>
+    <span class="chunk">Bis später!</span>
+    <span class="chunk">Bis bald!</span>
+    <span class="chunk">Auf Wiedersehen!</span>
+    <span class="chunk">Tschüss!</span>
+    <span class="chunk">Wie bitte?</span>
+    <span class="chunk">Ich verstehe nicht.</span>
+    <span class="chunk">Können Sie das wiederholen?</span>
+    <span class="chunk">Wie schreibt man das?</span>
+  </div>
+  <div class="box note">
+    <p class="box-title"><span class="dot blue"></span>Classroom survival phrases</p>
+    <p><span class="de-text">Wie bitte?</span> ("sorry, what?") and <span class="de-text">Ich verstehe nicht</span> ("I don't understand") are what every teacher expects you to use instead of switching to English. Use them constantly — they mark you as a serious student, not a lazy one.</p>
+  </div>
+</section>
+
+<!-- VOCABULARY -->
+<section id="vocabulary">
+  <h2 class="section-title"><span class="de">Wortschatz</span><span class="en">Vocabulary</span></h2>
+  <p class="section-intro">Nouns take an article and a plural even at A1 — build the habit of learning all three together from day one.</p>
+
+  <h3 class="sub">Nouns <span class="en">article · singular · plural · English</span></h3>
+  <table>
+    <tr><th>Article</th><th>Singular</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">der</td><td class="de">Name</td><td class="de">Namen</td><td>name</td></tr>
+    <tr><td class="de">der</td><td class="de">Vorname</td><td class="de">Vornamen</td><td>first name</td></tr>
+    <tr><td class="de">der</td><td class="de">Nachname</td><td class="de">Nachnamen</td><td>last name / surname</td></tr>
+    <tr><td class="de">das</td><td class="de">Land</td><td class="de">Länder</td><td>country</td></tr>
+    <tr><td class="de">die</td><td class="de">Sprache</td><td class="de">Sprachen</td><td>language</td></tr>
+    <tr><td class="de">der</td><td class="de">Beruf</td><td class="de">Berufe</td><td>profession</td></tr>
+    <tr><td class="de">die</td><td class="de">Nummer</td><td class="de">Nummern</td><td>number</td></tr>
+    <tr><td class="de">die</td><td class="de">Telefonnummer</td><td class="de">Telefonnummern</td><td>phone number</td></tr>
+    <tr><td class="de">der</td><td class="de">Herr</td><td class="de">Herren</td><td>Mr. / gentleman</td></tr>
+    <tr><td class="de">die</td><td class="de">Frau</td><td class="de">Frauen</td><td>Ms./Mrs. / woman</td></tr>
+    <tr><td class="de">der</td><td class="de">Kurs</td><td class="de">Kurse</td><td>course, class</td></tr>
+    <tr><td class="de">der</td><td class="de">Buchstabe</td><td class="de">Buchstaben</td><td>letter (of alphabet)</td></tr>
+  </table>
+
+  <h3 class="sub">Verbs <span class="en">meaning · key forms</span></h3>
+  <table>
+    <tr><th>Infinitive</th><th>Meaning</th><th>ich</th><th>du</th><th>er/sie</th></tr>
+    <tr><td class="de">sein</td><td>to be</td><td class="de">bin</td><td class="de">bist</td><td class="de">ist</td></tr>
+    <tr><td class="de">heißen</td><td>to be called</td><td class="de">heiße</td><td class="de">heißt</td><td class="de">heißt</td></tr>
+    <tr><td class="de">kommen</td><td>to come / be from</td><td class="de">komme</td><td class="de">kommst</td><td class="de">kommt</td></tr>
+    <tr><td class="de">wohnen</td><td>to live/reside</td><td class="de">wohne</td><td class="de">wohnst</td><td class="de">wohnt</td></tr>
+    <tr><td class="de">sprechen</td><td>to speak</td><td class="de">spreche</td><td class="de">sprichst</td><td class="de">spricht</td></tr>
+    <tr><td class="de">lernen</td><td>to learn</td><td class="de">lerne</td><td class="de">lernst</td><td class="de">lernt</td></tr>
+    <tr><td class="de">buchstabieren</td><td>to spell</td><td class="de">buchstabiere</td><td class="de">buchstabierst</td><td class="de">buchstabiert</td></tr>
+  </table>
+  <div class="box mistake">
+    <p class="box-title"><span class="dot red"></span>Note the irregular one</p>
+    <p><span class="de-text">sprechen</span> changes its stem vowel in the <span class="de-text">du</span>/<span class="de-text">er/sie</span> forms: <span class="de-text">spreche → sprichst → spricht</span> (e → i). This is a vowel-change pattern you'll see again with several common verbs — flag it now so it doesn't surprise you later.</p>
+  </div>
+
+  <h3 class="sub">Countries and nationalities</h3>
+  <table>
+    <tr><th>Country</th><th>Nationality (m)</th><th>Nationality (f)</th></tr>
+    <tr><td class="de">Indien</td><td class="de">Inder</td><td class="de">Inderin</td></tr>
+    <tr><td class="de">Deutschland</td><td class="de">Deutscher</td><td class="de">Deutsche</td></tr>
+    <tr><td class="de">England</td><td class="de">Engländer</td><td class="de">Engländerin</td></tr>
+    <tr><td class="de">Österreich</td><td class="de">Österreicher</td><td class="de">Österreicherin</td></tr>
+    <tr><td class="de">die Schweiz</td><td class="de">Schweizer</td><td class="de">Schweizerin</td></tr>
+  </table>
+
+  <h3 class="sub">Numbers 0–20</h3>
+  <table>
+    <tr><td class="de">0 null</td><td class="de">1 eins</td><td class="de">2 zwei</td><td class="de">3 drei</td><td class="de">4 vier</td></tr>
+    <tr><td class="de">5 fünf</td><td class="de">6 sechs</td><td class="de">7 sieben</td><td class="de">8 acht</td><td class="de">9 neun</td></tr>
+    <tr><td class="de">10 zehn</td><td class="de">11 elf</td><td class="de">12 zwölf</td><td class="de">13 dreizehn</td><td class="de">14 vierzehn</td></tr>
+    <tr><td class="de">15 fünfzehn</td><td class="de">16 sechzehn</td><td class="de">17 siebzehn</td><td class="de">18 achtzehn</td><td class="de">19 neunzehn</td></tr>
+    <tr><td class="de">20 zwanzig</td><td></td><td></td><td></td><td></td></tr>
+  </table>
+
+  <h3 class="sub">Useful expressions as full chunks</h3>
+  <table>
+    <tr><td class="de">Guten Morgen</td><td>good morning (until ~10–11am)</td></tr>
+    <tr><td class="de">Guten Tag</td><td>good day (daytime, most common all-purpose greeting)</td></tr>
+    <tr><td class="de">Guten Abend</td><td>good evening</td></tr>
+    <tr><td class="de">Gute Nacht</td><td>good night (only when parting for the night, not a greeting)</td></tr>
+    <tr><td class="de">Wie geht es Ihnen?</td><td>how are you (formal)</td></tr>
+    <tr><td class="de">Wie geht's?</td><td>how are you (informal)</td></tr>
+    <tr><td class="de">Es geht.</td><td>so-so / okay-ish</td></tr>
+    <tr><td class="de">ein bisschen</td><td>a little</td></tr>
+    <tr><td class="de">Freut mich.</td><td>pleased to meet you</td></tr>
+    <tr><td class="de">von Beruf</td><td>by profession</td></tr>
+  </table>
+</section>
+
+<!-- EXERCISES -->
+<section id="exercises">
+  <h2 class="section-title"><span class="de">Übungen</span><span class="en">Exercises</span></h2>
+  <p class="section-intro">Sections D and E check themselves instantly. The rest are open-ended — write them out, then check against the Answer Key below.</p>
+
+  <div class="exercise">
+    <p class="ex-num">A · Sentence building</p>
+    <p class="ex-prompt">1. Build a sentence from: <span class="de-text">aus Indien / ich / komme</span></p>
+    <p class="ex-prompt">2. Build a sentence from: <span class="de-text">Deutsch / spricht / sie / ein bisschen</span></p>
+    <p class="ex-prompt">3. Build a sentence starting with "Heute": <span class="de-text">müde / bin / ich / heute</span></p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">B · Question building</p>
+    <p class="ex-prompt">4. Ask a stranger where they're from (formal).</p>
+    <p class="ex-prompt">5. Ask a classmate what their name is (informal).</p>
+    <p class="ex-prompt">6. Ask, formally, whether someone speaks German.</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">C · Translation</p>
+    <p class="ex-prompt">7. Translate: "My name is Sonia and I'm from Germany."</p>
+    <p class="ex-prompt">8. Translate: "Where do you (formal) live?"</p>
+    <p class="ex-prompt">9. Translate: "I don't understand. Can you repeat that?"</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">D · Fill in the blank <span style="font-family:var(--sans); font-size:12px; color:var(--ink-mute); font-weight:400;">— type your answer, click check</span></p>
+    <div data-answer="heiße" data-id="d10" data-prompt="Ich ___ Aman. (heißen)">
+      <p class="ex-prompt">10. Ich <span class="ex-blank" style="display:none;"></span> Aman. <span style="color:var(--ink-mute); font-size:13px;">(heißen)</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="kommst" data-id="d11" data-prompt="Du ___ aus Delhi. (kommen)">
+      <p class="ex-prompt">11. Du <span class="ex-blank" style="display:none;"></span> aus Delhi. <span style="color:var(--ink-mute); font-size:13px;">(kommen)</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="sind" data-id="d12" data-prompt="Wir ___ Kollegen. (sein)">
+      <p class="ex-prompt">12. Wir <span class="ex-blank" style="display:none;"></span> Kollegen. <span style="color:var(--ink-mute); font-size:13px;">(sein)</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="sprechen" data-id="d13" data-prompt="Sie (formal) ___ Deutsch? (sprechen)">
+      <p class="ex-prompt">13. Sie (formal) <span class="ex-blank" style="display:none;"></span> Deutsch? <span style="color:var(--ink-mute); font-size:13px;">(sprechen)</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">E · Correction — type the corrected sentence</p>
+    <div data-answer="Heute bin ich müde." data-id="e14" data-prompt="Heute ich bin müde.">
+      <p class="ex-prompt">14. <span class="de-text">Heute ich bin müde.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Du bist aus Berlin." data-id="e15" data-prompt="Du bin aus Berlin.">
+      <p class="ex-prompt">15. <span class="de-text">Du bin aus Berlin.</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+    <div data-answer="Wo wohnst du?" data-id="e16" data-prompt="Woher wohnst du?">
+      <p class="ex-prompt">16. <span class="de-text">Woher wohnst du?</span></p>
+      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="min-width:220px;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">F · Speaking prompts <span style="font-family:var(--sans); font-size:13px; color:var(--ink-mute);">(say out loud, no writing)</span></p>
+    <p class="ex-prompt">17. Greet a stranger at 9am, then ask their name (formal).</p>
+    <p class="ex-prompt">18. Greet a friend at 7pm, ask how they are, and answer when they ask you back.</p>
+    <p class="ex-prompt">19. Spell your own first name out loud in German.</p>
+  </div>
+
+  <div class="exercise">
+    <p class="ex-num">G · Mixed review</p>
+    <p class="ex-prompt">20. Write a 3-sentence self-introduction: name, origin, one language you speak.</p>
+  </div>
+
+  <div class="tracker-box" id="mistake-tracker">
+    <h4>Your missed items on this chapter</h4>
+    <div id="tracker-list"><p class="tracker-empty">Loading…</p></div>
+    
+  </div>
+</section>
+
+<!-- ANSWER KEY -->
+<section id="answers">
+  <h2 class="section-title"><span class="de">Lösungen</span><span class="en">Answer key</span></h2>
+  <div class="answers">
+    <h3 class="sub">A · Sentence building</h3>
+    <div class="ans-line"><span class="ans-num">1</span><span class="de-text">Ich komme aus Indien.</span></div>
+    <div class="ans-line"><span class="ans-num">2</span><span class="de-text">Sie spricht ein bisschen Deutsch.</span></div>
+    <div class="ans-line"><span class="ans-num">3</span><span class="de-text">Heute bin ich müde.</span></div>
+
+    <h3 class="sub">B · Question building</h3>
+    <div class="ans-line"><span class="ans-num">4</span><span class="de-text">Woher kommen Sie?</span></div>
+    <div class="ans-line"><span class="ans-num">5</span><span class="de-text">Wie heißt du?</span></div>
+    <div class="ans-line"><span class="ans-num">6</span><span class="de-text">Sprechen Sie Deutsch?</span></div>
+
+    <h3 class="sub">C · Translation</h3>
+    <div class="ans-line"><span class="ans-num">7</span><span class="de-text">Ich heiße Sonia und ich komme aus Deutschland.</span></div>
+    <div class="ans-line"><span class="ans-num">8</span><span class="de-text">Wo wohnen Sie?</span></div>
+    <div class="ans-line"><span class="ans-num">9</span><span class="de-text">Ich verstehe nicht. Können Sie das wiederholen?</span></div>
+
+    <h3 class="sub">D · Fill in the blank</h3>
+    <div class="ans-line"><span class="ans-num">10</span><span class="de-text">heiße</span></div>
+    <div class="ans-line"><span class="ans-num">11</span><span class="de-text">kommst</span></div>
+    <div class="ans-line"><span class="ans-num">12</span><span class="de-text">sind</span></div>
+    <div class="ans-line"><span class="ans-num">13</span><span class="de-text">sprechen</span></div>
+
+    <h3 class="sub">E · Correction</h3>
+    <div class="ans-line"><span class="ans-num">14</span><span class="de-text">Heute bin ich müde.</span> — verb must be position 2, not subject first</div>
+    <div class="ans-line"><span class="ans-num">15</span><span class="de-text">Du bist aus Berlin.</span> — wrong sein-form; du takes bist, not bin</div>
+    <div class="ans-line"><span class="ans-num">16</span><span class="de-text">Wo wohnst du?</span> — wohnen is location (wo), not origin (woher)</div>
+
+    <h3 class="sub">G · Mixed review — sample answer</h3>
+    <div class="ans-line"><span class="ans-num">20</span><span class="de-text">Ich heiße Aman. Ich komme aus Indien. Ich spreche Englisch.</span></div>
+  </div>
+</section>
+
+<!-- PRONUNCIATION -->
+<section id="pronunciation">
+  <h2 class="section-title"><span class="de">Aussprache</span><span class="en">Pronunciation</span></h2>
+  <p class="section-intro">Only the sounds this chapter actually needs — the ones that trip up English speakers on greetings and names.</p>
+
+  <div class="sound-row">
+    <div class="ipa">ch</div>
+    <div class="sound-body">Two different sounds depending on the letter before it. After <span class="de-text">i, e</span>: a soft "hiss," tongue near the roof of the mouth (like the start of "huge" said gently). After <span class="de-text">a, o, u</span>: a rougher back-of-throat sound.
+      <div class="sound-words">ich (soft) · Nachname (rough) · Buchstabe (rough)</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">ei</div>
+    <div class="sound-body">Sounds like English "eye," not "ay." This trips people up constantly because it looks like it should sound like "ei" in "weigh."
+      <div class="sound-words">heißen · Beruf · nein</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">ie</div>
+    <div class="sound-body">A long "ee" sound, like in "see." Opposite of <span class="de-text">ei</span> above — easy to mix the two up.
+      <div class="sound-words">Sie · wie · sieben</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">z</div>
+    <div class="sound-body">Always pronounced "ts," never like English "z" (as in "zoo"). This is the single most common beginner error in this chapter.
+      <div class="sound-words">zwei · zehn · zwanzig</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">w</div>
+    <div class="sound-body">Pronounced like English "v," not "w."
+      <div class="sound-words">wie · woher · wohnen</div>
+    </div>
+  </div>
+  <div class="sound-row">
+    <div class="ipa">v</div>
+    <div class="sound-body">Usually pronounced like English "f" in native German words.
+      <div class="sound-words">Vorname · von</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMON MISTAKES -->
+<section id="mistakes">
+  <h2 class="section-title"><span class="de">Häufige Fehler</span><span class="en">Common mistakes</span></h2>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Heute ich bin müde.</div>
+    <div class="mp-line ok">Heute bin ich müde.</div>
+    <div class="mp-why">Why: German always keeps the conjugated verb in position two. When a time word starts the sentence, the subject has to move after the verb — English word order does not transfer directly.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Du bin aus Berlin.</div>
+    <div class="mp-line ok">Du bist aus Berlin.</div>
+    <div class="mp-why">Why: sein is irregular and each pronoun has its own form. "Bin" only goes with "ich" — never mix and match.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Woher wohnst du?</div>
+    <div class="mp-line ok">Wo wohnst du?</div>
+    <div class="mp-why">Why: woher asks about origin (where from), wo asks about current location (where). "Living from" somewhere doesn't make sense in either language.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">du (to a stranger or your teacher)</div>
+    <div class="mp-line ok">Sie (to a stranger or your teacher)</div>
+    <div class="mp-why">Why: formality isn't optional politeness in German the way it can feel in English — using du with the wrong person reads as disrespectful or presumptuous.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">"z" pronounced like English "zoo"</div>
+    <div class="mp-line ok">"z" pronounced "ts," as in "cats"</div>
+    <div class="mp-why">Why: German z is always a ts-sound. Saying "zwei" with an English z is one of the most immediate tells of an untrained ear.</div>
+  </div>
+</section>
+
+<!-- QUICK REVISION -->
+<section id="revision">
+  <h2 class="section-title"><span class="de">Kurze Wiederholung</span><span class="en">Quick revision</span></h2>
+  <div class="revision-grid">
+    <div class="rev-col">
+      <h3 class="sub">Sentence patterns</h3>
+      <div class="rev-item">Ich bin / heiße / komme aus / wohne in ...</div>
+      <div class="rev-item">Verb always in position 2</div>
+      <div class="rev-item">Time/place first → subject moves after verb</div>
+      <div class="rev-item">Question word → verb → subject → ...?</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Question forms</h3>
+      <div class="rev-item">Wie heißen Sie? / Wie heißt du?</div>
+      <div class="rev-item">Woher kommen Sie?</div>
+      <div class="rev-item">Wo wohnen Sie?</div>
+      <div class="rev-item">Sprechen Sie...? (yes/no)</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Most important words</h3>
+      <div class="rev-item">sein: bin / bist / ist / sind</div>
+      <div class="rev-item">Guten Tag, Hallo, Auf Wiedersehen, Tschüss</div>
+      <div class="rev-item">ein bisschen, und, aus, in</div>
+    </div>
+    <div class="rev-col">
+      <h3 class="sub">Sound traps</h3>
+      <div class="rev-item">z = "ts" · w = "v" · v = "f"</div>
+      <div class="rev-item">ei = "eye" · ie = "ee"</div>
+      <div class="rev-item">du vs. Sie — check formality first</div>
+    </div>
+  </div>
+</section>
+
+<footer>Kapitel 1 · Guten Tag! — Netzwerk neu A1</footer>
+
+</div>
+
+
+<script>
+const NA1 = (() => {
+  const STORAGE_KEY = 'na1_mistakes_kapitel1';
+
+  function loadMistakes() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+    catch (e) { return {}; }
+  }
+  function saveMistakes(obj) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(obj)); } catch (e) {}
+  }
+
+  function norm(s){ return (s||'').trim().toLowerCase().replace(/\s+/g,' '); }
+
+  function logMistake(itemId, meta) {
+    const all = loadMistakes();
+    const prev = all[itemId] || { count: 0 };
+    all[itemId] = {
+      itemId, chapter: meta.chapter, prompt: meta.prompt,
+      count: (prev.count || 0) + 1,
+      lastWrong: new Date().toISOString(),
+      cleared: false
+    };
+    saveMistakes(all);
+    renderTracker();
+  }
+
+  function clearMistake(itemId) {
+    const all = loadMistakes();
+    if (all[itemId]) { all[itemId].cleared = true; saveMistakes(all); renderTracker(); }
+  }
+
+  function getAllMistakes() {
+    const all = loadMistakes();
+    return Object.values(all).filter(m => !m.cleared);
+  }
+
+  function wireExercise(chapterLabel) {
+    document.querySelectorAll('[data-answer]').forEach(item => {
+      const input = item.querySelector('input');
+      const btn = item.querySelector('.check-btn');
+      const feedback = item.querySelector('.ex-feedback');
+      if (!input || !btn) return;
+      btn.addEventListener('click', () => {
+        const correctRaw = item.getAttribute('data-answer');
+        const options = correctRaw.split('|').map(norm);
+        const given = norm(input.value);
+        const isRight = options.includes(given);
+        feedback.textContent = isRight ? 'Richtig!' : `Not quite — correct: ${correctRaw}`;
+        feedback.style.color = isRight ? 'var(--green)' : 'var(--red)';
+        input.style.borderColor = isRight ? 'var(--green)' : 'var(--red)';
+        const itemId = `kapitel1-${item.getAttribute('data-id')}`;
+        if (!isRight) {
+          logMistake(itemId, { chapter: 'kapitel1', prompt: item.getAttribute('data-prompt') || '' });
+        } else {
+          clearMistake(itemId);
+        }
+      });
+      input.addEventListener('keydown', (e) => { if (e.key === 'Enter') btn.click(); });
+    });
+  }
+
+  function renderTracker() {
+    const list = document.getElementById('tracker-list');
+    if (!list) return;
+    const mistakes = getAllMistakes();
+    if (mistakes.length === 0) {
+      list.innerHTML = '<p class="tracker-empty">No open mistakes on this chapter — nice work.</p>';
+      return;
+    }
+    list.innerHTML = mistakes.map(m => `
+      <div class="tracker-item">
+        <span>${m.prompt || m.itemId} <span style="color:var(--ink-mute);">(missed ${m.count}×)</span></span>
+        <button class="clear-btn" data-clear="${m.itemId}">mark reviewed</button>
+      </div>`).join('');
+    list.querySelectorAll('[data-clear]').forEach(b => {
+      b.addEventListener('click', () => clearMistake(b.getAttribute('data-clear')));
+    });
+  }
+
+  wireExercise('kapitel1');
+  renderTracker();
+
+  return { logMistake, clearMistake, getAllMistakes };
+})();
+</script>
+</body>
+</html>
