@@ -454,6 +454,19 @@ footer{
 .tracker-empty{color:var(--ink-mute); font-size:13.5px; font-style:italic;}
 .persist-note{font-size:12px; color:var(--ink-mute); margin-top:8px;}
 
+/* combined practice widgets */
+.mixed-prompt{
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:20px 24px;
+  margin:20px 0;
+  background:var(--paper-2);
+}
+.mp-title{font-family:var(--sans); font-weight:600; font-size:14px; color:var(--ink); margin:0 0 8px;}
+.mp-body{margin:0 0 14px; color:var(--ink-soft);}
+.mp-answer{margin-top:12px; padding-top:12px; border-top:1px solid var(--rule);}
+.mp-note{font-size:12.5px; color:var(--ink-mute); margin-top:8px;}
+
 /* floating nav buttons */
 .float-nav{
   position:fixed;
@@ -509,6 +522,7 @@ footer{
   <a href="#question-factory">Question factory</a>
   <a href="#speaking-factory">Speaking factory</a>
   <a href="#vocabulary">Vocabulary</a>
+  <a href="#combined-practice">K1+K2 Practice</a>
   <a href="#exercises">Exercises</a>
   <a href="#answers">Answer key</a>
   <a href="#pronunciation">Pronunciation</a>
@@ -624,6 +638,82 @@ footer{
     <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Am Montag arbeite ich.</div><div class="ex-en">On Monday I work.</div></div></div>
     <div class="ex-line"><span class="mark neg">✕</span><div class="ex-text"><div class="ex-de">Am Montag ich arbeite.</div><div class="ex-en">Wrong — verb has drifted to position three, same mistake as Kapitel 1</div></div></div>
   </div>
+
+  <h3 class="sub">6. Ja-/Nein-Frage <span class="en">yes/no questions — verb jumps to position 1</span></h3>
+  <p>For a yes/no question, there's no question word at all — the verb simply moves to position 1, and the subject follows in position 2.</p>
+  <div class="formula"><span class="slot">VERB</span> + subject + rest?</div>
+  <div class="order-row">
+    <div class="order-cell"><span class="word">Gehen</span><span class="tag">verb — pos. 1</span></div>
+    <div class="order-cell"><span class="word">wir</span><span class="tag">subject — pos. 2</span></div>
+    <div class="order-cell"><span class="word">ins Kino?</span><span class="tag">rest</span></div>
+  </div>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Gehen wir ins Kino?</div><div class="ex-en">Shall we go to the cinema?</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Spielst du gern Fußball?</div><div class="ex-en">Do you like playing football?</div></div></div>
+  </div>
+  <p>Three sentence types, one shared rule: statement (subject+verb), W-Frage (question word+verb+subject), Ja/Nein-Frage (verb+subject) — the conjugated verb is always in position 1 or 2, never buried later.</p>
+
+  <h3 class="sub">7. Doch <span class="en">the special "yes" that contradicts a negative question</span></h3>
+  <p>A plain Ja/Nein becomes ambiguous after a negative question. German uses <span class="de-text">doch</span> specifically to mean "yes, actually I do" — contradicting the negative.</p>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Trinkst du nicht gern Kaffee? — Doch, ich trinke gern Kaffee.</div><div class="ex-en">Don't you like coffee? — Yes, actually I do.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Trinkst du nicht gern Kaffee? — Nein, ich trinke Kaffee nicht gern.</div><div class="ex-en">Don't you like coffee? — No, I really don't.</div></div></div>
+  </div>
+  <div class="box mistake">
+    <p class="box-title"><span class="dot red"></span>Common mistake</p>
+    <p><span class="de-text">doch</span> only appears after a <em>negative</em> question, as a contradiction. For an ordinary positive question, just use Ja/Nein as normal — doch never appears there.</p>
+  </div>
+
+  <h3 class="sub">8. haben <span class="en">"to have" — irregular, drops the "b" in du/er-sie</span></h3>
+  <table>
+    <tr><th>Pronoun</th><th>Form</th></tr>
+    <tr><td class="de">ich</td><td class="de">habe</td></tr>
+    <tr><td class="de">du</td><td class="de">hast</td></tr>
+    <tr><td class="de">er/es/sie</td><td class="de">hat</td></tr>
+    <tr><td class="de">wir</td><td class="de">haben</td></tr>
+    <tr><td class="de">ihr</td><td class="de">habt</td></tr>
+    <tr><td class="de">sie/Sie</td><td class="de">haben</td></tr>
+  </table>
+  <div class="ex-block">
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich habe zwei Hobbys.</div><div class="ex-en">I have two hobbies.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wann hast du frei?</div><div class="ex-en">When are you free?</div></div></div>
+  </div>
+
+  <h3 class="sub">9. bestimmter Artikel <span class="en">the definite article — der/das/die, officially named</span></h3>
+  <table>
+    <tr><th>Gender</th><th>Article</th><th>Example</th></tr>
+    <tr><td>maskulin</td><td class="de">der</td><td class="de">der Stift</td></tr>
+    <tr><td>neutrum</td><td class="de">das</td><td class="de">das Buch</td></tr>
+    <tr><td>feminin</td><td class="de">die</td><td class="de">die Tablette</td></tr>
+    <tr><td>Plural</td><td class="de">die</td><td class="de">die Bücher</td></tr>
+  </table>
+  <div class="box trick">
+    <p class="box-title"><span class="dot amber"></span>Memory trick from the Kursbuch</p>
+    <p>Color-code your vocabulary as you write it: <strong style="color:#2d4a63;">der = blau</strong>, <strong style="color:#3c6b3f;">das = grün</strong>, <strong style="color:#a3402f;">die = rot</strong>. This visual habit trains gender recall far faster than trying to memorize lists.</p>
+  </div>
+
+  <h3 class="sub">10. Nomen: Singular und Plural <span class="en">the five plural patterns, with real examples</span></h3>
+  <table>
+    <tr><th>Pattern</th><th>Singular</th><th>Plural</th></tr>
+    <tr><td>no change</td><td class="de">der Kilometer</td><td class="de">die Kilometer</td></tr>
+    <tr><td>-(e)n</td><td class="de">die Stunde</td><td class="de">die Stunden</td></tr>
+    <tr><td>(¨)-e</td><td class="de">der Tag</td><td class="de">die Tage</td></tr>
+    <tr><td>(¨)-e (+ umlaut)</td><td class="de">der Arzt</td><td class="de">die Ärzte</td></tr>
+    <tr><td>(¨)-er (+ umlaut)</td><td class="de">das Buch</td><td class="de">die Bücher</td></tr>
+    <tr><td>-s</td><td class="de">das Auto</td><td class="de">die Autos</td></tr>
+  </table>
+  <p style="font-size:13.5px; color:var(--ink-mute);">Whatever the pattern, the plural article is always <span class="de-text">die</span> — that's the one shortcut that never fails.</p>
+
+  <h3 class="sub">11. Zahlen ab 20 <span class="en">numbers 21 and up</span></h3>
+  <p>21–99 keep reversing units-before-tens, joined by "und" — exactly like fünfundvierzig (45). Above 100, numbers are read normally left to right, mashed into one word.</p>
+  <table>
+    <tr><td class="de">21 einundzwanzig</td><td class="de">30 dreißig</td><td class="de">100 (ein)hundert</td></tr>
+    <tr><td class="de">22 zweiundzwanzig</td><td class="de">40 vierzig</td><td class="de">1.000 (ein)tausend</td></tr>
+    <tr><td class="de">23 dreiundzwanzig</td><td class="de">50 fünfzig</td><td class="de">10.000 zehntausend</td></tr>
+    <tr><td class="de">24 vierundzwanzig</td><td class="de">60 sechzig</td><td class="de">100.000 (ein)hunderttausend</td></tr>
+    <tr><td class="de">25 fünfundzwanzig</td><td class="de">70 siebzig</td><td class="de">1.000.000 eine Million</td></tr>
+    <tr><td class="de">29 neunundzwanzig</td><td class="de">90 neunzig</td><td class="de">1.000.000.000 eine Milliarde</td></tr>
+  </table>
 </section>
 
 <!-- SENTENCE FACTORY -->
@@ -822,6 +912,66 @@ footer{
     <tr><td class="de">der Student / die Studentin</td><td>student (university)</td></tr>
     <tr><td class="de">der Arzt / die Ärztin</td><td>doctor</td></tr>
     <tr><td class="de">der Verkäufer / die Verkäuferin</td><td>salesperson</td></tr>
+    <tr><td class="de">der Taxifahrer / die Taxifahrerin</td><td>taxi driver</td></tr>
+    <tr><td class="de">der Kellner / die Kellnerin</td><td>waiter/waitress</td></tr>
+    <tr><td class="de">der Informatiker / die Informatikerin</td><td>computer scientist, IT specialist</td></tr>
+    <tr><td class="de">der Architekt / die Architektin</td><td>architect</td></tr>
+    <tr><td class="de">der Friseur / die Friseurin</td><td>hairdresser</td></tr>
+    <tr><td class="de">der Krankenpfleger / die Krankenpflegerin</td><td>nurse</td></tr>
+  </table>
+  <p style="font-size:13.5px; color:var(--ink-mute);">Pattern: most masculine job titles add <strong>-in</strong> to become feminine — der Informatiker → die Informatiker<strong>in</strong>.</p>
+
+  <h3 class="sub">More hobbies <span class="en">beyond Kapitel 2's picture list</span></h3>
+  <table>
+    <tr><td class="de">fotografieren</td><td>to take photos</td></tr>
+    <tr><td class="de">singen</td><td>to sing</td></tr>
+    <tr><td class="de">tanzen</td><td>to dance</td></tr>
+    <tr><td class="de">reisen</td><td>to travel</td></tr>
+    <tr><td class="de">ins Kino gehen</td><td>to go to the cinema</td></tr>
+    <tr><td class="de">Sport machen</td><td>to do sports (general)</td></tr>
+    <tr><td class="de">malen</td><td>to paint</td></tr>
+    <tr><td class="de">zeichnen</td><td>to draw</td></tr>
+    <tr><td class="de">wandern</td><td>to hike</td></tr>
+    <tr><td class="de">Rad fahren</td><td>to cycle</td></tr>
+    <tr><td class="de">tauchen</td><td>to dive</td></tr>
+    <tr><td class="de">klettern</td><td>to climb</td></tr>
+    <tr><td class="de">backen</td><td>to bake</td></tr>
+    <tr><td class="de">sehen</td><td>to see/watch (ich sehe, du siehst, er sieht)</td></tr>
+  </table>
+
+  <h3 class="sub">Everyday objects</h3>
+  <table>
+    <tr><th>Article</th><th>Word</th><th>English</th></tr>
+    <tr><td class="de">das</td><td class="de">Auto</td><td>car</td></tr>
+    <tr><td class="de">das</td><td class="de">Geld</td><td>money</td></tr>
+    <tr><td class="de">die</td><td class="de">Straße</td><td>street</td></tr>
+    <tr><td class="de">das</td><td class="de">Glas</td><td>glass</td></tr>
+    <tr><td class="de">der</td><td class="de">Stift</td><td>pen</td></tr>
+    <tr><td class="de">der</td><td class="de">Computer</td><td>computer</td></tr>
+    <tr><td class="de">das</td><td class="de">Medikament</td><td>medication</td></tr>
+    <tr><td class="de">die</td><td class="de">Rechnung</td><td>bill/invoice</td></tr>
+    <tr><td class="de">der</td><td class="de">Schlüssel</td><td>key</td></tr>
+    <tr><td class="de">die</td><td class="de">Spritze</td><td>injection/syringe</td></tr>
+    <tr><td class="de">die</td><td class="de">Tablette</td><td>tablet/pill</td></tr>
+    <tr><td class="de">das</td><td class="de">Krankenhaus</td><td>hospital</td></tr>
+    <tr><td class="de">der</td><td class="de">Kilometer</td><td>kilometer</td></tr>
+    <tr><td class="de">die</td><td class="de">Woche</td><td>week</td></tr>
+    <tr><td class="de">das</td><td class="de">Praktikum</td><td>internship</td></tr>
+  </table>
+
+  <h3 class="sub">Filling out a form <span class="en">Formular ausfüllen</span></h3>
+  <table>
+    <tr><td class="de">der Nachname / Familienname</td><td>last name / family name</td></tr>
+    <tr><td class="de">der Vorname</td><td>first name</td></tr>
+    <tr><td class="de">das Geburtsdatum</td><td>date of birth</td></tr>
+    <tr><td class="de">der Geburtsort</td><td>place of birth</td></tr>
+    <tr><td class="de">die Adresse</td><td>address</td></tr>
+    <tr><td class="de">das Geschlecht</td><td>gender</td></tr>
+    <tr><td class="de">weiblich / männlich / keine Angabe</td><td>female / male / prefer not to say</td></tr>
+    <tr><td class="de">die Postleitzahl (PLZ)</td><td>postal code</td></tr>
+    <tr><td class="de">der Wohnort</td><td>place of residence</td></tr>
+    <tr><td class="de">die Schule/Firma</td><td>school/company</td></tr>
+    <tr><td class="de">der Kurs</td><td>course</td></tr>
   </table>
 
   <h3 class="sub">Useful expressions</h3>
@@ -831,10 +981,101 @@ footer{
     <tr><td class="de">von Beruf</td><td>by profession</td></tr>
     <tr><td class="de">noch</td><td>still</td></tr>
     <tr><td class="de">beruflich</td><td>professionally / for work</td></tr>
+    <tr><td class="de">Es geht so.</td><td>it's so-so / okay-ish</td></tr>
+    <tr><td class="de">Das geht leider nicht.</td><td>unfortunately that doesn't work</td></tr>
+    <tr><td class="de">zusammen</td><td>together</td></tr>
+    <tr><td class="de">lieber</td><td>rather / prefer instead</td></tr>
   </table>
 </section>
 
 <!-- EXERCISES -->
+<section id="combined-practice">
+  <h2 class="section-title"><span class="de">Kapitel 1+2 Übungen</span><span class="en">Combined practice — every person, every pattern</span></h2>
+  <p class="section-intro">Everything from Kapitel 1 and 2 together — sentence framing across ich/du/er/sie/wir/ihr/sie(Sie), and rewriting a bio between first and third person. This is the real test of whether the grammar has actually stuck, not just whether you can recognize it.</p>
+
+  <h3 class="sub">A. Person-conjugation drill <span class="en">same sentence frame, every pronoun</span></h3>
+  <p>Take one sentence frame and build it correctly for all seven persons. This forces you to actually recall each ending instead of pattern-matching visually.</p>
+
+  <div class="mixed-prompt">
+    <p class="mp-title">Frame 1 — kommen + aus + country (Kapitel 1)</p>
+    <p class="mp-body">Build: "[subject] + kommen (conjugated) + aus + [Land]"</p>
+    <div class="mp-reveal">
+      <button class="check-btn reveal-btn">Show all seven forms</button>
+      <div class="mp-answer" style="display:none;">
+        <p class="de-text">Ich komme aus Indien. · Du kommst aus Deutschland. · Er/Sie kommt aus der Schweiz. · Wir kommen aus Japan. · Ihr kommt aus Frankreich. · Sie (they) kommen aus den USA. · Sie (formal) kommen aus Italien.</p>
+        <p class="mp-note">Watch the article exceptions: der Schweiz, den USA. Everyone else takes no article.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mixed-prompt">
+    <p class="mp-title">Frame 2 — gern + hobby verb (Kapitel 2)</p>
+    <p class="mp-body">Build: "[subject] + [hobby verb, conjugated] + gern"</p>
+    <div class="mp-reveal">
+      <button class="check-btn reveal-btn">Show all seven forms</button>
+      <div class="mp-answer" style="display:none;">
+        <p class="de-text">Ich schwimme gern. · Du tanzt gern. · Er/Sie liest gern. · Wir joggen gern. · Ihr kocht gern. · Sie (they) reisen gern. · Sie (formal) fotografieren gern.</p>
+        <p class="mp-note">lesen is irregular for du/er-sie (liest) — everything else follows the regular -e/-st/-t/-en pattern.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mixed-prompt">
+    <p class="mp-title">Frame 3 — haben + frei + day (Kapitel 2)</p>
+    <p class="mp-body">Build: "[subject] + haben (conjugated) + am [Tag] + frei"</p>
+    <div class="mp-reveal">
+      <button class="check-btn reveal-btn">Show all seven forms</button>
+      <div class="mp-answer" style="display:none;">
+        <p class="de-text">Ich habe am Montag frei. · Du hast am Dienstag frei. · Er/Sie hat am Mittwoch frei. · Wir haben am Donnerstag frei. · Ihr habt am Freitag frei. · Sie (they) haben am Samstag frei. · Sie (formal) haben am Sonntag frei.</p>
+        <p class="mp-note">haben drops the "b" for du/er-sie: hast, hat — not habst/habt.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mixed-prompt">
+    <p class="mp-title">Frame 4 — sein + Beruf (Kapitel 1 + 2)</p>
+    <p class="mp-body">Build: "[subject] + sein (conjugated) + [Beruf]"</p>
+    <div class="mp-reveal">
+      <button class="check-btn reveal-btn">Show all seven forms</button>
+      <div class="mp-answer" style="display:none;">
+        <p class="de-text">Ich bin Ärztin. · Du bist Ingenieur. · Er/Sie ist Lehrerin. · Wir sind Studenten. · Ihr seid Kellner. · Sie (they) sind Architektinnen. · Sie (formal) sind Friseurin.</p>
+        <p class="mp-note">sein is fully irregular — bin, bist, ist, sind, seid, sind. No pattern to derive, just memorized.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub">B. Paragraph rewriting <span class="en">first person → third person</span></h3>
+  <p>Write a short bio about yourself, then rewrite the exact same information about someone else — switching every verb ending and pronoun. This is the actual skill behind Kapitel 1's "Personalpronomen in Texten" and Kapitel 2's job/hobby vocabulary working together.</p>
+
+  <div class="mixed-prompt">
+    <p class="mp-title">Exercise 1 — rewrite this first-person bio in third person (using "er")</p>
+    <p class="mp-body de-text" style="font-style:italic;">"Ich heiße Jan. Ich komme aus Frankfurt und wohne in Zürich. Ich spreche Deutsch und Englisch. Ich bin Ingenieur von Beruf. Ich arbeite von Montag bis Freitag. Ich habe am Wochenende frei. Ich schwimme gern und ich lese gern."</p>
+    <div class="mp-reveal">
+      <button class="check-btn reveal-btn">Show model answer</button>
+      <div class="mp-answer" style="display:none;">
+        <p class="de-text">Das ist Jan. Er kommt aus Frankfurt und wohnt in Zürich. Er spricht Deutsch und Englisch. Er ist Ingenieur von Beruf. Er arbeitet von Montag bis Freitag. Er hat am Wochenende frei. Er schwimmt gern und er liest gern.</p>
+        <p class="mp-note">Every verb picks up the er/sie ending: komme→kommt, wohne→wohnt, spreche→spricht, bin→ist, arbeite→arbeitet, habe→hat, schwimme→schwimmt, lese→liest (irregular stem stays).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mixed-prompt">
+    <p class="mp-title">Exercise 2 — rewrite this bio using "sie" (she) instead of the name</p>
+    <p class="mp-body de-text" style="font-style:italic;">"Magda Donat kommt aus Polen. Magda Donat wohnt in Berlin. Magda Donat ist Ärztin. Magda Donat arbeitet auch nachts und am Wochenende. Magda Donat spielt gern Tennis."</p>
+    <div class="mp-reveal">
+      <button class="check-btn reveal-btn">Show model answer</button>
+      <div class="mp-answer" style="display:none;">
+        <p class="de-text">Das ist Magda Donat. Sie kommt aus Polen. Sie wohnt in Berlin. Sie ist Ärztin. Sie arbeitet auch nachts und am Wochenende. Sie spielt gern Tennis.</p>
+        <p class="mp-note">Name the person once, then switch to sie for every sentence after — never repeat the full name mid-paragraph.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub">C. Your turn — write your own paragraph</h3>
+  <p class="mixed-prompt mp-body">Using both chapters' vocabulary, write 4–5 sentences about yourself: name, origin, residence, languages, profession, working days, and one hobby with gern. Then rewrite the same paragraph in third person, as if introducing yourself to a class.</p>
+
+</section>
+
 <section id="exercises">
   <h2 class="section-title"><span class="de">Übungen</span><span class="en">Exercises</span></h2>
 
@@ -1131,6 +1372,15 @@ const NA1 = (() => {
 
   return { logMistake, clearMistake, getAllMistakes };
 })();
+
+document.querySelectorAll('.reveal-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const isHidden = answer.style.display === 'none';
+    answer.style.display = isHidden ? 'block' : 'none';
+    btn.textContent = isHidden ? 'Hide answer' : btn.getAttribute('data-label') || 'Show model answer';
+  });
+});
 </script>
 
 <div class="float-nav">
