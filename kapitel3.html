@@ -454,6 +454,19 @@ footer{
 .tracker-empty{color:var(--ink-mute); font-size:13.5px; font-style:italic;}
 .persist-note{font-size:12px; color:var(--ink-mute); margin-top:8px;}
 
+/* combined practice widgets */
+.mixed-prompt{
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:20px 24px;
+  margin:20px 0;
+  background:var(--paper-2);
+}
+.mp-title{font-family:var(--sans); font-weight:600; font-size:14px; color:var(--ink); margin:0 0 8px;}
+.mp-body{margin:0 0 14px; color:var(--ink-soft);}
+.mp-answer{margin-top:12px; padding-top:12px; border-top:1px solid var(--rule);}
+.mp-note{font-size:12.5px; color:var(--ink-mute); margin-top:8px;}
+
 /* floating nav buttons */
 .float-nav{
   position:fixed;
@@ -509,6 +522,7 @@ footer{
   <a href="#question-factory">Question factory</a>
   <a href="#speaking-factory">Speaking factory</a>
   <a href="#vocabulary">Vocabulary</a>
+  <a href="#combined-practice">K1+K2+K3 Practice</a>
   <a href="#exercises">Exercises</a>
   <a href="#answers">Answer key</a>
   <a href="#pronunciation">Pronunciation</a>
@@ -790,6 +804,80 @@ footer{
 </section>
 
 <!-- EXERCISES -->
+<section id="combined-practice">
+  <h2 class="section-title"><span class="de">Kapitel 1+2+3 Übungen</span><span class="en">Combined practice — three chapters, one paragraph</span></h2>
+  <p class="section-intro">Real corrected examples pulling grammar from all three chapters together: origin and languages (Ch1), profession and hobbies with gern (Ch2), and describing places with sein+adjective, ein/eine, and kein/keine (Ch3).</p>
+
+  <h3 class="sub">A. Adjektiv mit sein <span class="en">describing something with an adjective</span></h3>
+  <p>Kapitel 3's newest pattern: <span class="de-text">[Subject] + sein (conjugated) + [Adjektiv]</span>. Build each one before revealing.</p>
+
+  <div class="mixed-prompt">
+    <p class="mp-title">Say: "The church is old" (die Kirche, alt)</p>
+    <div class="mp-reveal">
+      <button class="check-btn reveal-btn">Show answer</button>
+      <div class="mp-answer" style="display:none;">
+        <p class="de-text">Die Kirche ist alt.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mixed-prompt">
+    <p class="mp-title">Say: "The bridge is long" (die Brücke, lang)</p>
+    <div class="mp-reveal">
+      <button class="check-btn reveal-btn">Show answer</button>
+      <div class="mp-answer" style="display:none;">
+        <p class="de-text">Die Brücke ist lang.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mixed-prompt">
+    <p class="mp-title">Say: "The museum is interesting" (das Museum, interessant)</p>
+    <div class="mp-reveal">
+      <button class="check-btn reveal-btn">Show answer</button>
+      <div class="mp-answer" style="display:none;">
+        <p class="de-text">Das Museum ist interessant.</p>
+        <p class="mp-note">Common spelling trap: interessant has one r, two s's — not "interresant."</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub">B. Full combination paragraph <span class="en">all three chapters, built piece by piece</span></h3>
+  <p>One chapter's contribution at a time, then combined:</p>
+  <ul>
+    <li><strong>Kapitel 1</strong> (origin, languages): Ich komme aus Indien. Ich spreche Hindi und Englisch.</li>
+    <li><strong>Kapitel 2</strong> (profession, hobby with gern): Ich bin Ingenieurin. Ich schwimme gern.</li>
+    <li><strong>Kapitel 3</strong> (haben+accusative, sein+adjective, kein/keine): Meine Stadt hat einen Park. Der Park ist schön. Das ist keine kleine Stadt.</li>
+  </ul>
+  <div class="mixed-prompt">
+    <p class="mp-title">All combined into one paragraph</p>
+    <p class="de-text">Ich komme aus Indien. Ich spreche Hindi und Englisch. Ich bin Ingenieurin und ich schwimme gern. Meine Stadt hat einen Park. Der Park ist schön. Das ist keine kleine Stadt.</p>
+    <p class="mp-note">Uses: kommen aus + sprechen (Ch1) · sein + Beruf + gern-verb (Ch2) · haben + accusative einen Park + sein-adjective + keine (Ch3)</p>
+  </div>
+
+  <h3 class="sub">C. A real student example, corrected in full</h3>
+  <p>An actual attempt at this exact exercise, with every error explained — these are the mistakes that come up most often when combining all three chapters at once.</p>
+  <div class="mistake-pair">
+    <div class="mp-line x">Ich sprechen sie Englisch und Hindi.</div>
+    <div class="mp-line ok">Ich spreche Englisch und Hindi.</div>
+    <div class="mp-why">Why: sprechen conjugated for ich is simply spreche — no stem change at ich, that only happens for du/er-sie. The extra "sie" doesn't belong; the sentence needs only one pronoun.</div>
+  </div>
+  <div class="mistake-pair">
+    <div class="mp-line x">Ich bin Ingeneurin.</div>
+    <div class="mp-line ok">Ich bin Ingenieurin.</div>
+    <div class="mp-why">Why: spelling — "ie" before "eu," a common slip on this specific word.</div>
+  </div>
+  <div class="mixed-prompt">
+    <p class="mp-title">The same student's paragraph, fully corrected</p>
+    <p class="de-text">Hallo, ich heiße Sonia. Ich komme aus Indien und wohne in Lucknow. Ich spreche Englisch und Hindi. Ich bin Ingenieurin. Ich tanze gern. Meine Stadt hat ein Monument. Das ist groß, sehr alt und schön. Das ist keine kleine Stadt.</p>
+    <p class="mp-note">Genuinely strong once corrected: compound sentences with und, correct accusative on "ein Monument" (neuter, no change), and keine correctly matching Stadt's feminine gender.</p>
+  </div>
+
+  <h3 class="sub">D. Your turn</h3>
+  <p class="mixed-prompt mp-body">Write your own 4-6 sentence paragraph combining all three chapters: your origin and languages (Ch1), your job or a hobby with gern (Ch2), and a description of a place using sein+adjective or ein/kein (Ch3).</p>
+
+</section>
+
 <section id="exercises">
   <h2 class="section-title"><span class="de">Übungen</span><span class="en">Exercises</span></h2>
 
@@ -908,6 +996,17 @@ footer{
 <!-- PRONUNCIATION -->
 <section id="pronunciation">
   <h2 class="section-title"><span class="de">Aussprache</span><span class="en">Pronunciation</span></h2>
+
+  <div class="sound-row">
+    <div class="ipa">lang / kurz</div>
+    <div class="sound-body">German vowels (a, e, i, o, u) are either long or short, and this can change a word's meaning. The one fully reliable spelling rule: <strong>before a double consonant (ff, nn, mm, tt, ss, ...), the vowel is always short</strong> — no exceptions.
+      <div class="sound-words">Schiff (short i) · Fluss (short u) · Mitte (short i) · kommen (short o)</div>
+    </div>
+  </div>
+  <div class="box note">
+    <p class="box-title"><span class="dot blue"></span>Beyond the double-consonant rule</p>
+    <p>Outside that one rule, vowel length in German isn't reliably predictable from spelling alone — your Kursbuch teaches the rest through listening practice (Track 1.28–1.29), sorting words like alt, Jahr, Hafen, gern, Weg, Schiff, hoch, Fluss, Turm into long/short by ear. If your class covered specific answers for that listening exercise, use those directly — they're more reliable than any spelling-based guess.</p>
+  </div>
 
   <div class="sound-row">
     <div class="ipa">ü</div>
@@ -1085,6 +1184,15 @@ const NA1 = (() => {
 
   return { logMistake, clearMistake, getAllMistakes };
 })();
+
+document.querySelectorAll('.reveal-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const isHidden = answer.style.display === 'none';
+    answer.style.display = isHidden ? 'block' : 'none';
+    btn.textContent = isHidden ? 'Hide answer' : 'Show model answer';
+  });
+});
 </script>
 
 <div class="float-nav">
