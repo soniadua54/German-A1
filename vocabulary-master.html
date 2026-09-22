@@ -503,6 +503,16 @@ footer{
 @media (max-width:600px){
   .float-nav{bottom:16px; right:16px;}
   .float-btn{padding:8px 12px; font-size:12px;}
+table.verbtbl{width:100%; border-collapse:collapse; margin:2px 0 14px; font-size:13.5px;}
+table.verbtbl th{background:var(--paper-2); color:var(--ink-soft); font-size:10px; text-transform:uppercase; letter-spacing:.3px; padding:5px 7px; text-align:left; border-bottom:1.5px solid var(--rule-strong); white-space:nowrap;}
+table.verbtbl td{padding:5px 7px; border-bottom:1px solid var(--rule); font-style:italic;}
+table.verbtbl td.vinf{font-weight:600; font-style:italic; color:var(--ink); white-space:nowrap;}
+table.verbtbl td.vmean{font-style:normal; color:var(--ink-mute); white-space:normal;}
+table.verbtbl tr:nth-child(even) td{background:var(--paper-2);}
+.vtag{font-style:normal; font-size:9.5px; background:var(--blue-bg); color:var(--blue); padding:1px 6px; border-radius:8px; margin-left:2px; white-space:nowrap;}
+@media (max-width:700px){
+  table.verbtbl{font-size:11.5px;}
+  table.verbtbl th, table.verbtbl td{padding:4px 4px;}
 }
 </style>
 <body>
@@ -583,35 +593,57 @@ footer{
     <tr><td class="de">die E-Mail-Adresse</td><td>-n</td><td>email address</td></tr>
   </table>
   <div class="chunks">
-    <span class="chunk">Deutschland</span><span class="chunk">Indien</span><span class="chunk">Frankreich</span><span class="chunk">Spanien</span>
-    <span class="chunk">Italien</span><span class="chunk">Österreich</span><span class="chunk">die Schweiz</span><span class="chunk">England</span>
-    <span class="chunk">Polen</span><span class="chunk">Russland</span><span class="chunk">China</span><span class="chunk">Japan</span>
-    <span class="chunk">Brasilien</span><span class="chunk">Thailand</span><span class="chunk">die Türkei</span><span class="chunk">die USA</span>
+    <span class="chunk">Deutschland — Germany</span><span class="chunk">Indien — India</span><span class="chunk">Frankreich — France</span><span class="chunk">Spanien — Spain</span>
+    <span class="chunk">Italien — Italy</span><span class="chunk">Österreich — Austria</span><span class="chunk">die Schweiz — Switzerland</span><span class="chunk">England — England</span>
+    <span class="chunk">Polen — Poland</span><span class="chunk">Russland — Russia</span><span class="chunk">China — China</span><span class="chunk">Japan — Japan</span>
+    <span class="chunk">Brasilien — Brazil</span><span class="chunk">Thailand — Thailand</span><span class="chunk">die Türkei — Turkey</span><span class="chunk">die USA — USA</span>
   </div>
   <div class="chunks">
-    <span class="chunk">Deutsch</span><span class="chunk">Hindi</span><span class="chunk">Englisch</span><span class="chunk">Französisch</span>
-    <span class="chunk">Spanisch</span><span class="chunk">Italienisch</span><span class="chunk">Polnisch</span><span class="chunk">Russisch</span>
-    <span class="chunk">Chinesisch</span><span class="chunk">Japanisch</span><span class="chunk">Portugiesisch</span><span class="chunk">Thailändisch</span>
-    <span class="chunk">Türkisch</span><span class="chunk">Arabisch</span>
+    <span class="chunk">Deutsch — German</span><span class="chunk">Hindi — Hindi</span><span class="chunk">Englisch — English</span><span class="chunk">Französisch — French</span>
+    <span class="chunk">Spanisch — Spanish</span><span class="chunk">Italienisch — Italian</span><span class="chunk">Polnisch — Polish</span><span class="chunk">Russisch — Russian</span>
+    <span class="chunk">Chinesisch — Chinese</span><span class="chunk">Japanisch — Japanese</span><span class="chunk">Portugiesisch — Portuguese</span><span class="chunk">Thailändisch — Thai</span>
+    <span class="chunk">Türkisch — Turkish</span><span class="chunk">Arabisch — Arabic</span>
   </div>
 
   <h3 class="sub">Wichtige Verben &amp; Fragewörter <span class="en">Core verbs &amp; question words</span></h3>
+<table class="verbtbl">
+<tr><th>Infinitive</th><th>ich</th><th>du</th><th>er/sie/es</th><th>wir</th><th>ihr</th><th>sie/Sie</th><th>Meaning</th></tr>
+<tr><td class="de vinf">machen</td><td class="de">mache</td><td class="de">machst</td><td class="de">macht</td><td class="de">machen</td><td class="de">macht</td><td class="de">machen</td><td class="vmean">to do / make</td></tr>
+<tr><td class="de vinf">heißen</td><td class="de">heiße</td><td class="de">heißt</td><td class="de">heißt</td><td class="de">heißen</td><td class="de">heißt</td><td class="de">heißen</td><td class="vmean">to be called</td></tr>
+<tr><td class="de vinf">sein <span class="vtag">irregular</span></td><td class="de">bin</td><td class="de">bist</td><td class="de">ist</td><td class="de">sind</td><td class="de">seid</td><td class="de">sind</td><td class="vmean">to be</td></tr>
+<tr><td class="de vinf">haben <span class="vtag">irregular</span></td><td class="de">habe</td><td class="de">hast</td><td class="de">hat</td><td class="de">haben</td><td class="de">habt</td><td class="de">haben</td><td class="vmean">to have</td></tr>
+<tr><td class="de vinf">kommen</td><td class="de">komme</td><td class="de">kommst</td><td class="de">kommt</td><td class="de">kommen</td><td class="de">kommt</td><td class="de">kommen</td><td class="vmean">to come / come from</td></tr>
+<tr><td class="de vinf">wohnen</td><td class="de">wohne</td><td class="de">wohnst</td><td class="de">wohnt</td><td class="de">wohnen</td><td class="de">wohnt</td><td class="de">wohnen</td><td class="vmean">to live / reside</td></tr>
+<tr><td class="de vinf">sprechen <span class="vtag">e→i</span></td><td class="de">spreche</td><td class="de">sprichst</td><td class="de">spricht</td><td class="de">sprechen</td><td class="de">sprecht</td><td class="de">sprechen</td><td class="vmean">to speak</td></tr>
+<tr><td class="de vinf">sagen</td><td class="de">sage</td><td class="de">sagst</td><td class="de">sagt</td><td class="de">sagen</td><td class="de">sagt</td><td class="de">sagen</td><td class="vmean">to say</td></tr>
+<tr><td class="de vinf">fragen</td><td class="de">frage</td><td class="de">fragst</td><td class="de">fragt</td><td class="de">fragen</td><td class="de">fragt</td><td class="de">fragen</td><td class="vmean">to ask</td></tr>
+<tr><td class="de vinf">antworten</td><td class="de">antworte</td><td class="de">antwortest</td><td class="de">antwortet</td><td class="de">antworten</td><td class="de">antwortet</td><td class="de">antworten</td><td class="vmean">to answer</td></tr>
+<tr><td class="de vinf">lernen</td><td class="de">lerne</td><td class="de">lernst</td><td class="de">lernt</td><td class="de">lernen</td><td class="de">lernt</td><td class="de">lernen</td><td class="vmean">to learn</td></tr>
+<tr><td class="de vinf">arbeiten</td><td class="de">arbeite</td><td class="de">arbeitest</td><td class="de">arbeitet</td><td class="de">arbeiten</td><td class="de">arbeitet</td><td class="de">arbeiten</td><td class="vmean">to work</td></tr>
+<tr><td class="de vinf">begrüßen</td><td class="de">begrüße</td><td class="de">begrüßt</td><td class="de">begrüßt</td><td class="de">begrüßen</td><td class="de">begrüßt</td><td class="de">begrüßen</td><td class="vmean">to greet</td></tr>
+<tr><td class="de vinf">sich vorstellen <span class="vtag">reflexive, separable</span></td><td class="de">stelle mich vor</td><td class="de">stellst dich vor</td><td class="de">stellt sich vor</td><td class="de">stellen uns vor</td><td class="de">stellt euch vor</td><td class="de">stellen sich vor</td><td class="vmean">to introduce oneself</td></tr>
+<tr><td class="de vinf">sich verabschieden <span class="vtag">reflexive</span></td><td class="de">verabschiede mich</td><td class="de">verabschiedest dich</td><td class="de">verabschiedet sich</td><td class="de">verabschieden uns</td><td class="de">verabschiedet euch</td><td class="de">verabschieden sich</td><td class="vmean">to say goodbye</td></tr>
+<tr><td class="de vinf">hören</td><td class="de">höre</td><td class="de">hörst</td><td class="de">hört</td><td class="de">hören</td><td class="de">hört</td><td class="de">hören</td><td class="vmean">to hear / listen</td></tr>
+<tr><td class="de vinf">schreiben</td><td class="de">schreibe</td><td class="de">schreibst</td><td class="de">schreibt</td><td class="de">schreiben</td><td class="de">schreibt</td><td class="de">schreiben</td><td class="vmean">to write</td></tr>
+<tr><td class="de vinf">notieren</td><td class="de">notiere</td><td class="de">notierst</td><td class="de">notiert</td><td class="de">notieren</td><td class="de">notiert</td><td class="de">notieren</td><td class="vmean">to note down</td></tr>
+<tr><td class="de vinf">ordnen</td><td class="de">ordne</td><td class="de">ordnest</td><td class="de">ordnet</td><td class="de">ordnen</td><td class="de">ordnet</td><td class="de">ordnen</td><td class="vmean">to arrange</td></tr>
+<tr><td class="de vinf">kombinieren</td><td class="de">kombiniere</td><td class="de">kombinierst</td><td class="de">kombiniert</td><td class="de">kombinieren</td><td class="de">kombiniert</td><td class="de">kombinieren</td><td class="vmean">to combine</td></tr>
+<tr><td class="de vinf">ergänzen</td><td class="de">ergänze</td><td class="de">ergänzt</td><td class="de">ergänzt</td><td class="de">ergänzen</td><td class="de">ergänzt</td><td class="de">ergänzen</td><td class="vmean">to complete / fill in</td></tr>
+<tr><td class="de vinf">vergleichen</td><td class="de">vergleiche</td><td class="de">vergleichst</td><td class="de">vergleicht</td><td class="de">vergleichen</td><td class="de">vergleicht</td><td class="de">vergleichen</td><td class="vmean">to compare</td></tr>
+<tr><td class="de vinf">buchstabieren</td><td class="de">buchstabiere</td><td class="de">buchstabierst</td><td class="de">buchstabiert</td><td class="de">buchstabieren</td><td class="de">buchstabiert</td><td class="de">buchstabieren</td><td class="vmean">to spell</td></tr>
+<tr><td class="de vinf">wiederholen</td><td class="de">wiederhole</td><td class="de">wiederholst</td><td class="de">wiederholt</td><td class="de">wiederholen</td><td class="de">wiederholt</td><td class="de">wiederholen</td><td class="vmean">to repeat</td></tr>
+<tr><td class="de vinf">bedeuten</td><td class="de">bedeute</td><td class="de">bedeutest</td><td class="de">bedeutet</td><td class="de">bedeuten</td><td class="de">bedeutet</td><td class="de">bedeuten</td><td class="vmean">to mean</td></tr>
+<tr><td class="de vinf">passen</td><td class="de">passe</td><td class="de">passt</td><td class="de">passt</td><td class="de">passen</td><td class="de">passt</td><td class="de">passen</td><td class="vmean">to fit</td></tr>
+<tr><td class="de vinf">zuordnen <span class="vtag">separable</span></td><td class="de">ordne zu</td><td class="de">ordnest zu</td><td class="de">ordnet zu</td><td class="de">ordnen zu</td><td class="de">ordnet zu</td><td class="de">ordnen zu</td><td class="vmean">to match</td></tr>
+<tr><td class="de vinf">üben</td><td class="de">übe</td><td class="de">übst</td><td class="de">übt</td><td class="de">üben</td><td class="de">übt</td><td class="de">üben</td><td class="vmean">to practise</td></tr>
+<tr><td class="de vinf">korrigieren</td><td class="de">korrigiere</td><td class="de">korrigierst</td><td class="de">korrigiert</td><td class="de">korrigieren</td><td class="de">korrigiert</td><td class="de">korrigieren</td><td class="vmean">to correct</td></tr>
+<tr><td class="de vinf">kontrollieren</td><td class="de">kontrolliere</td><td class="de">kontrollierst</td><td class="de">kontrolliert</td><td class="de">kontrollieren</td><td class="de">kontrolliert</td><td class="de">kontrollieren</td><td class="vmean">to check</td></tr>
+<tr><td class="de vinf">ausfüllen <span class="vtag">separable</span></td><td class="de">fülle aus</td><td class="de">füllst aus</td><td class="de">füllt aus</td><td class="de">füllen aus</td><td class="de">füllt aus</td><td class="de">füllen aus</td><td class="vmean">to fill in/out</td></tr>
+</table>
+
   <div class="chunks">
-    <span class="chunk">machen — to do/make</span><span class="chunk">heißen — to be called</span><span class="chunk">sein — to be</span>
-    <span class="chunk">haben — to have</span><span class="chunk">kommen — to come</span><span class="chunk">wohnen — to live</span>
-    <span class="chunk">sprechen — to speak</span><span class="chunk">sagen — to say</span><span class="chunk">fragen — to ask</span>
-    <span class="chunk">antworten — to answer</span><span class="chunk">lernen — to learn</span><span class="chunk">arbeiten — to work</span>
-    <span class="chunk">begrüßen — to greet</span><span class="chunk">sich vorstellen — to introduce oneself</span>
-    <span class="chunk">sich verabschieden — to say goodbye</span><span class="chunk">hören — to hear/listen</span>
-    <span class="chunk">schreiben — to write</span><span class="chunk">notieren — to note down</span><span class="chunk">ordnen — to arrange</span>
-    <span class="chunk">kombinieren — to combine</span><span class="chunk">ergänzen — to complete</span><span class="chunk">vergleichen — to compare</span>
-    <span class="chunk">buchstabieren — to spell</span><span class="chunk">wiederholen — to repeat</span><span class="chunk">bedeuten — to mean</span>
-    <span class="chunk">passen/zuordnen — to fit/match</span><span class="chunk">üben — to practise</span><span class="chunk">korrigieren — to correct</span>
-    <span class="chunk">kontrollieren — to check</span><span class="chunk">ausfüllen — to fill in/out</span>
-  </div>
-  <div class="chunks">
-    <span class="chunk">woher</span><span class="chunk">wo</span><span class="chunk">wie</span><span class="chunk">was</span>
-    <span class="chunk">wer</span><span class="chunk">wann</span><span class="chunk">welche / welcher / welches</span><span class="chunk">wie viele</span>
+    <span class="chunk">woher — where from</span><span class="chunk">wo — where</span><span class="chunk">wie — how</span><span class="chunk">was — what</span>
+    <span class="chunk">wer — who</span><span class="chunk">wann — when</span><span class="chunk">welche / welcher / welches — which</span><span class="chunk">wie viele — how many</span>
   </div>
 
   <h3 class="sub">Redemittel <span class="en">Useful expressions</span></h3>
@@ -651,14 +683,29 @@ footer{
     <tr><td class="de">das Hobby</td><td>-s</td><td>hobby</td></tr>
   </table>
   <div class="chunks">
-    <span class="chunk">spielen</span><span class="chunk">schwimmen</span><span class="chunk">lesen</span><span class="chunk">tanzen</span>
-    <span class="chunk">reisen</span><span class="chunk">kochen</span><span class="chunk">fotografieren</span><span class="chunk">joggen</span>
-    <span class="chunk">wandern</span><span class="chunk">singen</span><span class="chunk">malen</span><span class="chunk">zeichnen</span>
-    <span class="chunk">Rad fahren</span><span class="chunk">tauchen</span><span class="chunk">klettern</span><span class="chunk">backen</span>
-    <span class="chunk">Musik hören</span><span class="chunk">Bücher lesen</span><span class="chunk">Fußball spielen</span>
-    <span class="chunk">Tennis spielen</span><span class="chunk">Badminton spielen</span><span class="chunk">Sport machen</span>
-    <span class="chunk">gern/gerne</span><span class="chunk">nicht gern</span>
+    <span class="chunk">Rad fahren — to cycle</span><span class="chunk">Musik hören — to listen to music</span><span class="chunk">Bücher lesen — to read books</span><span class="chunk">Fußball spielen — to play football</span>
+    <span class="chunk">Tennis spielen — to play tennis</span><span class="chunk">Badminton spielen — to play badminton</span><span class="chunk">Sport machen — to exercise / do sport</span>
+    <span class="chunk">gern/gerne — gladly / like doing</span><span class="chunk">nicht gern — do not like doing</span>
   </div>
+  <p style="font-size:13px; color:var(--ink-mute); margin:2px 0 8px;">Hobby verbs — full conjugation:</p>
+<table class="verbtbl">
+<tr><th>Infinitive</th><th>ich</th><th>du</th><th>er/sie/es</th><th>wir</th><th>ihr</th><th>sie/Sie</th><th>Meaning</th></tr>
+<tr><td class="de vinf">spielen</td><td class="de">spiele</td><td class="de">spielst</td><td class="de">spielt</td><td class="de">spielen</td><td class="de">spielt</td><td class="de">spielen</td><td class="vmean">to play</td></tr>
+<tr><td class="de vinf">schwimmen</td><td class="de">schwimme</td><td class="de">schwimmst</td><td class="de">schwimmt</td><td class="de">schwimmen</td><td class="de">schwimmt</td><td class="de">schwimmen</td><td class="vmean">to swim</td></tr>
+<tr><td class="de vinf">lesen <span class="vtag">e→ie</span></td><td class="de">lese</td><td class="de">liest</td><td class="de">liest</td><td class="de">lesen</td><td class="de">lest</td><td class="de">lesen</td><td class="vmean">to read</td></tr>
+<tr><td class="de vinf">tanzen</td><td class="de">tanze</td><td class="de">tanzt</td><td class="de">tanzt</td><td class="de">tanzen</td><td class="de">tanzt</td><td class="de">tanzen</td><td class="vmean">to dance</td></tr>
+<tr><td class="de vinf">reisen</td><td class="de">reise</td><td class="de">reist</td><td class="de">reist</td><td class="de">reisen</td><td class="de">reist</td><td class="de">reisen</td><td class="vmean">to travel</td></tr>
+<tr><td class="de vinf">kochen</td><td class="de">koche</td><td class="de">kochst</td><td class="de">kocht</td><td class="de">kochen</td><td class="de">kocht</td><td class="de">kochen</td><td class="vmean">to cook</td></tr>
+<tr><td class="de vinf">fotografieren</td><td class="de">fotografiere</td><td class="de">fotografierst</td><td class="de">fotografiert</td><td class="de">fotografieren</td><td class="de">fotografiert</td><td class="de">fotografieren</td><td class="vmean">to take photographs</td></tr>
+<tr><td class="de vinf">joggen</td><td class="de">jogge</td><td class="de">joggst</td><td class="de">joggt</td><td class="de">joggen</td><td class="de">joggt</td><td class="de">joggen</td><td class="vmean">to jog</td></tr>
+<tr><td class="de vinf">wandern</td><td class="de">wandere</td><td class="de">wanderst</td><td class="de">wandert</td><td class="de">wandern</td><td class="de">wandert</td><td class="de">wandern</td><td class="vmean">to hike</td></tr>
+<tr><td class="de vinf">singen</td><td class="de">singe</td><td class="de">singst</td><td class="de">singt</td><td class="de">singen</td><td class="de">singt</td><td class="de">singen</td><td class="vmean">to sing</td></tr>
+<tr><td class="de vinf">malen</td><td class="de">male</td><td class="de">malst</td><td class="de">malt</td><td class="de">malen</td><td class="de">malt</td><td class="de">malen</td><td class="vmean">to paint</td></tr>
+<tr><td class="de vinf">zeichnen</td><td class="de">zeichne</td><td class="de">zeichnest</td><td class="de">zeichnet</td><td class="de">zeichnen</td><td class="de">zeichnet</td><td class="de">zeichnen</td><td class="vmean">to draw</td></tr>
+<tr><td class="de vinf">tauchen</td><td class="de">tauche</td><td class="de">tauchst</td><td class="de">taucht</td><td class="de">tauchen</td><td class="de">taucht</td><td class="de">tauchen</td><td class="vmean">to dive</td></tr>
+<tr><td class="de vinf">klettern</td><td class="de">klettere</td><td class="de">kletterst</td><td class="de">klettert</td><td class="de">klettern</td><td class="de">klettert</td><td class="de">klettern</td><td class="vmean">to climb</td></tr>
+<tr><td class="de vinf">backen <span class="vtag">a→ä</span></td><td class="de">backe</td><td class="de">bäckst</td><td class="de">bäckt</td><td class="de">backen</td><td class="de">backt</td><td class="de">backen</td><td class="vmean">to bake</td></tr>
+</table>
 
   <h3 class="sub">Zeit, Termine, Arbeit &amp; Formulare <span class="en">Time, plans, work &amp; forms</span></h3>
   <table>
@@ -742,17 +789,17 @@ footer{
 
   <h3 class="sub">Adverbien, Adjektive &amp; kleine Wörter <span class="en">Useful small words</span></h3>
   <div class="chunks">
-    <span class="chunk">genug</span><span class="chunk">manchmal</span><span class="chunk">etwas Besonderes</span>
-    <span class="chunk">ganz beschäftigt</span><span class="chunk">viele Hausaufgaben</span><span class="chunk">leider</span>
-    <span class="chunk">vielleicht</span><span class="chunk">nicht im Moment</span><span class="chunk">jeden Tag</span>
-    <span class="chunk">heute</span><span class="chunk">noch nicht</span><span class="chunk">schon</span><span class="chunk">zuerst</span>
-    <span class="chunk">nichts</span><span class="chunk">schnell</span><span class="chunk">hilfreich</span><span class="chunk">schwierig</span>
-    <span class="chunk">chaotisch</span><span class="chunk">digitalisiert</span><span class="chunk">heutzutage</span>
-    <span class="chunk">schön</span><span class="chunk">weiblich</span><span class="chunk">männlich</span><span class="chunk">keine Angabe</span>
-    <span class="chunk">verheiratet</span><span class="chunk">geschieden</span><span class="chunk">regelmäßig</span>
-    <span class="chunk">unregelmäßig</span><span class="chunk">fertig</span><span class="chunk">einander</span><span class="chunk">viel</span>
-    <span class="chunk">beide</span><span class="chunk">anwesend</span><span class="chunk">laut</span><span class="chunk">doppelt</span>
-    <span class="chunk">dreimal</span><span class="chunk">auch</span><span class="chunk">aber</span>
+    <span class="chunk">genug — enough</span><span class="chunk">manchmal — sometimes</span><span class="chunk">etwas Besonderes — something special</span>
+    <span class="chunk">ganz beschäftigt — very / quite busy</span><span class="chunk">viele Hausaufgaben — a lot of homework</span><span class="chunk">leider — unfortunately</span>
+    <span class="chunk">vielleicht — maybe / perhaps</span><span class="chunk">nicht im Moment — not at the moment</span><span class="chunk">jeden Tag — every day</span>
+    <span class="chunk">heute — today</span><span class="chunk">noch nicht — not yet</span><span class="chunk">schon — already</span><span class="chunk">zuerst — first / at first</span>
+    <span class="chunk">nichts — nothing</span><span class="chunk">schnell — quick / quickly</span><span class="chunk">hilfreich — helpful</span><span class="chunk">schwierig — difficult</span>
+    <span class="chunk">chaotisch — chaotic</span><span class="chunk">digitalisiert — digitalized</span><span class="chunk">heutzutage — nowadays</span>
+    <span class="chunk">schön — beautiful / nice</span><span class="chunk">weiblich — female</span><span class="chunk">männlich — male</span><span class="chunk">keine Angabe — no information</span>
+    <span class="chunk">verheiratet — married</span><span class="chunk">geschieden — divorced</span><span class="chunk">regelmäßig — regular / regularly</span>
+    <span class="chunk">unregelmäßig — irregular / irregularly</span><span class="chunk">fertig — finished / ready</span><span class="chunk">einander — each other</span><span class="chunk">viel — much / a lot</span>
+    <span class="chunk">beide — both</span><span class="chunk">anwesend — present</span><span class="chunk">laut — loud / aloud</span><span class="chunk">doppelt — double</span>
+    <span class="chunk">dreimal — three times</span><span class="chunk">auch — also</span><span class="chunk">aber — but</span>
   </div>
 </section>
 
@@ -820,10 +867,10 @@ footer{
     <tr><td class="de">der Stau</td><td>-s</td><td>traffic jam</td></tr>
   </table>
   <div class="chunks">
-    <span class="chunk">links</span><span class="chunk">rechts</span><span class="chunk">geradeaus</span><span class="chunk">hier</span>
-    <span class="chunk">dort/da</span><span class="chunk">gegenüber</span><span class="chunk">neben</span><span class="chunk">um die Ecke</span>
-    <span class="chunk">in der Nähe</span><span class="chunk">weit</span><span class="chunk">unterwegs</span><span class="chunk">zu Fuß</span>
-    <span class="chunk">im Norden</span><span class="chunk">im Süden</span><span class="chunk">im Osten</span><span class="chunk">im Westen</span>
+    <span class="chunk">links — left</span><span class="chunk">rechts — right</span><span class="chunk">geradeaus — straight ahead</span><span class="chunk">hier — here</span>
+    <span class="chunk">dort/da — there</span><span class="chunk">gegenüber — opposite</span><span class="chunk">neben — next to</span><span class="chunk">um die Ecke — around the corner</span>
+    <span class="chunk">in der Nähe — nearby</span><span class="chunk">weit — far</span><span class="chunk">unterwegs — on the way / travelling</span><span class="chunk">zu Fuß — on foot</span>
+    <span class="chunk">im Norden — in the north</span><span class="chunk">im Süden — in the south</span><span class="chunk">im Osten — in the east</span><span class="chunk">im Westen — in the west</span>
   </div>
 
   <h3 class="sub">Stadtfakten, Events, Monate &amp; Jahreszeiten <span class="en">City facts, events, months &amp; seasons</span></h3>
@@ -864,22 +911,37 @@ footer{
     <tr><td class="de">die Öffnungszeit</td><td>-en</td><td>opening time</td></tr>
   </table>
   <div class="chunks">
-    <span class="chunk">Januar</span><span class="chunk">Februar</span><span class="chunk">März</span><span class="chunk">April</span>
-    <span class="chunk">Mai</span><span class="chunk">Juni</span><span class="chunk">Juli</span><span class="chunk">August</span>
-    <span class="chunk">September</span><span class="chunk">Oktober</span><span class="chunk">November</span><span class="chunk">Dezember</span>
+    <span class="chunk">Januar — January</span><span class="chunk">Februar — February</span><span class="chunk">März — March</span><span class="chunk">April — April</span>
+    <span class="chunk">Mai — May</span><span class="chunk">Juni — June</span><span class="chunk">Juli — July</span><span class="chunk">August — August</span>
+    <span class="chunk">September — September</span><span class="chunk">Oktober — October</span><span class="chunk">November — November</span><span class="chunk">Dezember — December</span>
   </div>
   <div class="chunks">
-    <span class="chunk">der Frühling</span><span class="chunk">der Sommer</span><span class="chunk">der Herbst</span><span class="chunk">der Winter</span>
+    <span class="chunk">der Frühling — spring</span><span class="chunk">der Sommer — summer</span><span class="chunk">der Herbst — autumn</span><span class="chunk">der Winter — winter</span>
   </div>
 
   <h3 class="sub">Verben, Adjektive &amp; feste Wendungen <span class="en">Verbs, adjectives &amp; chunks</span></h3>
+  <p style="font-size:13px; color:var(--ink-mute); margin:2px 0 8px;">Verbs — full conjugation:</p>
+<table class="verbtbl">
+<tr><th>Infinitive</th><th>ich</th><th>du</th><th>er/sie/es</th><th>wir</th><th>ihr</th><th>sie/Sie</th><th>Meaning</th></tr>
+<tr><td class="de vinf">fahren <span class="vtag">a→ä</span></td><td class="de">fahre</td><td class="de">fährst</td><td class="de">fährt</td><td class="de">fahren</td><td class="de">fahrt</td><td class="de">fahren</td><td class="vmean">to travel / drive</td></tr>
+<tr><td class="de vinf">gehen</td><td class="de">gehe</td><td class="de">gehst</td><td class="de">geht</td><td class="de">gehen</td><td class="de">geht</td><td class="de">gehen</td><td class="vmean">to go / walk</td></tr>
+<tr><td class="de vinf">liegen</td><td class="de">liege</td><td class="de">liegst</td><td class="de">liegt</td><td class="de">liegen</td><td class="de">liegt</td><td class="de">liegen</td><td class="vmean">to be located</td></tr>
+<tr><td class="de vinf">suchen</td><td class="de">suche</td><td class="de">suchst</td><td class="de">sucht</td><td class="de">suchen</td><td class="de">sucht</td><td class="de">suchen</td><td class="vmean">to look for</td></tr>
+<tr><td class="de vinf">besuchen</td><td class="de">besuche</td><td class="de">besuchst</td><td class="de">besucht</td><td class="de">besuchen</td><td class="de">besucht</td><td class="de">besuchen</td><td class="vmean">to visit</td></tr>
+<tr><td class="de vinf">nehmen <span class="vtag">e→i</span></td><td class="de">nehme</td><td class="de">nimmst</td><td class="de">nimmt</td><td class="de">nehmen</td><td class="de">nehmt</td><td class="de">nehmen</td><td class="vmean">to take</td></tr>
+<tr><td class="de vinf">zeigen</td><td class="de">zeige</td><td class="de">zeigst</td><td class="de">zeigt</td><td class="de">zeigen</td><td class="de">zeigt</td><td class="de">zeigen</td><td class="vmean">to show</td></tr>
+<tr><td class="de vinf">abholen <span class="vtag">separable</span></td><td class="de">hole ab</td><td class="de">holst ab</td><td class="de">holt ab</td><td class="de">holen ab</td><td class="de">holt ab</td><td class="de">holen ab</td><td class="vmean">to pick up</td></tr>
+<tr><td class="de vinf">regnen</td><td class="de">regne</td><td class="de">regnest</td><td class="de">regnet</td><td class="de">regnen</td><td class="de">regnet</td><td class="de">regnen</td><td class="vmean">to rain</td></tr>
+<tr><td class="de vinf">scheinen</td><td class="de">scheine</td><td class="de">scheinst</td><td class="de">scheint</td><td class="de">scheinen</td><td class="de">scheint</td><td class="de">scheinen</td><td class="vmean">to shine</td></tr>
+<tr><td class="de vinf">beginnen</td><td class="de">beginne</td><td class="de">beginnst</td><td class="de">beginnt</td><td class="de">beginnen</td><td class="de">beginnt</td><td class="de">beginnen</td><td class="vmean">to begin</td></tr>
+<tr><td class="de vinf">enden</td><td class="de">ende</td><td class="de">endest</td><td class="de">endet</td><td class="de">enden</td><td class="de">endet</td><td class="de">enden</td><td class="vmean">to end</td></tr>
+<tr><td class="de vinf">stattfinden <span class="vtag">separable</span></td><td class="de">finde statt</td><td class="de">findest statt</td><td class="de">findet statt</td><td class="de">finden statt</td><td class="de">findet statt</td><td class="de">finden statt</td><td class="vmean">to take place</td></tr>
+<tr><td class="de vinf">feiern</td><td class="de">feiere</td><td class="de">feierst</td><td class="de">feiert</td><td class="de">feiern</td><td class="de">feiert</td><td class="de">feiern</td><td class="vmean">to celebrate</td></tr>
+</table>
   <div class="chunks">
-    <span class="chunk">fahren</span><span class="chunk">gehen</span><span class="chunk">liegen</span><span class="chunk">suchen</span>
-    <span class="chunk">besuchen</span><span class="chunk">nehmen</span><span class="chunk">zeigen</span><span class="chunk">abholen</span>
-    <span class="chunk">regnen</span><span class="chunk">scheinen</span><span class="chunk">beginnen</span><span class="chunk">enden</span>
-    <span class="chunk">stattfinden</span><span class="chunk">feiern</span><span class="chunk">geboren</span><span class="chunk">schön</span>
-    <span class="chunk">hoch</span><span class="chunk">lang</span><span class="chunk">alt</span><span class="chunk">neu</span>
-    <span class="chunk">interessant</span><span class="chunk">deutschsprachig</span><span class="chunk">bekannt</span><span class="chunk">berühmt</span>
+    <span class="chunk">geboren — born</span><span class="chunk">schön — beautiful / nice</span>
+    <span class="chunk">hoch — high / tall</span><span class="chunk">lang — long</span><span class="chunk">alt — old</span><span class="chunk">neu — new</span>
+    <span class="chunk">interessant — interesting</span><span class="chunk">deutschsprachig — German-speaking</span><span class="chunk">bekannt — well-known</span><span class="chunk">berühmt — famous</span>
   </div>
   <table>
     <tr><td class="de">Moin!</td><td>hello (northern Germany)</td></tr>
@@ -989,22 +1051,36 @@ footer{
   </table>
 
   <h3 class="sub">Verben, Adjektive, Tageszeiten &amp; Redemittel <span class="en">Verbs, adjectives, time &amp; phrases</span></h3>
+  <p style="font-size:13px; color:var(--ink-mute); margin:2px 0 8px;">Verbs — full conjugation <span style="font-style:italic;">(haben and machen already covered in Kapitel 1)</span>:</p>
+<table class="verbtbl">
+<tr><th>Infinitive</th><th>ich</th><th>du</th><th>er/sie/es</th><th>wir</th><th>ihr</th><th>sie/Sie</th><th>Meaning</th></tr>
+<tr><td class="de vinf">essen <span class="vtag">e→i</span></td><td class="de">esse</td><td class="de">isst</td><td class="de">isst</td><td class="de">essen</td><td class="de">esst</td><td class="de">essen</td><td class="vmean">to eat</td></tr>
+<tr><td class="de vinf">trinken</td><td class="de">trinke</td><td class="de">trinkst</td><td class="de">trinkt</td><td class="de">trinken</td><td class="de">trinkt</td><td class="de">trinken</td><td class="vmean">to drink</td></tr>
+<tr><td class="de vinf">kaufen</td><td class="de">kaufe</td><td class="de">kaufst</td><td class="de">kauft</td><td class="de">kaufen</td><td class="de">kauft</td><td class="de">kaufen</td><td class="vmean">to buy</td></tr>
+<tr><td class="de vinf">einkaufen <span class="vtag">separable</span></td><td class="de">kaufe ein</td><td class="de">kaufst ein</td><td class="de">kauft ein</td><td class="de">kaufen ein</td><td class="de">kauft ein</td><td class="de">kaufen ein</td><td class="vmean">to shop</td></tr>
+<tr><td class="de vinf">brauchen</td><td class="de">brauche</td><td class="de">brauchst</td><td class="de">braucht</td><td class="de">brauchen</td><td class="de">braucht</td><td class="de">brauchen</td><td class="vmean">to need</td></tr>
+<tr><td class="de vinf">mögen <span class="vtag">irregular</span></td><td class="de">mag</td><td class="de">magst</td><td class="de">mag</td><td class="de">mögen</td><td class="de">mögt</td><td class="de">mögen</td><td class="vmean">to like</td></tr>
+<tr><td class="de vinf">möchten <span class="vtag">irregular</span></td><td class="de">möchte</td><td class="de">möchtest</td><td class="de">möchte</td><td class="de">möchten</td><td class="de">möchtet</td><td class="de">möchten</td><td class="vmean">would like</td></tr>
+<tr><td class="de vinf">schmecken</td><td class="de">schmecke</td><td class="de">schmeckst</td><td class="de">schmeckt</td><td class="de">schmecken</td><td class="de">schmeckt</td><td class="de">schmecken</td><td class="vmean">to taste</td></tr>
+<tr><td class="de vinf">kosten</td><td class="de">koste</td><td class="de">kostest</td><td class="de">kostet</td><td class="de">kosten</td><td class="de">kostet</td><td class="de">kosten</td><td class="vmean">to cost</td></tr>
+<tr><td class="de vinf">finden</td><td class="de">finde</td><td class="de">findest</td><td class="de">findet</td><td class="de">finden</td><td class="de">findet</td><td class="de">finden</td><td class="vmean">to find</td></tr>
+<tr><td class="de vinf">mitbringen <span class="vtag">separable</span></td><td class="de">bringe mit</td><td class="de">bringst mit</td><td class="de">bringt mit</td><td class="de">bringen mit</td><td class="de">bringt mit</td><td class="de">bringen mit</td><td class="vmean">to bring along</td></tr>
+<tr><td class="de vinf">probieren</td><td class="de">probiere</td><td class="de">probierst</td><td class="de">probiert</td><td class="de">probieren</td><td class="de">probiert</td><td class="de">probieren</td><td class="vmean">to try / taste</td></tr>
+<tr><td class="de vinf">frühstücken</td><td class="de">frühstücke</td><td class="de">frühstückst</td><td class="de">frühstückt</td><td class="de">frühstücken</td><td class="de">frühstückt</td><td class="de">frühstücken</td><td class="vmean">to have breakfast</td></tr>
+<tr><td class="de vinf">waschen <span class="vtag">a→ä</span></td><td class="de">wasche</td><td class="de">wäschst</td><td class="de">wäscht</td><td class="de">waschen</td><td class="de">wascht</td><td class="de">waschen</td><td class="vmean">to wash</td></tr>
+<tr><td class="de vinf">schälen</td><td class="de">schäle</td><td class="de">schälst</td><td class="de">schält</td><td class="de">schälen</td><td class="de">schält</td><td class="de">schälen</td><td class="vmean">to peel</td></tr>
+<tr><td class="de vinf">schneiden</td><td class="de">schneide</td><td class="de">schneidest</td><td class="de">schneidet</td><td class="de">schneiden</td><td class="de">schneidet</td><td class="de">schneiden</td><td class="vmean">to cut</td></tr>
+<tr><td class="de vinf">zubereiten <span class="vtag">separable</span></td><td class="de">bereite zu</td><td class="de">bereitest zu</td><td class="de">bereitet zu</td><td class="de">bereiten zu</td><td class="de">bereitet zu</td><td class="de">bereiten zu</td><td class="vmean">to prepare</td></tr>
+<tr><td class="de vinf">bezahlen</td><td class="de">bezahle</td><td class="de">bezahlst</td><td class="de">bezahlt</td><td class="de">bezahlen</td><td class="de">bezahlt</td><td class="de">bezahlen</td><td class="vmean">to pay</td></tr>
+</table>
   <div class="chunks">
-    <span class="chunk">essen</span><span class="chunk">trinken</span><span class="chunk">kaufen</span><span class="chunk">einkaufen</span>
-    <span class="chunk">brauchen</span><span class="chunk">haben</span><span class="chunk">nehmen</span><span class="chunk">möchten</span>
-    <span class="chunk">mögen</span><span class="chunk">schmecken</span><span class="chunk">kosten</span><span class="chunk">finden</span>
-    <span class="chunk">kochen</span><span class="chunk">mitbringen</span><span class="chunk">machen</span><span class="chunk">probieren</span>
-    <span class="chunk">frühstücken</span><span class="chunk">waschen</span><span class="chunk">schälen</span><span class="chunk">schneiden</span>
-    <span class="chunk">zubereiten</span><span class="chunk">bezahlen</span>
+    <span class="chunk">lecker — tasty / delicious</span><span class="chunk">süß — sweet</span><span class="chunk">frisch — fresh</span><span class="chunk">satt — full after eating</span>
+    <span class="chunk">teuer — expensive</span><span class="chunk">günstig — inexpensive / good-value</span><span class="chunk">warm — warm</span><span class="chunk">kalt — cold</span>
   </div>
   <div class="chunks">
-    <span class="chunk">lecker</span><span class="chunk">süß</span><span class="chunk">frisch</span><span class="chunk">satt</span>
-    <span class="chunk">teuer</span><span class="chunk">günstig</span><span class="chunk">warm</span><span class="chunk">kalt</span>
-  </div>
-  <div class="chunks">
-    <span class="chunk">morgens</span><span class="chunk">vormittags</span><span class="chunk">mittags</span><span class="chunk">nachmittags</span>
-    <span class="chunk">abends</span><span class="chunk">nachts</span><span class="chunk">am Morgen</span><span class="chunk">am Abend</span>
-    <span class="chunk">heute Abend</span><span class="chunk">morgen Abend</span>
+    <span class="chunk">morgens — in the mornings</span><span class="chunk">vormittags — late morning</span><span class="chunk">mittags — at midday</span><span class="chunk">nachmittags — in the afternoons</span>
+    <span class="chunk">abends — in the evenings</span><span class="chunk">nachts — at night</span><span class="chunk">am Morgen — in the morning</span><span class="chunk">am Abend — in the evening</span>
+    <span class="chunk">heute Abend — this evening</span><span class="chunk">morgen Abend — tomorrow evening</span>
   </div>
   <table>
     <tr><td class="de">Guten Appetit!</td><td>Enjoy your meal!</td></tr>
@@ -1057,8 +1133,8 @@ footer{
     <tr><td class="de">die Portion</td><td>-en</td><td>portion</td></tr>
   </table>
   <div class="chunks">
-    <span class="chunk">vegetarisch</span><span class="chunk">gestern</span><span class="chunk">vorgestern</span>
-    <span class="chunk">beschäftigt</span><span class="chunk">chaotisch</span>
+    <span class="chunk">vegetarisch — vegetarian</span><span class="chunk">gestern — yesterday</span><span class="chunk">vorgestern — day before yesterday</span>
+    <span class="chunk">beschäftigt — busy</span><span class="chunk">chaotisch — chaotic</span>
   </div>
   <table>
     <tr><td class="de">der Arbeitstag</td><td>-e</td><td>working day</td></tr>
