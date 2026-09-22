@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Master Vocabulary — A1 Essentials</title>
+<title>Vocabulary Master</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -379,62 +379,15 @@ footer{
   color:var(--ink-mute);
   font-size:13px;
 }
-
-/* practice widget */
-.practice-controls{
+/* interactive exercise widgets */
+.ex-check{
   display:flex;
   align-items:center;
-  gap:16px;
+  gap:8px;
+  margin-top:6px;
   flex-wrap:wrap;
-  margin-bottom:24px;
+  max-width:100%;
 }
-.mode-toggle{display:flex; gap:6px;}
-.mode-btn{
-  font-family:var(--sans);
-  font-size:13px;
-  font-weight:500;
-  padding:6px 14px;
-  border:1px solid var(--rule-strong);
-  border-radius:6px;
-  background:var(--paper-2);
-  color:var(--ink-soft);
-  cursor:pointer;
-}
-.mode-btn.active{background:var(--blue-bg); color:var(--blue); border-color:var(--blue);}
-.flashcard{
-  min-height:120px;
-  border:1px solid var(--rule-strong);
-  border-radius:12px;
-  background:var(--paper-2);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:32px 24px;
-  margin-bottom:16px;
-  cursor:pointer;
-}
-.flashcard-face{
-  font-family:var(--serif);
-  font-size:24px;
-  text-align:center;
-  color:var(--ink);
-}
-.flashcard-face.answer{color:var(--blue);}
-.flash-controls{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-.flash-progress{font-family:var(--sans); font-size:13px; color:var(--ink-mute); margin-left:auto;}
-.quiz-prompt{
-  font-family:var(--serif);
-  font-size:22px;
-  margin-bottom:14px;
-}
-.quiz-score{font-family:var(--sans); font-size:13px; color:var(--ink-mute); margin-top:10px;}
-
-/* shared exercise/tracker widgets */
-.ex-check{display:flex; align-items:center; gap:8px; margin-top:6px; flex-wrap:wrap; max-width:100%;}
 .ex-input{
   font-family:var(--serif);
   font-size:15px;
@@ -443,6 +396,9 @@ footer{
   border-radius:6px;
   background:var(--paper);
   color:var(--ink);
+  width:160px;
+  max-width:100%;
+  box-sizing:border-box;
 }
 .ex-input:focus{outline:none; border-color:var(--blue);}
 .check-btn{
@@ -457,7 +413,12 @@ footer{
   cursor:pointer;
 }
 .check-btn:hover{background:var(--rule);}
-.ex-feedback{font-family:var(--sans); font-size:13px; font-weight:500; min-width:160px;}
+.ex-feedback{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  min-width:120px;
+}
 .tracker-box{
   background:var(--paper-2);
   border:1px solid var(--rule);
@@ -465,12 +426,46 @@ footer{
   padding:18px 22px;
   margin:20px 0;
 }
-.tracker-box h4{font-family:var(--sans); font-size:13px; font-weight:600; margin:0 0 10px; color:var(--ink-mute);}
-.tracker-item{display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px dotted var(--rule); font-size:14px;}
+.tracker-box h4{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:600;
+  margin:0 0 10px;
+  color:var(--ink-mute);
+}
+.tracker-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 0;
+  border-bottom:1px dotted var(--rule);
+  font-size:14px;
+}
 .tracker-item:last-child{border-bottom:none;}
-.tracker-item .clear-btn{font-family:var(--sans); font-size:12px; color:var(--ink-mute); background:none; border:none; cursor:pointer; text-decoration:underline;}
+.tracker-item .clear-btn{
+  font-family:var(--sans);
+  font-size:12px;
+  color:var(--ink-mute);
+  background:none;
+  border:none;
+  cursor:pointer;
+  text-decoration:underline;
+}
 .tracker-empty{color:var(--ink-mute); font-size:13.5px; font-style:italic;}
 .persist-note{font-size:12px; color:var(--ink-mute); margin-top:8px;}
+
+/* combined practice widgets */
+.mixed-prompt{
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:20px 24px;
+  margin:20px 0;
+  background:var(--paper-2);
+}
+.mp-title{font-family:var(--sans); font-weight:600; font-size:14px; color:var(--ink); margin:0 0 8px;}
+.mp-body{margin:0 0 14px; color:var(--ink-soft);}
+.mp-answer{margin-top:12px; padding-top:12px; border-top:1px solid var(--rule);}
+.mp-note{font-size:12.5px; color:var(--ink-mute); margin-top:8px;}
 
 /* floating nav buttons */
 .float-nav{
@@ -510,614 +505,573 @@ footer{
   .float-btn{padding:8px 12px; font-size:12px;}
 }
 </style>
-</head>
 <body>
 <div class="wrap">
 
 <header class="hero">
-  <p class="eyebrow">Netzwerk neu A1 · Master Vocabulary</p>
-  <h1 class="title">Wortschatz Kompakt <em>— All A1 essentials in one place</em></h1>
-  <p class="subtitle">Classroom instructions, daily-life words, and every core vocabulary group across Kapitel 1–12</p>
+  <p class="eyebrow">Netzwerk neu A1 · Master Reference</p>
+  <h1 class="title">Vocabulary Master</h1>
+  <p class="subtitle">Every noun (article + plural + meaning), verb, adjective and phrase covered so far — growing as we move through more chapters</p>
 </header>
 
-<nav class="toc" aria-label="Vocabulary sections">
-  <a href="#classroom">Classroom</a>
-  <a href="#people">People</a>
-  <a href="#numbers-time">Numbers &amp; time</a>
-  <a href="#daily-verbs">Daily verbs</a>
-  <a href="#food">Food &amp; drink</a>
-  <a href="#places">Places</a>
-  <a href="#home">Home</a>
-  <a href="#body-health">Body &amp; health</a>
-  <a href="#clothing">Clothing</a>
-  <a href="#travel">Travel</a>
-  <a href="#connectors">Connectors &amp; question words</a>
-  <a href="#chunks">Everyday chunks</a>
-  <a href="#practice">Practice</a>
+<nav class="toc" aria-label="Sections">
+  <a href="#k1">Kapitel 1</a>
+  <a href="#k2">Kapitel 2</a>
+  <a href="#k3">Kapitel 3</a>
+  <a href="#k4">Kapitel 4</a>
+  <a href="#extras">Class extras</a>
 </nav>
 
-<section id="practice">
-  <h2 class="section-title"><span class="de">Üben</span><span class="en">Practice</span></h2>
-  <p class="section-intro">Flip through as flashcards, or quiz yourself. Pick a category, then a mode.</p>
+<!-- KAPITEL 1 -->
+<section id="k1">
+  <h2 class="section-title"><span class="de">Kapitel 1</span><span class="en">Guten Tag!</span></h2>
 
-  <div class="practice-controls">
-    <select id="cat-select" class="ex-input" style="width:220px; max-width:100%;"></select>
-    <div class="mode-toggle">
-      <button class="mode-btn active" data-mode="flash">Flashcards</button>
-      <button class="mode-btn" data-mode="quiz">Quiz</button>
-    </div>
-  </div>
-
-  <div id="flash-area">
-    <div class="flashcard" id="flashcard">
-      <div class="flashcard-face" id="card-front">Loading…</div>
-    </div>
-    <div class="flash-controls">
-      <button class="check-btn" id="flip-btn">Flip</button>
-      <button class="check-btn" id="next-btn">Next →</button>
-      <span class="flash-progress" id="flash-progress"></span>
-    </div>
-  </div>
-
-  <div id="quiz-area" style="display:none;">
-    <div class="quiz-prompt" id="quiz-prompt">Loading…</div>
-    <div class="ex-check">
-      <input class="ex-input" type="text" id="quiz-input" placeholder="type the English meaning" style="width:240px; max-width:100%;">
-      <button class="check-btn" id="quiz-check-btn">Check</button>
-      <span class="ex-feedback" id="quiz-feedback"></span>
-    </div>
-    <div class="quiz-score" id="quiz-score"></div>
-  </div>
-
-  <div class="tracker-box" id="mistake-tracker">
-    <h4>Words you've missed in the quiz</h4>
-    <div id="tracker-list"><p class="tracker-empty">Loading…</p></div>
-    
-  </div>
-</section>
-
-<section id="classroom">
-  <h2 class="section-title"><span class="de">Im Unterricht</span><span class="en">In the classroom</span></h2>
-  <p class="section-intro">The instructions and phrases a teacher uses constantly, and what you say back. Knowing these means you never have to switch to English mid-class.</p>
-
-  <h3 class="sub">Teacher instructions you'll hear</h3>
+  <h3 class="sub">Begrüßung, Vorstellung &amp; Klassensprache <span class="en">Greetings, introductions &amp; classroom</span></h3>
   <table>
-    <tr><td class="de">Hören Sie.</td><td>Listen.</td></tr>
-    <tr><td class="de">Lesen Sie.</td><td>Read.</td></tr>
-    <tr><td class="de">Schreiben Sie.</td><td>Write.</td></tr>
-    <tr><td class="de">Sprechen Sie.</td><td>Speak.</td></tr>
-    <tr><td class="de">Wiederholen Sie.</td><td>Repeat.</td></tr>
-    <tr><td class="de">Öffnen Sie das Buch.</td><td>Open the book.</td></tr>
-    <tr><td class="de">Machen Sie die Übung.</td><td>Do the exercise.</td></tr>
-    <tr><td class="de">Arbeiten Sie zu zweit.</td><td>Work in pairs.</td></tr>
-    <tr><td class="de">Ergänzen Sie.</td><td>Fill in / complete.</td></tr>
-    <tr><td class="de">Ordnen Sie zu.</td><td>Match up.</td></tr>
-    <tr><td class="de">Kreuzen Sie an.</td><td>Tick/check.</td></tr>
+    <tr><th>Deutsch</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">der Name</td><td>-n</td><td>name</td></tr>
+    <tr><td class="de">der Vorname</td><td>-n</td><td>first name</td></tr>
+    <tr><td class="de">der Familienname / Nachname</td><td>-n</td><td>family name / surname</td></tr>
+    <tr><td class="de">die Person</td><td>-en</td><td>person</td></tr>
+    <tr><td class="de">die Sprache</td><td>-n</td><td>language</td></tr>
+    <tr><td class="de">die Muttersprache</td><td>-n</td><td>mother tongue</td></tr>
+    <tr><td class="de">die Vorstellung</td><td>-en</td><td>introduction / presentation</td></tr>
+    <tr><td class="de">die Information</td><td>-en</td><td>information</td></tr>
+    <tr><td class="de">die Frage</td><td>-n</td><td>question</td></tr>
+    <tr><td class="de">die Antwort</td><td>-en</td><td>answer</td></tr>
+    <tr><td class="de">die Begrüßung</td><td>-en</td><td>greeting</td></tr>
+    <tr><td class="de">die Verabschiedung</td><td>-en</td><td>farewell</td></tr>
+    <tr><td class="de">die Aussprache</td><td>Sg.</td><td>pronunciation</td></tr>
+    <tr><td class="de">das Aussprachetraining</td><td>-s</td><td>pronunciation practice</td></tr>
+    <tr><td class="de">das Beispiel</td><td>-e</td><td>example</td></tr>
+    <tr><td class="de">das Spiel</td><td>-e</td><td>game</td></tr>
+    <tr><td class="de">der Ausdruck</td><td>¨-e</td><td>expression</td></tr>
+    <tr><td class="de">die Wiederholung</td><td>-en</td><td>repetition / revision</td></tr>
+    <tr><td class="de">die Präsentation</td><td>-en</td><td>presentation</td></tr>
+    <tr><td class="de">das Wort</td><td>¨-er</td><td>word</td></tr>
+    <tr><td class="de">der Artikel</td><td>-</td><td>article</td></tr>
+    <tr><td class="de">das Nomen</td><td>-</td><td>noun</td></tr>
+    <tr><td class="de">die Pluralform</td><td>-en</td><td>plural form</td></tr>
+    <tr><td class="de">der Satz</td><td>¨-e</td><td>sentence</td></tr>
+    <tr><td class="de">der Aussagesatz</td><td>¨-e</td><td>statement / declarative sentence</td></tr>
+    <tr><td class="de">die Konjugation</td><td>-en</td><td>conjugation</td></tr>
+    <tr><td class="de">die Seitennummer</td><td>-n</td><td>page number</td></tr>
+    <tr><td class="de">das Redemittel</td><td>-</td><td>useful expression / phrase</td></tr>
+    <tr><td class="de">die Entschuldigung</td><td>-en</td><td>apology / excuse</td></tr>
+    <tr><td class="de">die Klasse</td><td>-n</td><td>class</td></tr>
+    <tr><td class="de">der Kurs</td><td>-e</td><td>course</td></tr>
+    <tr><td class="de">die Silbe</td><td>-n</td><td>syllable</td></tr>
+    <tr><td class="de">die Stimme</td><td>-n</td><td>voice</td></tr>
+    <tr><td class="de">die Hausaufgabe</td><td>-n</td><td>homework</td></tr>
+    <tr><td class="de">der Buchstabe</td><td>-n</td><td>letter of alphabet</td></tr>
+    <tr><td class="de">das Alphabet</td><td>-e</td><td>alphabet</td></tr>
+    <tr><td class="de">das Gespräch</td><td>¨-e</td><td>conversation</td></tr>
+    <tr><td class="de">der Dialog</td><td>-e</td><td>dialogue</td></tr>
+    <tr><td class="de">die Situation</td><td>-en</td><td>situation</td></tr>
+    <tr><td class="de">der Partner</td><td>-</td><td>male partner</td></tr>
+    <tr><td class="de">die Partnerin</td><td>-nen</td><td>female partner</td></tr>
   </table>
 
-  <h3 class="sub">What you say back</h3>
+  <h3 class="sub">Länder, Sprachen &amp; persönliche Angaben <span class="en">Countries, languages &amp; personal details</span></h3>
   <table>
-    <tr><td class="de">Wie bitte?</td><td>Sorry, what?</td></tr>
-    <tr><td class="de">Ich verstehe nicht.</td><td>I don't understand.</td></tr>
-    <tr><td class="de">Können Sie das wiederholen?</td><td>Can you repeat that?</td></tr>
-    <tr><td class="de">Können Sie das buchstabieren?</td><td>Can you spell that?</td></tr>
-    <tr><td class="de">Wie schreibt man das?</td><td>How do you write/spell that?</td></tr>
-    <tr><td class="de">Wie sagt man ... auf Deutsch?</td><td>How do you say ... in German?</td></tr>
-    <tr><td class="de">Ich habe eine Frage.</td><td>I have a question.</td></tr>
-    <tr><td class="de">Langsamer, bitte.</td><td>Slower, please.</td></tr>
+    <tr><th>Deutsch</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">das Land</td><td>¨-er</td><td>country</td></tr>
+    <tr><td class="de">der Wohnort</td><td>-e</td><td>place of residence</td></tr>
+    <tr><td class="de">die Adresse</td><td>-n</td><td>address</td></tr>
+    <tr><td class="de">die Telefonnummer</td><td>-n</td><td>telephone number</td></tr>
+    <tr><td class="de">die Handynummer</td><td>-n</td><td>mobile number</td></tr>
+    <tr><td class="de">die E-Mail-Adresse</td><td>-n</td><td>email address</td></tr>
   </table>
-
-  <h3 class="sub">Classroom objects</h3>
-  <table>
-    <tr><th>Article</th><th>Singular</th><th>Plural</th><th>English</th></tr>
-    <tr><td class="de">das</td><td class="de">Buch</td><td class="de">Bücher</td><td>book</td></tr>
-    <tr><td class="de">das</td><td class="de">Heft</td><td class="de">Hefte</td><td>notebook</td></tr>
-    <tr><td class="de">der</td><td class="de">Stift</td><td class="de">Stifte</td><td>pen</td></tr>
-    <tr><td class="de">die</td><td class="de">Tafel</td><td class="de">Tafeln</td><td>board</td></tr>
-    <tr><td class="de">die</td><td class="de">Übung</td><td class="de">Übungen</td><td>exercise</td></tr>
-    <tr><td class="de">die</td><td class="de">Frage</td><td class="de">Fragen</td><td>question</td></tr>
-    <tr><td class="de">die</td><td class="de">Antwort</td><td class="de">Antworten</td><td>answer</td></tr>
-    <tr><td class="de">der</td><td class="de">Fehler</td><td class="de">Fehler</td><td>mistake</td></tr>
-  </table>
-</section>
-
-<section id="people">
-  <h2 class="section-title"><span class="de">Personen</span><span class="en">People</span></h2>
-
-  <h3 class="sub">Pronouns — all forms in one place</h3>
-  <table>
-    <tr><th>Nominative</th><th>Accusative</th><th>Dative</th><th>English</th></tr>
-    <tr><td class="de">ich</td><td class="de">mich</td><td class="de">mir</td><td>I / me</td></tr>
-    <tr><td class="de">du</td><td class="de">dich</td><td class="de">dir</td><td>you (informal)</td></tr>
-    <tr><td class="de">er</td><td class="de">ihn</td><td class="de">ihm</td><td>he / him</td></tr>
-    <tr><td class="de">sie</td><td class="de">sie</td><td class="de">ihr</td><td>she / her</td></tr>
-    <tr><td class="de">es</td><td class="de">es</td><td class="de">ihm</td><td>it</td></tr>
-    <tr><td class="de">wir</td><td class="de">uns</td><td class="de">uns</td><td>we / us</td></tr>
-    <tr><td class="de">ihr</td><td class="de">euch</td><td class="de">euch</td><td>you all (informal)</td></tr>
-    <tr><td class="de">sie/Sie</td><td class="de">sie/Sie</td><td class="de">ihnen/Ihnen</td><td>they / you (formal)</td></tr>
-  </table>
-
-  <h3 class="sub">Family</h3>
-  <table>
-    <tr><td class="de">die Familie</td><td>family</td><td class="de">der Vater</td><td>father</td></tr>
-    <tr><td class="de">die Mutter</td><td>mother</td><td class="de">die Eltern</td><td>parents</td></tr>
-    <tr><td class="de">der Bruder</td><td>brother</td><td class="de">die Schwester</td><td>sister</td></tr>
-    <tr><td class="de">der Sohn</td><td>son</td><td class="de">die Tochter</td><td>daughter</td></tr>
-    <tr><td class="de">das Kind</td><td>child</td><td class="de">die Geschwister</td><td>siblings</td></tr>
-    <tr><td class="de">der Opa</td><td>grandpa</td><td class="de">die Oma</td><td>grandma</td></tr>
-  </table>
-
-  <h3 class="sub">Titles and relationships</h3>
-  <table>
-    <tr><td class="de">Herr / Frau</td><td>Mr. / Ms.-Mrs.</td></tr>
-    <tr><td class="de">der Freund / die Freundin</td><td>friend (m/f) / boyfriend/girlfriend</td></tr>
-    <tr><td class="de">der Kollege / die Kollegin</td><td>colleague (m/f)</td></tr>
-    <tr><td class="de">der Nachbar / die Nachbarin</td><td>neighbor (m/f)</td></tr>
-  </table>
-</section>
-
-<section id="numbers-time">
-  <h2 class="section-title"><span class="de">Zahlen und Zeit</span><span class="en">Numbers and time</span></h2>
-
-  <h3 class="sub">Numbers 0–20</h3>
-  <table>
-    <tr><td class="de">0 null</td><td class="de">1 eins</td><td class="de">2 zwei</td><td class="de">3 drei</td><td class="de">4 vier</td></tr>
-    <tr><td class="de">5 fünf</td><td class="de">6 sechs</td><td class="de">7 sieben</td><td class="de">8 acht</td><td class="de">9 neun</td></tr>
-    <tr><td class="de">10 zehn</td><td class="de">11 elf</td><td class="de">12 zwölf</td><td class="de">13 dreizehn</td><td class="de">14 vierzehn</td></tr>
-    <tr><td class="de">15 fünfzehn</td><td class="de">16 sechzehn</td><td class="de">17 siebzehn</td><td class="de">18 achtzehn</td><td class="de">19 neunzehn</td></tr>
-    <tr><td class="de">20 zwanzig</td><td></td><td></td><td></td><td></td></tr>
-  </table>
-
-  <h3 class="sub">Numbers 20–100 (tens)</h3>
-  <table>
-    <tr><td class="de">20 zwanzig</td><td class="de">30 dreißig</td><td class="de">40 vierzig</td><td class="de">50 fünfzig</td></tr>
-    <tr><td class="de">60 sechzig</td><td class="de">70 siebzig</td><td class="de">80 achtzig</td><td class="de">90 neunzig</td></tr>
-    <tr><td class="de">100 hundert</td><td></td><td></td><td></td></tr>
-  </table>
-
-  <h3 class="sub">Days of the week</h3>
-  <table>
-    <tr><td class="de">Montag</td><td>Monday</td><td class="de">Freitag</td><td>Friday</td></tr>
-    <tr><td class="de">Dienstag</td><td>Tuesday</td><td class="de">Samstag</td><td>Saturday</td></tr>
-    <tr><td class="de">Mittwoch</td><td>Wednesday</td><td class="de">Sonntag</td><td>Sunday</td></tr>
-    <tr><td class="de">Donnerstag</td><td>Thursday</td><td class="de">das Wochenende</td><td>the weekend</td></tr>
-  </table>
-
-  <h3 class="sub">Time of day and clock expressions</h3>
-  <table>
-    <tr><td class="de">der Morgen / am Morgen</td><td>morning / in the morning</td></tr>
-    <tr><td class="de">der Mittag / am Mittag</td><td>midday / at midday</td></tr>
-    <tr><td class="de">der Abend / am Abend</td><td>evening / in the evening</td></tr>
-    <tr><td class="de">die Nacht</td><td>night</td></tr>
-    <tr><td class="de">heute / morgen / gestern</td><td>today / tomorrow / yesterday</td></tr>
-    <tr><td class="de">Wie spät ist es?</td><td>what time is it?</td></tr>
-    <tr><td class="de">halb, Viertel nach, Viertel vor</td><td>half, quarter past, quarter to</td></tr>
-    <tr><td class="de">von ... bis ...</td><td>from ... to ...</td></tr>
-  </table>
-</section>
-
-<section id="daily-verbs">
-  <h2 class="section-title"><span class="de">Tägliche Verben</span><span class="en">Daily verbs</span></h2>
-
-  <h3 class="sub">Core irregular verbs — full present tense</h3>
-  <table>
-    <tr><th>Pronoun</th><th>sein</th><th>haben</th><th>werden</th></tr>
-    <tr><td class="de">ich</td><td class="de">bin</td><td class="de">habe</td><td class="de">werde</td></tr>
-    <tr><td class="de">du</td><td class="de">bist</td><td class="de">hast</td><td class="de">wirst</td></tr>
-    <tr><td class="de">er/sie/es</td><td class="de">ist</td><td class="de">hat</td><td class="de">wird</td></tr>
-    <tr><td class="de">wir</td><td class="de">sind</td><td class="de">haben</td><td class="de">werden</td></tr>
-  </table>
-
-  <h3 class="sub">Modal verbs — full present tense</h3>
-  <table>
-    <tr><th>Pronoun</th><th>müssen</th><th>können</th><th>wollen</th><th>möchten</th></tr>
-    <tr><td class="de">ich</td><td class="de">muss</td><td class="de">kann</td><td class="de">will</td><td class="de">möchte</td></tr>
-    <tr><td class="de">du</td><td class="de">musst</td><td class="de">kannst</td><td class="de">willst</td><td class="de">möchtest</td></tr>
-    <tr><td class="de">er/sie/es</td><td class="de">muss</td><td class="de">kann</td><td class="de">will</td><td class="de">möchte</td></tr>
-  </table>
-
-  <h3 class="sub">Common daily-routine verbs</h3>
-  <table>
-    <tr><td class="de">aufstehen</td><td>to get up</td><td class="de">duschen</td><td>to shower</td></tr>
-    <tr><td class="de">frühstücken</td><td>to have breakfast</td><td class="de">arbeiten</td><td>to work</td></tr>
-    <tr><td class="de">einkaufen</td><td>to shop</td><td class="de">kochen</td><td>to cook</td></tr>
-    <tr><td class="de">schlafen</td><td>to sleep</td><td class="de">treffen</td><td>to meet</td></tr>
-    <tr><td class="de">machen</td><td>to do/make</td><td class="de">gehen</td><td>to go/walk</td></tr>
-    <tr><td class="de">kommen</td><td>to come</td><td class="de">fahren</td><td>to drive/travel</td></tr>
-    <tr><td class="de">sehen</td><td>to see</td><td class="de">sagen</td><td>to say</td></tr>
-  </table>
-
-  <h3 class="sub">Most common past participles (Perfekt)</h3>
-  <table>
-    <tr><th>Infinitive</th><th>Participle</th><th>Helper</th></tr>
-    <tr><td class="de">machen</td><td class="de">gemacht</td><td class="de">haben</td></tr>
-    <tr><td class="de">arbeiten</td><td class="de">gearbeitet</td><td class="de">haben</td></tr>
-    <tr><td class="de">essen</td><td class="de">gegessen</td><td class="de">haben</td></tr>
-    <tr><td class="de">trinken</td><td class="de">getrunken</td><td class="de">haben</td></tr>
-    <tr><td class="de">lesen</td><td class="de">gelesen</td><td class="de">haben</td></tr>
-    <tr><td class="de">sprechen</td><td class="de">gesprochen</td><td class="de">haben</td></tr>
-    <tr><td class="de">gehen</td><td class="de">gegangen</td><td class="de">sein</td></tr>
-    <tr><td class="de">fahren</td><td class="de">gefahren</td><td class="de">sein</td></tr>
-    <tr><td class="de">kommen</td><td class="de">gekommen</td><td class="de">sein</td></tr>
-  </table>
-</section>
-
-<section id="food">
-  <h2 class="section-title"><span class="de">Essen und Trinken</span><span class="en">Food and drink</span></h2>
-  <table>
-    <tr><th>Article</th><th>Word</th><th>English</th></tr>
-    <tr><td class="de">das</td><td class="de">Brot</td><td>bread</td></tr>
-    <tr><td class="de">das</td><td class="de">Brötchen</td><td>bread roll</td></tr>
-    <tr><td class="de">der</td><td class="de">Käse</td><td>cheese</td></tr>
-    <tr><td class="de">die</td><td class="de">Wurst</td><td>sausage</td></tr>
-    <tr><td class="de">das</td><td class="de">Ei</td><td>egg</td></tr>
-    <tr><td class="de">der</td><td class="de">Reis</td><td>rice</td></tr>
-    <tr><td class="de">der</td><td class="de">Fisch</td><td>fish</td></tr>
-    <tr><td class="de">der</td><td class="de">Salat</td><td>salad/lettuce</td></tr>
-    <tr><td class="de">das</td><td class="de">Gemüse</td><td>vegetables</td></tr>
-    <tr><td class="de">das</td><td class="de">Obst</td><td>fruit</td></tr>
-    <tr><td class="de">der</td><td class="de">Apfel</td><td>apple</td></tr>
-    <tr><td class="de">der</td><td class="de">Kuchen</td><td>cake</td></tr>
-    <tr><td class="de">das</td><td class="de">Wasser</td><td>water</td></tr>
-    <tr><td class="de">der</td><td class="de">Saft</td><td>juice</td></tr>
-    <tr><td class="de">die</td><td class="de">Milch</td><td>milk</td></tr>
-    <tr><td class="de">der</td><td class="de">Kaffee</td><td>coffee</td></tr>
-    <tr><td class="de">der</td><td class="de">Tee</td><td>tea</td></tr>
-  </table>
-  <h3 class="sub">Shopping and meals</h3>
-  <table>
-    <tr><td class="de">die Bäckerei</td><td>bakery</td></tr>
-    <tr><td class="de">die Metzgerei</td><td>butcher's shop</td></tr>
-    <tr><td class="de">der Supermarkt</td><td>supermarket</td></tr>
-    <tr><td class="de">das Frühstück / Mittagessen / Abendessen</td><td>breakfast / lunch / dinner</td></tr>
-    <tr><td class="de">Guten Appetit! — Danke, gleichfalls!</td><td>enjoy your meal — thanks, you too</td></tr>
-  </table>
-</section>
-
-<section id="places">
-  <h2 class="section-title"><span class="de">Orte</span><span class="en">Places</span></h2>
-  <table>
-    <tr><th>Article</th><th>Word</th><th>English</th></tr>
-    <tr><td class="de">das</td><td class="de">Rathaus</td><td>town hall</td></tr>
-    <tr><td class="de">der</td><td class="de">Bahnhof</td><td>train station</td></tr>
-    <tr><td class="de">die</td><td class="de">Kirche</td><td>church</td></tr>
-    <tr><td class="de">das</td><td class="de">Museum</td><td>museum</td></tr>
-    <tr><td class="de">das</td><td class="de">Krankenhaus</td><td>hospital</td></tr>
-    <tr><td class="de">die</td><td class="de">Apotheke</td><td>pharmacy</td></tr>
-    <tr><td class="de">das</td><td class="de">Büro</td><td>office</td></tr>
-    <tr><td class="de">die</td><td class="de">Uni/Universität</td><td>university</td></tr>
-    <tr><td class="de">der</td><td class="de">Park</td><td>park</td></tr>
-  </table>
-  <h3 class="sub">Directions</h3>
-  <table>
-    <tr><td class="de">links / rechts / geradeaus</td><td>left / right / straight ahead</td></tr>
-    <tr><td class="de">hier / da / da drüben</td><td>here / there / over there</td></tr>
-    <tr><td class="de">in der Nähe / weit</td><td>nearby / far</td></tr>
-    <tr><td class="de">Entschuldigung, wo ist ...?</td><td>excuse me, where is ...?</td></tr>
-  </table>
-</section>
-
-<section id="home">
-  <h2 class="section-title"><span class="de">Zu Hause</span><span class="en">At home</span></h2>
-  <table>
-    <tr><th>Article</th><th>Word</th><th>English</th></tr>
-    <tr><td class="de">die</td><td class="de">Wohnung</td><td>apartment</td></tr>
-    <tr><td class="de">das</td><td class="de">Wohnzimmer</td><td>living room</td></tr>
-    <tr><td class="de">das</td><td class="de">Schlafzimmer</td><td>bedroom</td></tr>
-    <tr><td class="de">die</td><td class="de">Küche</td><td>kitchen</td></tr>
-    <tr><td class="de">das</td><td class="de">Bad</td><td>bathroom</td></tr>
-    <tr><td class="de">das</td><td class="de">Sofa</td><td>sofa</td></tr>
-    <tr><td class="de">das</td><td class="de">Regal</td><td>shelf</td></tr>
-    <tr><td class="de">der</td><td class="de">Schrank</td><td>wardrobe</td></tr>
-    <tr><td class="de">das</td><td class="de">Bett</td><td>bed</td></tr>
-    <tr><td class="de">der</td><td class="de">Tisch</td><td>table</td></tr>
-  </table>
-  <h3 class="sub">Two-way prepositions</h3>
-  <table>
-    <tr><td class="de">in, an, auf, unter, über, vor, hinter, neben, zwischen</td><td>in, at/on, on, under, over, in front of, behind, next to, between</td></tr>
-  </table>
-</section>
-
-<section id="body-health">
-  <h2 class="section-title"><span class="de">Körper und Gesundheit</span><span class="en">Body and health</span></h2>
-  <table>
-    <tr><th>Article</th><th>Word</th><th>English</th></tr>
-    <tr><td class="de">der</td><td class="de">Kopf</td><td>head</td></tr>
-    <tr><td class="de">der</td><td class="de">Hals</td><td>throat/neck</td></tr>
-    <tr><td class="de">der</td><td class="de">Bauch</td><td>stomach</td></tr>
-    <tr><td class="de">der</td><td class="de">Rücken</td><td>back</td></tr>
-    <tr><td class="de">das</td><td class="de">Bein</td><td>leg</td></tr>
-    <tr><td class="de">der</td><td class="de">Arm</td><td>arm</td></tr>
-    <tr><td class="de">die</td><td class="de">Hand</td><td>hand</td></tr>
-    <tr><td class="de">der</td><td class="de">Fuß</td><td>foot</td></tr>
-  </table>
-  <h3 class="sub">Health expressions</h3>
-  <table>
-    <tr><td class="de">Ich habe Kopfschmerzen/Fieber.</td><td>I have a headache/fever</td></tr>
-    <tr><td class="de">Mein/e ... tut/tun weh.</td><td>my ... hurts</td></tr>
-    <tr><td class="de">Was fehlt dir/Ihnen?</td><td>what's wrong?</td></tr>
-    <tr><td class="de">Gute Besserung!</td><td>get well soon!</td></tr>
-  </table>
-</section>
-
-<section id="clothing">
-  <h2 class="section-title"><span class="de">Kleidung</span><span class="en">Clothing</span></h2>
-  <table>
-    <tr><th>Article</th><th>Word</th><th>English</th></tr>
-    <tr><td class="de">die</td><td class="de">Jacke</td><td>jacket</td></tr>
-    <tr><td class="de">die</td><td class="de">Hose</td><td>trousers</td></tr>
-    <tr><td class="de">das</td><td class="de">Kleid</td><td>dress</td></tr>
-    <tr><td class="de">der</td><td class="de">Pullover</td><td>sweater</td></tr>
-    <tr><td class="de">das</td><td class="de">Hemd</td><td>shirt</td></tr>
-    <tr><td class="de">der</td><td class="de">Schuh</td><td>shoe</td></tr>
-  </table>
-  <h3 class="sub">Colors</h3>
-  <table>
-    <tr><td class="de">rot, blau, grün, gelb, schwarz, weiß, grau, orange</td><td>red, blue, green, yellow, black, white, gray, orange</td></tr>
-  </table>
-  <h3 class="sub">Shopping expressions</h3>
-  <table>
-    <tr><td class="de">Das gefällt mir. / Das steht dir gut.</td><td>I like it. / that suits you</td></tr>
-    <tr><td class="de">Es passt mir (nicht).</td><td>it fits me (doesn't fit)</td></tr>
-    <tr><td class="de">Welche Größe?</td><td>what size?</td></tr>
-  </table>
-</section>
-
-<section id="travel">
-  <h2 class="section-title"><span class="de">Reisen</span><span class="en">Travel</span></h2>
-  <table>
-    <tr><th>Article</th><th>Word</th><th>English</th></tr>
-    <tr><td class="de">der</td><td class="de">Urlaub</td><td>vacation</td></tr>
-    <tr><td class="de">die</td><td class="de">Reise</td><td>trip</td></tr>
-    <tr><td class="de">das</td><td class="de">Meer</td><td>sea</td></tr>
-    <tr><td class="de">der</td><td class="de">Berg</td><td>mountain</td></tr>
-    <tr><td class="de">der</td><td class="de">Bus</td><td>bus</td></tr>
-    <tr><td class="de">der</td><td class="de">Zug</td><td>train</td></tr>
-    <tr><td class="de">das</td><td class="de">Flugzeug</td><td>airplane</td></tr>
-  </table>
-  <h3 class="sub">Weather</h3>
-  <table>
-    <tr><td class="de">Es regnet. / Es schneit.</td><td>it's raining / snowing</td></tr>
-    <tr><td class="de">Es ist sonnig/warm/kalt/windig.</td><td>it's sunny/warm/cold/windy</td></tr>
-    <tr><td class="de">Norden, Süden, Osten, Westen</td><td>north, south, east, west</td></tr>
-  </table>
-</section>
-
-<section id="connectors">
-  <h2 class="section-title"><span class="de">Verbinder und Fragewörter</span><span class="en">Connectors and question words</span></h2>
-
-  <h3 class="sub">Connectors</h3>
-  <table>
-    <tr><td class="de">und</td><td>and</td></tr>
-    <tr><td class="de">oder</td><td>or</td></tr>
-    <tr><td class="de">aber</td><td>but</td></tr>
-  </table>
-
-  <h3 class="sub">The complete A1 question-word set</h3>
-  <table>
-    <tr><td class="de">wer / wen / wem</td><td>who (subject/object/dative)</td></tr>
-    <tr><td class="de">was</td><td>what</td></tr>
-    <tr><td class="de">wo / wohin / woher</td><td>where / where to / where from</td></tr>
-    <tr><td class="de">wann</td><td>when</td></tr>
-    <tr><td class="de">wie</td><td>how</td></tr>
-    <tr><td class="de">welcher/welche/welches</td><td>which</td></tr>
-    <tr><td class="de">warum</td><td>why <span style="color:var(--ink-mute); font-size:12px;">(Learn Later — full answer patterns with weil come after A1)</span></td></tr>
-  </table>
-</section>
-
-<section id="chunks">
-  <h2 class="section-title"><span class="de">Alltagsfloskeln</span><span class="en">Everyday chunks</span></h2>
-  <p class="section-intro">The reflexive phrases every A1 student needs on hand — greetings, courtesy, and small talk, gathered from all twelve chapters.</p>
   <div class="chunks">
-    <span class="chunk">Guten Morgen/Tag/Abend!</span>
-    <span class="chunk">Hallo! / Tschüss!</span>
-    <span class="chunk">Wie geht's? — Gut, danke.</span>
-    <span class="chunk">Auf Wiedersehen!</span>
-    <span class="chunk">Bitte / Danke (schön)</span>
-    <span class="chunk">Entschuldigung</span>
-    <span class="chunk">Tut mir leid.</span>
-    <span class="chunk">Kein Problem.</span>
-    <span class="chunk">Freut mich.</span>
-    <span class="chunk">Ein bisschen.</span>
-    <span class="chunk">Bis später! / Bis bald!</span>
-    <span class="chunk">Viel Glück!</span>
-    <span class="chunk">Herzlichen Glückwunsch!</span>
-    <span class="chunk">Gute Reise!</span>
-    <span class="chunk">Gute Besserung!</span>
+    <span class="chunk">Deutschland</span><span class="chunk">Indien</span><span class="chunk">Frankreich</span><span class="chunk">Spanien</span>
+    <span class="chunk">Italien</span><span class="chunk">Österreich</span><span class="chunk">die Schweiz</span><span class="chunk">England</span>
+    <span class="chunk">Polen</span><span class="chunk">Russland</span><span class="chunk">China</span><span class="chunk">Japan</span>
+    <span class="chunk">Brasilien</span><span class="chunk">Thailand</span><span class="chunk">die Türkei</span><span class="chunk">die USA</span>
+  </div>
+  <div class="chunks">
+    <span class="chunk">Deutsch</span><span class="chunk">Hindi</span><span class="chunk">Englisch</span><span class="chunk">Französisch</span>
+    <span class="chunk">Spanisch</span><span class="chunk">Italienisch</span><span class="chunk">Polnisch</span><span class="chunk">Russisch</span>
+    <span class="chunk">Chinesisch</span><span class="chunk">Japanisch</span><span class="chunk">Portugiesisch</span><span class="chunk">Thailändisch</span>
+    <span class="chunk">Türkisch</span><span class="chunk">Arabisch</span>
+  </div>
+
+  <h3 class="sub">Wichtige Verben &amp; Fragewörter <span class="en">Core verbs &amp; question words</span></h3>
+  <div class="chunks">
+    <span class="chunk">machen — to do/make</span><span class="chunk">heißen — to be called</span><span class="chunk">sein — to be</span>
+    <span class="chunk">haben — to have</span><span class="chunk">kommen — to come</span><span class="chunk">wohnen — to live</span>
+    <span class="chunk">sprechen — to speak</span><span class="chunk">sagen — to say</span><span class="chunk">fragen — to ask</span>
+    <span class="chunk">antworten — to answer</span><span class="chunk">lernen — to learn</span><span class="chunk">arbeiten — to work</span>
+    <span class="chunk">begrüßen — to greet</span><span class="chunk">sich vorstellen — to introduce oneself</span>
+    <span class="chunk">sich verabschieden — to say goodbye</span><span class="chunk">hören — to hear/listen</span>
+    <span class="chunk">schreiben — to write</span><span class="chunk">notieren — to note down</span><span class="chunk">ordnen — to arrange</span>
+    <span class="chunk">kombinieren — to combine</span><span class="chunk">ergänzen — to complete</span><span class="chunk">vergleichen — to compare</span>
+    <span class="chunk">buchstabieren — to spell</span><span class="chunk">wiederholen — to repeat</span><span class="chunk">bedeuten — to mean</span>
+    <span class="chunk">passen/zuordnen — to fit/match</span><span class="chunk">üben — to practise</span><span class="chunk">korrigieren — to correct</span>
+    <span class="chunk">kontrollieren — to check</span><span class="chunk">ausfüllen — to fill in/out</span>
+  </div>
+  <div class="chunks">
+    <span class="chunk">woher</span><span class="chunk">wo</span><span class="chunk">wie</span><span class="chunk">was</span>
+    <span class="chunk">wer</span><span class="chunk">wann</span><span class="chunk">welche / welcher / welches</span><span class="chunk">wie viele</span>
+  </div>
+
+  <h3 class="sub">Redemittel <span class="en">Useful expressions</span></h3>
+  <table>
+    <tr><td class="de">Hallo!</td><td>Hello!</td></tr>
+    <tr><td class="de">Guten Morgen!</td><td>Good morning!</td></tr>
+    <tr><td class="de">Guten Tag!</td><td>Good day / hello</td></tr>
+    <tr><td class="de">Guten Abend!</td><td>Good evening!</td></tr>
+    <tr><td class="de">Gute Nacht!</td><td>Good night!</td></tr>
+    <tr><td class="de">Tschüss! / Ciao!</td><td>Bye!</td></tr>
+    <tr><td class="de">Auf Wiedersehen!</td><td>Goodbye!</td></tr>
+    <tr><td class="de">Bis bald!</td><td>See you soon!</td></tr>
+    <tr><td class="de">Bis morgen!</td><td>See you tomorrow!</td></tr>
+    <tr><td class="de">Bis Montag!</td><td>See you on Monday!</td></tr>
+    <tr><td class="de">Herzlich willkommen!</td><td>A warm welcome!</td></tr>
+    <tr><td class="de">Dankeschön!</td><td>Thank you!</td></tr>
+    <tr><td class="de">Bitteschön!</td><td>You are welcome / here you are</td></tr>
+    <tr><td class="de">Entschuldigung!</td><td>Excuse me / sorry</td></tr>
+    <tr><td class="de">Wie bitte?</td><td>Pardon?</td></tr>
+    <tr><td class="de">Noch einmal, bitte.</td><td>Once again, please.</td></tr>
+    <tr><td class="de">Bitte ein bisschen langsamer.</td><td>A little more slowly, please.</td></tr>
+    <tr><td class="de">Das verstehe ich nicht.</td><td>I do not understand that.</td></tr>
+    <tr><td class="de">Was bedeutet ...?</td><td>What does ... mean?</td></tr>
+    <tr><td class="de">Wie sagt man ... auf Deutsch?</td><td>How do you say ... in German?</td></tr>
+    <tr><td class="de">Schönes Wochenende!</td><td>Have a nice weekend!</td></tr>
+    <tr><td class="de">Viel Spaß!</td><td>Have fun!</td></tr>
+  </table>
+</section>
+
+<!-- KAPITEL 2 -->
+<section id="k2">
+  <h2 class="section-title"><span class="de">Kapitel 2</span><span class="en">Freunde, Kollegen und ich</span></h2>
+
+  <h3 class="sub">Hobbys &amp; Freizeit <span class="en">Hobbies and free time</span></h3>
+  <table>
+    <tr><td class="de">die Freizeit</td><td>Sg.</td><td>free time</td></tr>
+    <tr><td class="de">das Hobby</td><td>-s</td><td>hobby</td></tr>
+  </table>
+  <div class="chunks">
+    <span class="chunk">spielen</span><span class="chunk">schwimmen</span><span class="chunk">lesen</span><span class="chunk">tanzen</span>
+    <span class="chunk">reisen</span><span class="chunk">kochen</span><span class="chunk">fotografieren</span><span class="chunk">joggen</span>
+    <span class="chunk">wandern</span><span class="chunk">singen</span><span class="chunk">malen</span><span class="chunk">zeichnen</span>
+    <span class="chunk">Rad fahren</span><span class="chunk">tauchen</span><span class="chunk">klettern</span><span class="chunk">backen</span>
+    <span class="chunk">Musik hören</span><span class="chunk">Bücher lesen</span><span class="chunk">Fußball spielen</span>
+    <span class="chunk">Tennis spielen</span><span class="chunk">Badminton spielen</span><span class="chunk">Sport machen</span>
+    <span class="chunk">gern/gerne</span><span class="chunk">nicht gern</span>
+  </div>
+
+  <h3 class="sub">Zeit, Termine, Arbeit &amp; Formulare <span class="en">Time, plans, work &amp; forms</span></h3>
+  <table>
+    <tr><th>Deutsch</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">der Montag</td><td>-e</td><td>Monday</td></tr>
+    <tr><td class="de">der Dienstag</td><td>-e</td><td>Tuesday</td></tr>
+    <tr><td class="de">der Mittwoch</td><td>-e</td><td>Wednesday</td></tr>
+    <tr><td class="de">der Donnerstag</td><td>-e</td><td>Thursday</td></tr>
+    <tr><td class="de">der Freitag</td><td>-e</td><td>Friday</td></tr>
+    <tr><td class="de">der Samstag</td><td>-e</td><td>Saturday</td></tr>
+    <tr><td class="de">der Sonntag</td><td>-e</td><td>Sunday</td></tr>
+    <tr><td class="de">die Woche</td><td>-n</td><td>week</td></tr>
+    <tr><td class="de">der Wochentag</td><td>-e</td><td>weekday</td></tr>
+    <tr><td class="de">der Arbeitstag</td><td>-e</td><td>working day</td></tr>
+    <tr><td class="de">das Wochenende</td><td>-n</td><td>weekend</td></tr>
+    <tr><td class="de">der Termin</td><td>-e</td><td>appointment</td></tr>
+    <tr><td class="de">die Verabredung</td><td>-en</td><td>arrangement / appointment</td></tr>
+    <tr><td class="de">der Terminkalender</td><td>-</td><td>appointment diary</td></tr>
+    <tr><td class="de">der Kalender</td><td>-</td><td>calendar</td></tr>
+    <tr><td class="de">der Stau</td><td>-s</td><td>traffic jam</td></tr>
+    <tr><td class="de">der Beruf</td><td>-e</td><td>profession / occupation</td></tr>
+    <tr><td class="de">der Job</td><td>-s</td><td>job</td></tr>
+    <tr><td class="de">der Nebenjob</td><td>-s</td><td>side job</td></tr>
+    <tr><td class="de">der Teilzeitjob</td><td>-s</td><td>part-time job</td></tr>
+    <tr><td class="de">die Arbeit</td><td>Sg.</td><td>work</td></tr>
+    <tr><td class="de">die Arbeitszeit</td><td>-en</td><td>working time / hours</td></tr>
+    <tr><td class="de">die Stunde</td><td>-n</td><td>hour</td></tr>
+    <tr><td class="de">das Zimmer</td><td>-</td><td>room</td></tr>
+    <tr><td class="de">das Kino</td><td>-s</td><td>cinema</td></tr>
+    <tr><td class="de">das Fest</td><td>-e</td><td>festival / celebration</td></tr>
+    <tr><td class="de">das Geschenk</td><td>-e</td><td>gift / present</td></tr>
+    <tr><td class="de">die Registrierung</td><td>-en</td><td>registration</td></tr>
+    <tr><td class="de">das Formular</td><td>-e</td><td>form</td></tr>
+    <tr><td class="de">das Geburtsdatum</td><td>Geburtsdaten</td><td>date of birth</td></tr>
+    <tr><td class="de">der Geburtsort</td><td>-e</td><td>place of birth</td></tr>
+    <tr><td class="de">das Geschlecht</td><td>-er</td><td>gender / sex</td></tr>
+    <tr><td class="de">die Angabe</td><td>-n</td><td>information / detail</td></tr>
+    <tr><td class="de">die Visitenkarte</td><td>-n</td><td>business card</td></tr>
+    <tr><td class="de">die Webseite</td><td>-n</td><td>website / web page</td></tr>
+    <tr><td class="de">die Postleitzahl</td><td>-en</td><td>postal code</td></tr>
+    <tr><td class="de">der Straßenname</td><td>-n</td><td>street name</td></tr>
+    <tr><td class="de">die Hausnummer</td><td>-n</td><td>house number</td></tr>
+    <tr><td class="de">die Stadt</td><td>¨-e</td><td>city</td></tr>
+    <tr><td class="de">die Hauptstadt</td><td>¨-e</td><td>capital city</td></tr>
+    <tr><td class="de">die Landkarte</td><td>-n</td><td>map</td></tr>
+    <tr><td class="de">die Europakarte</td><td>-n</td><td>map of Europe</td></tr>
+    <tr><td class="de">die Weltkarte</td><td>-n</td><td>world map</td></tr>
+    <tr><td class="de">die Geschwister</td><td>Pl.</td><td>siblings</td></tr>
+    <tr><td class="de">die Gesundheit</td><td>Sg.</td><td>health</td></tr>
+  </table>
+
+  <h3 class="sub">Berufe <span class="en">Professions</span></h3>
+  <table>
+    <tr><th>Deutsch (m / f)</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">der Tischler / die Tischlerin</td><td>- / -nen</td><td>carpenter</td></tr>
+    <tr><td class="de">der Krankenpfleger / die Krankenpflegerin</td><td>- / -nen</td><td>nurse</td></tr>
+    <tr><td class="de">die Krankenschwester</td><td>-n</td><td>female nurse</td></tr>
+    <tr><td class="de">der Trainer / die Trainerin</td><td>- / -nen</td><td>trainer</td></tr>
+    <tr><td class="de">der Bäcker / die Bäckerin</td><td>- / -nen</td><td>baker</td></tr>
+    <tr><td class="de">der Forscher / die Forscherin</td><td>- / -nen</td><td>researcher</td></tr>
+    <tr><td class="de">der Künstler / die Künstlerin</td><td>- / -nen</td><td>artist</td></tr>
+    <tr><td class="de">der Sänger / die Sängerin</td><td>- / -nen</td><td>singer</td></tr>
+    <tr><td class="de">der Tänzer / die Tänzerin</td><td>- / -nen</td><td>dancer</td></tr>
+    <tr><td class="de">der Bankangestellte / die Bankangestellte</td><td>-n</td><td>bank employee</td></tr>
+    <tr><td class="de">der Lehrer / die Lehrerin</td><td>- / -nen</td><td>teacher</td></tr>
+    <tr><td class="de">der Arzt / die Ärztin</td><td>¨-e / -nen</td><td>doctor</td></tr>
+    <tr><td class="de">der Ingenieur / die Ingenieurin</td><td>-e / -nen</td><td>engineer</td></tr>
+    <tr><td class="de">der Verkäufer / die Verkäuferin</td><td>- / -nen</td><td>salesperson</td></tr>
+    <tr><td class="de">der Student / die Studentin</td><td>-en / -nen</td><td>student</td></tr>
+    <tr><td class="de">der Journalist / die Journalistin</td><td>-en / -nen</td><td>journalist</td></tr>
+    <tr><td class="de">der Taxifahrer / die Taxifahrerin</td><td>- / -nen</td><td>taxi driver</td></tr>
+    <tr><td class="de">der Kellner / die Kellnerin</td><td>- / -nen</td><td>waiter / waitress</td></tr>
+    <tr><td class="de">der Informatiker / die Informatikerin</td><td>- / -nen</td><td>IT specialist</td></tr>
+    <tr><td class="de">der Architekt / die Architektin</td><td>-en / -nen</td><td>architect</td></tr>
+    <tr><td class="de">der Friseur / die Friseurin</td><td>-e / -nen</td><td>hairdresser</td></tr>
+    <tr><td class="de">der Koch / die Köchin</td><td>¨-e / -nen</td><td>cook / chef</td></tr>
+    <tr><td class="de">der Landwirt / die Landwirtin</td><td>-e / -nen</td><td>farmer</td></tr>
+    <tr><td class="de">der Musiker / die Musikerin</td><td>- / -nen</td><td>musician</td></tr>
+    <tr><td class="de">der Schauspieler / die Schauspielerin</td><td>- / -nen</td><td>actor / actress</td></tr>
+  </table>
+
+  <h3 class="sub">Adverbien, Adjektive &amp; kleine Wörter <span class="en">Useful small words</span></h3>
+  <div class="chunks">
+    <span class="chunk">genug</span><span class="chunk">manchmal</span><span class="chunk">etwas Besonderes</span>
+    <span class="chunk">ganz beschäftigt</span><span class="chunk">viele Hausaufgaben</span><span class="chunk">leider</span>
+    <span class="chunk">vielleicht</span><span class="chunk">nicht im Moment</span><span class="chunk">jeden Tag</span>
+    <span class="chunk">heute</span><span class="chunk">noch nicht</span><span class="chunk">schon</span><span class="chunk">zuerst</span>
+    <span class="chunk">nichts</span><span class="chunk">schnell</span><span class="chunk">hilfreich</span><span class="chunk">schwierig</span>
+    <span class="chunk">chaotisch</span><span class="chunk">digitalisiert</span><span class="chunk">heutzutage</span>
+    <span class="chunk">schön</span><span class="chunk">weiblich</span><span class="chunk">männlich</span><span class="chunk">keine Angabe</span>
+    <span class="chunk">verheiratet</span><span class="chunk">geschieden</span><span class="chunk">regelmäßig</span>
+    <span class="chunk">unregelmäßig</span><span class="chunk">fertig</span><span class="chunk">einander</span><span class="chunk">viel</span>
+    <span class="chunk">beide</span><span class="chunk">anwesend</span><span class="chunk">laut</span><span class="chunk">doppelt</span>
+    <span class="chunk">dreimal</span><span class="chunk">auch</span><span class="chunk">aber</span>
   </div>
 </section>
 
-<footer>Wortschatz Kompakt · Master Vocabulary — Netzwerk neu A1</footer>
+<!-- KAPITEL 3 -->
+<section id="k3">
+  <h2 class="section-title"><span class="de">Kapitel 3</span><span class="en">In Hamburg</span></h2>
+
+  <h3 class="sub">Orte, Gebäude &amp; Sehenswürdigkeiten <span class="en">Places, buildings &amp; sights</span></h3>
+  <table>
+    <tr><th>Deutsch</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">der Bahnhof</td><td>¨-e</td><td>train station</td></tr>
+    <tr><td class="de">der Hafen</td><td>¨-</td><td>harbour / port</td></tr>
+    <tr><td class="de">das Hotel</td><td>-s</td><td>hotel</td></tr>
+    <tr><td class="de">die Brücke</td><td>-n</td><td>bridge</td></tr>
+    <tr><td class="de">die Kirche</td><td>-n</td><td>church</td></tr>
+    <tr><td class="de">das Rathaus</td><td>¨-er</td><td>town hall</td></tr>
+    <tr><td class="de">das Museum</td><td>Museen</td><td>museum</td></tr>
+    <tr><td class="de">das Theater</td><td>-</td><td>theatre</td></tr>
+    <tr><td class="de">die Straße</td><td>-n</td><td>street</td></tr>
+    <tr><td class="de">die Stadt</td><td>¨-e</td><td>city</td></tr>
+    <tr><td class="de">der Turm</td><td>¨-e</td><td>tower</td></tr>
+    <tr><td class="de">der Fluss</td><td>¨-e</td><td>river</td></tr>
+    <tr><td class="de">der See</td><td>-n</td><td>lake</td></tr>
+    <tr><td class="de">der Park</td><td>-s</td><td>park</td></tr>
+    <tr><td class="de">der Garten</td><td>¨-</td><td>garden</td></tr>
+    <tr><td class="de">die Universität</td><td>-en</td><td>university</td></tr>
+    <tr><td class="de">die Schule</td><td>-n</td><td>school</td></tr>
+    <tr><td class="de">das Institut</td><td>-e</td><td>institute</td></tr>
+    <tr><td class="de">das Krankenhaus</td><td>¨-er</td><td>hospital</td></tr>
+    <tr><td class="de">der Flughafen</td><td>¨-</td><td>airport</td></tr>
+    <tr><td class="de">die Metzgerei</td><td>-en</td><td>butcher shop</td></tr>
+    <tr><td class="de">das Kino</td><td>-s</td><td>cinema</td></tr>
+    <tr><td class="de">das Konzerthaus</td><td>¨-er</td><td>concert hall</td></tr>
+    <tr><td class="de">der Palast</td><td>¨-e</td><td>palace</td></tr>
+    <tr><td class="de">der Hof</td><td>¨-e</td><td>courtyard</td></tr>
+    <tr><td class="de">der Tempel</td><td>-</td><td>temple</td></tr>
+    <tr><td class="de">die Wohnung</td><td>-en</td><td>apartment</td></tr>
+    <tr><td class="de">das Haus</td><td>¨-er</td><td>house</td></tr>
+    <tr><td class="de">der Zoo</td><td>-s</td><td>zoo</td></tr>
+    <tr><td class="de">der Wasserfall</td><td>¨-e</td><td>waterfall</td></tr>
+    <tr><td class="de">das Gericht</td><td>-e</td><td>court / dish</td></tr>
+    <tr><td class="de">die Post</td><td>-</td><td>post office / post</td></tr>
+    <tr><td class="de">das Postamt</td><td>¨-er</td><td>post office</td></tr>
+    <tr><td class="de">das Café</td><td>-s</td><td>café</td></tr>
+    <tr><td class="de">das Restaurant</td><td>-s</td><td>restaurant</td></tr>
+    <tr><td class="de">der Buchladen</td><td>¨-</td><td>bookshop</td></tr>
+    <tr><td class="de">die Bibliothek</td><td>-en</td><td>library</td></tr>
+    <tr><td class="de">die Kunsthalle</td><td>-n</td><td>art gallery / exhibition hall</td></tr>
+  </table>
+
+  <h3 class="sub">Verkehr &amp; Orientierung <span class="en">Transport and directions</span></h3>
+  <table>
+    <tr><th>Deutsch</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">der Bus</td><td>-se</td><td>bus</td></tr>
+    <tr><td class="de">der Zug</td><td>¨-e</td><td>train</td></tr>
+    <tr><td class="de">das Fahrrad</td><td>¨-er</td><td>bicycle</td></tr>
+    <tr><td class="de">die U-Bahn</td><td>-en</td><td>underground / subway</td></tr>
+    <tr><td class="de">die S-Bahn</td><td>-en</td><td>suburban train</td></tr>
+    <tr><td class="de">die Straßenbahn</td><td>-en</td><td>tram</td></tr>
+    <tr><td class="de">das Schiff</td><td>-e</td><td>ship</td></tr>
+    <tr><td class="de">das Taxi</td><td>-s</td><td>taxi</td></tr>
+    <tr><td class="de">das Verkehrsmittel</td><td>-</td><td>means of transport</td></tr>
+    <tr><td class="de">das Transportmittel</td><td>-</td><td>means of transport</td></tr>
+    <tr><td class="de">die Fahrkarte</td><td>-n</td><td>ticket</td></tr>
+    <tr><td class="de">der Stau</td><td>-s</td><td>traffic jam</td></tr>
+  </table>
+  <div class="chunks">
+    <span class="chunk">links</span><span class="chunk">rechts</span><span class="chunk">geradeaus</span><span class="chunk">hier</span>
+    <span class="chunk">dort/da</span><span class="chunk">gegenüber</span><span class="chunk">neben</span><span class="chunk">um die Ecke</span>
+    <span class="chunk">in der Nähe</span><span class="chunk">weit</span><span class="chunk">unterwegs</span><span class="chunk">zu Fuß</span>
+    <span class="chunk">im Norden</span><span class="chunk">im Süden</span><span class="chunk">im Osten</span><span class="chunk">im Westen</span>
+  </div>
+
+  <h3 class="sub">Stadtfakten, Events, Monate &amp; Jahreszeiten <span class="en">City facts, events, months &amp; seasons</span></h3>
+  <table>
+    <tr><th>Deutsch</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">die Sehenswürdigkeit</td><td>-en</td><td>sight / tourist attraction</td></tr>
+    <tr><td class="de">der Stadtplan</td><td>¨-e</td><td>city map</td></tr>
+    <tr><td class="de">der Startpunkt</td><td>-e</td><td>starting point</td></tr>
+    <tr><td class="de">das Ziel</td><td>-e</td><td>destination / goal</td></tr>
+    <tr><td class="de">der Besucher / die Besucherin</td><td>- / -nen</td><td>visitor</td></tr>
+    <tr><td class="de">das Jahr</td><td>-e</td><td>year</td></tr>
+    <tr><td class="de">die Bauzeit</td><td>-en</td><td>construction time</td></tr>
+    <tr><td class="de">die Kosten</td><td>Pl.</td><td>costs</td></tr>
+    <tr><td class="de">der Meter</td><td>-</td><td>metre</td></tr>
+    <tr><td class="de">das Wahrzeichen</td><td>-</td><td>landmark / symbol</td></tr>
+    <tr><td class="de">das Geburtshaus</td><td>¨-er</td><td>birth house / birthplace</td></tr>
+    <tr><td class="de">das Instrument</td><td>-e</td><td>instrument</td></tr>
+    <tr><td class="de">das Event</td><td>-s</td><td>event</td></tr>
+    <tr><td class="de">die Veranstaltung</td><td>-en</td><td>event / function</td></tr>
+    <tr><td class="de">das Festival</td><td>-s</td><td>festival</td></tr>
+    <tr><td class="de">das Orchester</td><td>-</td><td>orchestra</td></tr>
+    <tr><td class="de">der Chor</td><td>¨-e</td><td>choir</td></tr>
+    <tr><td class="de">das Konzert</td><td>-e</td><td>concert</td></tr>
+    <tr><td class="de">das Violinkonzert</td><td>-e</td><td>violin concert</td></tr>
+    <tr><td class="de">der Film</td><td>-e</td><td>film</td></tr>
+    <tr><td class="de">die Filmnacht</td><td>¨-e</td><td>film night</td></tr>
+    <tr><td class="de">das Musical</td><td>-s</td><td>musical</td></tr>
+    <tr><td class="de">die Party</td><td>-s</td><td>party</td></tr>
+    <tr><td class="de">das Publikum</td><td>-</td><td>audience</td></tr>
+    <tr><td class="de">die Produktion</td><td>-en</td><td>production</td></tr>
+    <tr><td class="de">der Regisseur / die Regisseurin</td><td>-e / -nen</td><td>director</td></tr>
+    <tr><td class="de">der Solist / die Solistin</td><td>-en / -nen</td><td>soloist</td></tr>
+    <tr><td class="de">der Dirigent / die Dirigentin</td><td>-en / -nen</td><td>conductor</td></tr>
+    <tr><td class="de">der Filmfan</td><td>-s</td><td>film fan</td></tr>
+    <tr><td class="de">das Ticket</td><td>-s</td><td>ticket</td></tr>
+    <tr><td class="de">die Karte</td><td>-n</td><td>ticket / card</td></tr>
+    <tr><td class="de">der Beginn</td><td>-e</td><td>beginning / start</td></tr>
+    <tr><td class="de">die Öffnungszeit</td><td>-en</td><td>opening time</td></tr>
+  </table>
+  <div class="chunks">
+    <span class="chunk">Januar</span><span class="chunk">Februar</span><span class="chunk">März</span><span class="chunk">April</span>
+    <span class="chunk">Mai</span><span class="chunk">Juni</span><span class="chunk">Juli</span><span class="chunk">August</span>
+    <span class="chunk">September</span><span class="chunk">Oktober</span><span class="chunk">November</span><span class="chunk">Dezember</span>
+  </div>
+  <div class="chunks">
+    <span class="chunk">der Frühling</span><span class="chunk">der Sommer</span><span class="chunk">der Herbst</span><span class="chunk">der Winter</span>
+  </div>
+
+  <h3 class="sub">Verben, Adjektive &amp; feste Wendungen <span class="en">Verbs, adjectives &amp; chunks</span></h3>
+  <div class="chunks">
+    <span class="chunk">fahren</span><span class="chunk">gehen</span><span class="chunk">liegen</span><span class="chunk">suchen</span>
+    <span class="chunk">besuchen</span><span class="chunk">nehmen</span><span class="chunk">zeigen</span><span class="chunk">abholen</span>
+    <span class="chunk">regnen</span><span class="chunk">scheinen</span><span class="chunk">beginnen</span><span class="chunk">enden</span>
+    <span class="chunk">stattfinden</span><span class="chunk">feiern</span><span class="chunk">geboren</span><span class="chunk">schön</span>
+    <span class="chunk">hoch</span><span class="chunk">lang</span><span class="chunk">alt</span><span class="chunk">neu</span>
+    <span class="chunk">interessant</span><span class="chunk">deutschsprachig</span><span class="chunk">bekannt</span><span class="chunk">berühmt</span>
+  </div>
+  <table>
+    <tr><td class="de">Moin!</td><td>hello (northern Germany)</td></tr>
+    <tr><td class="de">Wo liegt Hamburg?</td><td>Where is Hamburg located?</td></tr>
+    <tr><td class="de">Was ist das?</td><td>What is that?</td></tr>
+    <tr><td class="de">Was sind das?</td><td>What are those?</td></tr>
+    <tr><td class="de">Wie komme ich zum Bahnhof?</td><td>How do I get to the station?</td></tr>
+    <tr><td class="de">Gehen Sie geradeaus.</td><td>Go straight ahead.</td></tr>
+    <tr><td class="de">Dann links / rechts.</td><td>Then left / right.</td></tr>
+  </table>
+</section>
+
+<!-- KAPITEL 4 -->
+<section id="k4">
+  <h2 class="section-title"><span class="de">Kapitel 4</span><span class="en">Guten Appetit!</span></h2>
+
+  <h3 class="sub">Lebensmittel &amp; Getränke <span class="en">Food and drinks</span></h3>
+  <table>
+    <tr><th>Deutsch</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">der Apfel</td><td>Äpfel</td><td>apple</td></tr>
+    <tr><td class="de">der Apfelsaft</td><td>¨-e</td><td>apple juice</td></tr>
+    <tr><td class="de">die Banane</td><td>-n</td><td>banana</td></tr>
+    <tr><td class="de">das Brot</td><td>-e</td><td>bread</td></tr>
+    <tr><td class="de">das Brötchen</td><td>-</td><td>bread roll</td></tr>
+    <tr><td class="de">die Butter</td><td>Sg.</td><td>butter</td></tr>
+    <tr><td class="de">das Ei</td><td>-er</td><td>egg</td></tr>
+    <tr><td class="de">das Fleisch</td><td>Sg.</td><td>meat</td></tr>
+    <tr><td class="de">das Gemüse</td><td>-</td><td>vegetables</td></tr>
+    <tr><td class="de">die Gurke</td><td>-n</td><td>cucumber</td></tr>
+    <tr><td class="de">der/das Joghurt</td><td>-s</td><td>yogurt</td></tr>
+    <tr><td class="de">die Kartoffel</td><td>-n</td><td>potato</td></tr>
+    <tr><td class="de">der Käse</td><td>Sg.</td><td>cheese</td></tr>
+    <tr><td class="de">die Marmelade</td><td>-n</td><td>jam</td></tr>
+    <tr><td class="de">die Milch</td><td>Sg.</td><td>milk</td></tr>
+    <tr><td class="de">das Müsli</td><td>-s</td><td>muesli</td></tr>
+    <tr><td class="de">das Öl</td><td>-e</td><td>oil</td></tr>
+    <tr><td class="de">der Orangensaft</td><td>¨-e</td><td>orange juice</td></tr>
+    <tr><td class="de">der Salat</td><td>-e</td><td>salad</td></tr>
+    <tr><td class="de">der Schinken</td><td>-</td><td>ham</td></tr>
+    <tr><td class="de">die Schokolade</td><td>-n</td><td>chocolate</td></tr>
+    <tr><td class="de">die Suppe</td><td>-n</td><td>soup</td></tr>
+    <tr><td class="de">die Tomate</td><td>-n</td><td>tomato</td></tr>
+    <tr><td class="de">die Wurst</td><td>¨-e</td><td>sausage</td></tr>
+    <tr><td class="de">das Wasser</td><td>-</td><td>water</td></tr>
+    <tr><td class="de">der Kaffee</td><td>-s</td><td>coffee</td></tr>
+    <tr><td class="de">der Tee</td><td>-s</td><td>tea</td></tr>
+    <tr><td class="de">der Essig</td><td>-e</td><td>vinegar</td></tr>
+    <tr><td class="de">der Pfeffer</td><td>-</td><td>pepper</td></tr>
+    <tr><td class="de">das Salz</td><td>-e</td><td>salt</td></tr>
+    <tr><td class="de">die Sahne</td><td>Sg.</td><td>cream</td></tr>
+    <tr><td class="de">der Zucker</td><td>Sg.</td><td>sugar</td></tr>
+    <tr><td class="de">der Kuchen</td><td>-</td><td>cake</td></tr>
+    <tr><td class="de">der/das Keks</td><td>-e</td><td>biscuit / cookie</td></tr>
+    <tr><td class="de">der Saft</td><td>¨-e</td><td>juice</td></tr>
+    <tr><td class="de">die/das Cola</td><td>-s</td><td>cola</td></tr>
+    <tr><td class="de">die Birne</td><td>-n</td><td>pear</td></tr>
+    <tr><td class="de">die Kiwi</td><td>-s</td><td>kiwi</td></tr>
+    <tr><td class="de">die Nudel</td><td>-n</td><td>noodle / pasta</td></tr>
+    <tr><td class="de">der Reis</td><td>Sg.</td><td>rice</td></tr>
+    <tr><td class="de">die Olive</td><td>-n</td><td>olive</td></tr>
+    <tr><td class="de">der Fisch</td><td>-e</td><td>fish</td></tr>
+    <tr><td class="de">das Hähnchen</td><td>-</td><td>chicken</td></tr>
+    <tr><td class="de">das Würstchen</td><td>-</td><td>small sausage</td></tr>
+    <tr><td class="de">die Pommes frites</td><td>Pl.</td><td>fries</td></tr>
+    <tr><td class="de">die Pizza</td><td>-s</td><td>pizza</td></tr>
+    <tr><td class="de">die Zwiebel</td><td>-n</td><td>onion</td></tr>
+    <tr><td class="de">die Karotte</td><td>-n</td><td>carrot</td></tr>
+    <tr><td class="de">die Paprika</td><td>-s</td><td>bell pepper</td></tr>
+    <tr><td class="de">der Champignon</td><td>-s</td><td>mushroom</td></tr>
+    <tr><td class="de">das Obst</td><td>Sg.</td><td>fruit</td></tr>
+    <tr><td class="de">die Limonade</td><td>-n</td><td>lemonade</td></tr>
+    <tr><td class="de">der Döner</td><td>-</td><td>döner</td></tr>
+    <tr><td class="de">das Dessert</td><td>-s</td><td>dessert</td></tr>
+  </table>
+
+  <h3 class="sub">Mahlzeiten, Geschäfte, Packungen &amp; Maße <span class="en">Meals, shops, packaging &amp; measures</span></h3>
+  <table>
+    <tr><th>Deutsch</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">das Frühstück</td><td>-e</td><td>breakfast</td></tr>
+    <tr><td class="de">das Mittagessen</td><td>-</td><td>lunch</td></tr>
+    <tr><td class="de">das Abendessen</td><td>-</td><td>dinner</td></tr>
+    <tr><td class="de">das Essen</td><td>-</td><td>food / meal</td></tr>
+    <tr><td class="de">das Gericht</td><td>-e</td><td>dish / meal</td></tr>
+    <tr><td class="de">die Mahlzeit</td><td>-en</td><td>meal</td></tr>
+    <tr><td class="de">die Grillparty</td><td>-s</td><td>barbecue party</td></tr>
+    <tr><td class="de">die Einladung</td><td>-en</td><td>invitation</td></tr>
+    <tr><td class="de">die Kantine</td><td>-n</td><td>canteen</td></tr>
+    <tr><td class="de">die Bäckerei</td><td>-en</td><td>bakery</td></tr>
+    <tr><td class="de">die Metzgerei</td><td>-en</td><td>butcher shop</td></tr>
+    <tr><td class="de">der Markt</td><td>¨-e</td><td>market</td></tr>
+    <tr><td class="de">der Supermarkt</td><td>¨-e</td><td>supermarket</td></tr>
+    <tr><td class="de">der Einkaufswagen</td><td>-</td><td>shopping cart</td></tr>
+    <tr><td class="de">der Kassenzettel</td><td>-</td><td>receipt</td></tr>
+    <tr><td class="de">der Preis</td><td>-e</td><td>price</td></tr>
+    <tr><td class="de">die Packung</td><td>-en</td><td>packet / package</td></tr>
+    <tr><td class="de">der Becher</td><td>-</td><td>cup / tub</td></tr>
+    <tr><td class="de">die Dose</td><td>-n</td><td>can / tin</td></tr>
+    <tr><td class="de">die Flasche</td><td>-n</td><td>bottle</td></tr>
+    <tr><td class="de">das Glas</td><td>¨-er</td><td>glass / jar</td></tr>
+    <tr><td class="de">das Stück</td><td>-e</td><td>piece</td></tr>
+    <tr><td class="de">die Tüte</td><td>-n</td><td>bag</td></tr>
+    <tr><td class="de">das Gramm</td><td>-</td><td>gram</td></tr>
+    <tr><td class="de">das Kilo(gramm)</td><td>-</td><td>kilo(gram)</td></tr>
+    <tr><td class="de">der Liter</td><td>-</td><td>litre</td></tr>
+    <tr><td class="de">die Verpackung</td><td>-en</td><td>packaging</td></tr>
+    <tr><td class="de">das Maß</td><td>-e</td><td>measure</td></tr>
+  </table>
+
+  <h3 class="sub">Verben, Adjektive, Tageszeiten &amp; Redemittel <span class="en">Verbs, adjectives, time &amp; phrases</span></h3>
+  <div class="chunks">
+    <span class="chunk">essen</span><span class="chunk">trinken</span><span class="chunk">kaufen</span><span class="chunk">einkaufen</span>
+    <span class="chunk">brauchen</span><span class="chunk">haben</span><span class="chunk">nehmen</span><span class="chunk">möchten</span>
+    <span class="chunk">mögen</span><span class="chunk">schmecken</span><span class="chunk">kosten</span><span class="chunk">finden</span>
+    <span class="chunk">kochen</span><span class="chunk">mitbringen</span><span class="chunk">machen</span><span class="chunk">probieren</span>
+    <span class="chunk">frühstücken</span><span class="chunk">waschen</span><span class="chunk">schälen</span><span class="chunk">schneiden</span>
+    <span class="chunk">zubereiten</span><span class="chunk">bezahlen</span>
+  </div>
+  <div class="chunks">
+    <span class="chunk">lecker</span><span class="chunk">süß</span><span class="chunk">frisch</span><span class="chunk">satt</span>
+    <span class="chunk">teuer</span><span class="chunk">günstig</span><span class="chunk">warm</span><span class="chunk">kalt</span>
+  </div>
+  <div class="chunks">
+    <span class="chunk">morgens</span><span class="chunk">vormittags</span><span class="chunk">mittags</span><span class="chunk">nachmittags</span>
+    <span class="chunk">abends</span><span class="chunk">nachts</span><span class="chunk">am Morgen</span><span class="chunk">am Abend</span>
+    <span class="chunk">heute Abend</span><span class="chunk">morgen Abend</span>
+  </div>
+  <table>
+    <tr><td class="de">Guten Appetit!</td><td>Enjoy your meal!</td></tr>
+    <tr><td class="de">Danke, gleichfalls!</td><td>Thanks, same to you!</td></tr>
+    <tr><td class="de">Mahlzeit!</td><td>Enjoy your meal / mealtime greeting</td></tr>
+    <tr><td class="de">Prost! / Zum Wohl!</td><td>Cheers!</td></tr>
+    <tr><td class="de">Schmeckt's?</td><td>Does it taste good?</td></tr>
+    <tr><td class="de">Ich bin satt.</td><td>I am full.</td></tr>
+    <tr><td class="de">Möchtest du noch ...?</td><td>Would you like some more ...?</td></tr>
+    <tr><td class="de">Entschuldigung, wo finde ich ...?</td><td>Excuse me, where can I find ...?</td></tr>
+    <tr><td class="de">Wo gibt es ...?</td><td>Where is / are there ...?</td></tr>
+    <tr><td class="de">Wer kommt dran?</td><td>Whose turn is it?</td></tr>
+    <tr><td class="de">Ich möchte bitte ...</td><td>I would like ... please.</td></tr>
+    <tr><td class="de">Noch etwas?</td><td>Anything else?</td></tr>
+    <tr><td class="de">Das ist alles.</td><td>That is all.</td></tr>
+    <tr><td class="de">Was kostet das?</td><td>How much does that cost?</td></tr>
+    <tr><td class="de">Wie viel kostet ...?</td><td>How much does ... cost?</td></tr>
+    <tr><td class="de">Das macht ... Euro, bitte.</td><td>That comes to ... euros, please.</td></tr>
+    <tr><td class="de">Was brauchen wir?</td><td>What do we need?</td></tr>
+    <tr><td class="de">Wer kauft was?</td><td>Who buys what?</td></tr>
+    <tr><td class="de">Wer kocht?</td><td>Who is cooking?</td></tr>
+    <tr><td class="de">Wir kochen zusammen.</td><td>We cook together.</td></tr>
+    <tr><td class="de">Danke für die Einladung.</td><td>Thanks for the invitation.</td></tr>
+  </table>
+</section>
+
+<!-- CLASS EXTRAS -->
+<section id="extras">
+  <h2 class="section-title"><span class="de">Class Extras</span><span class="en">Additional class-note vocabulary</span></h2>
+  <p class="section-intro">Weitere Wörter, die in deinen Klassennotizen im Chat vorkamen.</p>
+  <table>
+    <tr><th>Deutsch</th><th>Plural</th><th>English</th></tr>
+    <tr><td class="de">das Handtuch</td><td>¨-er</td><td>towel</td></tr>
+    <tr><td class="de">der Koffer</td><td>-</td><td>suitcase</td></tr>
+    <tr><td class="de">der Kindergarten</td><td>¨-</td><td>kindergarten</td></tr>
+    <tr><td class="de">das Butterbrot</td><td>-e</td><td>bread with butter / sandwich</td></tr>
+    <tr><td class="de">der Kranke / die Kranke</td><td>-n</td><td>sick person / patient</td></tr>
+    <tr><td class="de">die Autobahn</td><td>-en</td><td>motorway / highway</td></tr>
+    <tr><td class="de">die Zahl</td><td>-en</td><td>number</td></tr>
+    <tr><td class="de">der Kühlschrank</td><td>¨-e</td><td>refrigerator</td></tr>
+    <tr><td class="de">die Leute</td><td>Pl.</td><td>people</td></tr>
+    <tr><td class="de">das Schloss</td><td>¨-er</td><td>castle / palace</td></tr>
+    <tr><td class="de">die Metro</td><td>-s</td><td>metro</td></tr>
+    <tr><td class="de">die Energie</td><td>Sg.</td><td>energy</td></tr>
+    <tr><td class="de">die Lebensmittel</td><td>Pl.</td><td>food / groceries</td></tr>
+    <tr><td class="de">die Milchprodukte</td><td>Pl.</td><td>dairy products</td></tr>
+    <tr><td class="de">das Geschäft</td><td>-e</td><td>shop / business</td></tr>
+    <tr><td class="de">die Küche</td><td>-n</td><td>kitchen</td></tr>
+    <tr><td class="de">der Bauer</td><td>-n</td><td>farmer</td></tr>
+    <tr><td class="de">die Portion</td><td>-en</td><td>portion</td></tr>
+  </table>
+  <div class="chunks">
+    <span class="chunk">vegetarisch</span><span class="chunk">gestern</span><span class="chunk">vorgestern</span>
+    <span class="chunk">beschäftigt</span><span class="chunk">chaotisch</span>
+  </div>
+  <table>
+    <tr><td class="de">der Arbeitstag</td><td>-e</td><td>working day</td></tr>
+    <tr><td class="de">der Stau</td><td>-s</td><td>traffic jam</td></tr>
+    <tr><td class="de">der Termin</td><td>-e</td><td>appointment</td></tr>
+    <tr><td class="de">der Terminkalender</td><td>-</td><td>appointment calendar</td></tr>
+  </table>
+</section>
+
+<hr class="rule">
+<footer>Netzwerk neu A1 — Vocabulary Master · updated as new chapters are covered</footer>
 
 </div>
-
-<script>
-const VOCAB = {
-  "Classroom": [
-    ["Hören Sie.", "Listen."], ["Lesen Sie.", "Read."], ["Schreiben Sie.", "Write."],
-    ["Wiederholen Sie.", "Repeat."], ["Ich verstehe nicht.", "I don't understand."],
-    ["Wie bitte?", "Sorry, what?"], ["das Buch", "book"], ["das Heft", "notebook"],
-    ["die Übung", "exercise"], ["die Frage", "question"], ["die Antwort", "answer"], ["der Fehler", "mistake"]
-  ],
-  "People & pronouns": [
-    ["ich", "I"], ["du", "you (informal)"], ["er", "he"], ["sie", "she"], ["wir", "we"],
-    ["der Vater", "father"], ["die Mutter", "mother"], ["der Bruder", "brother"], ["die Schwester", "sister"],
-    ["der Freund", "friend (m)"], ["die Kollegin", "colleague (f)"]
-  ],
-  "Numbers & time": [
-    ["eins", "one"], ["zwei", "two"], ["zehn", "ten"], ["zwanzig", "twenty"], ["hundert", "hundred"],
-    ["Montag", "Monday"], ["Wochenende", "weekend"], ["heute", "today"], ["morgen", "tomorrow"],
-    ["gestern", "yesterday"], ["Wie spät ist es?", "what time is it?"]
-  ],
-  "Daily verbs": [
-    ["sein", "to be"], ["haben", "to have"], ["gehen", "to go"], ["kommen", "to come"],
-    ["machen", "to do/make"], ["arbeiten", "to work"], ["essen", "to eat"], ["trinken", "to drink"],
-    ["schlafen", "to sleep"], ["sprechen", "to speak"]
-  ],
-  "Food & drink": [
-    ["das Brot", "bread"], ["der Käse", "cheese"], ["das Wasser", "water"], ["der Kaffee", "coffee"],
-    ["der Apfel", "apple"], ["das Gemüse", "vegetables"], ["der Kuchen", "cake"], ["die Milch", "milk"]
-  ],
-  "Places": [
-    ["das Rathaus", "town hall"], ["der Bahnhof", "train station"], ["die Kirche", "church"],
-    ["das Krankenhaus", "hospital"], ["die Apotheke", "pharmacy"], ["der Park", "park"]
-  ],
-  "Home": [
-    ["die Wohnung", "apartment"], ["das Wohnzimmer", "living room"], ["die Küche", "kitchen"],
-    ["das Bett", "bed"], ["der Schrank", "wardrobe"], ["der Tisch", "table"]
-  ],
-  "Body & health": [
-    ["der Kopf", "head"], ["der Bauch", "stomach"], ["der Rücken", "back"], ["das Bein", "leg"],
-    ["die Hand", "hand"], ["Ich habe Kopfschmerzen.", "I have a headache"]
-  ],
-  "Clothing & colors": [
-    ["die Jacke", "jacket"], ["die Hose", "trousers"], ["das Kleid", "dress"], ["der Pullover", "sweater"],
-    ["rot", "red"], ["blau", "blue"], ["schwarz", "black"]
-  ],
-  "Travel": [
-    ["der Urlaub", "vacation"], ["das Meer", "sea"], ["der Berg", "mountain"], ["der Zug", "train"],
-    ["Es regnet.", "it's raining"], ["Norden", "north"]
-  ]
-};
-
-const NA1V = (() => {
-  const STORAGE_KEY = 'na1_vocab_mistakes';
-  let currentCat = Object.keys(VOCAB)[0];
-  let cards = VOCAB[currentCat];
-  let idx = 0, showingAnswer = false;
-  let quizOrder = [], quizIdx = 0, quizScore = 0, quizTotal = 0;
-
-  function loadMistakes() {
-    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
-    catch (e) { return {}; }
-  }
-  function saveMistakes(obj) {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(obj)); } catch (e) {}
-  }
-  function norm(s){ return (s||'').trim().toLowerCase().replace(/\s+/g,' '); }
-
-  function logMistake(itemId, meta) {
-    const all = loadMistakes();
-    const prev = all[itemId] || { count: 0 };
-    all[itemId] = { itemId, word: meta.word, meaning: meta.meaning, count: (prev.count||0)+1, lastWrong: new Date().toISOString(), cleared: false };
-    saveMistakes(all);
-    renderTracker();
-  }
-  function clearMistake(itemId) {
-    const all = loadMistakes();
-    if (all[itemId]) { all[itemId].cleared = true; saveMistakes(all); renderTracker(); }
-  }
-  function getAllMistakes() {
-    const all = loadMistakes();
-    return Object.values(all).filter(m => !m.cleared);
-  }
-
-  function setupCategorySelect() {
-    const sel = document.getElementById('cat-select');
-    sel.innerHTML = Object.keys(VOCAB).map(c => `<option value="${c}">${c}</option>`).join('');
-    sel.addEventListener('change', () => {
-      currentCat = sel.value;
-      cards = VOCAB[currentCat];
-      idx = 0; showingAnswer = false;
-      renderFlashcard();
-      startQuiz();
-    });
-    document.querySelectorAll('.mode-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        const mode = btn.getAttribute('data-mode');
-        document.getElementById('flash-area').style.display = mode === 'flash' ? '' : 'none';
-        document.getElementById('quiz-area').style.display = mode === 'quiz' ? '' : 'none';
-        if (mode === 'quiz') startQuiz();
-      });
-    });
-    document.getElementById('flip-btn').addEventListener('click', flipCard);
-    document.getElementById('next-btn').addEventListener('click', nextCard);
-    document.getElementById('flashcard').addEventListener('click', flipCard);
-    document.getElementById('quiz-check-btn').addEventListener('click', checkQuiz);
-    document.getElementById('quiz-input').addEventListener('keydown', (e) => { if (e.key==='Enter') checkQuiz(); });
-  }
-
-  function renderFlashcard() {
-    const face = document.getElementById('card-front');
-    const progress = document.getElementById('flash-progress');
-    const [word, meaning] = cards[idx];
-    face.textContent = showingAnswer ? meaning : word;
-    face.className = 'flashcard-face' + (showingAnswer ? ' answer' : '');
-    progress.textContent = `${idx+1} / ${cards.length}`;
-  }
-  function flipCard() { showingAnswer = !showingAnswer; renderFlashcard(); }
-  function nextCard() { idx = (idx+1) % cards.length; showingAnswer = false; renderFlashcard(); }
-
-  function startQuiz() {
-    quizOrder = cards.map((_,i)=>i).sort(()=>Math.random()-0.5);
-    quizIdx = 0; quizScore = 0; quizTotal = 0;
-    renderQuiz();
-  }
-  function renderQuiz() {
-    if (quizIdx >= quizOrder.length) {
-      document.getElementById('quiz-prompt').textContent = 'Category complete!';
-      document.getElementById('quiz-input').style.display = 'none';
-      document.getElementById('quiz-check-btn').style.display = 'none';
-      document.getElementById('quiz-score').textContent = `Score: ${quizScore} / ${quizTotal}`;
-      return;
-    }
-    document.getElementById('quiz-input').style.display = '';
-    document.getElementById('quiz-check-btn').style.display = '';
-    const [word] = cards[quizOrder[quizIdx]];
-    document.getElementById('quiz-prompt').textContent = word;
-    document.getElementById('quiz-input').value = '';
-    document.getElementById('quiz-feedback').textContent = '';
-    document.getElementById('quiz-score').textContent = `Score: ${quizScore} / ${quizTotal}`;
-  }
-  function checkQuiz() {
-    const [word, meaning] = cards[quizOrder[quizIdx]];
-    const given = norm(document.getElementById('quiz-input').value);
-    const correctOptions = meaning.split('/').map(norm);
-    const isRight = correctOptions.some(o => o.includes(given) || given.includes(o)) && given.length > 1;
-    const feedback = document.getElementById('quiz-feedback');
-    quizTotal++;
-    const itemId = `${currentCat}-${word}`.replace(/[^a-zA-Z0-9]/g,'_');
-    if (isRight) {
-      quizScore++;
-      feedback.textContent = 'Richtig!';
-      feedback.style.color = 'var(--green)';
-      clearMistake(itemId);
-    } else {
-      feedback.textContent = `Not quite — "${word}" means "${meaning}"`;
-      feedback.style.color = 'var(--red)';
-      logMistake(itemId, { word, meaning });
-    }
-    quizIdx++;
-    setTimeout(renderQuiz, 900);
-  }
-
-  function renderTracker() {
-    const list = document.getElementById('tracker-list');
-    if (!list) return;
-    const mistakes = getAllMistakes();
-    if (mistakes.length === 0) {
-      list.innerHTML = '<p class="tracker-empty">No open mistakes yet — take the quiz to build your list.</p>';
-      return;
-    }
-    list.innerHTML = mistakes.map(m => `
-      <div class="tracker-item">
-        <span><span class="de-text">${m.word}</span> — ${m.meaning} <span style="color:var(--ink-mute);">(missed ${m.count}×)</span></span>
-        <button class="clear-btn" data-clear="${m.itemId}">mark reviewed</button>
-      </div>`).join('');
-    list.querySelectorAll('[data-clear]').forEach(b => {
-      b.addEventListener('click', () => clearMistake(b.getAttribute('data-clear')));
-    });
-  }
-
-  setupCategorySelect();
-  renderFlashcard();
-  renderTracker();
-
-  return {};
-})();
-</script>
 
 <div class="float-nav">
   <a href="index.html" class="float-btn home-btn" aria-label="Back to home">&#8962;&nbsp;Home</a>

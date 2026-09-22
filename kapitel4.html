@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kapitel 4 — Guten Appetit!</title>
+<title>Kapitel 3 — In Hamburg</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -454,6 +454,19 @@ footer{
 .tracker-empty{color:var(--ink-mute); font-size:13.5px; font-style:italic;}
 .persist-note{font-size:12px; color:var(--ink-mute); margin-top:8px;}
 
+/* combined practice widgets */
+.mixed-prompt{
+  border:1px solid var(--rule);
+  border-radius:10px;
+  padding:20px 24px;
+  margin:20px 0;
+  background:var(--paper-2);
+}
+.mp-title{font-family:var(--sans); font-weight:600; font-size:14px; color:var(--ink); margin:0 0 8px;}
+.mp-body{margin:0 0 14px; color:var(--ink-soft);}
+.mp-answer{margin-top:12px; padding-top:12px; border-top:1px solid var(--rule);}
+.mp-note{font-size:12.5px; color:var(--ink-mute); margin-top:8px;}
+
 /* floating nav buttons */
 .float-nav{
   position:fixed;
@@ -499,19 +512,17 @@ footer{
 <header class="hero">
   <p class="eyebrow">Netzwerk neu A1 · Kapitel 4</p>
   <h1 class="title">Guten Appetit! <em>— Enjoy your meal!</em></h1>
-  <p class="subtitle">Food, drinks, shopping — and the accusative case</p>
+  <p class="subtitle">Food, shopping, dining conversations, and the accusative case</p>
 </header>
 
 <nav class="toc" aria-label="Chapter sections">
   <a href="#overview">Overview</a>
   <a href="#grammar">Grammar</a>
   <a href="#sentence-factory">Sentence factory</a>
-  <a href="#question-factory">Question factory</a>
-  <a href="#speaking-factory">Speaking factory</a>
   <a href="#vocabulary">Vocabulary</a>
-  <a href="#exercises">Exercises</a>
-  <a href="#answers">Answer key</a>
-  <a href="#pronunciation">Pronunciation</a>
+  <a href="#dialogues">Dialogues</a>
+  <a href="#reading">Reading texts</a>
+  <a href="#combined-practice">K1–K4 Practice</a>
   <a href="#mistakes">Common mistakes</a>
   <a href="#revision">Quick revision</a>
 </nav>
@@ -519,210 +530,136 @@ footer{
 <!-- OVERVIEW -->
 <section id="overview">
   <h2 class="section-title"><span class="de">Kapitelüberblick</span><span class="en">Chapter overview</span></h2>
-  <p class="section-intro">Kapitel 4 introduces the accusative case — the first real German grammar hurdle. It changes how articles behave the moment a noun becomes the object of a sentence, and it shows up everywhere once you start talking about eating, buying, and wanting things.</p>
+  <p class="section-intro">Kapitel 4 takes you into the kitchen and the supermarket. This is where German grammar gets its first real case system — the accusative — because now you're not just naming things, you're buying, eating, and needing them.</p>
+  <p class="section-intro" style="color:var(--ink-mute); font-size:14px;">Covers the full chapter (pages 44–53), cross-checked against the chapter summary (Plattform: kurz und klar) on page 53.</p>
 
   <h3 class="sub">What this chapter is about</h3>
-  <p>You'll learn food and drink vocabulary, the names of different shops, how to talk about meals and mealtimes, and — most importantly — the accusative case: how "the/a" changes when a noun is the direct object of a verb like <span class="de-text">essen, kaufen, brauchen, möchten</span>.</p>
+  <p>You'll learn food vocabulary across every meal of the day, how to shop and ask about prices, how to talk about food you like or dislike, and — the big grammar point — the <span class="de-text">Akkusativ</span> (accusative case): the article change that happens when a noun is the direct object of a verb.</p>
 
   <h3 class="sub">What you should be able to say after finishing it</h3>
   <ul>
-    <li>Name common foods, drinks, and meals</li>
-    <li>Say what you eat, buy, need, or would like, using correct accusative articles</li>
-    <li>Have a basic shopping conversation at a bakery, butcher, or supermarket</li>
-    <li>Order food or drink politely</li>
-    <li>Say "Guten Appetit" and respond to it correctly</li>
+    <li>Name breakfast, lunch, and dinner foods, plus drinks and shopping items</li>
+    <li>Use the accusative case correctly: <span class="de-text">Ich kaufe den Käse</span> vs. <span class="de-text">Der Käse ist gut</span></li>
+    <li>Shop for groceries: ask prices, understand totals, request a bag</li>
+    <li>Say what you like/dislike eating and drinking, using both <span class="de-text">gern</span> and <span class="de-text">mögen</span></li>
+    <li>Hold a full dining conversation: offering food, accepting, declining, saying you're full</li>
   </ul>
 
   <h3 class="sub">Where you use this in real life</h3>
-  <p>Ordering in a café, shopping for groceries, telling a host what you'd like to eat, or explaining your diet — this chapter's grammar (accusative) will keep appearing in almost every future chapter, so it's worth getting solid here.</p>
+  <p>Grocery shopping in Germany, ordering at a Metzgerei or Bäckerei counter, being invited to a meal and needing to politely navigate what you will and won't eat, or hosting your own dinner and offering food to guests.</p>
 </section>
 
 <!-- GRAMMAR -->
 <section id="grammar">
   <h2 class="section-title"><span class="de">Grammatik</span><span class="en">Grammar</span></h2>
-  <p class="section-intro">The accusative case marks the direct object of a sentence — the thing being eaten, bought, or wanted. Only the masculine article actually changes; feminine, neuter, and plural stay the same as nominative. This makes it more manageable than it sounds.</p>
+  <p class="section-intro">The one big new idea this chapter: German nouns change their article depending on their job in the sentence. A noun that receives the action (the direct object) takes the <span class="de-text">Akkusativ</span> form.</p>
 
-  <h3 class="sub">1. What "case" means <span class="en">the role a noun plays in the sentence</span></h3>
-  <p>In English, word order tells you who does what: "I eat the apple" — "I" is the doer (subject), "the apple" is the thing being acted on (object). German uses word order too, but it also changes the article to mark this role explicitly. The subject's case is called nominative (which you already know — der/die/das). The direct object's case is called accusative.</p>
-
-  <h3 class="sub">2. The accusative article change <span class="en">only masculine changes</span></h3>
-  <div class="formula">der → den (masculine only)<br>die → die (no change)<br>das → das (no change)<br>die (plural) → die (no change)</div>
+  <h3 class="sub">1. Akkusativ — the core rule</h3>
+  <p>Compare the same noun as a subject (Nominativ) versus as a direct object (Akkusativ):</p>
   <table>
-    <tr><th>Gender</th><th>Nominative (subject)</th><th>Accusative (object)</th></tr>
-    <tr><td>masculine</td><td class="de">der Kuchen</td><td class="de">den Kuchen</td></tr>
-    <tr><td>feminine</td><td class="de">die Wurst</td><td class="de">die Wurst</td></tr>
-    <tr><td>neuter</td><td class="de">das Brot</td><td class="de">das Brot</td></tr>
-    <tr><td>plural</td><td class="de">die Eier</td><td class="de">die Eier</td></tr>
-  </table>
-  <div class="ex-block">
-    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich esse den Kuchen.</div><div class="ex-en">I eat the cake. (der Kuchen → den Kuchen, because it's the object)</div></div></div>
-    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich kaufe die Wurst.</div><div class="ex-en">I buy the sausage. (die stays die)</div></div></div>
-    <div class="ex-line"><span class="mark neg">✕</span><div class="ex-text"><div class="ex-de">Ich esse der Kuchen.</div><div class="ex-en">Wrong — der must become den when it's the object of essen</div></div></div>
-  </div>
-  <div class="box trick">
-    <p class="box-title"><span class="dot amber"></span>Memory trick</p>
-    <p>Only masculine changes, and only in one direction: <span class="de-text">der → den</span>. Feminine, neuter, and plural nouns are "invisible" to the accusative — they look exactly the same as nominative. This means you only have to actively remember one change, not four.</p>
-  </div>
-
-  <h3 class="sub">3. Indefinite article in the accusative <span class="de-text">ein → einen</span></h3>
-  <p>The same pattern applies to <span class="de-text">ein</span>: masculine <span class="de-text">ein</span> becomes <span class="de-text">einen</span> in the accusative. Feminine <span class="de-text">eine</span> and neuter <span class="de-text">ein</span> stay unchanged.</p>
-  <table>
-    <tr><th>Gender</th><th>Nominative</th><th>Accusative</th></tr>
-    <tr><td>masculine</td><td class="de">ein Apfel</td><td class="de">einen Apfel</td></tr>
-    <tr><td>feminine</td><td class="de">eine Banane</td><td class="de">eine Banane</td></tr>
-    <tr><td>neuter</td><td class="de">ein Brot</td><td class="de">ein Brot</td></tr>
-  </table>
-  <div class="ex-block">
-    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich möchte einen Apfel.</div><div class="ex-en">I'd like an apple.</div></div></div>
-    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich brauche eine Gurke.</div><div class="ex-en">I need a cucumber.</div></div></div>
-  </div>
-  <p>The same happens to <span class="de-text">kein</span>: <span class="de-text">kein → keinen</span> for masculine.</p>
-  <div class="ex-block">
-    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich habe keinen Käse mehr.</div><div class="ex-en">I don't have any more cheese.</div></div></div>
-  </div>
-
-  <h3 class="sub">4. Verbs that take an accusative object <span class="en">the verbs that trigger this whole chapter</span></h3>
-  <table>
-    <tr><th>Verb</th><th>Meaning</th><th>Example</th></tr>
-    <tr><td class="de">essen</td><td>to eat</td><td class="de">Ich esse den Salat.</td></tr>
-    <tr><td class="de">trinken</td><td>to drink</td><td class="de">Ich trinke den Kaffee.</td></tr>
-    <tr><td class="de">kaufen</td><td>to buy</td><td class="de">Ich kaufe das Brot.</td></tr>
-    <tr><td class="de">brauchen</td><td>to need</td><td class="de">Ich brauche den Zucker.</td></tr>
-    <tr><td class="de">möchten</td><td>would like</td><td class="de">Ich möchte den Kuchen.</td></tr>
-    <tr><td class="de">nehmen</td><td>to take</td><td class="de">Ich nehme den Fisch.</td></tr>
-  </table>
-  <div class="box mistake">
-    <p class="box-title"><span class="dot red"></span>Common mistake</p>
-    <p>English speakers often skip the article change because English doesn't do this at all — "I eat the apple" never changes "the" no matter its grammatical role. In German, forgetting to change <span class="de-text">der → den</span> after these verbs is one of the most common A1 errors, and it's the one teachers correct most.</p>
-  </div>
-
-  <h3 class="sub">5. <span class="de-text">essen</span> — irregular, stem-changing verb</h3>
-  <table>
-    <tr><th>Pronoun</th><th>Form</th></tr>
-    <tr><td class="de">ich</td><td class="de">esse</td></tr>
-    <tr><td class="de">du</td><td class="de">isst</td></tr>
-    <tr><td class="de">er/sie/es</td><td class="de">isst</td></tr>
-    <tr><td class="de">wir</td><td class="de">essen</td></tr>
+    <tr><th>Nominativ (subject)</th><th>Akkusativ (direct object)</th></tr>
+    <tr><td class="de"><strong>Der</strong> Käse ist gut.</td><td class="de">Ich kaufe <strong>den</strong> Käse.</td></tr>
+    <tr><td class="de"><strong>Das</strong> Brot ist gut.</td><td class="de">Ich kaufe <strong>das</strong> Brot.</td></tr>
+    <tr><td class="de"><strong>Die</strong> Gurke ist gut.</td><td class="de">Ich kaufe <strong>die</strong> Gurke.</td></tr>
+    <tr><td class="de">Die Tomaten sind gut.</td><td class="de">Ich kaufe <strong>die</strong> Tomaten.</td></tr>
   </table>
   <div class="box note">
-    <p class="box-title"><span class="dot blue"></span>Watch the spelling</p>
-    <p><span class="de-text">du isst</span> and <span class="de-text">er/sie isst</span> are identical — this is a coincidence of German spelling rules (the stem already ends in -ss, so the -t ending merges visually). Don't second-guess it; it's correct as written.</p>
+    <p class="box-title"><span class="dot blue"></span>The one rule that matters</p>
+    <p>Only the <strong>masculine</strong> article changes: <span class="de-text">der → den</span>, <span class="de-text">ein → einen</span>, <span class="de-text">kein → keinen</span>. Neuter, feminine, and plural stay exactly the same in the accusative as they are in the nominative.</p>
   </div>
+
+  <h3 class="sub">2. Full article table — Nominativ vs. Akkusativ</h3>
+  <table>
+    <tr><th>Gender</th><th>Nominativ</th><th>Akkusativ</th></tr>
+    <tr><td>maskulin</td><td class="de">der / ein / kein Käse</td><td class="de">den / einen / keinen Käse</td></tr>
+    <tr><td>neutrum</td><td class="de">das / ein / kein Brot</td><td class="de">das / ein / kein Brot</td></tr>
+    <tr><td>feminin</td><td class="de">die / eine / keine Gurke</td><td class="de">die / eine / keine Gurke</td></tr>
+    <tr><td>Plural</td><td class="de">die / – / keine Tomaten</td><td class="de">die / – / keine Tomaten</td></tr>
+  </table>
+
+  <h3 class="sub">3. Verben mit Akkusativ — verbs that take a direct object</h3>
+  <p>These verbs are the ones that regularly need an accusative object — memorize this list, since it's how you'll recognize when the article needs to change:</p>
+  <div class="chunks">
+    <span class="chunk">brauchen</span>
+    <span class="chunk">haben</span>
+    <span class="chunk">machen</span>
+    <span class="chunk">kochen</span>
+    <span class="chunk">essen</span>
+    <span class="chunk">kaufen</span>
+    <span class="chunk">nehmen</span>
+    <span class="chunk">mögen</span>
+    <span class="chunk">möchten</span>
+    <span class="chunk">finden</span>
+  </div>
+
+  <h3 class="sub">4. Location prepositions — a dative preview</h3>
+  <p>Before this chapter formally teaches the dative case, you'll notice shop names changing their article after <span class="de-text">in</span> and <span class="de-text">auf</span> — this is the same pattern you first saw with <span class="de-text">aus der Schweiz</span> back in Kapitel 1.</p>
+  <table>
+    <tr><th>Shop</th><th>With preposition</th></tr>
+    <tr><td class="de">die Bäckerei</td><td class="de">in der Bäckerei</td></tr>
+    <tr><td class="de">der Markt</td><td class="de">auf dem Markt</td></tr>
+    <tr><td class="de">die Metzgerei</td><td class="de">in der Metzgerei</td></tr>
+    <tr><td class="de">der Supermarkt</td><td class="de">im Supermarkt <span style="color:var(--ink-mute)">(in + dem)</span></td></tr>
+  </table>
+
+  <h3 class="sub">5. mögen and möchten — full conjugation</h3>
+  <table>
+    <tr><th></th><th>mögen (to like)</th><th>möchten (would like)</th></tr>
+    <tr><td>ich</td><td class="de">mag</td><td class="de">möchte</td></tr>
+    <tr><td>du</td><td class="de">magst</td><td class="de">möchtest</td></tr>
+    <tr><td>er/es/sie</td><td class="de">mag</td><td class="de">möchte</td></tr>
+    <tr><td>wir</td><td class="de">mögen</td><td class="de">möchten</td></tr>
+    <tr><td>ihr</td><td class="de">mögt</td><td class="de">möchtet</td></tr>
+    <tr><td>sie/Sie</td><td class="de">mögen</td><td class="de">möchten</td></tr>
+  </table>
+  <div class="box note">
+    <p class="box-title"><span class="dot blue"></span>Two ways to say the same thing</p>
+    <p><span class="de-text">Ich esse gern Schokolade.</span> = <span class="de-text">Ich mag Schokolade.</span> — gern + verb and mögen + noun both express liking something. Use whichever fits the sentence better.</p>
+  </div>
+
+  <h3 class="sub">6. Preise sprechen — saying prices aloud</h3>
+  <table>
+    <tr><th>Written</th><th>Spoken</th></tr>
+    <tr><td>0,99 €</td><td class="de">neunundneunzig Cent</td></tr>
+    <tr><td>1,09 €</td><td class="de">ein Euro neun</td></tr>
+    <tr><td>2,20 €</td><td class="de">zwei Euro zwanzig</td></tr>
+  </table>
+  <p style="font-size:13.5px; color:var(--ink-mute);">Pattern: Euro amount + "Euro" + cents as a plain number — no "und" in between.</p>
+
+  <h3 class="sub">7. Positionen im Satz — confirmed again</h3>
+  <table>
+    <tr><td class="de"><strong>Lina</strong> isst morgens Müsli.</td></tr>
+    <tr><td class="de"><strong>Morgens</strong> isst Lina Müsli.</td></tr>
+  </table>
+  <p style="font-size:13.5px; color:var(--ink-mute);">Das Verb steht auf Position 2. Das Subjekt steht vor oder nach dem Verb.</p>
 </section>
 
 <!-- SENTENCE FACTORY -->
 <section id="sentence-factory">
   <h2 class="section-title"><span class="de">Satzfabrik</span><span class="en">Sentence factory</span></h2>
+  <p class="section-intro">Build sentences using the accusative pattern: subject + accusative-verb + [article change if masculine] + noun.</p>
 
-  <h3 class="sub">Base pattern: subject + accusative-verb + [den/die/das/einen + noun]</h3>
-  <div class="formula">[subject] + [esse/kaufe/brauche/möchte] + [accusative article] + [noun]</div>
-  <table>
-    <tr><th>Subject</th><th>Verb</th><th>Object (accusative)</th><th>Full sentence</th></tr>
-    <tr><td class="de">Ich</td><td class="de">esse</td><td class="de">den Kuchen.</td><td class="de">Ich esse den Kuchen.</td></tr>
-    <tr><td class="de">Ich</td><td class="de">kaufe</td><td class="de">die Milch.</td><td class="de">Ich kaufe die Milch.</td></tr>
-    <tr><td class="de">Ich</td><td class="de">möchte</td><td class="de">einen Kaffee.</td><td class="de">Ich möchte einen Kaffee.</td></tr>
-  </table>
-
-  <h3 class="sub">Swap the object</h3>
+  <h3 class="sub">Base pattern</h3>
+  <div class="formula">Subjekt + Verb + <span class="slot">Akkusativ-Objekt</span></div>
   <div class="ex-block">
-    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich esse den Fisch.</div><div class="ex-en">I eat the fish.</div></div></div>
-    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich esse das Brot.</div><div class="ex-en">I eat the bread.</div></div></div>
-    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich esse die Suppe.</div><div class="ex-en">I eat the soup.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich kaufe <strong>den</strong> Käse.</div><div class="ex-en">I'm buying the cheese.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wir brauchen <strong>eine</strong> Gurke.</div><div class="ex-en">We need a cucumber.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Sie hat <strong>keinen</strong> Käse mehr.</div><div class="ex-en">She has no more cheese.</div></div></div>
   </div>
 
-  <h3 class="sub">Swap the verb</h3>
+  <h3 class="sub">Swap the object — practice all four genders</h3>
   <div class="ex-block">
-    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich kaufe den Käse.</div><div class="ex-en">I buy the cheese.</div></div></div>
-    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich brauche den Zucker.</div><div class="ex-en">I need the sugar.</div></div></div>
-    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich nehme den Salat.</div><div class="ex-en">I'll take the salad.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich esse <strong>den</strong> Salat. <span style="color:var(--ink-mute)">(maskulin)</span></div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich esse <strong>das</strong> Brot. <span style="color:var(--ink-mute)">(neutrum)</span></div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich esse <strong>die</strong> Suppe. <span style="color:var(--ink-mute)">(feminin)</span></div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich esse <strong>die</strong> Kartoffeln. <span style="color:var(--ink-mute)">(Plural)</span></div></div></div>
   </div>
 
-  <h3 class="sub">Swap the subject</h3>
+  <h3 class="sub">Add place — shopping at a specific shop</h3>
   <div class="ex-block">
-    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Sonia isst den Salat.</div><div class="ex-en">Sonia eats the salad.</div></div></div>
-    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wir kaufen die Eier.</div><div class="ex-en">We buy the eggs.</div></div></div>
-  </div>
-
-  <h3 class="sub">Add place: shopping at a specific shop</h3>
-  <div class="ex-block">
-    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich kaufe das Brot in der Bäckerei.</div><div class="ex-en">I buy the bread at the bakery.</div></div></div>
-    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich kaufe den Schinken in der Metzgerei.</div><div class="ex-en">I buy the ham at the butcher's.</div></div></div>
-  </div>
-</section>
-
-<!-- QUESTION FACTORY -->
-<section id="question-factory">
-  <h2 class="section-title"><span class="de">Fragefabrik</span><span class="en">Question factory</span></h2>
-
-  <h3 class="sub">Was <span class="en">what — for food and shopping</span></h3>
-  <div class="ex-block">
-    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Was möchten Sie? — Ich möchte einen Kaffee, bitte.</div><div class="ex-en">What would you like? — I'd like a coffee, please.</div></div></div>
-    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Was isst du gern? — Ich esse gern Pizza.</div><div class="ex-en">What do you like to eat? — I like eating pizza.</div></div></div>
-  </div>
-
-  <h3 class="sub">Wo <span class="en">where — for finding things in a shop</span></h3>
-  <div class="ex-block">
-    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Wo finde ich den Reis? — Dort links.</div><div class="ex-en">Where do I find the rice? — Over there on the left.</div></div></div>
-  </div>
-
-  <h3 class="sub">Yes/No questions</h3>
-  <div class="ex-block">
-    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Haben Sie Eier? — Ja, hier bitte.</div><div class="ex-en">Do you have eggs? — Yes, here you go.</div></div></div>
-    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Brauchen Sie eine Tüte? — Ja, danke.</div><div class="ex-en">Do you need a bag? — Yes, thanks.</div></div></div>
-  </div>
-
-  <h3 class="sub">Short answers vs. full answers</h3>
-  <table>
-    <tr><th>Question</th><th>Short answer</th><th>Full answer</th></tr>
-    <tr><td class="de">Was möchten Sie?</td><td class="de">Einen Kaffee, bitte.</td><td class="de">Ich möchte einen Kaffee, bitte.</td></tr>
-    <tr><td class="de">Wo finde ich den Reis?</td><td class="de">Dort links.</td><td class="de">Den Reis finden Sie dort links.</td></tr>
-    <tr><td class="de">Was kostet das?</td><td class="de">Zwei Euro.</td><td class="de">Das kostet zwei Euro.</td></tr>
-  </table>
-</section>
-
-<!-- SPEAKING FACTORY -->
-<section id="speaking-factory">
-  <h2 class="section-title"><span class="de">Sprechfabrik</span><span class="en">Speaking factory</span></h2>
-
-  <h3 class="sub">Dialogue 1 — At the bakery</h3>
-  <div class="dialogue">
-    <div class="turn"><div class="speaker">VERKÄUFERIN</div><div class="line-de">Guten Tag! Was möchten Sie?</div><div class="line-en">Good day! What would you like?</div></div>
-    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Ich möchte eine Gurke, einen Salat und acht Brötchen.</div><div class="line-en">I'd like a cucumber, a lettuce, and eight rolls.</div></div>
-    <div class="turn"><div class="speaker">VERKÄUFERIN</div><div class="line-de">Tut mir leid, ich habe keinen Salat mehr.</div><div class="line-en">Sorry, I don't have any more lettuce.</div></div>
-    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Oh. Dann nehme ich eine Packung Nudeln und ein Stück Schinken.</div><div class="line-en">Oh. Then I'll take a packet of pasta and a piece of ham.</div></div>
-    <div class="turn"><div class="speaker">VERKÄUFERIN</div><div class="line-de">Bitte. Haben Sie sonst noch einen Wunsch?</div><div class="line-en">Here you go. Anything else?</div></div>
-    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Nein, danke. Das ist alles.</div><div class="line-en">No, thanks. That's all.</div></div>
-  </div>
-
-  <h3 class="sub">Dialogue 2 — At the dinner table</h3>
-  <div class="dialogue">
-    <div class="turn"><div class="speaker">SONIA</div><div class="line-de">Guten Appetit!</div><div class="line-en">Enjoy your meal!</div></div>
-    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Danke, gleichfalls!</div><div class="line-en">Thanks, you too!</div></div>
-    <div class="turn"><div class="speaker">SONIA</div><div class="line-de">Möchtest du noch ein Würstchen?</div><div class="line-en">Would you like another sausage?</div></div>
-    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Ja, gerne. Danke.</div><div class="line-en">Yes, gladly. Thanks.</div></div>
-  </div>
-
-  <h3 class="sub">Dialogue 3 — In a café</h3>
-  <div class="dialogue">
-    <div class="turn"><div class="speaker">KELLNER</div><div class="line-de">Was trinken Sie?</div><div class="line-en">What are you drinking?</div></div>
-    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Ich möchte einen Milchkaffee, bitte.</div><div class="line-en">I'd like a latte, please.</div></div>
-    <div class="turn"><div class="speaker">KELLNER</div><div class="line-de">Und etwas essen?</div><div class="line-en">And something to eat?</div></div>
-    <div class="turn"><div class="speaker">AMAN</div><div class="line-de">Ja, einen Kuchen, bitte.</div><div class="line-en">Yes, a piece of cake, please.</div></div>
-  </div>
-
-  <h3 class="sub">Reusable speaking chunks</h3>
-  <div class="chunks">
-    <span class="chunk">Was möchten Sie?</span>
-    <span class="chunk">Ich möchte...</span>
-    <span class="chunk">Ich nehme...</span>
-    <span class="chunk">Haben Sie...?</span>
-    <span class="chunk">Ich habe keinen/keine/kein...</span>
-    <span class="chunk">Das ist alles.</span>
-    <span class="chunk">Guten Appetit!</span>
-    <span class="chunk">Danke, gleichfalls!</span>
-    <span class="chunk">Tut mir leid.</span>
-    <span class="chunk">Was kostet das?</span>
-    <span class="chunk">Sonst noch etwas?</span>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich kaufe Brot <strong>in der Bäckerei</strong>.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich kaufe Wurst <strong>in der Metzgerei</strong>.</div></div></div>
+    <div class="ex-line"><span class="mark pos">✓</span><div class="ex-text"><div class="ex-de">Ich kaufe Gemüse <strong>auf dem Markt</strong>.</div></div></div>
   </div>
 </section>
 
@@ -730,225 +667,243 @@ footer{
 <section id="vocabulary">
   <h2 class="section-title"><span class="de">Wortschatz</span><span class="en">Vocabulary</span></h2>
 
-  <h3 class="sub">Food nouns</h3>
+  <h3 class="sub">Frühstück <span class="en">breakfast</span></h3>
   <table>
-    <tr><th>Article</th><th>Singular</th><th>Plural</th><th>English</th></tr>
-    <tr><td class="de">das</td><td class="de">Brot</td><td class="de">Brote</td><td>bread</td></tr>
-    <tr><td class="de">das</td><td class="de">Brötchen</td><td class="de">Brötchen</td><td>bread roll</td></tr>
-    <tr><td class="de">der</td><td class="de">Käse</td><td class="de">Käse</td><td>cheese</td></tr>
-    <tr><td class="de">die</td><td class="de">Wurst</td><td class="de">Würste</td><td>sausage (cold cut)</td></tr>
-    <tr><td class="de">das</td><td class="de">Würstchen</td><td class="de">Würstchen</td><td>small sausage/frank</td></tr>
-    <tr><td class="de">der</td><td class="de">Schinken</td><td class="de">Schinken</td><td>ham</td></tr>
-    <tr><td class="de">das</td><td class="de">Ei</td><td class="de">Eier</td><td>egg</td></tr>
-    <tr><td class="de">der</td><td class="de">Reis</td><td class="de">—</td><td>rice</td></tr>
-    <tr><td class="de">der</td><td class="de">Fisch</td><td class="de">Fische</td><td>fish</td></tr>
-    <tr><td class="de">der</td><td class="de">Salat</td><td class="de">Salate</td><td>salad / lettuce</td></tr>
-    <tr><td class="de">die</td><td class="de">Gurke</td><td class="de">Gurken</td><td>cucumber</td></tr>
-    <tr><td class="de">die</td><td class="de">Tomate</td><td class="de">Tomaten</td><td>tomato</td></tr>
-    <tr><td class="de">die</td><td class="de">Kartoffel</td><td class="de">Kartoffeln</td><td>potato</td></tr>
-    <tr><td class="de">der</td><td class="de">Apfel</td><td class="de">Äpfel</td><td>apple</td></tr>
-    <tr><td class="de">die</td><td class="de">Banane</td><td class="de">Bananen</td><td>banana</td></tr>
-    <tr><td class="de">das</td><td class="de">Obst</td><td class="de">—</td><td>fruit</td></tr>
-    <tr><td class="de">das</td><td class="de">Gemüse</td><td class="de">—</td><td>vegetables</td></tr>
-    <tr><td class="de">der</td><td class="de">Zucker</td><td class="de">—</td><td>sugar</td></tr>
-    <tr><td class="de">die</td><td class="de">Butter</td><td class="de">—</td><td>butter</td></tr>
-    <tr><td class="de">der</td><td class="de">Kuchen</td><td class="de">Kuchen</td><td>cake</td></tr>
+    <tr><td class="de">die Banane</td><td>banana</td><td class="de">die Milch</td><td>milk</td></tr>
+    <tr><td class="de">der Orangensaft</td><td>orange juice</td><td class="de">der Käse</td><td>cheese</td></tr>
+    <tr><td class="de">das Müsli</td><td>muesli</td><td class="de">die Marmelade</td><td>jam</td></tr>
+    <tr><td class="de">der Joghurt</td><td>yogurt</td><td class="de">das Ei</td><td>egg</td></tr>
+    <tr><td class="de">der Tee</td><td>tea</td><td class="de">das Brötchen</td><td>bread roll</td></tr>
   </table>
 
-  <h3 class="sub">Drinks</h3>
+  <h3 class="sub">Mittagessen <span class="en">lunch</span></h3>
   <table>
-    <tr><th>Article</th><th>Singular</th><th>English</th></tr>
-    <tr><td class="de">das</td><td class="de">Wasser</td><td>water</td></tr>
-    <tr><td class="de">der</td><td class="de">Saft</td><td>juice</td></tr>
-    <tr><td class="de">die</td><td class="de">Milch</td><td>milk</td></tr>
-    <tr><td class="de">der</td><td class="de">Kaffee</td><td>coffee</td></tr>
-    <tr><td class="de">der</td><td class="de">Milchkaffee</td><td>latte (milk coffee)</td></tr>
-    <tr><td class="de">der</td><td class="de">Tee</td><td>tea</td></tr>
+    <tr><td class="de">der Apfelsaft</td><td>apple juice</td><td class="de">das Wasser</td><td>water</td></tr>
+    <tr><td class="de">die Kartoffeln</td><td>potatoes</td><td class="de">der Essig</td><td>vinegar</td></tr>
+    <tr><td class="de">das Salz</td><td>salt</td><td class="de">das Öl</td><td>oil</td></tr>
+    <tr><td class="de">der Pfeffer</td><td>pepper</td><td class="de">die Cola</td><td>cola</td></tr>
+    <tr><td class="de">das Gemüse</td><td>vegetables</td><td class="de">das Fleisch</td><td>meat</td></tr>
   </table>
 
-  <h3 class="sub">Shops</h3>
+  <h3 class="sub">Kaffee und Kuchen / Abendessen</h3>
   <table>
-    <tr><td class="de">die Bäckerei</td><td>bakery</td></tr>
-    <tr><td class="de">die Metzgerei</td><td>butcher's shop</td></tr>
-    <tr><td class="de">der Supermarkt</td><td>supermarket</td></tr>
-    <tr><td class="de">der Markt</td><td>(farmers') market</td></tr>
+    <tr><td class="de">der Kaffee</td><td>coffee</td><td class="de">die Schokolade</td><td>chocolate</td></tr>
+    <tr><td class="de">der Kuchen</td><td>cake</td><td class="de">der Keks</td><td>cookie</td></tr>
+    <tr><td class="de">die Sahne</td><td>cream</td><td class="de">der Zucker</td><td>sugar</td></tr>
+    <tr><td class="de">die Butter</td><td>butter</td><td class="de">der Salat</td><td>salad</td></tr>
+    <tr><td class="de">das Brot</td><td>bread</td><td class="de">die Suppe</td><td>soup</td></tr>
+    <tr><td class="de">die Tomate</td><td>tomato</td><td class="de">die Wurst</td><td>sausage</td></tr>
+    <tr><td class="de">die Gurke</td><td>cucumber</td><td class="de">der Schinken</td><td>ham</td></tr>
   </table>
 
-  <h3 class="sub">Verbs</h3>
+  <h3 class="sub">Shops <span class="en">Geschäfte</span></h3>
   <table>
-    <tr><th>Infinitive</th><th>Meaning</th><th>ich</th><th>du</th><th>er/sie</th></tr>
-    <tr><td class="de">essen</td><td>to eat</td><td class="de">esse</td><td class="de">isst</td><td class="de">isst</td></tr>
-    <tr><td class="de">trinken</td><td>to drink</td><td class="de">trinke</td><td class="de">trinkst</td><td class="de">trinkt</td></tr>
-    <tr><td class="de">kaufen</td><td>to buy</td><td class="de">kaufe</td><td class="de">kaufst</td><td class="de">kauft</td></tr>
-    <tr><td class="de">brauchen</td><td>to need</td><td class="de">brauche</td><td class="de">brauchst</td><td class="de">braucht</td></tr>
-    <tr><td class="de">kosten</td><td>to cost</td><td>—</td><td>—</td><td class="de">kostet</td></tr>
+    <tr><td class="de">die Bäckerei</td><td>bakery</td><td class="de">der Markt</td><td>market</td></tr>
+    <tr><td class="de">die Metzgerei</td><td>butcher shop</td><td class="de">der Supermarkt</td><td>supermarket</td></tr>
   </table>
 
-  <h3 class="sub">Meals and packaging/measure words</h3>
+  <h3 class="sub">Shopping &amp; checkout</h3>
   <table>
-    <tr><td class="de">das Frühstück</td><td>breakfast</td></tr>
-    <tr><td class="de">das Mittagessen</td><td>lunch</td></tr>
-    <tr><td class="de">das Abendessen</td><td>dinner</td></tr>
-    <tr><td class="de">die Flasche</td><td>bottle</td></tr>
-    <tr><td class="de">die Packung</td><td>packet</td></tr>
-    <tr><td class="de">das Stück</td><td>piece</td></tr>
-    <tr><td class="de">das Kilo / das Gramm</td><td>kilo / gram</td></tr>
-    <tr><td class="de">die Tüte</td><td>bag</td></tr>
+    <tr><td class="de">der Einkaufswagen</td><td>shopping cart</td><td class="de">das Stück</td><td>piece</td></tr>
+    <tr><td class="de">das Gramm</td><td>gram</td><td class="de">die Tüte</td><td>bag</td></tr>
+    <tr><td class="de">der Kassenzettel</td><td>receipt</td><td class="de">wechseln</td><td>to give change</td></tr>
+    <tr><td class="de">kosten</td><td>to cost</td><td class="de">finden</td><td>to find</td></tr>
   </table>
 
-  <h3 class="sub">Useful expressions</h3>
+  <h3 class="sub">Dining phrases</h3>
   <table>
-    <tr><td class="de">Guten Appetit! — Danke, gleichfalls!</td><td>enjoy your meal — thanks, you too</td></tr>
-    <tr><td class="de">Tut mir leid.</td><td>I'm sorry (I don't have that)</td></tr>
-    <tr><td class="de">Das ist alles.</td><td>that's all</td></tr>
-    <tr><td class="de">Sonst noch etwas?</td><td>anything else?</td></tr>
-    <tr><td class="de">Was kostet das?</td><td>how much does that cost?</td></tr>
+    <tr><td class="de">Guten Appetit!</td><td>enjoy your meal</td></tr>
+    <tr><td class="de">Danke, gleichfalls!</td><td>thanks, you too</td></tr>
+    <tr><td class="de">Schmeckt's? / schmecken</td><td>tastes good? / to taste</td></tr>
+    <tr><td class="de">lecker</td><td>tasty/delicious</td></tr>
+    <tr><td class="de">satt (sein)</td><td>(to be) full</td></tr>
+    <tr><td class="de">Prost! / Zum Wohl!</td><td>cheers</td></tr>
+    <tr><td class="de">Mahlzeit!</td><td>enjoy your meal (another greeting)</td></tr>
+  </table>
+
+  <h3 class="sub">Eating habits — reading vocabulary</h3>
+  <table>
+    <tr><td class="de">die Kantine</td><td>canteen</td><td class="de">gesund</td><td>healthy</td></tr>
+    <tr><td class="de">der Apfel, Äpfel</td><td>apple</td><td class="de">die Birne</td><td>pear</td></tr>
+    <tr><td class="de">das Obst</td><td>fruit</td><td class="de">wach</td><td>awake</td></tr>
+    <tr><td class="de">allein</td><td>alone</td><td class="de">der Döner</td><td>döner kebab</td></tr>
+    <tr><td class="de">asiatisch</td><td>Asian</td><td class="de">manchmal</td><td>sometimes</td></tr>
+    <tr><td class="de">meistens</td><td>mostly</td><td class="de">nur / wenig</td><td>only / little</td></tr>
+  </table>
+
+  <h3 class="sub">Berufe rund ums Essen <span class="en">food-related professions</span></h3>
+  <table>
+    <tr><td class="de">der Koch</td><td>chef</td><td class="de">der Bäcker</td><td>baker</td></tr>
+    <tr><td class="de">der Kellner</td><td>waiter</td><td class="de">der Landwirt</td><td>farmer</td></tr>
+    <tr><td class="de">die Hotelfachfrau</td><td>hotel manager</td><td class="de">der Chef</td><td>boss</td></tr>
+    <tr><td class="de">der/die Kollege/-in</td><td>colleague</td><td class="de">das Gericht</td><td>dish (food)</td></tr>
+    <tr><td class="de">der Champignon</td><td>mushroom</td><td class="de">frisch</td><td>fresh</td></tr>
+    <tr><td class="de">zubereiten</td><td>to prepare (food)</td><td class="de">der Gast</td><td>guest</td></tr>
+    <tr><td class="de">stressig</td><td>stressful</td><td class="de">die Arbeitszeit</td><td>working hours</td></tr>
   </table>
 </section>
 
-<!-- EXERCISES -->
-<section id="exercises">
-  <h2 class="section-title"><span class="de">Übungen</span><span class="en">Exercises</span></h2>
+<!-- DIALOGUES -->
+<section id="dialogues">
+  <h2 class="section-title"><span class="de">Dialoge</span><span class="en">Dialogues</span></h2>
+  <p class="section-intro">Full worked dialogues straight from the Kursbuch, verified against the actual audio scripts.</p>
 
-  <div class="exercise">
-    <p class="ex-num">A · Sentence building</p>
-    <p class="ex-prompt">1. Build a sentence from: <span class="de-text">esse / den / ich / Kuchen</span></p>
-    <p class="ex-prompt">2. Build a sentence from: <span class="de-text">kaufe / die / ich / Milch</span></p>
-    <p class="ex-prompt">3. Build a sentence from: <span class="de-text">möchte / einen / ich / Kaffee</span></p>
+  <h3 class="sub">Shopping dialogue — Mario und Elena (page 46)</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">A</div><div class="line-de">Wir machen den Salat und kaufen die Getränke. Und Katrin und Lukas kaufen das Fleisch und die Würstchen.</div></div>
+    <div class="turn"><div class="speaker">B</div><div class="line-de">Okay. Was brauchen wir noch für den Salat? Haben wir alles?</div></div>
+    <div class="turn"><div class="speaker">A</div><div class="line-de">Moment ... Salat haben wir. Wir brauchen Tomaten, Eier, Öl und eine Gurke. Und Käse! Wir haben keinen Käse mehr. Und Getränke, wir haben auch keine Getränke.</div></div>
+    <div class="turn"><div class="speaker">B</div><div class="line-de">Gut. Ich gehe zum Markt und kaufe die Eier, die Tomaten und die Gurke. Und ein Brot kaufe ich auch. Der Käse ist da so teuer. Kaufst du den Käse im Supermarkt?</div></div>
+    <div class="turn"><div class="speaker">A</div><div class="line-de">Ja, stimmt. Ich gehe zum Supermarkt und kaufe Käse, Öl und die Getränke.</div></div>
   </div>
 
-  <div class="exercise">
-    <p class="ex-num">B · Question building</p>
-    <p class="ex-prompt">4. Ask, formally, what someone would like (at a shop).</p>
-    <p class="ex-prompt">5. Ask a friend what they like eating.</p>
-    <p class="ex-prompt">6. Ask how much something costs.</p>
+  <h3 class="sub">Einkaufen im Supermarkt (page 47)</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">At the checkout</div><div class="line-de">— Entschuldigung, ich brauche einen Euro für den Einkaufswagen. Können Sie wechseln, bitte? — Ja, Moment – hier bitte. — Danke.</div></div>
+    <div class="turn"><div class="speaker">Asking prices</div><div class="line-de">— Entschuldigung, was kostet der Apfelsaft? — 99 Cent. — Und wie viel kostet der Orangensaft? — 1,09 Euro.</div></div>
+    <div class="turn"><div class="speaker">At the deli counter</div><div class="line-de">— Wer kommt dran? — Ich, bitte. — Was möchten Sie? — Ich möchte ein Stück Emmentaler, bitte. — Sonst noch etwas? — Ja, ich nehme noch 150 Gramm Schinken. — Ist das alles? — Ja, danke.</div></div>
+    <div class="turn"><div class="speaker">Paying / bag</div><div class="line-de">— Ich brauche noch eine Tüte, bitte. — Hier bitte. Die kostet 35 Cent. — Wie bitte? 35 Cent? Das ist aber teuer! Also gut ... — Das macht dann 18,65 Euro. Brauchen Sie den Kassenzettel? — Ja, bitte.</div></div>
   </div>
 
-  <div class="exercise">
-    <p class="ex-num">C · Translation</p>
-    <p class="ex-prompt">7. Translate: "I'd like a coffee and a piece of cake, please."</p>
-    <p class="ex-prompt">8. Translate: "I don't have any more bread."</p>
-    <p class="ex-prompt">9. Translate: "Enjoy your meal! — Thanks, you too!"</p>
+  <h3 class="sub">Die Grillparty (page 48)</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="line-de">— Guten Appetit! — Danke, gleichfalls! — Schmeckt's? — Mmh, ja, das Fleisch schmeckt sehr gut!</div></div>
+    <div class="turn"><div class="line-de">— Möchtet ihr noch ein Würstchen? — Ja, gerne, die Würstchen sind wirklich lecker. Und du, Lukas? — Nein, danke, ich bin satt.</div></div>
+    <div class="turn"><div class="line-de">— Möchtest du Salat? — Nein, danke. Ich esse keine Gurken.</div></div>
   </div>
 
-  <div class="exercise">
-    <p class="ex-num">D · Fill in the blank (accusative articles)</p>
-
-    <div data-answer="den" data-id="d10" data-prompt="Ich esse ___ Kuchen. (der)">
-      <p class="ex-prompt">10. Ich esse <span class="ex-blank" style="display:none;"></span> Kuchen.</p>
-      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
-    </div>
-    <div data-answer="die" data-id="d11" data-prompt="Ich kaufe ___ Wurst. (die)">
-      <p class="ex-prompt">11. Ich kaufe <span class="ex-blank" style="display:none;"></span> Wurst.</p>
-      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
-    </div>
-    <div data-answer="das" data-id="d12" data-prompt="Ich brauche ___ Brot. (das)">
-      <p class="ex-prompt">12. Ich brauche <span class="ex-blank" style="display:none;"></span> Brot.</p>
-      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
-    </div>
-    <div data-answer="einen" data-id="d13" data-prompt="Ich möchte ___ Apfel. (ein)">
-      <p class="ex-prompt">13. Ich möchte <span class="ex-blank" style="display:none;"></span> Apfel.</p>
-      <div class="ex-check"><input class="ex-input" type="text" placeholder="answer"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
-    </div>
-  </div>
-
-  <div class="exercise">
-    <p class="ex-num">E · Correction</p>
-
-    <div data-answer="Ich esse den Kuchen." data-id="e14" data-prompt="Ich esse der Kuchen.">
-      <p class="ex-prompt">14. <span class="de-text">Ich esse der Kuchen.</span></p>
-      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="width:220px; max-width:100%;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
-    </div>
-    <div data-answer="Ich möchte einen Kaffee." data-id="e15" data-prompt="Ich möchte ein Kaffee.">
-      <p class="ex-prompt">15. <span class="de-text">Ich möchte ein Kaffee.</span></p>
-      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="width:220px; max-width:100%;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
-    </div>
-    <div data-answer="Ich habe keinen Käse mehr." data-id="e16" data-prompt="Ich habe kein Käse mehr.">
-      <p class="ex-prompt">16. <span class="de-text">Ich habe kein Käse mehr.</span></p>
-      <div class="ex-check"><input class="ex-input" type="text" placeholder="corrected sentence" style="width:220px; max-width:100%;"><button class="check-btn">Check</button><span class="ex-feedback"></span></div>
-    </div>
-  </div>
-
-  <div class="exercise">
-    <p class="ex-num">F · Speaking prompts</p>
-    <p class="ex-prompt">17. Order two food items and one drink at a café.</p>
-    <p class="ex-prompt">18. Say what you eat for breakfast, using essen correctly.</p>
-    <p class="ex-prompt">19. Say "enjoy your meal" and respond correctly when someone says it to you.</p>
-  </div>
-
-  <div class="exercise">
-    <p class="ex-num">G · Mixed review</p>
-    <p class="ex-prompt">20. Write a short shopping dialogue: you ask for three items, the shopkeeper says one is out of stock, you choose an alternative.</p>
-  </div>
-<div class="tracker-box" id="mistake-tracker">
-    <h4>Your missed items on this chapter</h4>
-    <div id="tracker-list"><p class="tracker-empty">Loading…</p></div>
-    
+  <h3 class="sub">Dialogue frame — offering &amp; declining food</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="line-de">Guten Appetit! → Danke, gleichfalls!<br>Möchtet ihr (noch) ...? → Ja, bitte. ... schmeckt/schmecken sehr gut.<br>Möchtest du (noch) ...? → Ja, gerne. ... ist/sind sehr lecker. / Nein, danke. Ich esse keinen/kein/keine ... / Nein, danke. Ich bin satt.</div></div>
   </div>
 </section>
 
-<!-- ANSWER KEY -->
-<section id="answers">
-  <h2 class="section-title"><span class="de">Lösungen</span><span class="en">Answer key</span></h2>
-  <div class="answers">
-    <h3 class="sub">A · Sentence building</h3>
-    <div class="ans-line"><span class="ans-num">1</span><span class="de-text">Ich esse den Kuchen.</span></div>
-    <div class="ans-line"><span class="ans-num">2</span><span class="de-text">Ich kaufe die Milch.</span></div>
-    <div class="ans-line"><span class="ans-num">3</span><span class="de-text">Ich möchte einen Kaffee.</span></div>
+<!-- READING TEXTS -->
+<section id="reading">
+  <h2 class="section-title"><span class="de">Lesetexte</span><span class="en">Reading texts</span></h2>
+  <p class="section-intro">Full reading passages from the Kursbuch, with W-Fragen answered in complete sentences.</p>
 
-    <h3 class="sub">B · Question building</h3>
-    <div class="ans-line"><span class="ans-num">4</span><span class="de-text">Was möchten Sie?</span></div>
-    <div class="ans-line"><span class="ans-num">5</span><span class="de-text">Was isst du gern?</span></div>
-    <div class="ans-line"><span class="ans-num">6</span><span class="de-text">Was kostet das?</span></div>
+  <h3 class="sub">Koch am Bodensee — Max Schmidt (page 51)</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="line-de">Max Schmidt und sein Chef planen zusammen das Essen für die Woche. Dann geht Max Schmidt auf den Markt. Er kauft Tomaten, Champignons und Salat. Kartoffeln und Zwiebeln braucht er auch. Dann kauft er noch frischen Fisch. Max Schmidt arbeitet seit zwei Jahren als Koch im Restaurant "Esszimmer" in der Altstadt von Konstanz. Da gibt es jeden Tag ein anderes Fischgericht: Fische frisch aus dem Bodensee.</div></div>
+    <div class="turn"><div class="line-de">Zurück im Restaurant wäscht, schält und schneidet er das Gemüse. Der Chef bereitet den Fisch zu. Paula, eine Kollegin, macht das Dessert. Max mag seine Arbeit. Er sagt: "Kochen ist mein Beruf, aber auch mein Hobby."</div></div>
+    <div class="turn"><div class="line-de">"Ich arbeite gern in einem kleinen Team und die Kollegen sind sehr nett. Kochen ist auch sehr kreativ – das macht viel Spaß. Ich probiere gerne neue Gerichte. Oft haben wir viele Gäste. Das ist dann echt stressig!"</div></div>
+    <div class="turn"><div class="line-de">"Und die Arbeitszeiten sind nicht toll. Ich arbeite normalerweise von 6 bis 15 Uhr oder von 13 bis 22 Uhr. Am Wochenende arbeite ich abends oft noch länger. Das ist natürlich nicht so schön. Ich habe nicht viel Freizeit und wenig Zeit für meine Freunde."</div></div>
+  </div>
+  <table>
+    <tr><th>W-Frage</th><th>Antwort</th></tr>
+    <tr><td class="de">Wo arbeitet Max Schmidt?</td><td class="de">Max Schmidt arbeitet im Restaurant "Esszimmer" in der Altstadt von Konstanz.</td></tr>
+    <tr><td class="de">Was macht er auf dem Markt?</td><td class="de">Auf dem Markt kauft er Tomaten, Champignons, Salat, Kartoffeln, Zwiebeln und frischen Fisch.</td></tr>
+    <tr><td class="de">Was macht er im Restaurant?</td><td class="de">Im Restaurant wäscht, schält und schneidet er das Gemüse.</td></tr>
+    <tr><td class="de">Wie findet er seinen Beruf?</td><td class="de">Er mag seine Arbeit sehr. Kochen ist sein Beruf, aber auch sein Hobby.</td></tr>
+    <tr><td class="de">Wann arbeitet er?</td><td class="de">Er arbeitet normalerweise von 6 bis 15 Uhr oder von 13 bis 22 Uhr, und am Wochenende oft abends noch länger.</td></tr>
+  </table>
 
-    <h3 class="sub">C · Translation</h3>
-    <div class="ans-line"><span class="ans-num">7</span><span class="de-text">Ich möchte einen Kaffee und ein Stück Kuchen, bitte.</span></div>
-    <div class="ans-line"><span class="ans-num">8</span><span class="de-text">Ich habe kein Brot mehr.</span></div>
-    <div class="ans-line"><span class="ans-num">9</span><span class="de-text">Guten Appetit! — Danke, gleichfalls!</span></div>
-
-    <h3 class="sub">D · Fill in the blank</h3>
-    <div class="ans-line"><span class="ans-num">10</span><span class="de-text">den</span></div>
-    <div class="ans-line"><span class="ans-num">11</span><span class="de-text">die</span></div>
-    <div class="ans-line"><span class="ans-num">12</span><span class="de-text">das</span></div>
-    <div class="ans-line"><span class="ans-num">13</span><span class="de-text">einen</span></div>
-
-    <h3 class="sub">E · Correction</h3>
-    <div class="ans-line"><span class="ans-num">14</span><span class="de-text">Ich esse den Kuchen.</span> — der becomes den as the accusative object</div>
-    <div class="ans-line"><span class="ans-num">15</span><span class="de-text">Ich möchte einen Kaffee.</span> — ein becomes einen for masculine accusative</div>
-    <div class="ans-line"><span class="ans-num">16</span><span class="de-text">Ich habe keinen Käse mehr.</span> — kein becomes keinen for masculine accusative (der Käse)</div>
-
-    <h3 class="sub">G · Mixed review — sample answer</h3>
-    <div class="ans-line"><span class="ans-num">20</span><span class="de-text">— Ich möchte einen Salat, einen Käse und ein Brot. — Tut mir leid, ich habe keinen Salat mehr. — Dann nehme ich eine Gurke.</span></div>
+  <h3 class="sub">Frühstück, Mittagessen, Abendessen (page 49)</h3>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">Maria, Nikolaj und Lina Hepp</div><div class="line-de">Wir frühstücken morgens zusammen. Mein Mann und ich essen Brot mit Käse oder Schinken. Lina isst Müsli mit Milch. Am Mittag isst Lina im Kindergarten und Nikolaj isst in der Arbeit nur ein Brötchen. Ich esse in der Kantine oft Nudeln oder eine Suppe. Nachmittags esse ich manchmal ein Stück Schokolade. Abends um sieben essen wir dann alle zusammen: Wir mögen gerne Fisch oder Fleisch mit Gemüse und Reis oder Kartoffeln. Und wir trinken gern Saft und Wasser.</div></div>
+    <div class="turn"><div class="speaker">Lars und Ben Geiger</div><div class="line-de">Von Montag bis Freitag frühstücke ich nur schnell und allein: Ich bin schon um halb sechs wach. Vormittags esse ich dann oft noch einen Joghurt. Aber am Wochenende essen wir zusammen. Zum Frühstück mag ich sehr gerne Obst: Äpfel, Birnen oder Bananen. Obst schmeckt gut und ist gesund. Lars mag Brötchen mit Marmelade. Mittags essen wir meistens nichts. Am Nachmittag mögen wir gern Kuchen und abends essen wir oft Brot, Salat oder eine Suppe.</div></div>
+    <div class="turn"><div class="speaker">Emma Baumeister</div><div class="line-de">Zum Frühstück esse ich zwei Brötchen mit Butter, Käse und Wurst. Am Wochenende frühstücke ich am Morgen nicht – ich schlafe lang. Mittags kaufe ich einen Döner oder eine Pizza. Ich habe nur wenig Zeit und esse allein. Am Abend koche ich oft Fisch, manchmal mache ich auch Sushi. Ich mag asiatisches Essen, lecker!</div></div>
+  </div>
+  <div class="box note">
+    <p class="box-title"><span class="dot blue"></span>Wörter lernen — study tip from page 50</p>
+    <p>The book's own advice for retaining vocabulary: learn words in thematic groups or mindmaps, learn them in natural pairs (das Salz und der Pfeffer, der Essig und das Öl), and collect free associations — what comes to mind for a word?</p>
   </div>
 </section>
 
-<!-- PRONUNCIATION -->
-<section id="pronunciation">
-  <h2 class="section-title"><span class="de">Aussprache</span><span class="en">Pronunciation</span></h2>
+<!-- COMBINED PRACTICE -->
+<section id="combined-practice">
+  <h2 class="section-title"><span class="de">K1–K4 Übung</span><span class="en">Combined practice</span></h2>
+  <p class="section-intro">Full conversation drills and corrected work from live practice — origin and languages (K1), hobbies and professions (K2), place description (K3), and the accusative, time-telling, and food conversation (K4).</p>
 
-  <div class="sound-row">
-    <div class="ipa">st</div>
-    <div class="sound-body">In the middle of a word (not word-initial), s+t is a normal English-style "st," not "sh-t."
-      <div class="sound-words">isst · kostet</div>
+  <h3 class="sub">A. Akkusativ — build it yourself</h3>
+  <p>Using the verbs-with-Akkusativ list, build each sentence before revealing.</p>
+
+  <div class="mixed-prompt">
+    <p class="mp-title">Say: "I need an onion" (brauchen, eine Zwiebel)</p>
+    <div class="mp-reveal">
+      <button class="check-btn reveal-btn">Show answer</button>
+      <div class="mp-answer" style="display:none;">
+        <p class="de-text">Ich brauche eine Zwiebel.</p>
+      </div>
     </div>
   </div>
-  <div class="sound-row">
-    <div class="ipa">ä</div>
-    <div class="sound-body">Like the "e" in English "bed," slightly more open.
-      <div class="sound-words">Äpfel · Käse (long ä-sound in Käse is actually "ä" spelled with umlaut on a, but pronounced like a long version)</div>
+
+  <div class="mixed-prompt">
+    <p class="mp-title">Say: "I'm buying the salad" (kaufen, der Salat)</p>
+    <div class="mp-reveal">
+      <button class="check-btn reveal-btn">Show answer</button>
+      <div class="mp-answer" style="display:none;">
+        <p class="de-text">Ich kaufe den Salat.</p>
+        <p class="mp-note">Masculine is the one gender that changes: der → den.</p>
+      </div>
     </div>
   </div>
-  <div class="sound-row">
-    <div class="ipa">eu / äu</div>
-    <div class="sound-body">Both spelled differently but pronounced the same: like "oy" in English "boy."
-      <div class="sound-words">Bäckerei (no eu here, but note the ei = "eye") · neu · Häuser</div>
+
+  <div class="mixed-prompt">
+    <p class="mp-title">Fill in: "Ich kaufe ___ Brot und ___ Tomaten." (das → Akkusativ, die → Akkusativ)</p>
+    <div class="mp-reveal">
+      <button class="check-btn reveal-btn">Show answer</button>
+      <div class="mp-answer" style="display:none;">
+        <p class="de-text">Ich kaufe das Brot und die Tomaten.</p>
+        <p class="mp-note">Neuter and plural stay identical to their nominative form.</p>
+      </div>
     </div>
   </div>
-  <div class="sound-row">
-    <div class="ipa">g (final)</div>
-    <div class="sound-body">At the end of a word, g often softens toward a "k" sound.
-      <div class="sound-words">Tag (sounds close to "Tak")</div>
-    </div>
+
+  <h3 class="sub">B. Informal time-telling — Viertel, halb, am + day</h3>
+  <p>Built live from a translation request: "Me and my partner will go to a café at 6:20, on Monday."</p>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">Step 1 — the base sentence</div><div class="line-de">Ich und mein Partner gehen um 6:20 Uhr ins Café.</div></div>
+    <div class="turn"><div class="speaker">Step 2 — adding the day</div><div class="line-de">Am Montag gehen wir um zwanzig nach sechs ins Café.</div></div>
+  </div>
+  <table>
+    <tr><th>Time</th><th>Formal (digit-style)</th><th>Informal (casual)</th></tr>
+    <tr><td>6:15</td><td class="de">sechs Uhr fünfzehn</td><td class="de">Viertel nach sechs</td></tr>
+    <tr><td>6:30</td><td class="de">sechs Uhr dreißig</td><td class="de">halb sieben</td></tr>
+    <tr><td>6:45</td><td class="de">sechs Uhr fünfundvierzig</td><td class="de">Viertel vor sieben</td></tr>
+    <tr><td>6:20</td><td class="de">sechs Uhr zwanzig</td><td class="de">zwanzig nach sechs</td></tr>
+  </table>
+  <div class="box note">
+    <p class="box-title"><span class="dot blue"></span>The trap</p>
+    <p><span class="de-text">halb sieben</span> means "half-way to seven" — i.e. 6:30, not "half past six." This catches almost every English-speaking learner at first.</p>
+  </div>
+
+  <h3 class="sub">C. A real two-way interview (Exercise 8b)</h3>
+  <p>Played out live, question and answer, exactly as the exercise intends:</p>
+  <div class="dialogue">
+    <div class="turn"><div class="speaker">A</div><div class="line-de">Isst du gern Schokolade?</div></div>
+    <div class="turn"><div class="speaker">B</div><div class="line-de">Nein, ich esse nicht so gern Schokolade, aber ich esse sehr gern Kekse.</div></div>
+    <div class="turn"><div class="speaker">A</div><div class="line-de">Trinkst du gern Kaffee?</div></div>
+    <div class="turn"><div class="speaker">B</div><div class="line-de">Ja, ich trinke gern Kaffee oder Tee.</div></div>
+    <div class="turn"><div class="speaker">B</div><div class="line-de">Was trinkst du gern?</div></div>
+    <div class="turn"><div class="speaker">A</div><div class="line-de">Ich trinke gern Tee.</div></div>
+  </div>
+
+  <h3 class="sub">D. Corrected student paragraphs</h3>
+
+  <div class="mixed-prompt">
+    <p class="mp-title">Group meal planning (Exercise 4) — all four Akkusativ genders in one paragraph</p>
+    <p class="de" style="font-size:16px; line-height:1.7;">Wir kochen Hähnchen-Curry, Reis und machen einen Salat. Wir brauchen Tomaten, Hähnchen, die Zwiebel, eine Gurke, Fleisch und Reis. Ich kaufe die Tomaten und die Zwiebel auf dem Markt. Anna kauft Hähnchen und Fleisch in der Metzgerei. Aman kauft Reis im Supermarkt. Aman und Anna kochen Hähnchen-Curry und Reis, und ich mache den Salat.</p>
+    <p class="mp-note">Notice: <span class="de-text">einen Salat</span> / <span class="de-text">den Salat</span> (masculine → changes), <span class="de-text">die Zwiebel</span> / <span class="de-text">eine Gurke</span> (feminine → unchanged), and plural nouns throughout stay the same as their nominative form.</p>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Wir brauchen ... die Zweibel ... Fleish ... in der Mitzgerei.</div>
+    <div class="mp-line ok">Wir brauchen ... die Zwiebel ... Fleisch ... in der Metzgerei.</div>
+    <div class="mp-why">Three spelling slips from the first draft: Zwiebel (not Zweibel), Fleisch (ch not sh — German has no "sh" sound), Metzgerei (not Mitzgerei).</div>
+  </div>
+
+  <div class="mixed-prompt">
+    <p class="mp-title">A flowing daily-eating-habits paragraph (Exercise 9c) — built with connectors, kept strictly A1</p>
+    <p class="de" style="font-size:16px; line-height:1.7;">Zum Frühstück esse ich Brot mit Butter oder Brötchen mit Marmelade. Vormittags esse ich dann ein Ei. Mittags esse ich gern Salat mit Fleisch, und ich trinke Orangensaft.</p>
+    <p class="mp-note">Uses <span class="de-text">dann</span> and <span class="de-text">und</span> — both confirmed A1 vocabulary straight from this chapter's own texts — to avoid a choppy list of disconnected sentences, without reaching for anything above A1 level.</p>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Mittags ich mag esse Salat mit Fleisch.</div>
+    <div class="mp-line ok">Mittags esse ich gern Salat mit Fleisch.</div>
+    <div class="mp-why">Two errors stacked: verb-position-2 violated after fronting "Mittags," and two verbs (mag + esse) can't both stand as finite verbs in one clause. Pick one verb.</div>
   </div>
 </section>
 
@@ -957,151 +912,78 @@ footer{
   <h2 class="section-title"><span class="de">Häufige Fehler</span><span class="en">Common mistakes</span></h2>
 
   <div class="mistake-pair">
-    <div class="mp-line x">Ich esse der Kuchen.</div>
-    <div class="mp-line ok">Ich esse den Kuchen.</div>
-    <div class="mp-why">Why: der Kuchen is the direct object of essen, so it must take the accusative form den — English never marks this change, which is why it's so easy to forget.</div>
+    <div class="mp-line x">Mittags ich mag esse Salat mit Fleisch.</div>
+    <div class="mp-line ok">Mittags esse ich gern Salat mit Fleisch.</div>
+    <div class="mp-why">Two errors stacked: verb-position-2 violated after fronting "Mittags," and two verbs (mag + esse) can't both stand as finite verbs in one clause. Pick one verb.</div>
   </div>
 
   <div class="mistake-pair">
-    <div class="mp-line x">Ich möchte ein Kaffee.</div>
-    <div class="mp-line ok">Ich möchte einen Kaffee.</div>
-    <div class="mp-why">Why: der Kaffee is masculine, so ein becomes einen in the accusative.</div>
+    <div class="mp-line x">Ich habe kein Kinder.</div>
+    <div class="mp-line ok">Ich habe keine Kinder.</div>
+    <div class="mp-why">Plural negative article is always <span class="de-text">keine</span>, regardless of the noun's singular gender.</div>
   </div>
 
   <div class="mistake-pair">
-    <div class="mp-line x">Ich habe kein Käse mehr.</div>
-    <div class="mp-line ok">Ich habe keinen Käse mehr.</div>
-    <div class="mp-why">Why: same accusative rule applies to kein — der Käse is masculine, so kein becomes keinen.</div>
+    <div class="mp-line x">Ich kaufe die Zweibel auf dem Markt.</div>
+    <div class="mp-line ok">Ich kaufe die Zwiebel auf dem Markt.</div>
+    <div class="mp-why">Spelling: Zwiebel (onion) — the "w" and "ie" order is a common slip.</div>
   </div>
 
   <div class="mistake-pair">
-    <div class="mp-line x">Ich mag essen Pizza.</div>
-    <div class="mp-line ok">Ich esse gern Pizza.</div>
-    <div class="mp-why">Why: as in Kapitel 2, use gern + conjugated verb for activities, not mögen + infinitive.</div>
+    <div class="mp-line x">Anna kauft Fleisch in der Mitzgerei.</div>
+    <div class="mp-line ok">Anna kauft Fleisch in der Metzgerei.</div>
+    <div class="mp-why">Spelling: Metzgerei (butcher shop) — the "e" and "i" are often swapped.</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Was trinkest du gern?</div>
+    <div class="mp-line ok">Was trinkst du gern?</div>
+    <div class="mp-why">trinken is a regular verb — du-form is just trinkst, no extra -e- needed (that insertion only happens when a stem ends in -t or -d, like arbeiten → arbeitest).</div>
+  </div>
+
+  <div class="mistake-pair">
+    <div class="mp-line x">Nein, ich esse nicht so gern Schokolade, aber ich esse Kekse so gern.</div>
+    <div class="mp-line ok">Nein, ich esse nicht so gern Schokolade, aber ich esse sehr gern Kekse.</div>
+    <div class="mp-why"><span class="de-text">so gern</span> pairs with a negative (nicht so gern = not really keen on); genuine enthusiasm uses <span class="de-text">sehr gern</span> instead.</div>
   </div>
 </section>
 
-<!-- QUICK REVISION -->
+<!-- REVISION -->
 <section id="revision">
-  <h2 class="section-title"><span class="de">Kurze Wiederholung</span><span class="en">Quick revision</span></h2>
+  <h2 class="section-title"><span class="de">Schnelle Wiederholung</span><span class="en">Quick revision</span></h2>
   <div class="revision-grid">
     <div class="rev-col">
       <h3 class="sub">Sentence patterns</h3>
-      <div class="rev-item">Ich esse/kaufe/brauche/möchte den/die/das/einen [noun]</div>
-      <div class="rev-item">der → den (masculine only, accusative)</div>
-      <div class="rev-item">ein → einen, kein → keinen (masculine)</div>
-    </div>
-    <div class="rev-col">
-      <h3 class="sub">Question forms</h3>
-      <div class="rev-item">Was möchten Sie?</div>
-      <div class="rev-item">Was isst du gern?</div>
-      <div class="rev-item">Was kostet das?</div>
+      <div class="rev-item">Ich kaufe den/das/die Käse/Brot/Gurke.</div>
+      <div class="rev-item">Ich brauche einen/ein/eine ...</div>
+      <div class="rev-item">Ich habe keinen/kein/keine ... mehr.</div>
+      <div class="rev-item">Ich kaufe ... in der Bäckerei/Metzgerei/auf dem Markt/im Supermarkt.</div>
+      <div class="rev-item">Was kostet der/das/die ...?</div>
     </div>
     <div class="rev-col">
       <h3 class="sub">Most important words</h3>
-      <div class="rev-item">essen: esse / isst / isst</div>
-      <div class="rev-item">Guten Appetit! — Danke, gleichfalls!</div>
-      <div class="rev-item">Tut mir leid, Das ist alles</div>
-    </div>
-    <div class="rev-col">
-      <h3 class="sub">Sound traps</h3>
-      <div class="rev-item">ä = open "e" · eu/äu = "oy"</div>
-      <div class="rev-item">final g softens toward "k"</div>
-      <div class="rev-item">only masculine changes in accusative</div>
+      <div class="rev-item">brauchen, kaufen, essen, kochen, mögen, möchten — all take Akkusativ</div>
+      <div class="rev-item">lecker, satt, teuer</div>
+      <div class="rev-item">Guten Appetit! / Schmeckt's? / Ich bin satt.</div>
+      <div class="rev-item">Sonst noch etwas? / Ist das alles?</div>
     </div>
   </div>
 </section>
 
-<footer>Kapitel 4 · Guten Appetit! — Netzwerk neu A1</footer>
+<hr class="rule">
+<footer>Netzwerk neu A1 — Kapitel 4 study notes · built page-by-page from the real Kursbuch</footer>
 
 </div>
 
-
 <script>
-const NA1 = (() => {
-  const STORAGE_KEY = 'na1_mistakes_kapitel4';
-
-  function loadMistakes() {
-    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
-    catch (e) { return {}; }
-  }
-  function saveMistakes(obj) {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(obj)); } catch (e) {}
-  }
-
-  function norm(s){ return (s||'').trim().toLowerCase().replace(/\s+/g,' '); }
-
-  function logMistake(itemId, meta) {
-    const all = loadMistakes();
-    const prev = all[itemId] || { count: 0 };
-    all[itemId] = {
-      itemId, chapter: meta.chapter, prompt: meta.prompt,
-      count: (prev.count || 0) + 1,
-      lastWrong: new Date().toISOString(),
-      cleared: false
-    };
-    saveMistakes(all);
-    renderTracker();
-  }
-
-  function clearMistake(itemId) {
-    const all = loadMistakes();
-    if (all[itemId]) { all[itemId].cleared = true; saveMistakes(all); renderTracker(); }
-  }
-
-  function getAllMistakes() {
-    const all = loadMistakes();
-    return Object.values(all).filter(m => !m.cleared);
-  }
-
-  function wireExercise(chapterLabel) {
-    document.querySelectorAll('[data-answer]').forEach(item => {
-      const input = item.querySelector('input');
-      const btn = item.querySelector('.check-btn');
-      const feedback = item.querySelector('.ex-feedback');
-      if (!input || !btn) return;
-      btn.addEventListener('click', () => {
-        const correctRaw = item.getAttribute('data-answer');
-        const options = correctRaw.split('|').map(norm);
-        const given = norm(input.value);
-        const isRight = options.includes(given);
-        feedback.textContent = isRight ? 'Richtig!' : `Not quite — correct: ${correctRaw}`;
-        feedback.style.color = isRight ? 'var(--green)' : 'var(--red)';
-        input.style.borderColor = isRight ? 'var(--green)' : 'var(--red)';
-        const itemId = `kapitel4-${item.getAttribute('data-id')}`;
-        if (!isRight) {
-          logMistake(itemId, { chapter: 'kapitel4', prompt: item.getAttribute('data-prompt') || '' });
-        } else {
-          clearMistake(itemId);
-        }
-      });
-      input.addEventListener('keydown', (e) => { if (e.key === 'Enter') btn.click(); });
-    });
-  }
-
-  function renderTracker() {
-    const list = document.getElementById('tracker-list');
-    if (!list) return;
-    const mistakes = getAllMistakes();
-    if (mistakes.length === 0) {
-      list.innerHTML = '<p class="tracker-empty">No open mistakes on this chapter — nice work.</p>';
-      return;
-    }
-    list.innerHTML = mistakes.map(m => `
-      <div class="tracker-item">
-        <span>${m.prompt || m.itemId} <span style="color:var(--ink-mute);">(missed ${m.count}×)</span></span>
-        <button class="clear-btn" data-clear="${m.itemId}">mark reviewed</button>
-      </div>`).join('');
-    list.querySelectorAll('[data-clear]').forEach(b => {
-      b.addEventListener('click', () => clearMistake(b.getAttribute('data-clear')));
-    });
-  }
-
-  wireExercise('kapitel4');
-  renderTracker();
-
-  return { logMistake, clearMistake, getAllMistakes };
-})();
+document.querySelectorAll('.reveal-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const isHidden = answer.style.display === 'none';
+    answer.style.display = isHidden ? 'block' : 'none';
+    btn.textContent = isHidden ? 'Hide answer' : 'Show model answer';
+  });
+});
 </script>
 
 <div class="float-nav">
